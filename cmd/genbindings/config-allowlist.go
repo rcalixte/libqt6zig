@@ -398,6 +398,10 @@ func AllowMethod(className string, mm CppMethod) error {
 		// Qt 6 kcoreconfigskeleton.h: inherited method of a blocked class
 		return ErrTooComplex
 	}
+	if mm.MethodName == "groupImpl" {
+		// Private implementation method, not meant to be called
+		return ErrTooComplex
+	}
 
 	// Qt 6 KCoreAddons
 	if className == "KJob" && mm.MethodName == "description" {
