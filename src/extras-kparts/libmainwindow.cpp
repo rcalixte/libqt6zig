@@ -65,12 +65,12 @@ KParts__MainWindow* KParts__MainWindow_new3(QWidget* parent, int f) {
     return new VirtualKPartsMainWindow(parent, static_cast<Qt::WindowFlags>(f));
 }
 
-KParts__PartBase* KParts__MainWindow_AsKParts__PartBase(KParts__MainWindow* self) {
-    return static_cast<KParts::PartBase*>(self);
+KParts__PartBase* KParts__MainWindow_AsKParts__PartBase(const KParts__MainWindow* self) {
+    return const_cast<KParts::MainWindow*>(self);
 }
 
-KParts__MainWindow* KParts__MainWindow_FromKParts__PartBase(KParts::PartBase* _kparts__partbase) {
-    return dynamic_cast<KParts::MainWindow*>(static_cast<KParts::PartBase*>(_kparts__partbase));
+KParts__MainWindow* KParts__MainWindow_FromKParts__PartBase(const KParts::PartBase* _kparts__partbase) {
+    return dynamic_cast<KParts::MainWindow*>(const_cast<KParts::PartBase*>(_kparts__partbase));
 }
 
 QMetaObject* KParts__MainWindow_MetaObject(const KParts__MainWindow* self) {

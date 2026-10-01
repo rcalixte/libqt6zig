@@ -23,12 +23,12 @@ KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_new(const libqt_string prot
     return new VirtualKIOForwardingWorkerBase(protocol_QByteArray, poolSocket_QByteArray, appSocket_QByteArray);
 }
 
-KIO__WorkerBase* KIO__ForwardingWorkerBase_AsKIO__WorkerBase(KIO__ForwardingWorkerBase* self) {
-    return static_cast<KIO::WorkerBase*>(self);
+KIO__WorkerBase* KIO__ForwardingWorkerBase_AsKIO__WorkerBase(const KIO__ForwardingWorkerBase* self) {
+    return const_cast<KIO::ForwardingWorkerBase*>(self);
 }
 
-KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_FromKIO__WorkerBase(KIO::WorkerBase* _kio__workerbase) {
-    return dynamic_cast<KIO::ForwardingWorkerBase*>(static_cast<KIO::WorkerBase*>(_kio__workerbase));
+KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_FromKIO__WorkerBase(const KIO::WorkerBase* _kio__workerbase) {
+    return dynamic_cast<KIO::ForwardingWorkerBase*>(const_cast<KIO::WorkerBase*>(_kio__workerbase));
 }
 
 QMetaObject* KIO__ForwardingWorkerBase_MetaObject(const KIO__ForwardingWorkerBase* self) {

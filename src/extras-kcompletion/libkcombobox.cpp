@@ -66,12 +66,12 @@ KComboBox* KComboBox_new4(bool rw, QWidget* parent) {
     return new VirtualKComboBox(rw, parent);
 }
 
-KCompletionBase* KComboBox_AsKCompletionBase(KComboBox* self) {
-    return static_cast<KCompletionBase*>(self);
+KCompletionBase* KComboBox_AsKCompletionBase(const KComboBox* self) {
+    return const_cast<KComboBox*>(self);
 }
 
-KComboBox* KComboBox_FromKCompletionBase(KCompletionBase* _kcompletionbase) {
-    return dynamic_cast<KComboBox*>(static_cast<KCompletionBase*>(_kcompletionbase));
+KComboBox* KComboBox_FromKCompletionBase(const KCompletionBase* _kcompletionbase) {
+    return dynamic_cast<KComboBox*>(const_cast<KCompletionBase*>(_kcompletionbase));
 }
 
 QMetaObject* KComboBox_MetaObject(const KComboBox* self) {

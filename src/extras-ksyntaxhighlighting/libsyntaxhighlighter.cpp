@@ -33,12 +33,12 @@ KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_n
     return new VirtualKSyntaxHighlightingSyntaxHighlighter(parent);
 }
 
-KSyntaxHighlighting__AbstractHighlighter* KSyntaxHighlighting__SyntaxHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(KSyntaxHighlighting__SyntaxHighlighter* self) {
-    return static_cast<KSyntaxHighlighting::AbstractHighlighter*>(self);
+KSyntaxHighlighting__AbstractHighlighter* KSyntaxHighlighting__SyntaxHighlighter_AsKSyntaxHighlighting__AbstractHighlighter(const KSyntaxHighlighting__SyntaxHighlighter* self) {
+    return const_cast<KSyntaxHighlighting::SyntaxHighlighter*>(self);
 }
 
-KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(KSyntaxHighlighting::AbstractHighlighter* _ksyntaxhighlighting__abstracthighlighter) {
-    return dynamic_cast<KSyntaxHighlighting::SyntaxHighlighter*>(static_cast<KSyntaxHighlighting::AbstractHighlighter*>(_ksyntaxhighlighting__abstracthighlighter));
+KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_FromKSyntaxHighlighting__AbstractHighlighter(const KSyntaxHighlighting::AbstractHighlighter* _ksyntaxhighlighting__abstracthighlighter) {
+    return dynamic_cast<KSyntaxHighlighting::SyntaxHighlighter*>(const_cast<KSyntaxHighlighting::AbstractHighlighter*>(_ksyntaxhighlighting__abstracthighlighter));
 }
 
 QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_MetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self) {

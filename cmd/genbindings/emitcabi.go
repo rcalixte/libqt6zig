@@ -1772,6 +1772,10 @@ extern "C" {
 		ret.WriteString("typedef struct wl_pointer wl_pointer;")
 		ret.WriteString("typedef struct wl_seat wl_seat;")
 		ret.WriteString("typedef struct wl_touch wl_touch;")
+	case "qmenu.h":
+		ret.WriteString("\n#ifdef __APPLE__\n")
+		ret.WriteString("typedef struct NSMenu NSMenu;")
+		ret.WriteString("\n#endif\n")
 	}
 	ret.WriteString("\n#endif\n\n")
 
@@ -2367,13 +2371,13 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				}
 
 				if m.IsAsMethod {
-					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + methodPrefixName + "* self) {\n")
-					ret.WriteString("return static_cast<" + m.ReturnType.ParameterType + "*>(self);\n}\n" + maybeEndMacro + "\n")
+					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(const " + methodPrefixName + "* self) {\n")
+					ret.WriteString("return const_cast<" + c.ClassName + "*>(self);\n}\n" + maybeEndMacro + "\n")
 					continue
 				}
 				if m.IsFromMethod {
-					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + m.Parameters[0].ParameterType + "*" + m.Parameters[0].ParameterName + ") {\n")
-					ret.WriteString("return dynamic_cast<" + m.ReturnType.ParameterType + "*>(static_cast<" + m.Parameters[0].ParameterType + "*>(" + m.Parameters[0].ParameterName + "));\n}\n" + maybeEndMacro + "\n")
+					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(const " + m.Parameters[0].ParameterType + "*" + m.Parameters[0].ParameterName + ") {\n")
+					ret.WriteString("return dynamic_cast<" + m.ReturnType.ParameterType + "*>(const_cast<" + m.Parameters[0].ParameterType + "*>(" + m.Parameters[0].ParameterName + "));\n}\n" + maybeEndMacro + "\n")
 					continue
 				}
 

@@ -6,8 +6,8 @@
 #include "libksharedconfig.h"
 #include "libksharedconfig.hxx"
 
-QSharedData* KSharedConfig_AsQSharedData(KSharedConfig* self) {
-    return static_cast<QSharedData*>(self);
+QSharedData* KSharedConfig_AsQSharedData(const KSharedConfig* self) {
+    return const_cast<KSharedConfig*>(self);
 }
 
 void KSharedConfig_Delete(KSharedConfig* self) {

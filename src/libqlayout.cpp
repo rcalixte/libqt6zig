@@ -24,12 +24,12 @@ QLayout* QLayout_new2() {
     return new VirtualQLayout();
 }
 
-QLayoutItem* QLayout_AsQLayoutItem(QLayout* self) {
-    return static_cast<QLayoutItem*>(self);
+QLayoutItem* QLayout_AsQLayoutItem(const QLayout* self) {
+    return const_cast<QLayout*>(self);
 }
 
-QLayout* QLayout_FromQLayoutItem(QLayoutItem* _qlayoutitem) {
-    return dynamic_cast<QLayout*>(static_cast<QLayoutItem*>(_qlayoutitem));
+QLayout* QLayout_FromQLayoutItem(const QLayoutItem* _qlayoutitem) {
+    return dynamic_cast<QLayout*>(const_cast<QLayoutItem*>(_qlayoutitem));
 }
 
 QMetaObject* QLayout_MetaObject(const QLayout* self) {

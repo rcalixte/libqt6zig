@@ -20,12 +20,12 @@ QExtensionFactory* QExtensionFactory_new2(QExtensionManager* parent) {
     return new VirtualQExtensionFactory(parent);
 }
 
-QAbstractExtensionFactory* QExtensionFactory_AsQAbstractExtensionFactory(QExtensionFactory* self) {
-    return static_cast<QAbstractExtensionFactory*>(self);
+QAbstractExtensionFactory* QExtensionFactory_AsQAbstractExtensionFactory(const QExtensionFactory* self) {
+    return const_cast<QExtensionFactory*>(self);
 }
 
-QExtensionFactory* QExtensionFactory_FromQAbstractExtensionFactory(QAbstractExtensionFactory* _qabstractextensionfactory) {
-    return dynamic_cast<QExtensionFactory*>(static_cast<QAbstractExtensionFactory*>(_qabstractextensionfactory));
+QExtensionFactory* QExtensionFactory_FromQAbstractExtensionFactory(const QAbstractExtensionFactory* _qabstractextensionfactory) {
+    return dynamic_cast<QExtensionFactory*>(const_cast<QAbstractExtensionFactory*>(_qabstractextensionfactory));
 }
 
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self) {

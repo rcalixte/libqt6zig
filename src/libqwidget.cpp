@@ -72,12 +72,12 @@ QWidget* QWidget_new3(QWidget* parent, int f) {
     return new VirtualQWidget(parent, static_cast<Qt::WindowFlags>(f));
 }
 
-QPaintDevice* QWidget_AsQPaintDevice(QWidget* self) {
-    return static_cast<QPaintDevice*>(self);
+QPaintDevice* QWidget_AsQPaintDevice(const QWidget* self) {
+    return const_cast<QWidget*>(self);
 }
 
-QWidget* QWidget_FromQPaintDevice(QPaintDevice* _qpaintdevice) {
-    return dynamic_cast<QWidget*>(static_cast<QPaintDevice*>(_qpaintdevice));
+QWidget* QWidget_FromQPaintDevice(const QPaintDevice* _qpaintdevice) {
+    return dynamic_cast<QWidget*>(const_cast<QPaintDevice*>(_qpaintdevice));
 }
 
 QMetaObject* QWidget_MetaObject(const QWidget* self) {

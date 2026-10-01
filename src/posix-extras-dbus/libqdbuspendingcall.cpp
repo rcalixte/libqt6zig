@@ -69,8 +69,8 @@ QDBusPendingCallWatcher* QDBusPendingCallWatcher_new2(const QDBusPendingCall* ca
     return new VirtualQDBusPendingCallWatcher(*call, parent);
 }
 
-QDBusPendingCall* QDBusPendingCallWatcher_AsQDBusPendingCall(QDBusPendingCallWatcher* self) {
-    return static_cast<QDBusPendingCall*>(self);
+QDBusPendingCall* QDBusPendingCallWatcher_AsQDBusPendingCall(const QDBusPendingCallWatcher* self) {
+    return const_cast<QDBusPendingCallWatcher*>(self);
 }
 
 QMetaObject* QDBusPendingCallWatcher_MetaObject(const QDBusPendingCallWatcher* self) {

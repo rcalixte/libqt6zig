@@ -29082,12 +29082,12 @@ QCPErrorBars* QCPErrorBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
     return new VirtualQCPErrorBars(keyAxis, valueAxis);
 }
 
-QCPPlottableInterface1D* QCPErrorBars_AsQCPPlottableInterface1D(QCPErrorBars* self) {
-    return static_cast<QCPPlottableInterface1D*>(self);
+QCPPlottableInterface1D* QCPErrorBars_AsQCPPlottableInterface1D(const QCPErrorBars* self) {
+    return const_cast<QCPErrorBars*>(self);
 }
 
-QCPErrorBars* QCPErrorBars_FromQCPPlottableInterface1D(QCPPlottableInterface1D* _qcpplottableinterface1d) {
-    return dynamic_cast<QCPErrorBars*>(static_cast<QCPPlottableInterface1D*>(_qcpplottableinterface1d));
+QCPErrorBars* QCPErrorBars_FromQCPPlottableInterface1D(const QCPPlottableInterface1D* _qcpplottableinterface1d) {
+    return dynamic_cast<QCPErrorBars*>(const_cast<QCPPlottableInterface1D*>(_qcpplottableinterface1d));
 }
 
 QMetaObject* QCPErrorBars_MetaObject(const QCPErrorBars* self) {

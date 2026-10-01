@@ -350,12 +350,12 @@ QQuickItem* QQuickItem_new2(QQuickItem* parent) {
     return new VirtualQQuickItem(parent);
 }
 
-QQmlParserStatus* QQuickItem_AsQQmlParserStatus(QQuickItem* self) {
-    return static_cast<QQmlParserStatus*>(self);
+QQmlParserStatus* QQuickItem_AsQQmlParserStatus(const QQuickItem* self) {
+    return const_cast<QQuickItem*>(self);
 }
 
-QQuickItem* QQuickItem_FromQQmlParserStatus(QQmlParserStatus* _qqmlparserstatus) {
-    return dynamic_cast<QQuickItem*>(static_cast<QQmlParserStatus*>(_qqmlparserstatus));
+QQuickItem* QQuickItem_FromQQmlParserStatus(const QQmlParserStatus* _qqmlparserstatus) {
+    return dynamic_cast<QQuickItem*>(const_cast<QQmlParserStatus*>(_qqmlparserstatus));
 }
 
 QMetaObject* QQuickItem_MetaObject(const QQuickItem* self) {

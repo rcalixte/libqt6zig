@@ -22,8 +22,8 @@ KTextEditor__Attribute* KTextEditor__Attribute_new3(const KTextEditor__Attribute
     return new KTextEditor::Attribute(*a);
 }
 
-QSharedData* KTextEditor__Attribute_AsQSharedData(KTextEditor__Attribute* self) {
-    return static_cast<QSharedData*>(self);
+QSharedData* KTextEditor__Attribute_AsQSharedData(const KTextEditor__Attribute* self) {
+    return const_cast<KTextEditor::Attribute*>(self);
 }
 
 libqt_string KTextEditor__Attribute_Name(const KTextEditor__Attribute* self) {

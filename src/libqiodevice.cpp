@@ -20,8 +20,8 @@ QIODevice* QIODevice_new2(QObject* parent) {
     return new VirtualQIODevice(parent);
 }
 
-QIODeviceBase* QIODevice_AsQIODeviceBase(QIODevice* self) {
-    return static_cast<QIODeviceBase*>(self);
+QIODeviceBase* QIODevice_AsQIODeviceBase(const QIODevice* self) {
+    return const_cast<QIODevice*>(self);
 }
 
 QMetaObject* QIODevice_MetaObject(const QIODevice* self) {

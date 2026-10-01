@@ -62,20 +62,20 @@ KXmlGuiWindow* KXmlGuiWindow_new3(QWidget* parent, int flags) {
     return new VirtualKXmlGuiWindow(parent, static_cast<Qt::WindowFlags>(flags));
 }
 
-KXMLGUIBuilder* KXmlGuiWindow_AsKXMLGUIBuilder(KXmlGuiWindow* self) {
-    return static_cast<KXMLGUIBuilder*>(self);
+KXMLGUIBuilder* KXmlGuiWindow_AsKXMLGUIBuilder(const KXmlGuiWindow* self) {
+    return const_cast<KXmlGuiWindow*>(self);
 }
 
-KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIBuilder(KXMLGUIBuilder* _kxmlguibuilder) {
-    return dynamic_cast<KXmlGuiWindow*>(static_cast<KXMLGUIBuilder*>(_kxmlguibuilder));
+KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIBuilder(const KXMLGUIBuilder* _kxmlguibuilder) {
+    return dynamic_cast<KXmlGuiWindow*>(const_cast<KXMLGUIBuilder*>(_kxmlguibuilder));
 }
 
-KXMLGUIClient* KXmlGuiWindow_AsKXMLGUIClient(KXmlGuiWindow* self) {
-    return static_cast<KXMLGUIClient*>(self);
+KXMLGUIClient* KXmlGuiWindow_AsKXMLGUIClient(const KXmlGuiWindow* self) {
+    return const_cast<KXmlGuiWindow*>(self);
 }
 
-KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIClient(KXMLGUIClient* _kxmlguiclient) {
-    return dynamic_cast<KXmlGuiWindow*>(static_cast<KXMLGUIClient*>(_kxmlguiclient));
+KXmlGuiWindow* KXmlGuiWindow_FromKXMLGUIClient(const KXMLGUIClient* _kxmlguiclient) {
+    return dynamic_cast<KXmlGuiWindow*>(const_cast<KXMLGUIClient*>(_kxmlguiclient));
 }
 
 QMetaObject* KXmlGuiWindow_MetaObject(const KXmlGuiWindow* self) {

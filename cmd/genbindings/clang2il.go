@@ -550,6 +550,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 								},
 								MethodName: "as" + methodName,
 								IsAsMethod: true,
+								IsConst:    true,
 							})
 							class, ok := KnownClassnames[qualType]
 							if ok && class.Class.IsPolymorphic {
@@ -559,7 +560,8 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 									},
 									Parameters: []CppParameter{{
 										ParameterName: "_" + strings.ToLower(methodName),
-										ParameterType: qualType},
+										ParameterType: qualType,
+										Const:         true},
 									},
 									MethodName:   "from" + methodName,
 									IsFromMethod: true,

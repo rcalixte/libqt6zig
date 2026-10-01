@@ -32,12 +32,12 @@ QPdfWriter* QPdfWriter_new2(QIODevice* device) {
     return new VirtualQPdfWriter(device);
 }
 
-QPagedPaintDevice* QPdfWriter_AsQPagedPaintDevice(QPdfWriter* self) {
-    return static_cast<QPagedPaintDevice*>(self);
+QPagedPaintDevice* QPdfWriter_AsQPagedPaintDevice(const QPdfWriter* self) {
+    return const_cast<QPdfWriter*>(self);
 }
 
-QPdfWriter* QPdfWriter_FromQPagedPaintDevice(QPagedPaintDevice* _qpagedpaintdevice) {
-    return dynamic_cast<QPdfWriter*>(static_cast<QPagedPaintDevice*>(_qpagedpaintdevice));
+QPdfWriter* QPdfWriter_FromQPagedPaintDevice(const QPagedPaintDevice* _qpagedpaintdevice) {
+    return dynamic_cast<QPdfWriter*>(const_cast<QPagedPaintDevice*>(_qpagedpaintdevice));
 }
 
 QMetaObject* QPdfWriter_MetaObject(const QPdfWriter* self) {

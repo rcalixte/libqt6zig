@@ -31,8 +31,8 @@ typedef struct QTimerEvent QTimerEvent;
 
 QQuick3DObject* QQuick3DObject_new();
 QQuick3DObject* QQuick3DObject_new2(QQuick3DObject* parent);
-QQmlParserStatus* QQuick3DObject_AsQQmlParserStatus(QQuick3DObject* self);
-QQuick3DObject* QQuick3DObject_FromQQmlParserStatus(QQmlParserStatus* _qqmlparserstatus);
+QQmlParserStatus* QQuick3DObject_AsQQmlParserStatus(const QQuick3DObject* self);
+QQuick3DObject* QQuick3DObject_FromQQmlParserStatus(const QQmlParserStatus* _qqmlparserstatus);
 QMetaObject* QQuick3DObject_MetaObject(const QQuick3DObject* self);
 void* QQuick3DObject_Metacast(QQuick3DObject* self, const char* param1);
 int QQuick3DObject_Metacall(QQuick3DObject* self, int param1, int param2, void** param3);

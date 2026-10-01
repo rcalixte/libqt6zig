@@ -106,8 +106,8 @@ void QQuickTransform_Delete(QQuickTransform* self);
 
 QQuickItem* QQuickItem_new();
 QQuickItem* QQuickItem_new2(QQuickItem* parent);
-QQmlParserStatus* QQuickItem_AsQQmlParserStatus(QQuickItem* self);
-QQuickItem* QQuickItem_FromQQmlParserStatus(QQmlParserStatus* _qqmlparserstatus);
+QQmlParserStatus* QQuickItem_AsQQmlParserStatus(const QQuickItem* self);
+QQuickItem* QQuickItem_FromQQmlParserStatus(const QQmlParserStatus* _qqmlparserstatus);
 QMetaObject* QQuickItem_MetaObject(const QQuickItem* self);
 void* QQuickItem_Metacast(QQuickItem* self, const char* param1);
 int QQuickItem_Metacall(QQuickItem* self, int param1, int param2, void** param3);

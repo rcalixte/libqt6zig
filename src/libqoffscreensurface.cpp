@@ -26,12 +26,12 @@ QOffscreenSurface* QOffscreenSurface_new3(QScreen* screen, QObject* parent) {
     return new VirtualQOffscreenSurface(screen, parent);
 }
 
-QSurface* QOffscreenSurface_AsQSurface(QOffscreenSurface* self) {
-    return static_cast<QSurface*>(self);
+QSurface* QOffscreenSurface_AsQSurface(const QOffscreenSurface* self) {
+    return const_cast<QOffscreenSurface*>(self);
 }
 
-QOffscreenSurface* QOffscreenSurface_FromQSurface(QSurface* _qsurface) {
-    return dynamic_cast<QOffscreenSurface*>(static_cast<QSurface*>(_qsurface));
+QOffscreenSurface* QOffscreenSurface_FromQSurface(const QSurface* _qsurface) {
+    return dynamic_cast<QOffscreenSurface*>(const_cast<QSurface*>(_qsurface));
 }
 
 QMetaObject* QOffscreenSurface_MetaObject(const QOffscreenSurface* self) {

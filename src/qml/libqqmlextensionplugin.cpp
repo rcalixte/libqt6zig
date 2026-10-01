@@ -24,12 +24,12 @@ QQmlExtensionPlugin* QQmlExtensionPlugin_new2(QObject* parent) {
     return new VirtualQQmlExtensionPlugin(parent);
 }
 
-QQmlExtensionInterface* QQmlExtensionPlugin_AsQQmlExtensionInterface(QQmlExtensionPlugin* self) {
-    return static_cast<QQmlExtensionInterface*>(self);
+QQmlExtensionInterface* QQmlExtensionPlugin_AsQQmlExtensionInterface(const QQmlExtensionPlugin* self) {
+    return const_cast<QQmlExtensionPlugin*>(self);
 }
 
-QQmlExtensionPlugin* QQmlExtensionPlugin_FromQQmlExtensionInterface(QQmlExtensionInterface* _qqmlextensioninterface) {
-    return dynamic_cast<QQmlExtensionPlugin*>(static_cast<QQmlExtensionInterface*>(_qqmlextensioninterface));
+QQmlExtensionPlugin* QQmlExtensionPlugin_FromQQmlExtensionInterface(const QQmlExtensionInterface* _qqmlextensioninterface) {
+    return dynamic_cast<QQmlExtensionPlugin*>(const_cast<QQmlExtensionInterface*>(_qqmlextensioninterface));
 }
 
 QMetaObject* QQmlExtensionPlugin_MetaObject(const QQmlExtensionPlugin* self) {
@@ -353,12 +353,12 @@ QQmlEngineExtensionPlugin* QQmlEngineExtensionPlugin_new2(QObject* parent) {
     return new VirtualQQmlEngineExtensionPlugin(parent);
 }
 
-QQmlEngineExtensionInterface* QQmlEngineExtensionPlugin_AsQQmlEngineExtensionInterface(QQmlEngineExtensionPlugin* self) {
-    return static_cast<QQmlEngineExtensionInterface*>(self);
+QQmlEngineExtensionInterface* QQmlEngineExtensionPlugin_AsQQmlEngineExtensionInterface(const QQmlEngineExtensionPlugin* self) {
+    return const_cast<QQmlEngineExtensionPlugin*>(self);
 }
 
-QQmlEngineExtensionPlugin* QQmlEngineExtensionPlugin_FromQQmlEngineExtensionInterface(QQmlEngineExtensionInterface* _qqmlengineextensioninterface) {
-    return dynamic_cast<QQmlEngineExtensionPlugin*>(static_cast<QQmlEngineExtensionInterface*>(_qqmlengineextensioninterface));
+QQmlEngineExtensionPlugin* QQmlEngineExtensionPlugin_FromQQmlEngineExtensionInterface(const QQmlEngineExtensionInterface* _qqmlengineextensioninterface) {
+    return dynamic_cast<QQmlEngineExtensionPlugin*>(const_cast<QQmlEngineExtensionInterface*>(_qqmlengineextensioninterface));
 }
 
 QMetaObject* QQmlEngineExtensionPlugin_MetaObject(const QQmlEngineExtensionPlugin* self) {

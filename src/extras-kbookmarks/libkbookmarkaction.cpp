@@ -18,12 +18,12 @@ KBookmarkAction* KBookmarkAction_new(const KBookmark* bk, KBookmarkOwner* owner,
     return new VirtualKBookmarkAction(*bk, owner, parent);
 }
 
-KBookmarkActionInterface* KBookmarkAction_AsKBookmarkActionInterface(KBookmarkAction* self) {
-    return static_cast<KBookmarkActionInterface*>(self);
+KBookmarkActionInterface* KBookmarkAction_AsKBookmarkActionInterface(const KBookmarkAction* self) {
+    return const_cast<KBookmarkAction*>(self);
 }
 
-KBookmarkAction* KBookmarkAction_FromKBookmarkActionInterface(KBookmarkActionInterface* _kbookmarkactioninterface) {
-    return dynamic_cast<KBookmarkAction*>(static_cast<KBookmarkActionInterface*>(_kbookmarkactioninterface));
+KBookmarkAction* KBookmarkAction_FromKBookmarkActionInterface(const KBookmarkActionInterface* _kbookmarkactioninterface) {
+    return dynamic_cast<KBookmarkAction*>(const_cast<KBookmarkActionInterface*>(_kbookmarkactioninterface));
 }
 
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self) {
