@@ -441,14 +441,10 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 			}
 		}
 
-		var canConstDefaultInit, canPassInRegisters bool
-		if canConstDefaultInit, ok = definitionData["canConstDefaultInit"].(bool); ok {
-			canConstDefaultInit = definitionData["canConstDefaultInit"].(bool)
-		}
-		if canPassInRegisters, ok = definitionData["canPassInRegisters"].(bool); ok {
-			canPassInRegisters = definitionData["canPassInRegisters"].(bool)
-		}
-		if canConstDefaultInit && canPassInRegisters && AllowCtor(ret.ClassName) {
+		canConstDefaultInit, _ := definitionData["canConstDefaultInit"].(bool)
+		canPassInRegisters, _ := definitionData["canPassInRegisters"].(bool)
+
+		if !ret.IsPolymorphic && canConstDefaultInit && canPassInRegisters && AllowCtor(ret.ClassName) {
 			// Add copy constructor if trivial
 			if copyCtor, ok := definitionData["copyCtor"].(map[string]any); ok {
 				if trivial, _ := copyCtor["trivial"].(bool); trivial {
@@ -771,6 +767,11 @@ nextMethod:
 
 			if err := AllowMethod(ret.ClassName, mm); err != nil {
 				log.Printf("Skipping method %q with complex type", mm.MethodName)
+				continue nextMethod
+			}
+
+			if ret.IsPolymorphic && methodName == "operator=" {
+				// Block polymorphic classes from being copied
 				continue nextMethod
 			}
 
