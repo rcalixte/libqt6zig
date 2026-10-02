@@ -2317,25 +2317,6 @@ pub const KTwoFingerSwipeRecognizer = extern struct {
         qtc.QGestureRecognizer_UnregisterRecognizer(@bitCast(typeVal));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QGestureRecognizer
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTwoFingerSwipeRecognizer `
-    ///
-    /// ` param1: QGestureRecognizer `
-    ///
-    pub fn operatorAssign(self: KTwoFingerSwipeRecognizer, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QGestureRecognizer;
-        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `reset` instead
     ///
     pub const Reset = reset;

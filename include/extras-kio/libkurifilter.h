@@ -29,7 +29,6 @@ libqt_string KUriFilterSearchProvider_Name(const KUriFilterSearchProvider* self)
 libqt_string KUriFilterSearchProvider_IconName(const KUriFilterSearchProvider* self);
 libqt_list /* of libqt_string */ KUriFilterSearchProvider_Keys(const KUriFilterSearchProvider* self);
 libqt_string KUriFilterSearchProvider_DefaultKey(const KUriFilterSearchProvider* self);
-void KUriFilterSearchProvider_OperatorAssign(KUriFilterSearchProvider* self, const KUriFilterSearchProvider* param1);
 void KUriFilterSearchProvider_OnIconName(KUriFilterSearchProvider* self, intptr_t slot);
 libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvider* self);
 void KUriFilterSearchProvider_SetDesktopEntryName(KUriFilterSearchProvider* self, const libqt_string desktopEntryName);

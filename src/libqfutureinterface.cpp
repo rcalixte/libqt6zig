@@ -19,10 +19,6 @@ QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState) {
     return new QFutureInterfaceBase(static_cast<QFutureInterfaceBase::State>(initialState));
 }
 
-void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, const QFutureInterfaceBase* other) {
-    self->operator=(*other);
-}
-
 void QFutureInterfaceBase_ReportStarted(QFutureInterfaceBase* self) {
     self->reportStarted();
 }

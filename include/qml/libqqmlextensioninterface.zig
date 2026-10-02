@@ -64,23 +64,6 @@ pub const QQmlTypesExtensionInterface = extern struct {
         qtc.QQmlTypesExtensionInterface_OnRegisterTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmltypesextensioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlTypesExtensionInterface `
-    ///
-    /// ` param1: QQmlTypesExtensionInterface `
-    ///
-    pub fn operatorAssign(self: QQmlTypesExtensionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlTypesExtensionInterface;
-        qtc.QQmlTypesExtensionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -166,24 +149,6 @@ pub const QQmlExtensionInterface = extern struct {
         qtc.QQmlExtensionInterface_OnInitializeEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlextensioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlExtensionInterface `
-    ///
-    /// ` param1: QQmlExtensionInterface `
-    ///
-    pub fn operatorAssign(self: QQmlExtensionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlExtensionInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlExtensionInterface")) param1.asQQmlExtensionInterface() else param1;
-        qtc.QQmlExtensionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `registerTypes` instead
     ///
     pub const RegisterTypes = registerTypes;
@@ -253,24 +218,6 @@ pub const QQmlEngineExtensionInterface = extern struct {
     ptr: QtC.QQmlEngineExtensionInterface,
 
     pub const _is_QQmlEngineExtensionInterface = {};
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlengineextensioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngineExtensionInterface `
-    ///
-    /// ` param1: QQmlEngineExtensionInterface `
-    ///
-    pub fn operatorAssign(self: QQmlEngineExtensionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlEngineExtensionInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlEngineExtensionInterface")) param1.asQQmlEngineExtensionInterface() else param1;
-        qtc.QQmlEngineExtensionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
 
     /// ### DEPRECATED: Use `delete` instead
     ///

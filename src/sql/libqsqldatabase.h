@@ -26,7 +26,6 @@ typedef struct QThread QThread;
 #endif
 
 QSqlDriver* QSqlDriverCreatorBase_CreateObject(const QSqlDriverCreatorBase* self);
-void QSqlDriverCreatorBase_OperatorAssign(QSqlDriverCreatorBase* self, const QSqlDriverCreatorBase* param1);
 void QSqlDriverCreatorBase_Delete(QSqlDriverCreatorBase* self);
 
 QSqlDatabase* QSqlDatabase_new();

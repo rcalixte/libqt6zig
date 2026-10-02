@@ -21,7 +21,6 @@ typedef struct QUrl QUrl;
 
 QQmlAbstractUrlInterceptor* QQmlAbstractUrlInterceptor_new();
 QUrl* QQmlAbstractUrlInterceptor_Intercept(QQmlAbstractUrlInterceptor* self, const QUrl* path, int typeVal);
-void QQmlAbstractUrlInterceptor_OperatorAssign(QQmlAbstractUrlInterceptor* self, const QQmlAbstractUrlInterceptor* param1);
 void QQmlAbstractUrlInterceptor_OnIntercept(QQmlAbstractUrlInterceptor* self, intptr_t slot);
 void QQmlAbstractUrlInterceptor_Delete(QQmlAbstractUrlInterceptor* self);
 

@@ -84,7 +84,6 @@ void QTermWidgetInterface_SetTrimPastedTrailingNewlines(QTermWidgetInterface* se
 libqt_string QTermWidgetInterface_WordCharacters(const QTermWidgetInterface* self);
 void QTermWidgetInterface_SetWordCharacters(QTermWidgetInterface* self, const libqt_string chars);
 QTermWidgetInterface* QTermWidgetInterface_CreateWidget(const QTermWidgetInterface* self, int startnow);
-void QTermWidgetInterface_OperatorAssign(QTermWidgetInterface* self, const QTermWidgetInterface* param1);
 void QTermWidgetInterface_Delete(QTermWidgetInterface* self);
 
 #ifdef __cplusplus

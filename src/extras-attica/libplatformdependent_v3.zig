@@ -1300,26 +1300,6 @@ pub const Attica__PlatformDependentV3 = extern struct {
         return .{ .ptr = qtc.Attica__PlatformDependentV2_Put2(@ptrCast(self.ptr), @ptrCast(request.ptr), data_str) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from Attica::PlatformDependentV2
-    ///
-    /// ### [Upstream resources](https://api.kde.org/attica-platformdependentv2.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Attica__PlatformDependentV3 `
-    ///
-    /// ` param1: Attica__PlatformDependentV2 `
-    ///
-    pub fn operatorAssign(self: Attica__PlatformDependentV3, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Attica__PlatformDependentV2;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asAttica__PlatformDependentV2")) param1.asAttica__PlatformDependentV2() else param1;
-        qtc.Attica__PlatformDependentV2_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `getDefaultProviderFiles` instead
     ///
     pub const GetDefaultProviderFiles = getDefaultProviderFiles;

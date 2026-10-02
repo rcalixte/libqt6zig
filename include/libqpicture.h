@@ -39,7 +39,6 @@ bool QPicture_Save(QPicture* self, QIODevice* dev);
 bool QPicture_Save2(QPicture* self, const libqt_string fileName);
 QRect* QPicture_BoundingRect(const QPicture* self);
 void QPicture_SetBoundingRect(QPicture* self, const QRect* r);
-void QPicture_OperatorAssign(QPicture* self, const QPicture* p);
 void QPicture_Swap(QPicture* self, QPicture* other);
 void QPicture_Detach(QPicture* self);
 bool QPicture_IsDetached(const QPicture* self);

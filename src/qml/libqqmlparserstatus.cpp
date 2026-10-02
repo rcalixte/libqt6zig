@@ -15,10 +15,6 @@ void QQmlParserStatus_ComponentComplete(QQmlParserStatus* self) {
     self->componentComplete();
 }
 
-void QQmlParserStatus_OperatorAssign(QQmlParserStatus* self, const QQmlParserStatus* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void QQmlParserStatus_OnClassBegin(QQmlParserStatus* self, intptr_t slot) {
     if (auto* vqqmlparserstatus = dynamic_cast<VirtualQQmlParserStatus*>(self))

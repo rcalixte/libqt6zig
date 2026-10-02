@@ -72,10 +72,6 @@ void QPicture_SetBoundingRect(QPicture* self, const QRect* r) {
     self->setBoundingRect(*r);
 }
 
-void QPicture_OperatorAssign(QPicture* self, const QPicture* p) {
-    self->operator=(*p);
-}
-
 void QPicture_Swap(QPicture* self, QPicture* other) {
     self->swap(*other);
 }

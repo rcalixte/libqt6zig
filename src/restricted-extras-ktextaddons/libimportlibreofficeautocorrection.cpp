@@ -19,10 +19,6 @@ bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import(TextAutoCorr
     return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
-void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OperatorAssign(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_SuperImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);

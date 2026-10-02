@@ -47,23 +47,6 @@ pub const KFileMetaData__UserMetaData = extern struct {
         return .{ .ptr = qtc.KFileMetaData__UserMetaData_new2(@ptrCast(rhs.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-usermetadata.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__UserMetaData `
-    ///
-    /// ` rhs: KFileMetaData__UserMetaData `
-    ///
-    pub fn operatorAssign(self: KFileMetaData__UserMetaData, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_KFileMetaData__UserMetaData;
-        qtc.KFileMetaData__UserMetaData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
-    }
-
     /// ### DEPRECATED: Use `filePath` instead
     ///
     pub const FilePath = filePath;

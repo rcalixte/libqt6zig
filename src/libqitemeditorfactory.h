@@ -22,7 +22,6 @@ typedef struct QWidget QWidget;
 
 QWidget* QItemEditorCreatorBase_CreateWidget(const QItemEditorCreatorBase* self, QWidget* parent);
 libqt_string QItemEditorCreatorBase_ValuePropertyName(const QItemEditorCreatorBase* self);
-void QItemEditorCreatorBase_OperatorAssign(QItemEditorCreatorBase* self, const QItemEditorCreatorBase* param1);
 void QItemEditorCreatorBase_Delete(QItemEditorCreatorBase* self);
 
 QItemEditorFactory* QItemEditorFactory_new();
@@ -32,7 +31,6 @@ libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self
 void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, QItemEditorCreatorBase* creator);
 QItemEditorFactory* QItemEditorFactory_DefaultFactory();
 void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory);
-void QItemEditorFactory_OperatorAssign(QItemEditorFactory* self, const QItemEditorFactory* param1);
 void QItemEditorFactory_OnCreateEditor(QItemEditorFactory* self, intptr_t slot);
 QWidget* QItemEditorFactory_SuperCreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent);
 void QItemEditorFactory_OnValuePropertyName(QItemEditorFactory* self, intptr_t slot);

@@ -248,7 +248,6 @@ void QCPAbstractPaintBuffer_DonePainting(QCPAbstractPaintBuffer* self);
 void QCPAbstractPaintBuffer_Draw(const QCPAbstractPaintBuffer* self, QCPPainter* painter);
 void QCPAbstractPaintBuffer_Clear(QCPAbstractPaintBuffer* self, const QColor* color);
 void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self);
-void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1);
 void QCPAbstractPaintBuffer_SetInvalidated1(QCPAbstractPaintBuffer* self, bool invalidated);
 void QCPAbstractPaintBuffer_OnStartPainting(QCPAbstractPaintBuffer* self, intptr_t slot);
 void QCPAbstractPaintBuffer_OnDonePainting(QCPAbstractPaintBuffer* self, intptr_t slot);
@@ -264,7 +263,6 @@ QCPPainter* QCPPaintBufferPixmap_StartPainting(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_Draw(const QCPPaintBufferPixmap* self, QCPPainter* painter);
 void QCPPaintBufferPixmap_Clear(QCPPaintBufferPixmap* self, const QColor* color);
 void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self);
-void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1);
 void QCPPaintBufferPixmap_OnStartPainting(QCPPaintBufferPixmap* self, intptr_t slot);
 QCPPainter* QCPPaintBufferPixmap_SuperStartPainting(QCPPaintBufferPixmap* self);
 void QCPPaintBufferPixmap_OnDraw(QCPPaintBufferPixmap* self, intptr_t slot);
@@ -2522,7 +2520,6 @@ bool QCPPlottableInterface1D_SortKeyIsMainKey(const QCPPlottableInterface1D* sel
 QCPDataSelection* QCPPlottableInterface1D_SelectTestRect(const QCPPlottableInterface1D* self, const QRectF* rect, bool onlySelectable);
 int QCPPlottableInterface1D_FindBegin(const QCPPlottableInterface1D* self, double sortKey, bool expandedRange);
 int QCPPlottableInterface1D_FindEnd(const QCPPlottableInterface1D* self, double sortKey, bool expandedRange);
-void QCPPlottableInterface1D_OperatorAssign(QCPPlottableInterface1D* self, const QCPPlottableInterface1D* param1);
 void QCPPlottableInterface1D_Delete(QCPPlottableInterface1D* self);
 
 QCPColorGradient* QCPColorGradient_new();

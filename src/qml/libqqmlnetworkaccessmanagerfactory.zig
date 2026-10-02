@@ -32,23 +32,6 @@ pub const QQmlNetworkAccessManagerFactory = extern struct {
         return .{ .ptr = qtc.QQmlNetworkAccessManagerFactory_Create(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlnetworkaccessmanagerfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlNetworkAccessManagerFactory `
-    ///
-    /// ` param1: QQmlNetworkAccessManagerFactory `
-    ///
-    pub fn operatorAssign(self: QQmlNetworkAccessManagerFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlNetworkAccessManagerFactory;
-        qtc.QQmlNetworkAccessManagerFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

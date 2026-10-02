@@ -29,7 +29,6 @@ typedef struct QTimerEvent QTimerEvent;
 
 void QAccessibleBridge_SetRootObject(QAccessibleBridge* self, QAccessibleInterface* rootObject);
 void QAccessibleBridge_NotifyAccessibilityUpdate(QAccessibleBridge* self, QAccessibleEvent* event);
-void QAccessibleBridge_OperatorAssign(QAccessibleBridge* self, const QAccessibleBridge* param1);
 void QAccessibleBridge_Delete(QAccessibleBridge* self);
 
 QAccessibleBridgePlugin* QAccessibleBridgePlugin_new();

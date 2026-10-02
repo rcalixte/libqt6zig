@@ -31,7 +31,6 @@ typedef struct QNetworkRequest QNetworkRequest;
 QNetworkReply* Attica__PlatformDependentV2_DeleteResource(Attica__PlatformDependentV2* self, const QNetworkRequest* request);
 QNetworkReply* Attica__PlatformDependentV2_Put(Attica__PlatformDependentV2* self, const QNetworkRequest* request, QIODevice* data);
 QNetworkReply* Attica__PlatformDependentV2_Put2(Attica__PlatformDependentV2* self, const QNetworkRequest* request, const libqt_string data);
-void Attica__PlatformDependentV2_OperatorAssign(Attica__PlatformDependentV2* self, const Attica__PlatformDependentV2* param1);
 void Attica__PlatformDependentV2_Delete(Attica__PlatformDependentV2* self);
 
 #ifdef __cplusplus

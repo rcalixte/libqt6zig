@@ -71,23 +71,6 @@ pub const SignOn__Error = extern struct {
         return .{ .ptr = qtc.SignOn__Error_new4(@bitCast(typeVal), message_str) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Error.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: SignOn__Error `
-    ///
-    /// ` src: SignOn__Error `
-    ///
-    pub fn operatorAssign(self: SignOn__Error, src: anytype) void {
-        comptime _ = @TypeOf(src)._is_SignOn__Error;
-        qtc.SignOn__Error_OperatorAssign(@ptrCast(self.ptr), @ptrCast(src.ptr));
-    }
-
     /// ### DEPRECATED: Use `setType` instead
     ///
     pub const SetType = setType;

@@ -224,23 +224,6 @@ pub const KGlobalShortcutInfo = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kglobalshortcutinfo.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KGlobalShortcutInfo `
-    ///
-    /// ` rhs: KGlobalShortcutInfo `
-    ///
-    pub fn operatorAssign(self: KGlobalShortcutInfo, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_KGlobalShortcutInfo;
-        qtc.KGlobalShortcutInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
-    }
-
     /// ### DEPRECATED: Use `contextFriendlyName` instead
     ///
     pub const ContextFriendlyName = contextFriendlyName;

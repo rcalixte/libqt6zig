@@ -113,10 +113,6 @@ KTextEditor__Attribute* KTextEditor__Attribute_OperatorPlusAssign(KTextEditor__A
     return &_ret;
 }
 
-void KTextEditor__Attribute_OperatorAssign(KTextEditor__Attribute* self, const KTextEditor__Attribute* a) {
-    self->operator=(*a);
-}
-
 void KTextEditor__Attribute_SetFontBold1(KTextEditor__Attribute* self, bool bold) {
     self->setFontBold(bold);
 }

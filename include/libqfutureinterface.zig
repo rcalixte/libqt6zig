@@ -55,23 +55,6 @@ pub const QFutureInterfaceBase = extern struct {
         return .{ .ptr = qtc.QFutureInterfaceBase_new3(@bitCast(initialState)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFutureInterfaceBase `
-    ///
-    /// ` other: QFutureInterfaceBase `
-    ///
-    pub fn operatorAssign(self: QFutureInterfaceBase, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QFutureInterfaceBase;
-        qtc.QFutureInterfaceBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `reportStarted` instead
     ///
     pub const ReportStarted = reportStarted;

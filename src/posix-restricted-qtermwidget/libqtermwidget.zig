@@ -10830,26 +10830,6 @@ pub const QTermWidget = extern struct {
         return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QTermWidgetInterface
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidget `
-    ///
-    /// ` param1: QTermWidgetInterface `
-    ///
-    pub fn operatorAssign(self: QTermWidget, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQTermWidgetInterface")) param1.asQTermWidgetInterface() else param1;
-        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.asQTermWidgetInterface().ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `devType` instead
     ///
     pub const DevType = devType;

@@ -271,23 +271,6 @@ pub const TextAutoCorrectionCore__ImportAbstractAutocorrection = extern struct {
         return qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_MinFindStringLenght(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportAbstractAutocorrection.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    /// ` param1: TextAutoCorrectionCore__ImportAbstractAutocorrection `
-    ///
-    pub fn operatorAssign(self: TextAutoCorrectionCore__ImportAbstractAutocorrection, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportAbstractAutocorrection;
-        qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

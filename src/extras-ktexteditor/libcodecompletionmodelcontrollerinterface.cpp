@@ -59,10 +59,6 @@ bool KTextEditor__CodeCompletionModelControllerInterface_ShouldHideItemsWithEqua
     return self->shouldHideItemsWithEqualNames();
 }
 
-void KTextEditor__CodeCompletionModelControllerInterface_OperatorAssign(KTextEditor__CodeCompletionModelControllerInterface* self, const KTextEditor__CodeCompletionModelControllerInterface* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 bool KTextEditor__CodeCompletionModelControllerInterface_SuperShouldStartCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const libqt_string insertedText, bool userInsertion, const KTextEditor__Cursor* position) {
     QString insertedText_QString = QString::fromUtf8(insertedText.data, insertedText.len);

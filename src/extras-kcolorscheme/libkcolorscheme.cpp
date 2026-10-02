@@ -22,10 +22,6 @@ KColorScheme* KColorScheme_new4(int param1, int param2) {
     return new KColorScheme(static_cast<QPalette::ColorGroup>(param1), static_cast<KColorScheme::ColorSet>(param2));
 }
 
-void KColorScheme_OperatorAssign(KColorScheme* self, const KColorScheme* param1) {
-    self->operator=(*param1);
-}
-
 QBrush* KColorScheme_Background(const KColorScheme* self) {
     return new QBrush(self->background());
 }

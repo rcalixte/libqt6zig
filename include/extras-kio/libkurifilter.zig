@@ -190,23 +190,6 @@ pub const KUriFilterSearchProvider = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kurifiltersearchprovider.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KUriFilterSearchProvider `
-    ///
-    /// ` param1: KUriFilterSearchProvider `
-    ///
-    pub fn operatorAssign(self: KUriFilterSearchProvider, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KUriFilterSearchProvider;
-        qtc.KUriFilterSearchProvider_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `setDesktopEntryName` instead
     ///
     pub const SetDesktopEntryName = setDesktopEntryName;

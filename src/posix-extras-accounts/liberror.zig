@@ -72,23 +72,6 @@ pub const Accounts__Error = extern struct {
         return .{ .ptr = qtc.Accounts__Error_new4(@bitCast(typeVal), message_str) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Accounts__Error `
-    ///
-    /// ` src: Accounts__Error `
-    ///
-    pub fn operatorAssign(self: Accounts__Error, src: anytype) void {
-        comptime _ = @TypeOf(src)._is_Accounts__Error;
-        qtc.Accounts__Error_OperatorAssign(@ptrCast(self.ptr), @ptrCast(src.ptr));
-    }
-
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;

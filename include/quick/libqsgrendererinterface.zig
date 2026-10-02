@@ -146,23 +146,6 @@ pub const QSGRendererInterface = extern struct {
         return qtc.QSGRendererInterface_IsApiRhiBased(@bitCast(api));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendererinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRendererInterface `
-    ///
-    /// ` param1: QSGRendererInterface `
-    ///
-    pub fn operatorAssign(self: QSGRendererInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSGRendererInterface;
-        qtc.QSGRendererInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -113,10 +113,6 @@ libqt_string QDesignerCustomWidgetInterface_CodeTemplate(const QDesignerCustomWi
     return _str;
 }
 
-void QDesignerCustomWidgetInterface_OperatorAssign(QDesignerCustomWidgetInterface* self, const QDesignerCustomWidgetInterface* param1) {
-    self->operator=(*param1);
-}
-
 void QDesignerCustomWidgetInterface_Delete(QDesignerCustomWidgetInterface* self) {
     delete self;
 }
@@ -132,10 +128,6 @@ libqt_list /* of QDesignerCustomWidgetInterface* */ QDesignerCustomWidgetCollect
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-void QDesignerCustomWidgetCollectionInterface_OperatorAssign(QDesignerCustomWidgetCollectionInterface* self, const QDesignerCustomWidgetCollectionInterface* param1) {
-    self->operator=(*param1);
 }
 
 void QDesignerCustomWidgetCollectionInterface_Delete(QDesignerCustomWidgetCollectionInterface* self) {

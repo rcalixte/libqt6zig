@@ -953,23 +953,6 @@ pub const QSGRenderNode__RenderState = extern struct {
         return qtc.QSGRenderNode__RenderState_Get(@ptrCast(self.ptr), state_Cstring);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgrendernode-renderstate.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGRenderNode__RenderState `
-    ///
-    /// ` param1: QSGRenderNode__RenderState `
-    ///
-    pub fn operatorAssign(self: QSGRenderNode__RenderState, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSGRenderNode__RenderState;
-        qtc.QSGRenderNode__RenderState_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

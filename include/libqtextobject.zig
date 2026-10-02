@@ -4499,23 +4499,6 @@ pub const QTextBlockUserData = extern struct {
         return .{ .ptr = qtc.QTextBlockUserData_new() };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockuserdata.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextBlockUserData `
-    ///
-    /// ` param1: QTextBlockUserData `
-    ///
-    pub fn operatorAssign(self: QTextBlockUserData, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextBlockUserData;
-        qtc.QTextBlockUserData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

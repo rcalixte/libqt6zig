@@ -1336,10 +1336,6 @@ libqt_list /* of Konsole__Filter__HotSpot* */ Konsole__FilterChain_HotSpots(cons
     return _out;
 }
 
-void Konsole__FilterChain_OperatorAssign(Konsole__FilterChain* self, const Konsole__FilterChain* param1) {
-    self->operator=(*param1);
-}
-
 void Konsole__FilterChain_Delete(Konsole__FilterChain* self) {
     delete self;
 }
@@ -1350,10 +1346,6 @@ Konsole__TerminalImageFilterChain* Konsole__TerminalImageFilterChain_new() {
 
 Konsole__TerminalImageFilterChain* Konsole__TerminalImageFilterChain_new2(const Konsole__TerminalImageFilterChain* param1) {
     return new Konsole::TerminalImageFilterChain(*param1);
-}
-
-void Konsole__TerminalImageFilterChain_OperatorAssign(Konsole__TerminalImageFilterChain* self, const Konsole__TerminalImageFilterChain* param1) {
-    self->operator=(*param1);
 }
 
 void Konsole__TerminalImageFilterChain_Delete(Konsole__TerminalImageFilterChain* self) {
@@ -1404,10 +1396,6 @@ libqt_list /* of QAction* */ Konsole__Filter__HotSpot_Actions(Konsole__Filter__H
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-void Konsole__Filter__HotSpot_OperatorAssign(Konsole__Filter__HotSpot* self, const Konsole__Filter__HotSpot* param1) {
-    self->operator=(*param1);
 }
 
 // Auxiliary method to allow providing re-implementation
@@ -1491,10 +1479,6 @@ libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(co
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-void Konsole__RegExpFilter__HotSpot_OperatorAssign(Konsole__RegExpFilter__HotSpot* self, const Konsole__RegExpFilter__HotSpot* param1) {
-    self->operator=(*param1);
 }
 
 // Base class handler implementation

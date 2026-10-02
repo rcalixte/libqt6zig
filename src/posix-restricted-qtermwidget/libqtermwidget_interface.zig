@@ -1216,24 +1216,6 @@ pub const QTermWidgetInterface = extern struct {
         return .{ .ptr = qtc.QTermWidgetInterface_CreateWidget(@ptrCast(self.ptr), @bitCast(startnow)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTermWidgetInterface `
-    ///
-    /// ` param1: QTermWidgetInterface `
-    ///
-    pub fn operatorAssign(self: QTermWidgetInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQTermWidgetInterface")) param1.asQTermWidgetInterface() else param1;
-        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -120,7 +120,6 @@ bool QTextFrame_IsSignalConnected(const QTextFrame* self, const QMetaMethod* sig
 void QTextFrame_Delete(QTextFrame* self);
 
 QTextBlockUserData* QTextBlockUserData_new();
-void QTextBlockUserData_OperatorAssign(QTextBlockUserData* self, const QTextBlockUserData* param1);
 void QTextBlockUserData_Delete(QTextBlockUserData* self);
 
 QTextBlock* QTextBlock_new();

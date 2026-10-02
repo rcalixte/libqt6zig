@@ -1838,23 +1838,6 @@ pub const QStandardItem = extern struct {
         return qtc.QStandardItem_SuperOperatorLesser(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstandarditem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStandardItem `
-    ///
-    /// ` other: QStandardItem `
-    ///
-    pub fn operatorAssign(self: QStandardItem, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QStandardItem;
-        qtc.QStandardItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `emitDataChanged` instead
     ///
     pub const EmitDataChanged = emitDataChanged;

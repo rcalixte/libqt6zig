@@ -56,23 +56,6 @@ pub const KFileMetaData__WriteData = extern struct {
         return .{ .ptr = qtc.KFileMetaData__WriteData_new2(@ptrCast(rhs.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__WriteData `
-    ///
-    /// ` rhs: KFileMetaData__WriteData `
-    ///
-    pub fn operatorAssign(self: KFileMetaData__WriteData, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_KFileMetaData__WriteData;
-        qtc.KFileMetaData__WriteData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
-    }
-
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;

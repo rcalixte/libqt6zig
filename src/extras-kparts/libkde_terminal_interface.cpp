@@ -102,10 +102,6 @@ QVariant* TerminalInterface_ProfileProperty(const TerminalInterface* self, const
     return new QVariant(self->profileProperty(profileProperty_QString));
 }
 
-void TerminalInterface_OperatorAssign(TerminalInterface* self, const TerminalInterface* param1) {
-    self->operator=(*param1);
-}
-
 void TerminalInterface_Delete(TerminalInterface* self) {
     delete self;
 }

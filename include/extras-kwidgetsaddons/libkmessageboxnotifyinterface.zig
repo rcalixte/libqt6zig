@@ -68,23 +68,6 @@ pub const KMessageBoxNotifyInterface = extern struct {
         qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kmessageboxnotifyinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMessageBoxNotifyInterface `
-    ///
-    /// ` param1: KMessageBoxNotifyInterface `
-    ///
-    pub fn operatorAssign(self: KMessageBoxNotifyInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KMessageBoxNotifyInterface;
-        qtc.KMessageBoxNotifyInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

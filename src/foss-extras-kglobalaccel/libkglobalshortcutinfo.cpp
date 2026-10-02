@@ -44,10 +44,6 @@ libqt_string KGlobalShortcutInfo_Tr(const char* s) {
     return _str;
 }
 
-void KGlobalShortcutInfo_OperatorAssign(KGlobalShortcutInfo* self, const KGlobalShortcutInfo* rhs) {
-    self->operator=(*rhs);
-}
-
 libqt_string KGlobalShortcutInfo_ContextFriendlyName(const KGlobalShortcutInfo* self) {
     auto _ret = self->contextFriendlyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

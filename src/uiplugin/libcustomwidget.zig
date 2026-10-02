@@ -84,23 +84,6 @@ pub const QDesignerCustomWidgetInterface = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercustomwidgetinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerCustomWidgetInterface `
-    ///
-    /// ` param1: QDesignerCustomWidgetInterface `
-    ///
-    pub fn operatorAssign(self: QDesignerCustomWidgetInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QDesignerCustomWidgetInterface;
-        qtc.QDesignerCustomWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -127,23 +110,6 @@ pub const QDesignerCustomWidgetCollectionInterface = extern struct {
     ptr: QtC.QDesignerCustomWidgetCollectionInterface,
 
     pub const _is_QDesignerCustomWidgetCollectionInterface = {};
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignercustomwidgetcollectioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerCustomWidgetCollectionInterface `
-    ///
-    /// ` param1: QDesignerCustomWidgetCollectionInterface `
-    ///
-    pub fn operatorAssign(self: QDesignerCustomWidgetCollectionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QDesignerCustomWidgetCollectionInterface;
-        qtc.QDesignerCustomWidgetCollectionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
 
     /// ### DEPRECATED: Use `delete` instead
     ///

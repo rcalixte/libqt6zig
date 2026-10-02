@@ -141,23 +141,6 @@ pub const QBitmap = extern struct {
         return .{ .ptr = qtc.QBitmap_new7(fileName_str, format_Cstring) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBitmap `
-    ///
-    /// ` param1: QPixmap `
-    ///
-    pub fn operatorAssign(self: QBitmap, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPixmap;
-        qtc.QBitmap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `swap` instead
     ///
     pub const Swap = swap;
@@ -265,23 +248,6 @@ pub const QBitmap = extern struct {
     pub fn transformed(self: QBitmap, matrix: anytype) QBitmap {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         return .{ .ptr = qtc.QBitmap_Transformed(@ptrCast(self.ptr), @ptrCast(matrix.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign2` instead
-    ///
-    pub const OperatorAssign2 = operatorAssign2;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBitmap `
-    ///
-    /// ` param1: QBitmap `
-    ///
-    pub fn operatorAssign2(self: QBitmap, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QBitmap;
-        qtc.QBitmap_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `fromImage2` instead

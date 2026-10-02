@@ -21,10 +21,6 @@ Accounts__Error* Accounts__Error_new4(int typeVal, const libqt_string message) {
     return new Accounts::Error(static_cast<Accounts::Error::ErrorType>(typeVal), message_QString);
 }
 
-void Accounts__Error_OperatorAssign(Accounts__Error* self, const Accounts__Error* src) {
-    self->operator=(*src);
-}
-
 int Accounts__Error_Type(const Accounts__Error* self) {
     return static_cast<int>(self->type());
 }

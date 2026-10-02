@@ -1254,23 +1254,6 @@ pub const QTableWidgetItem = extern struct {
         qtc.QTableWidgetItem_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTableWidgetItem `
-    ///
-    /// ` other: QTableWidgetItem `
-    ///
-    pub fn operatorAssign(self: QTableWidgetItem, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QTableWidgetItem;
-        qtc.QTableWidgetItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;

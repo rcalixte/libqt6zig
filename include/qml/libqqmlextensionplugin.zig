@@ -1428,26 +1428,6 @@ pub const QQmlExtensionPlugin = extern struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QQmlExtensionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlextensioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlExtensionPlugin `
-    ///
-    /// ` param1: QQmlExtensionInterface `
-    ///
-    pub fn operatorAssign(self: QQmlExtensionPlugin, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlExtensionInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlExtensionInterface")) param1.asQQmlExtensionInterface() else param1;
-        qtc.QQmlExtensionInterface_OperatorAssign(@ptrCast(self.asQQmlExtensionInterface().ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `event` instead
     ///
     pub const Event = event;
@@ -3311,26 +3291,6 @@ pub const QQmlEngineExtensionPlugin = extern struct {
     ///
     pub fn onDestroyed1(self: QQmlEngineExtensionPlugin, callback: *const fn (QQmlEngineExtensionPlugin, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QQmlEngineExtensionInterface
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlengineextensioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlEngineExtensionPlugin `
-    ///
-    /// ` param1: QQmlEngineExtensionInterface `
-    ///
-    pub fn operatorAssign(self: QQmlEngineExtensionPlugin, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlEngineExtensionInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQQmlEngineExtensionInterface")) param1.asQQmlEngineExtensionInterface() else param1;
-        qtc.QQmlEngineExtensionInterface_OperatorAssign(@ptrCast(self.asQQmlEngineExtensionInterface().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `event` instead

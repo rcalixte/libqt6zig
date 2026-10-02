@@ -1533,23 +1533,6 @@ pub const QAccessible__ActivationObserver = extern struct {
 
     pub const _is_QAccessible__ActivationObserver = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessible__ActivationObserver `
-    ///
-    /// ` param1: QAccessible__ActivationObserver `
-    ///
-    pub fn operatorAssign(self: QAccessible__ActivationObserver, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessible__ActivationObserver;
-        qtc.QAccessible__ActivationObserver_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -474,10 +474,6 @@ QTextBlockUserData* QTextBlockUserData_new() {
     return new QTextBlockUserData();
 }
 
-void QTextBlockUserData_OperatorAssign(QTextBlockUserData* self, const QTextBlockUserData* param1) {
-    self->operator=(*param1);
-}
-
 void QTextBlockUserData_Delete(QTextBlockUserData* self) {
     delete self;
 }

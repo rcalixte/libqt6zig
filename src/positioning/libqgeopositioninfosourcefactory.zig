@@ -11,23 +11,6 @@ pub const QGeoPositionInfoSourceFactory = extern struct {
 
     pub const _is_QGeoPositionInfoSourceFactory = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopositioninfosourcefactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoPositionInfoSourceFactory `
-    ///
-    /// ` param1: QGeoPositionInfoSourceFactory `
-    ///
-    pub fn operatorAssign(self: QGeoPositionInfoSourceFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QGeoPositionInfoSourceFactory;
-        qtc.QGeoPositionInfoSourceFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

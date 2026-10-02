@@ -95,7 +95,6 @@ void QNetworkProxyFactory_SetUseSystemConfiguration(bool enable);
 void QNetworkProxyFactory_SetApplicationProxyFactory(QNetworkProxyFactory* factory);
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_ProxyForQuery(const QNetworkProxyQuery* query);
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery();
-void QNetworkProxyFactory_OperatorAssign(QNetworkProxyFactory* self, const QNetworkProxyFactory* param1);
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery1(const QNetworkProxyQuery* query);
 void QNetworkProxyFactory_OnQueryProxy(QNetworkProxyFactory* self, intptr_t slot);
 void QNetworkProxyFactory_Delete(QNetworkProxyFactory* self);

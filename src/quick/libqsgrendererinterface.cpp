@@ -32,10 +32,6 @@ bool QSGRendererInterface_IsApiRhiBased(int api) {
     return QSGRendererInterface::isApiRhiBased(static_cast<QSGRendererInterface::GraphicsApi>(api));
 }
 
-void QSGRendererInterface_OperatorAssign(QSGRendererInterface* self, const QSGRendererInterface* param1) {
-    self->operator=(*param1);
-}
-
 void QSGRendererInterface_Delete(QSGRendererInterface* self) {
     delete self;
 }

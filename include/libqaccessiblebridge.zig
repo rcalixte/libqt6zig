@@ -64,23 +64,6 @@ pub const QAccessibleBridge = extern struct {
         qtc.QAccessibleBridge_NotifyAccessibilityUpdate(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblebridge.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleBridge `
-    ///
-    /// ` param1: QAccessibleBridge `
-    ///
-    pub fn operatorAssign(self: QAccessibleBridge, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleBridge;
-        qtc.QAccessibleBridge_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

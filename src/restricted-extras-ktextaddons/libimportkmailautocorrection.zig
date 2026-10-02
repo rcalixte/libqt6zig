@@ -118,23 +118,6 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         return qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_SuperImport(@ptrCast(self.ptr), fileName_str, errorMessage_str, @bitCast(loadAttribute));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1ImportKMailAutocorrection.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__ImportKMailAutocorrection `
-    ///
-    /// ` param1: TextAutoCorrectionCore__ImportKMailAutocorrection `
-    ///
-    pub fn operatorAssign(self: TextAutoCorrectionCore__ImportKMailAutocorrection, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_TextAutoCorrectionCore__ImportKMailAutocorrection;
-        qtc.TextAutoCorrectionCore__ImportKMailAutocorrection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `upperCaseExceptions` instead
     ///
     pub const UpperCaseExceptions = upperCaseExceptions;

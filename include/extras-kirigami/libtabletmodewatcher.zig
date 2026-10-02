@@ -83,23 +83,6 @@ pub const Kirigami__Platform__TabletModeChangedEvent = extern struct {
         qtc.Kirigami__Platform__TabletModeChangedEvent_SetTabletMode(@ptrCast(self.ptr), _tabletMode);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kirigami-platform-tabletmodechangedevent.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Kirigami__Platform__TabletModeChangedEvent `
-    ///
-    /// ` param1: Kirigami__Platform__TabletModeChangedEvent `
-    ///
-    pub fn operatorAssign(self: Kirigami__Platform__TabletModeChangedEvent, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Kirigami__Platform__TabletModeChangedEvent;
-        qtc.Kirigami__Platform__TabletModeChangedEvent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;

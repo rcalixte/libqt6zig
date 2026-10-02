@@ -5103,23 +5103,6 @@ pub const QSGNodeVisitor = extern struct {
         qtc.QSGNodeVisitor_SuperVisitChildren(@ptrCast(self.ptr), @ptrCast(n.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsgnodevisitor.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSGNodeVisitor `
-    ///
-    /// ` param1: QSGNodeVisitor `
-    ///
-    pub fn operatorAssign(self: QSGNodeVisitor, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSGNodeVisitor;
-        qtc.QSGNodeVisitor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

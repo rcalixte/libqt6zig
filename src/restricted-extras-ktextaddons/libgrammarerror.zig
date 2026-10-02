@@ -470,23 +470,6 @@ pub const TextGrammarCheck__GrammarError = extern struct {
         qtc.TextGrammarCheck__GrammarError_SetUrl(@ptrCast(self.ptr), url_str);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextGrammarCheck_1_1GrammarError.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextGrammarCheck__GrammarError `
-    ///
-    /// ` param1: TextGrammarCheck__GrammarError `
-    ///
-    pub fn operatorAssign(self: TextGrammarCheck__GrammarError, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_TextGrammarCheck__GrammarError;
-        qtc.TextGrammarCheck__GrammarError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

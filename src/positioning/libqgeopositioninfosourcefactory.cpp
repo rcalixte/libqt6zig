@@ -43,10 +43,6 @@ QGeoAreaMonitorSource* QGeoPositionInfoSourceFactory_AreaMonitor(QGeoPositionInf
     return self->areaMonitor(parent, parameters_QMap);
 }
 
-void QGeoPositionInfoSourceFactory_OperatorAssign(QGeoPositionInfoSourceFactory* self, const QGeoPositionInfoSourceFactory* param1) {
-    self->operator=(*param1);
-}
-
 void QGeoPositionInfoSourceFactory_Delete(QGeoPositionInfoSourceFactory* self) {
     delete self;
 }

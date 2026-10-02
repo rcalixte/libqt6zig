@@ -746,24 +746,6 @@ pub const QLayoutItem = extern struct {
         return qtc.QLayoutItem_SuperControlTypes(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QLayoutItem `
-    ///
-    /// ` param1: QLayoutItem `
-    ///
-    pub fn operatorAssign(self: QLayoutItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
-        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -1297,23 +1279,6 @@ pub const QSpacerItem = extern struct {
     ///
     pub fn sizePolicy(self: QSpacerItem) QSizePolicy {
         return .{ .ptr = qtc.QSpacerItem_SizePolicy(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qspaceritem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSpacerItem `
-    ///
-    /// ` param1: QSpacerItem `
-    ///
-    pub fn operatorAssign(self: QSpacerItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSpacerItem;
-        qtc.QSpacerItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `changeSize3` instead
@@ -2499,26 +2464,6 @@ pub const QWidgetItem = extern struct {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidgetItem `
-    ///
-    /// ` param1: QLayoutItem `
-    ///
-    pub fn operatorAssign(self: QWidgetItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
-        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `invalidate` instead
     ///
     pub const Invalidate = invalidate;
@@ -2969,26 +2914,6 @@ pub const QWidgetItemV2 = extern struct {
     ///
     pub fn setAlignment(self: QWidgetItemV2, a: i32) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QLayoutItem
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWidgetItemV2 `
-    ///
-    /// ` param1: QLayoutItem `
-    ///
-    pub fn operatorAssign(self: QWidgetItemV2, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QLayoutItem;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQLayoutItem")) param1.asQLayoutItem() else param1;
-        qtc.QLayoutItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `expandingDirections` instead

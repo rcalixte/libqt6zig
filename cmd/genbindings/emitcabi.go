@@ -1627,7 +1627,13 @@ struct xkb_context;
 				ret.WriteString("\n// unimplemented pure virtual method")
 				ret.WriteString("\nvirtual void invalidateContext() override {}\n")
 			case "QNativeInterface::QWaylandApplication":
+				// safe to remove on next rebase
 				ret.WriteString("\n// unimplemented pure virtual method")
+				ret.WriteString("\n#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)")
+				ret.WriteString("\n#define OVERRIDE override")
+				ret.WriteString("\n#else")
+				ret.WriteString("\n#define OVERRIDE")
+				ret.WriteString("\n#endif")
 				ret.WriteString("\nvirtual xkb_context* xkbContext() const { return {}; }\n")
 			case "TextCustomEditor::TextEditFindBarBase":
 				ret.WriteString("\nvoid slotReplaceText() override {}\nvoid slotReplaceAllText() override {}\n")

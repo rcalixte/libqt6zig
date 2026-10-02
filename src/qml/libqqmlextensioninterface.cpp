@@ -14,10 +14,6 @@ void QQmlTypesExtensionInterface_RegisterTypes(QQmlTypesExtensionInterface* self
     self->registerTypes(uri);
 }
 
-void QQmlTypesExtensionInterface_OperatorAssign(QQmlTypesExtensionInterface* self, const QQmlTypesExtensionInterface* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void QQmlTypesExtensionInterface_OnRegisterTypes(QQmlTypesExtensionInterface* self, intptr_t slot) {
     if (auto* vqqmltypesextensioninterface = dynamic_cast<VirtualQQmlTypesExtensionInterface*>(self))
@@ -34,10 +30,6 @@ QQmlExtensionInterface* QQmlExtensionInterface_new(const QQmlExtensionInterface*
 
 void QQmlExtensionInterface_InitializeEngine(QQmlExtensionInterface* self, QQmlEngine* engine, const char* uri) {
     self->initializeEngine(engine, uri);
-}
-
-void QQmlExtensionInterface_OperatorAssign(QQmlExtensionInterface* self, const QQmlExtensionInterface* param1) {
-    self->operator=(*param1);
 }
 
 // Auxiliary method to allow providing re-implementation
@@ -63,10 +55,6 @@ void QQmlExtensionInterface_Delete(QQmlExtensionInterface* self) {
 
 void QQmlEngineExtensionInterface_InitializeEngine(QQmlEngineExtensionInterface* self, QQmlEngine* engine, const char* uri) {
     self->initializeEngine(engine, uri);
-}
-
-void QQmlEngineExtensionInterface_OperatorAssign(QQmlEngineExtensionInterface* self, const QQmlEngineExtensionInterface* param1) {
-    self->operator=(*param1);
 }
 
 void QQmlEngineExtensionInterface_Delete(QQmlEngineExtensionInterface* self) {

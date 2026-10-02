@@ -24,7 +24,6 @@ typedef struct QVariant QVariant;
 
 KFileMetaData__WriteData* KFileMetaData__WriteData_new(const libqt_string url, const libqt_string mimetype);
 KFileMetaData__WriteData* KFileMetaData__WriteData_new2(const KFileMetaData__WriteData* rhs);
-void KFileMetaData__WriteData_OperatorAssign(KFileMetaData__WriteData* self, const KFileMetaData__WriteData* rhs);
 bool KFileMetaData__WriteData_OperatorEqual(const KFileMetaData__WriteData* self, const KFileMetaData__WriteData* rhs);
 libqt_string KFileMetaData__WriteData_InputUrl(const KFileMetaData__WriteData* self);
 libqt_string KFileMetaData__WriteData_InputMimetype(const KFileMetaData__WriteData* self);

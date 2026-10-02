@@ -30,7 +30,6 @@ libqt_list /* of libqt_string */ TerminalInterface_AvailableProfiles(const Termi
 libqt_string TerminalInterface_CurrentProfileName(const TerminalInterface* self);
 bool TerminalInterface_SetCurrentProfile(TerminalInterface* self, const libqt_string profileName);
 QVariant* TerminalInterface_ProfileProperty(const TerminalInterface* self, const libqt_string profileProperty);
-void TerminalInterface_OperatorAssign(TerminalInterface* self, const TerminalInterface* param1);
 void TerminalInterface_Delete(TerminalInterface* self);
 
 #ifdef __cplusplus

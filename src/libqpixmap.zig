@@ -168,23 +168,6 @@ pub const QPixmap = extern struct {
         return .{ .ptr = qtc.QPixmap_new8(fileName_str, format_Cstring, @bitCast(flags)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPixmap `
-    ///
-    /// ` param1: QPixmap `
-    ///
-    pub fn operatorAssign(self: QPixmap, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPixmap;
-        qtc.QPixmap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `swap` instead
     ///
     pub const Swap = swap;

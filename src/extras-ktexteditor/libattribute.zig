@@ -390,23 +390,6 @@ pub const KTextEditor__Attribute = extern struct {
         return .{ .ptr = qtc.KTextEditor__Attribute_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(a.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-attribute.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__Attribute `
-    ///
-    /// ` a: KTextEditor__Attribute `
-    ///
-    pub fn operatorAssign(self: KTextEditor__Attribute, a: anytype) void {
-        comptime _ = @TypeOf(a)._is_KTextEditor__Attribute;
-        qtc.KTextEditor__Attribute_OperatorAssign(@ptrCast(self.ptr), @ptrCast(a.ptr));
-    }
-
     /// ### DEPRECATED: Use `setFontBold1` instead
     ///
     pub const SetFontBold1 = setFontBold1;
@@ -1666,6 +1649,25 @@ pub const KTextEditor__Attribute = extern struct {
     ///
     pub fn tableCellColumnSpan(self: KTextEditor__Attribute) i32 {
         return qtc.QTextCharFormat_TableCellColumnSpan(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
+    /// Inherited from QTextCharFormat
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcharformat.html#operator-eq)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KTextEditor__Attribute `
+    ///
+    /// ` param1: QTextCharFormat `
+    ///
+    pub fn operatorAssign(self: KTextEditor__Attribute, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTextCharFormat;
+        qtc.QTextCharFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `setFont2` instead

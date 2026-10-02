@@ -128,7 +128,6 @@ void QTableWidgetItem_SetData(QTableWidgetItem* self, int role, const QVariant* 
 bool QTableWidgetItem_OperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other);
 void QTableWidgetItem_Read(QTableWidgetItem* self, QDataStream* in);
 void QTableWidgetItem_Write(const QTableWidgetItem* self, QDataStream* out);
-void QTableWidgetItem_OperatorAssign(QTableWidgetItem* self, const QTableWidgetItem* other);
 int QTableWidgetItem_Type(const QTableWidgetItem* self);
 void QTableWidgetItem_OnClone(QTableWidgetItem* self, intptr_t slot);
 QTableWidgetItem* QTableWidgetItem_SuperClone(const QTableWidgetItem* self);

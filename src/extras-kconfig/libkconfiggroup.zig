@@ -85,23 +85,6 @@ pub const KConfigGroup = extern struct {
         return .{ .ptr = qtc.KConfigGroup_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kconfiggroup.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigGroup `
-    ///
-    /// ` param1: KConfigGroup `
-    ///
-    pub fn operatorAssign(self: KConfigGroup, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KConfigGroup;
-        qtc.KConfigGroup_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `isValid` instead
     ///
     pub const IsValid = isValid;

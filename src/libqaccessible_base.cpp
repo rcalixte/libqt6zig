@@ -421,10 +421,6 @@ void QAccessible__ActivationObserver_AccessibilityActiveChanged(QAccessible__Act
     self->accessibilityActiveChanged(active);
 }
 
-void QAccessible__ActivationObserver_OperatorAssign(QAccessible__ActivationObserver* self, const QAccessible__ActivationObserver* param1) {
-    self->operator=(*param1);
-}
-
 void QAccessible__ActivationObserver_Delete(QAccessible__ActivationObserver* self) {
     delete self;
 }

@@ -143,7 +143,6 @@ void QStandardItem_OnWrite(QStandardItem* self, intptr_t slot);
 void QStandardItem_SuperWrite(const QStandardItem* self, QDataStream* out);
 void QStandardItem_OnOperatorLesser(QStandardItem* self, intptr_t slot);
 bool QStandardItem_SuperOperatorLesser(const QStandardItem* self, const QStandardItem* other);
-void QStandardItem_OperatorAssign(QStandardItem* self, const QStandardItem* other);
 void QStandardItem_EmitDataChanged(QStandardItem* self);
 void QStandardItem_Delete(QStandardItem* self);
 

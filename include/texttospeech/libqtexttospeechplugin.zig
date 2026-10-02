@@ -21,23 +21,6 @@ pub const QTextToSpeechPlugin = extern struct {
         return .{ .ptr = qtc.QTextToSpeechPlugin_new() };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechplugin.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextToSpeechPlugin `
-    ///
-    /// ` param1: QTextToSpeechPlugin `
-    ///
-    pub fn operatorAssign(self: QTextToSpeechPlugin, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextToSpeechPlugin;
-        qtc.QTextToSpeechPlugin_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

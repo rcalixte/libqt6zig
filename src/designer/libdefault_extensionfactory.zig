@@ -1418,26 +1418,6 @@ pub const QExtensionFactory = extern struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QAbstractExtensionFactory
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QExtensionFactory `
-    ///
-    /// ` param1: QAbstractExtensionFactory `
-    ///
-    pub fn operatorAssign(self: QExtensionFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAbstractExtensionFactory;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionFactory")) param1.asQAbstractExtensionFactory() else param1;
-        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.asQAbstractExtensionFactory().ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `event` instead
     ///
     pub const Event = event;

@@ -11,23 +11,6 @@ pub const QPrintEngine = extern struct {
 
     pub const _is_QPrintEngine = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprintengine.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPrintEngine `
-    ///
-    /// ` param1: QPrintEngine `
-    ///
-    pub fn operatorAssign(self: QPrintEngine, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QPrintEngine;
-        qtc.QPrintEngine_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -1326,23 +1326,6 @@ pub const QNetworkProxyFactory = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNetworkProxyFactory `
-    ///
-    /// ` param1: QNetworkProxyFactory `
-    ///
-    pub fn operatorAssign(self: QNetworkProxyFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QNetworkProxyFactory;
-        qtc.QNetworkProxyFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `systemProxyForQuery1` instead
     ///
     pub const SystemProxyForQuery1 = systemProxyForQuery1;
