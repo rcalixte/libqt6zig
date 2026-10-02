@@ -1,4 +1,8 @@
 
+### 6.8.2 rev91 (2 October 2026)
+
+* **BREAKING CHANGE:** Update for Qt 6.12 (#183)
+
 ### 6.8.2 rev90 (1 October 2026)
 
 * Update platform-based workaround and const for manual casts (#182)
