@@ -354,6 +354,10 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Skip double-pointer rvalue type
 	}
 
+	if className == "QXmlStreamEntityResolver" && mm.MethodName == "resolveEntity" {
+		return ErrTooComplex // Internal method, not meant to be called, marked final and unimplemented in Qt 6.12
+	}
+
 	if className == "QWebEngineClientHints" && mm.MethodName == "qt_qmlMarker_uncreatable" {
 		return ErrTooComplex // Removed in Qt 6.10
 	}
