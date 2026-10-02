@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const extra_paths = b.option([]const []const u8, "extra-paths", "Extra library header search paths") orelse &.{};
     const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
-    const strip = b.option(bool, "strip", "Include debug information in the compiled binary") orelse (optimize != .Debug);
+    const strip = b.option(bool, "strip", "Include debug information in the compiled binary") orelse (optimize != .debug);
     const maintainer = b.option(bool, "maintainer", "Enable maintainer mode") orelse false;
 
     const is_linux = target.result.os.tag == .linux or host_os == .linux;
@@ -90,7 +90,7 @@ pub fn build(b: *std.Build) !void {
         }
     }
 
-    var dir = try b.build_root.handle.openDir(b.graph.io, "src", .{ .iterate = true });
+    var dir = try b.root.openDir(b.graph.io, "src", .{ .iterate = true });
     defer dir.close(b.graph.io);
 
     var walker = try dir.walk(b.allocator);
@@ -161,19 +161,19 @@ pub fn build(b: *std.Build) !void {
         if (std.Io.Dir.cwd().access(b.graph.io, extra_path, .{}))
             try qt_include_path.put(b.allocator, extra_path, {})
         else |_|
-            std.log.warn("extra path {s} does not exist", .{extra_path});
+            std.log.warn("extra path '{s}' does not exist", .{extra_path});
 
         var inc_path = b.fmt("{s}/include/KF6", .{extra_path});
         if (std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}))
             try qt_include_path.put(b.allocator, inc_path, {})
         else |_|
-            std.log.warn("extra path {s} does not exist", .{inc_path});
+            std.log.warn("extra path '{s}' does not exist", .{inc_path});
 
         inc_path = b.fmt("{s}/include", .{extra_path});
         if (std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}))
             try qt_include_path.put(b.allocator, inc_path, {})
         else |_|
-            std.log.warn("extra path {s} does not exist", .{inc_path});
+            std.log.warn("extra path '{s}' does not exist", .{inc_path});
     }
     for (os_include_path) |os_path| {
         std.Io.Dir.cwd().access(b.graph.io, os_path, .{}) catch continue;
