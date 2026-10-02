@@ -4,7 +4,7 @@
 <img alt="libqt6zig" src="assets/libqt6zig.png" height="128px;" />
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/rcalixte/libqt6zig/blob/master/LICENSE)
-[![Static Badge](https://img.shields.io/badge/v0.16%20(stable)-fdc009?logo=zig&logoColor=f7a41d&label=Zig)](https://ziglang.org/download/)
+[![Static Badge](https://img.shields.io/badge/v0.17%20(stable)-fdc009?logo=zig&logoColor=f7a41d&label=Zig)](https://ziglang.org/download/)
 
 [![Documentation](https://github.com/rcalixte/libqt6zig/actions/workflows/docs.yml/badge.svg?branch=master)](https://github.com/rcalixte/libqt6zig/actions/workflows/docs.yml)
 </div>
@@ -19,7 +19,7 @@ For previous libqt6zig versions supporting Qt 6.4+, there are branches correspon
 
 This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used as a base to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
-These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://develop.kde.org/products/frameworks/), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and [the Qt Resource System](https://doc.qt.io/qt-6/resources.html). With improper handling, it is possible to encounter segmentation faults or errors but developing in the Debug build mode affords significant advantages that aid the developer experience. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples) and the [demo application](https://github.com/rcalixte/libqt6zig-demo). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
+These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://develop.kde.org/products/frameworks/), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and [the Qt Resource System](https://doc.qt.io/qt-6/resources.html). With improper handling, it is possible to encounter segmentation faults or errors but developing in the debug build mode affords significant advantages that aid the developer experience. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples) and the [demo application](https://github.com/rcalixte/libqt6zig-demo). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
 
 ---
 
@@ -143,11 +143,11 @@ pub fn main(init: std.process.Init) !void {
 
 fn onClicked(self: QPushButton) callconv(.c) void {
     counter +%= 1;
-    const formatted = std.fmt.bufPrint(
+    const formatted = std.mem.print(
         &buffer,
         "You have clicked the button {d} time(s)",
         .{counter},
-    ) catch @panic("Failed to bufPrint");
+    ) catch @panic("Failed to print");
     self.setText(formatted);
 }
 ```
@@ -474,7 +474,7 @@ zig fetch --save https://github.com/rcalixte/libqt6zig/archive/<commit>.zip
 ```zig
 const qt6zig = b.dependency("libqt6zig", .{
     .target = target,
-    .optimize = .ReleaseFast,
+    .optimize = .fast,
 });
 
 // After defining the executable, add the module from the library
@@ -615,10 +615,10 @@ const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qt.AlignmentFlag.Al
 
 ### Q4. What build modes are supported by the library?
 
-Currently, `Debug`, `ReleaseFast`, `ReleaseSafe`, and `ReleaseSmall` are supported. The default build mode is `Debug`. To change the build mode:
+Currently, `debug`, `fast`, `safe`, and `small` are supported. The default build mode is `debug`. To change the build mode:
 
 ```bash
-zig build -Doptimize=ReleaseSafe
+zig build -Doptimize=safe
 ```
 
 or
