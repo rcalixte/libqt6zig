@@ -26,7 +26,6 @@ typedef struct QVariant QVariant;
 QGeoPositionInfoSource* QGeoPositionInfoSourceFactory_PositionInfoSource(QGeoPositionInfoSourceFactory* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ parameters);
 QGeoSatelliteInfoSource* QGeoPositionInfoSourceFactory_SatelliteInfoSource(QGeoPositionInfoSourceFactory* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ parameters);
 QGeoAreaMonitorSource* QGeoPositionInfoSourceFactory_AreaMonitor(QGeoPositionInfoSourceFactory* self, QObject* parent, const libqt_map /* of libqt_string to QVariant* */ parameters);
-void QGeoPositionInfoSourceFactory_OperatorAssign(QGeoPositionInfoSourceFactory* self, const QGeoPositionInfoSourceFactory* param1);
 void QGeoPositionInfoSourceFactory_Delete(QGeoPositionInfoSourceFactory* self);
 
 #ifdef __cplusplus

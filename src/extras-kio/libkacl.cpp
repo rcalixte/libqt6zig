@@ -23,10 +23,6 @@ KACL* KACL_new4() {
     return new VirtualKACL();
 }
 
-void KACL_OperatorAssign(KACL* self, const KACL* rhs) {
-    self->operator=(*rhs);
-}
-
 bool KACL_OperatorEqual(const KACL* self, const KACL* rhs) {
     return (*self == *rhs);
 }

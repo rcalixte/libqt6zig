@@ -40,23 +40,6 @@ pub const QAbstractUndoItem = extern struct {
 
     pub const _is_QAbstractUndoItem = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractUndoItem `
-    ///
-    /// ` param1: QAbstractUndoItem `
-    ///
-    pub fn operatorAssign(self: QAbstractUndoItem, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAbstractUndoItem;
-        qtc.QAbstractUndoItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

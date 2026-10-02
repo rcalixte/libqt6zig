@@ -6526,23 +6526,6 @@ pub const QCPAbstractPaintBuffer = extern struct {
         qtc.QCPAbstractPaintBuffer_OnReallocateBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPAbstractPaintBuffer.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPAbstractPaintBuffer `
-    ///
-    /// ` param1: QCPAbstractPaintBuffer `
-    ///
-    pub fn operatorAssign(self: QCPAbstractPaintBuffer, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPAbstractPaintBuffer;
-        qtc.QCPAbstractPaintBuffer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `setInvalidated1` instead
     ///
     pub const SetInvalidated1 = setInvalidated1;
@@ -6821,23 +6804,6 @@ pub const QCPPaintBufferPixmap = extern struct {
     ///
     pub fn superReallocateBuffer(self: QCPPaintBufferPixmap) void {
         qtc.QCPPaintBufferPixmap_SuperReallocateBuffer(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPaintBufferPixmap.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPPaintBufferPixmap `
-    ///
-    /// ` param1: QCPPaintBufferPixmap `
-    ///
-    pub fn operatorAssign(self: QCPPaintBufferPixmap, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPaintBufferPixmap;
-        qtc.QCPPaintBufferPixmap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `size` instead
@@ -72798,24 +72764,6 @@ pub const QCPPlottableInterface1D = extern struct {
         return qtc.QCPPlottableInterface1D_FindEnd(@ptrCast(self.ptr), @bitCast(sortKey), expandedRange);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPPlottableInterface1D `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPPlottableInterface1D, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -102195,26 +102143,6 @@ pub const QCPGraph = extern struct {
         qtc.QCPGraph_AddData3(@ptrCast(self.ptr), keys_list, values_list, alreadySorted);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPGraph `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPGraph, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `name` instead
     ///
     pub const Name = name;
@@ -107602,26 +107530,6 @@ pub const QCPCurve = extern struct {
             .data = values.ptr,
         };
         qtc.QCPCurve_AddData42(@ptrCast(self.ptr), t_list, keys_list, values_list, alreadySorted);
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPCurve `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPCurve, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -114876,26 +114784,6 @@ pub const QCPBars = extern struct {
         qtc.QCPBars_AddData3(@ptrCast(self.ptr), keys_list, values_list, alreadySorted);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPBars `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPBars, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `name` instead
     ///
     pub const Name = name;
@@ -120138,26 +120026,6 @@ pub const QCPStatisticalBox = extern struct {
             .data = _outliers.ptr,
         };
         qtc.QCPStatisticalBox_AddData72(@ptrCast(self.ptr), @bitCast(_key), @bitCast(_minimum), @bitCast(_lowerQuartile), @bitCast(_median), @bitCast(_upperQuartile), @bitCast(_maximum), outliers_list);
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPStatisticalBox `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPStatisticalBox, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `name` instead
@@ -130326,26 +130194,6 @@ pub const QCPFinancial = extern struct {
         qtc.QCPFinancial_AddData6(@ptrCast(self.ptr), keys_list, open_list, high_list, low_list, close_list, alreadySorted);
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPFinancial `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPFinancial, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `name` instead
     ///
     pub const Name = name;
@@ -137746,26 +137594,6 @@ pub const QCPErrorBars = extern struct {
     ///
     pub fn onDestroyed1(self: QCPErrorBars, callback: *const fn (QCPErrorBars, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QCPPlottableInterface1D
-    ///
-    /// ### [Upstream resources](https://www.qcustomplot.com/documentation/classQCPPlottableInterface1D.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCPErrorBars `
-    ///
-    /// ` param1: QCPPlottableInterface1D `
-    ///
-    pub fn operatorAssign(self: QCPErrorBars, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QCPPlottableInterface1D;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQCPPlottableInterface1D")) param1.asQCPPlottableInterface1D() else param1;
-        qtc.QCPPlottableInterface1D_OperatorAssign(@ptrCast(self.asQCPPlottableInterface1D().ptr), @ptrCast(param1_.ptr));
     }
 
     /// ### DEPRECATED: Use `clipRect` instead

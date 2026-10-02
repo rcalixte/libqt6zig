@@ -159,10 +159,6 @@ void TextGrammarCheck__GrammarError_SetUrl(TextGrammarCheck__GrammarError* self,
     self->setUrl(url_QString);
 }
 
-void TextGrammarCheck__GrammarError_OperatorAssign(TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 void TextGrammarCheck__GrammarError_SuperParse(TextGrammarCheck__GrammarError* self, const QJsonObject* obj, int blockindex) {
     self->TextGrammarCheck::GrammarError::parse(*obj, static_cast<int>(blockindex));

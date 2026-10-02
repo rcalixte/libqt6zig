@@ -116,7 +116,6 @@ void QListWidgetItem_SetData(QListWidgetItem* self, int role, const QVariant* va
 bool QListWidgetItem_OperatorLesser(const QListWidgetItem* self, const QListWidgetItem* other);
 void QListWidgetItem_Read(QListWidgetItem* self, QDataStream* in);
 void QListWidgetItem_Write(const QListWidgetItem* self, QDataStream* out);
-void QListWidgetItem_OperatorAssign(QListWidgetItem* self, const QListWidgetItem* other);
 int QListWidgetItem_Type(const QListWidgetItem* self);
 void QListWidgetItem_OnClone(QListWidgetItem* self, intptr_t slot);
 QListWidgetItem* QListWidgetItem_SuperClone(const QListWidgetItem* self);

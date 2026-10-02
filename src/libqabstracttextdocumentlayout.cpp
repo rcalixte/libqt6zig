@@ -594,10 +594,6 @@ void QTextObjectInterface_DrawObject(QTextObjectInterface* self, QPainter* paint
     self->drawObject(painter, *rect, doc, static_cast<int>(posInDocument), *format);
 }
 
-void QTextObjectInterface_OperatorAssign(QTextObjectInterface* self, const QTextObjectInterface* param1) {
-    self->operator=(*param1);
-}
-
 void QTextObjectInterface_Delete(QTextObjectInterface* self) {
     delete self;
 }

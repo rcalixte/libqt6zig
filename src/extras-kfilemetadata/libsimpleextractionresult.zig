@@ -103,23 +103,6 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
         return .{ .ptr = qtc.KFileMetaData__SimpleExtractionResult_new4(url_str, mimetype_str, @ptrCast(flags)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileMetaData__SimpleExtractionResult `
-    ///
-    /// ` rhs: KFileMetaData__SimpleExtractionResult `
-    ///
-    pub fn operatorAssign(self: KFileMetaData__SimpleExtractionResult, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_KFileMetaData__SimpleExtractionResult;
-        qtc.KFileMetaData__SimpleExtractionResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
-    }
-
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;

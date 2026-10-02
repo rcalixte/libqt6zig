@@ -54,23 +54,6 @@ pub const KFileItemListProperties = extern struct {
         return .{ .ptr = qtc.KFileItemListProperties_new3(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kfileitemlistproperties.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KFileItemListProperties `
-    ///
-    /// ` other: KFileItemListProperties `
-    ///
-    pub fn operatorAssign(self: KFileItemListProperties, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_KFileItemListProperties;
-        qtc.KFileItemListProperties_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `setItems` instead
     ///
     pub const SetItems = setItems;

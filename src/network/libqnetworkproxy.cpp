@@ -400,10 +400,6 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery() {
     return _out;
 }
 
-void QNetworkProxyFactory_OperatorAssign(QNetworkProxyFactory* self, const QNetworkProxyFactory* param1) {
-    self->operator=(*param1);
-}
-
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery1(const QNetworkProxyQuery* query) {
     QList<QNetworkProxy> _ret = QNetworkProxyFactory::systemProxyForQuery(*query);
     // Convert QList<> from C++ memory to manually-managed C memory

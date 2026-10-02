@@ -9,10 +9,6 @@ QNetworkAccessManager* QQmlNetworkAccessManagerFactory_Create(QQmlNetworkAccessM
     return self->create(parent);
 }
 
-void QQmlNetworkAccessManagerFactory_OperatorAssign(QQmlNetworkAccessManagerFactory* self, const QQmlNetworkAccessManagerFactory* param1) {
-    self->operator=(*param1);
-}
-
 void QQmlNetworkAccessManagerFactory_Delete(QQmlNetworkAccessManagerFactory* self) {
     delete self;
 }

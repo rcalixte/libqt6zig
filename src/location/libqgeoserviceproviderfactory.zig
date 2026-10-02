@@ -76,23 +76,6 @@ pub const QGeoServiceProviderFactory = extern struct {
         qtc.QGeoServiceProviderFactory_SuperSetQmlEngine(@ptrCast(self.ptr), @ptrCast(engine.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceproviderfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoServiceProviderFactory `
-    ///
-    /// ` param1: QGeoServiceProviderFactory `
-    ///
-    pub fn operatorAssign(self: QGeoServiceProviderFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QGeoServiceProviderFactory;
-        qtc.QGeoServiceProviderFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

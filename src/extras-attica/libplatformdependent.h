@@ -40,7 +40,6 @@ QNetworkReply* Attica__PlatformDependent_Post(Attica__PlatformDependent* self, c
 QNetworkReply* Attica__PlatformDependent_Post2(Attica__PlatformDependent* self, const QNetworkRequest* request, const libqt_string data);
 void Attica__PlatformDependent_SetNam(Attica__PlatformDependent* self, QNetworkAccessManager* nam);
 QNetworkAccessManager* Attica__PlatformDependent_Nam(Attica__PlatformDependent* self);
-void Attica__PlatformDependent_OperatorAssign(Attica__PlatformDependent* self, const Attica__PlatformDependent* param1);
 void Attica__PlatformDependent_Delete(Attica__PlatformDependent* self);
 
 #ifdef __cplusplus

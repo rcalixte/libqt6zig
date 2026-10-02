@@ -13,23 +13,6 @@ pub const QItemEditorCreatorBase = extern struct {
 
     pub const _is_QItemEditorCreatorBase = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemEditorCreatorBase `
-    ///
-    /// ` param1: QItemEditorCreatorBase `
-    ///
-    pub fn operatorAssign(self: QItemEditorCreatorBase, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QItemEditorCreatorBase;
-        qtc.QItemEditorCreatorBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -246,23 +229,6 @@ pub const QItemEditorFactory = extern struct {
     pub fn setDefaultFactory(factory: anytype) void {
         comptime _ = @TypeOf(factory)._is_QItemEditorFactory;
         qtc.QItemEditorFactory_SetDefaultFactory(@ptrCast(factory.ptr));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemeditorfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemEditorFactory `
-    ///
-    /// ` param1: QItemEditorFactory `
-    ///
-    pub fn operatorAssign(self: QItemEditorFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QItemEditorFactory;
-        qtc.QItemEditorFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

@@ -149,7 +149,6 @@ void QSGNodeVisitor_EnterOpacityNode(QSGNodeVisitor* self, QSGOpacityNode* param
 void QSGNodeVisitor_LeaveOpacityNode(QSGNodeVisitor* self, QSGOpacityNode* param1);
 void QSGNodeVisitor_VisitNode(QSGNodeVisitor* self, QSGNode* n);
 void QSGNodeVisitor_VisitChildren(QSGNodeVisitor* self, QSGNode* n);
-void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1);
 void QSGNodeVisitor_OnEnterTransformNode(QSGNodeVisitor* self, intptr_t slot);
 void QSGNodeVisitor_SuperEnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1);
 void QSGNodeVisitor_OnLeaveTransformNode(QSGNodeVisitor* self, intptr_t slot);

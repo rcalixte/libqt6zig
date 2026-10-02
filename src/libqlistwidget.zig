@@ -1124,23 +1124,6 @@ pub const QListWidgetItem = extern struct {
         qtc.QListWidgetItem_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlistwidgetitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QListWidgetItem `
-    ///
-    /// ` other: QListWidgetItem `
-    ///
-    pub fn operatorAssign(self: QListWidgetItem, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QListWidgetItem;
-        qtc.QListWidgetItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `type0` instead
     ///
     pub const Type = type0;

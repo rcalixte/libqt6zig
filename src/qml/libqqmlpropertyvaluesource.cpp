@@ -12,10 +12,6 @@ void QQmlPropertyValueSource_SetTarget(QQmlPropertyValueSource* self, const QQml
     self->setTarget(*target);
 }
 
-void QQmlPropertyValueSource_OperatorAssign(QQmlPropertyValueSource* self, const QQmlPropertyValueSource* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void QQmlPropertyValueSource_OnSetTarget(QQmlPropertyValueSource* self, intptr_t slot) {
     if (auto* vqqmlpropertyvaluesource = dynamic_cast<VirtualQQmlPropertyValueSource*>(self))

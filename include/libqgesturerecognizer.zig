@@ -214,23 +214,6 @@ pub const QGestureRecognizer = extern struct {
         qtc.QGestureRecognizer_UnregisterRecognizer(@bitCast(typeVal));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGestureRecognizer `
-    ///
-    /// ` param1: QGestureRecognizer `
-    ///
-    pub fn operatorAssign(self: QGestureRecognizer, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QGestureRecognizer;
-        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

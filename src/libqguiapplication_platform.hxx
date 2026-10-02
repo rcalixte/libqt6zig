@@ -163,7 +163,12 @@ class VirtualQNativeInterfaceQWaylandApplication : public QNativeInterface::QWay
         qFatal("Error: Pure virtual method QNativeInterface::QWaylandApplication::lastInputSeat called without being implemented");
     }
 
-    // unimplemented pure virtual method
+// unimplemented pure virtual method
+#if QT_VERSION >= QT_VERSION_CHECK(6, 11, 0)
+#define OVERRIDE override
+#else
+#define OVERRIDE
+#endif
     virtual xkb_context* xkbContext() const { return {}; }
 };
 

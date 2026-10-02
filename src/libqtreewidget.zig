@@ -1474,23 +1474,6 @@ pub const QTreeWidgetItem = extern struct {
         qtc.QTreeWidgetItem_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTreeWidgetItem `
-    ///
-    /// ` other: QTreeWidgetItem `
-    ///
-    pub fn operatorAssign(self: QTreeWidgetItem, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QTreeWidgetItem;
-        qtc.QTreeWidgetItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `parent` instead
     ///
     pub const Parent = parent;

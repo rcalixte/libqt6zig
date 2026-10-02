@@ -326,10 +326,6 @@ void QTableWidgetItem_Write(const QTableWidgetItem* self, QDataStream* out) {
     self->write(*out);
 }
 
-void QTableWidgetItem_OperatorAssign(QTableWidgetItem* self, const QTableWidgetItem* other) {
-    self->operator=(*other);
-}
-
 int QTableWidgetItem_Type(const QTableWidgetItem* self) {
     return self->type();
 }

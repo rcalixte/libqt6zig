@@ -15,10 +15,6 @@ KFileMetaData__UserMetaData* KFileMetaData__UserMetaData_new2(const KFileMetaDat
     return new KFileMetaData::UserMetaData(*rhs);
 }
 
-void KFileMetaData__UserMetaData_OperatorAssign(KFileMetaData__UserMetaData* self, const KFileMetaData__UserMetaData* rhs) {
-    self->operator=(*rhs);
-}
-
 libqt_string KFileMetaData__UserMetaData_FilePath(const KFileMetaData__UserMetaData* self) {
     auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

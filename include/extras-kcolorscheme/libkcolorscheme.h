@@ -25,7 +25,6 @@ KColorScheme* KColorScheme_new(const KColorScheme* param1);
 KColorScheme* KColorScheme_new2();
 KColorScheme* KColorScheme_new3(int param1);
 KColorScheme* KColorScheme_new4(int param1, int param2);
-void KColorScheme_OperatorAssign(KColorScheme* self, const KColorScheme* param1);
 QBrush* KColorScheme_Background(const KColorScheme* self);
 QBrush* KColorScheme_Foreground(const KColorScheme* self);
 QBrush* KColorScheme_Decoration(const KColorScheme* self, int param1);

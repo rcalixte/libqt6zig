@@ -16,10 +16,6 @@ QSqlDriver* QSqlDriverCreatorBase_CreateObject(const QSqlDriverCreatorBase* self
     return self->createObject();
 }
 
-void QSqlDriverCreatorBase_OperatorAssign(QSqlDriverCreatorBase* self, const QSqlDriverCreatorBase* param1) {
-    self->operator=(*param1);
-}
-
 void QSqlDriverCreatorBase_Delete(QSqlDriverCreatorBase* self) {
     delete self;
 }

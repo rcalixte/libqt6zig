@@ -59,23 +59,6 @@ pub const QQmlPropertyValueSource = extern struct {
         qtc.QQmlPropertyValueSource_OnSetTarget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlpropertyvaluesource.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlPropertyValueSource `
-    ///
-    /// ` param1: QQmlPropertyValueSource `
-    ///
-    pub fn operatorAssign(self: QQmlPropertyValueSource, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlPropertyValueSource;
-        qtc.QQmlPropertyValueSource_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

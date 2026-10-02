@@ -84,10 +84,6 @@ libqt_string KUriFilterSearchProvider_DefaultKey(const KUriFilterSearchProvider*
     return _str;
 }
 
-void KUriFilterSearchProvider_OperatorAssign(KUriFilterSearchProvider* self, const KUriFilterSearchProvider* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvider* self) {
     auto _ret = self->KUriFilterSearchProvider::iconName();

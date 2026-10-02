@@ -12,10 +12,6 @@ void QGeoServiceProviderFactory_SetQmlEngine(QGeoServiceProviderFactory* self, Q
     self->setQmlEngine(engine);
 }
 
-void QGeoServiceProviderFactory_OperatorAssign(QGeoServiceProviderFactory* self, const QGeoServiceProviderFactory* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 void QGeoServiceProviderFactory_SuperSetQmlEngine(QGeoServiceProviderFactory* self, QQmlEngine* engine) {
     self->QGeoServiceProviderFactory::setQmlEngine(engine);

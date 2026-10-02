@@ -64,23 +64,6 @@ pub const QQmlAbstractUrlInterceptor = extern struct {
         qtc.QQmlAbstractUrlInterceptor_OnIntercept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qqmlabstracturlinterceptor.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QQmlAbstractUrlInterceptor `
-    ///
-    /// ` param1: QQmlAbstractUrlInterceptor `
-    ///
-    pub fn operatorAssign(self: QQmlAbstractUrlInterceptor, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QQmlAbstractUrlInterceptor;
-        qtc.QQmlAbstractUrlInterceptor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

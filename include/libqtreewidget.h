@@ -131,7 +131,6 @@ void QTreeWidgetItem_SetData(QTreeWidgetItem* self, int column, int role, const 
 bool QTreeWidgetItem_OperatorLesser(const QTreeWidgetItem* self, const QTreeWidgetItem* other);
 void QTreeWidgetItem_Read(QTreeWidgetItem* self, QDataStream* in);
 void QTreeWidgetItem_Write(const QTreeWidgetItem* self, QDataStream* out);
-void QTreeWidgetItem_OperatorAssign(QTreeWidgetItem* self, const QTreeWidgetItem* other);
 QTreeWidgetItem* QTreeWidgetItem_Parent(const QTreeWidgetItem* self);
 QTreeWidgetItem* QTreeWidgetItem_Child(const QTreeWidgetItem* self, int index);
 int QTreeWidgetItem_ChildCount(const QTreeWidgetItem* self);

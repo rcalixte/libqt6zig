@@ -106,10 +106,6 @@ QImage* QImage_new19(const libqt_string fileName, const char* format) {
     return new VirtualQImage(fileName_QString, format);
 }
 
-void QImage_OperatorAssign(QImage* self, const QImage* param1) {
-    self->operator=(*param1);
-}
-
 void QImage_Swap(QImage* self, QImage* other) {
     self->swap(*other);
 }

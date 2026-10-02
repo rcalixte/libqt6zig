@@ -2724,23 +2724,6 @@ pub const QTextObjectInterface = extern struct {
         qtc.QTextObjectInterface_DrawObject(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(doc.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QTextObjectInterface `
-    ///
-    /// ` param1: QTextObjectInterface `
-    ///
-    pub fn operatorAssign(self: QTextObjectInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextObjectInterface;
-        qtc.QTextObjectInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

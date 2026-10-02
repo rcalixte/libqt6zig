@@ -145,7 +145,6 @@ void QAccessible__State_SetSearchEdit(QAccessible__State* self, unsigned long lo
 void QAccessible__State_Delete(QAccessible__State* self);
 
 void QAccessible__ActivationObserver_AccessibilityActiveChanged(QAccessible__ActivationObserver* self, bool active);
-void QAccessible__ActivationObserver_OperatorAssign(QAccessible__ActivationObserver* self, const QAccessible__ActivationObserver* param1);
 void QAccessible__ActivationObserver_Delete(QAccessible__ActivationObserver* self);
 
 #ifdef __cplusplus

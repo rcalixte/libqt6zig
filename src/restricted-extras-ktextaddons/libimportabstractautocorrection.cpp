@@ -151,10 +151,6 @@ int TextAutoCorrectionCore__ImportAbstractAutocorrection_MinFindStringLenght(con
     return self->minFindStringLenght();
 }
 
-void TextAutoCorrectionCore__ImportAbstractAutocorrection_OperatorAssign(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, const TextAutoCorrectionCore__ImportAbstractAutocorrection* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void TextAutoCorrectionCore__ImportAbstractAutocorrection_OnImport(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, intptr_t slot) {
     if (auto* vtextautocorrectioncoreimportabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self))

@@ -37,24 +37,6 @@ pub const QAbstractExtensionFactory = extern struct {
         return .{ .ptr = qtc.QAbstractExtensionFactory_Extension(@ptrCast(self.ptr), @ptrCast(object.ptr), iid_str) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionfactory.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractExtensionFactory `
-    ///
-    /// ` param1: QAbstractExtensionFactory `
-    ///
-    pub fn operatorAssign(self: QAbstractExtensionFactory, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAbstractExtensionFactory;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionFactory")) param1.asQAbstractExtensionFactory() else param1;
-        qtc.QAbstractExtensionFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -81,24 +63,6 @@ pub const QAbstractExtensionManager = extern struct {
     ptr: QtC.QAbstractExtensionManager,
 
     pub const _is_QAbstractExtensionManager = {};
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractExtensionManager `
-    ///
-    /// ` param1: QAbstractExtensionManager `
-    ///
-    pub fn operatorAssign(self: QAbstractExtensionManager, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAbstractExtensionManager;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionManager")) param1.asQAbstractExtensionManager() else param1;
-        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
 
     /// ### DEPRECATED: Use `delete` instead
     ///

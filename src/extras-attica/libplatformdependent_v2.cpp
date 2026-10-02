@@ -21,10 +21,6 @@ QNetworkReply* Attica__PlatformDependentV2_Put2(Attica__PlatformDependentV2* sel
     return self->put(*request, data_QByteArray);
 }
 
-void Attica__PlatformDependentV2_OperatorAssign(Attica__PlatformDependentV2* self, const Attica__PlatformDependentV2* param1) {
-    self->operator=(*param1);
-}
-
 void Attica__PlatformDependentV2_Delete(Attica__PlatformDependentV2* self) {
     delete self;
 }

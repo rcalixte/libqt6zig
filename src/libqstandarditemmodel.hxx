@@ -21,7 +21,6 @@ class VirtualQStandardItem final : public QStandardItem {
     using QStandardItem_Read_Callback = void (*)(QStandardItem*, QDataStream*);
     using QStandardItem_Write_Callback = void (*)(const QStandardItem*, QDataStream*);
     using QStandardItem_OperatorLesser_Callback = bool (*)(const QStandardItem*, QStandardItem*);
-    using QStandardItem::operator=;
     using QStandardItem::emitDataChanged;
 
     // Instance callback storage

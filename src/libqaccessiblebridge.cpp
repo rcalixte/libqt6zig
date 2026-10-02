@@ -21,10 +21,6 @@ void QAccessibleBridge_NotifyAccessibilityUpdate(QAccessibleBridge* self, QAcces
     self->notifyAccessibilityUpdate(event);
 }
 
-void QAccessibleBridge_OperatorAssign(QAccessibleBridge* self, const QAccessibleBridge* param1) {
-    self->operator=(*param1);
-}
-
 void QAccessibleBridge_Delete(QAccessibleBridge* self) {
     delete self;
 }

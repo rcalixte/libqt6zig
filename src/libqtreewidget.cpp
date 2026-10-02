@@ -383,10 +383,6 @@ void QTreeWidgetItem_Write(const QTreeWidgetItem* self, QDataStream* out) {
     self->write(*out);
 }
 
-void QTreeWidgetItem_OperatorAssign(QTreeWidgetItem* self, const QTreeWidgetItem* other) {
-    self->operator=(*other);
-}
-
 QTreeWidgetItem* QTreeWidgetItem_Parent(const QTreeWidgetItem* self) {
     return self->parent();
 }

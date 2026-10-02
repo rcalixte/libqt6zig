@@ -18,10 +18,6 @@ KFileItemListProperties* KFileItemListProperties_new3(const KFileItemListPropert
     return new KFileItemListProperties(*param1);
 }
 
-void KFileItemListProperties_OperatorAssign(KFileItemListProperties* self, const KFileItemListProperties* other) {
-    self->operator=(*other);
-}
-
 void KFileItemListProperties_SetItems(KFileItemListProperties* self, const KFileItemList* items) {
     self->setItems(*items);
 }

@@ -25,7 +25,6 @@ SignOn__Error* SignOn__Error_new();
 SignOn__Error* SignOn__Error_new2(const SignOn__Error* src);
 SignOn__Error* SignOn__Error_new3(int typeVal);
 SignOn__Error* SignOn__Error_new4(int typeVal, const libqt_string message);
-void SignOn__Error_OperatorAssign(SignOn__Error* self, const SignOn__Error* src);
 void SignOn__Error_SetType(SignOn__Error* self, int typeVal);
 void SignOn__Error_SetMessage(SignOn__Error* self, const libqt_string message);
 int SignOn__Error_Type(const SignOn__Error* self);

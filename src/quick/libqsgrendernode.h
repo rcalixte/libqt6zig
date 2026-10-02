@@ -66,7 +66,6 @@ int QSGRenderNode__RenderState_StencilValue(const QSGRenderNode__RenderState* se
 bool QSGRenderNode__RenderState_StencilEnabled(const QSGRenderNode__RenderState* self);
 QRegion* QSGRenderNode__RenderState_ClipRegion(const QSGRenderNode__RenderState* self);
 void* QSGRenderNode__RenderState_Get(const QSGRenderNode__RenderState* self, const char* state);
-void QSGRenderNode__RenderState_OperatorAssign(QSGRenderNode__RenderState* self, const QSGRenderNode__RenderState* param1);
 void QSGRenderNode__RenderState_Delete(QSGRenderNode__RenderState* self);
 
 #ifdef __cplusplus

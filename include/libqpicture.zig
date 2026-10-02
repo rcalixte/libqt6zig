@@ -330,23 +330,6 @@ pub const QPicture = extern struct {
         qtc.QPicture_SetBoundingRect(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpicture.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPicture `
-    ///
-    /// ` p: QPicture `
-    ///
-    pub fn operatorAssign(self: QPicture, p: anytype) void {
-        comptime _ = @TypeOf(p)._is_QPicture;
-        qtc.QPicture_OperatorAssign(@ptrCast(self.ptr), @ptrCast(p.ptr));
-    }
-
     /// ### DEPRECATED: Use `swap` instead
     ///
     pub const Swap = swap;

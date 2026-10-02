@@ -543,10 +543,6 @@ void QSGNodeVisitor_VisitChildren(QSGNodeVisitor* self, QSGNode* n) {
     }
 }
 
-void QSGNodeVisitor_OperatorAssign(QSGNodeVisitor* self, const QSGNodeVisitor* param1) {
-    self->operator=(*param1);
-}
-
 // Base class handler implementation
 void QSGNodeVisitor_SuperEnterTransformNode(QSGNodeVisitor* self, QSGTransformNode* param1) {
     if (auto* vqsgnodevisitor = dynamic_cast<VirtualQSGNodeVisitor*>(self)) {

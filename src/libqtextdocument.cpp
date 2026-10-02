@@ -36,10 +36,6 @@ void QAbstractUndoItem_Redo(QAbstractUndoItem* self) {
     self->redo();
 }
 
-void QAbstractUndoItem_OperatorAssign(QAbstractUndoItem* self, const QAbstractUndoItem* param1) {
-    self->operator=(*param1);
-}
-
 void QAbstractUndoItem_Delete(QAbstractUndoItem* self) {
     delete self;
 }

@@ -28,10 +28,6 @@ int QPrintEngine_PrinterState(const QPrintEngine* self) {
     return static_cast<int>(self->printerState());
 }
 
-void QPrintEngine_OperatorAssign(QPrintEngine* self, const QPrintEngine* param1) {
-    self->operator=(*param1);
-}
-
 void QPrintEngine_Delete(QPrintEngine* self) {
     delete self;
 }

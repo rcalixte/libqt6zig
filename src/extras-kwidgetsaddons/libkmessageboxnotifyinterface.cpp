@@ -14,10 +14,6 @@ void KMessageBoxNotifyInterface_SendNotification(KMessageBoxNotifyInterface* sel
     self->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
 }
 
-void KMessageBoxNotifyInterface_OperatorAssign(KMessageBoxNotifyInterface* self, const KMessageBoxNotifyInterface* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxNotifyInterface_OnSendNotification(KMessageBoxNotifyInterface* self, intptr_t slot) {
     if (auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self))

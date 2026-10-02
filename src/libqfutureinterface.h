@@ -24,7 +24,6 @@ typedef struct QThreadPool QThreadPool;
 QFutureInterfaceBase* QFutureInterfaceBase_new();
 QFutureInterfaceBase* QFutureInterfaceBase_new2(const QFutureInterfaceBase* other);
 QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState);
-void QFutureInterfaceBase_OperatorAssign(QFutureInterfaceBase* self, const QFutureInterfaceBase* other);
 void QFutureInterfaceBase_ReportStarted(QFutureInterfaceBase* self);
 void QFutureInterfaceBase_ReportFinished(QFutureInterfaceBase* self);
 void QFutureInterfaceBase_ReportCanceled(QFutureInterfaceBase* self);

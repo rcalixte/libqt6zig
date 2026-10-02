@@ -36,23 +36,6 @@ pub const QsciDocument = extern struct {
         return .{ .ptr = qtc.QsciDocument_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciDocument.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QsciDocument `
-    ///
-    /// ` param1: QsciDocument `
-    ///
-    pub fn operatorAssign(self: QsciDocument, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QsciDocument;
-        qtc.QsciDocument_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

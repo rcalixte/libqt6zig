@@ -39,23 +39,6 @@ pub const QPlaceSearchResult = extern struct {
         return .{ .ptr = qtc.QPlaceSearchResult_new2(@ptrCast(other.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchresult.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceSearchResult `
-    ///
-    /// ` other: QPlaceSearchResult `
-    ///
-    pub fn operatorAssign(self: QPlaceSearchResult, other: anytype) void {
-        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
-        qtc.QPlaceSearchResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
-    }
-
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;

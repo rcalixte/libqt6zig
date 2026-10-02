@@ -22,7 +22,6 @@ KACL* KACL_new(const libqt_string aclString);
 KACL* KACL_new2(const KACL* rhs);
 KACL* KACL_new3(mode_t basicPermissions);
 KACL* KACL_new4();
-void KACL_OperatorAssign(KACL* self, const KACL* rhs);
 bool KACL_OperatorEqual(const KACL* self, const KACL* rhs);
 bool KACL_OperatorNotEqual(const KACL* self, const KACL* rhs);
 bool KACL_IsValid(const KACL* self);

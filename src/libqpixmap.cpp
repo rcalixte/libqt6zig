@@ -55,10 +55,6 @@ QPixmap* QPixmap_new8(const libqt_string fileName, const char* format, int flags
     return new VirtualQPixmap(fileName_QString, format, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-void QPixmap_OperatorAssign(QPixmap* self, const QPixmap* param1) {
-    self->operator=(*param1);
-}
-
 void QPixmap_Swap(QPixmap* self, QPixmap* other) {
     self->swap(*other);
 }

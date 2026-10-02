@@ -602,23 +602,6 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
         return qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperShouldHideItemsWithEqualNames(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodelcontrollerinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KTextEditor__CodeCompletionModelControllerInterface `
-    ///
-    /// ` param1: KTextEditor__CodeCompletionModelControllerInterface `
-    ///
-    pub fn operatorAssign(self: KTextEditor__CodeCompletionModelControllerInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KTextEditor__CodeCompletionModelControllerInterface;
-        qtc.KTextEditor__CodeCompletionModelControllerInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

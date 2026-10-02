@@ -298,23 +298,6 @@ pub const KMessageBoxDontAskAgainInterface = extern struct {
         qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kmessageboxdontaskagaininterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMessageBoxDontAskAgainInterface `
-    ///
-    /// ` param1: KMessageBoxDontAskAgainInterface `
-    ///
-    pub fn operatorAssign(self: KMessageBoxDontAskAgainInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KMessageBoxDontAskAgainInterface;
-        qtc.KMessageBoxDontAskAgainInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

@@ -28,10 +28,6 @@ KConfigGroup* KConfigGroup_new4(const KConfigGroup* param1) {
     return new VirtualKConfigGroup(*param1);
 }
 
-void KConfigGroup_OperatorAssign(KConfigGroup* self, const KConfigGroup* param1) {
-    self->operator=(*param1);
-}
-
 bool KConfigGroup_IsValid(const KConfigGroup* self) {
     return self->isValid();
 }

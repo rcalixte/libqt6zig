@@ -25,10 +25,6 @@ void Kirigami__Platform__TabletModeChangedEvent_SetTabletMode(Kirigami__Platform
     self->tabletMode = tabletMode;
 }
 
-void Kirigami__Platform__TabletModeChangedEvent_OperatorAssign(Kirigami__Platform__TabletModeChangedEvent* self, const Kirigami__Platform__TabletModeChangedEvent* param1) {
-    self->operator=(*param1);
-}
-
 // Derived class handler implementation
 void Kirigami__Platform__TabletModeChangedEvent_SetAccepted(Kirigami__Platform__TabletModeChangedEvent* self, bool accepted) {
     self->setAccepted(accepted);

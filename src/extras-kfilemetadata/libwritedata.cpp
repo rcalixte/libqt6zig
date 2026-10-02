@@ -18,10 +18,6 @@ KFileMetaData__WriteData* KFileMetaData__WriteData_new2(const KFileMetaData__Wri
     return new KFileMetaData::WriteData(*rhs);
 }
 
-void KFileMetaData__WriteData_OperatorAssign(KFileMetaData__WriteData* self, const KFileMetaData__WriteData* rhs) {
-    self->operator=(*rhs);
-}
-
 bool KFileMetaData__WriteData_OperatorEqual(const KFileMetaData__WriteData* self, const KFileMetaData__WriteData* rhs) {
     return (*self == *rhs);
 }

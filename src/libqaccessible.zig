@@ -496,23 +496,6 @@ pub const QAccessibleInterface = extern struct {
     pub fn interfaceCast(self: QAccessibleInterface, param1: i32) ?*anyopaque {
         return qtc.QAccessibleInterface_InterfaceCast(@ptrCast(self.ptr), @bitCast(param1));
     }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleInterface `
-    ///
-    /// ` param1: QAccessibleInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleInterface;
-        qtc.QAccessibleInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html)
@@ -868,23 +851,6 @@ pub const QAccessibleTextInterface = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletextinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleTextInterface `
-    ///
-    /// ` param1: QAccessibleTextInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleTextInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleTextInterface;
-        qtc.QAccessibleTextInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -980,23 +946,6 @@ pub const QAccessibleEditableTextInterface = extern struct {
             .data = _text.ptr,
         };
         qtc.QAccessibleEditableTextInterface_ReplaceText(@ptrCast(self.ptr), @bitCast(startOffset), @bitCast(endOffset), text_str);
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleEditableTextInterface `
-    ///
-    /// ` param1: QAccessibleEditableTextInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleEditableTextInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleEditableTextInterface;
-        qtc.QAccessibleEditableTextInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -1107,23 +1056,6 @@ pub const QAccessibleValueInterface = extern struct {
     ///
     pub fn minimumStepSize(self: QAccessibleValueInterface) QVariant {
         return .{ .ptr = qtc.QAccessibleValueInterface_MinimumStepSize(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleValueInterface `
-    ///
-    /// ` param1: QAccessibleValueInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleValueInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleValueInterface;
-        qtc.QAccessibleValueInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -1295,23 +1227,6 @@ pub const QAccessibleTableCellInterface = extern struct {
     ///
     pub fn table(self: QAccessibleTableCellInterface) QAccessibleInterface {
         return .{ .ptr = qtc.QAccessibleTableCellInterface_Table(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleTableCellInterface `
-    ///
-    /// ` param1: QAccessibleTableCellInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleTableCellInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleTableCellInterface;
-        qtc.QAccessibleTableCellInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -1718,23 +1633,6 @@ pub const QAccessibleTableInterface = extern struct {
         qtc.QAccessibleTableInterface_ModelChange(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibletableinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleTableInterface `
-    ///
-    /// ` param1: QAccessibleTableInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleTableInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleTableInterface;
-        qtc.QAccessibleTableInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -2122,24 +2020,6 @@ pub const QAccessibleActionInterface = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleActionInterface `
-    ///
-    /// ` param1: QAccessibleActionInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleActionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleActionInterface;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAccessibleActionInterface")) param1.asQAccessibleActionInterface() else param1;
-        qtc.QAccessibleActionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -2219,23 +2099,6 @@ pub const QAccessibleImageInterface = extern struct {
     ///
     pub fn imagePosition(self: QAccessibleImageInterface) QPoint {
         return .{ .ptr = qtc.QAccessibleImageInterface_ImagePosition(@ptrCast(self.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleImageInterface `
-    ///
-    /// ` param1: QAccessibleImageInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleImageInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleImageInterface;
-        qtc.QAccessibleImageInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -2355,23 +2218,6 @@ pub const QAccessibleHyperlinkInterface = extern struct {
     ///
     pub fn isValid(self: QAccessibleHyperlinkInterface) bool {
         return qtc.QAccessibleHyperlinkInterface_IsValid(@ptrCast(self.ptr));
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleHyperlinkInterface `
-    ///
-    /// ` param1: QAccessibleHyperlinkInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleHyperlinkInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleHyperlinkInterface;
-        qtc.QAccessibleHyperlinkInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead
@@ -2544,23 +2390,6 @@ pub const QAccessibleSelectionInterface = extern struct {
         return qtc.QAccessibleSelectionInterface_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleSelectionInterface `
-    ///
-    /// ` param1: QAccessibleSelectionInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleSelectionInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleSelectionInterface;
-        qtc.QAccessibleSelectionInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -2631,23 +2460,6 @@ pub const QAccessibleAttributesInterface = extern struct {
     ///
     pub fn attributeValue(self: QAccessibleAttributesInterface, key: i32) QVariant {
         return .{ .ptr = qtc.QAccessibleAttributesInterface_AttributeValue(@ptrCast(self.ptr), @bitCast(key)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAccessibleAttributesInterface `
-    ///
-    /// ` param1: QAccessibleAttributesInterface `
-    ///
-    pub fn operatorAssign(self: QAccessibleAttributesInterface, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAccessibleAttributesInterface;
-        qtc.QAccessibleAttributesInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `delete` instead

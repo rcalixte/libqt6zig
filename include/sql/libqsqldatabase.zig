@@ -19,23 +19,6 @@ pub const QSqlDriverCreatorBase = extern struct {
 
     pub const _is_QSqlDriverCreatorBase = {};
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqldrivercreatorbase.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSqlDriverCreatorBase `
-    ///
-    /// ` param1: QSqlDriverCreatorBase `
-    ///
-    pub fn operatorAssign(self: QSqlDriverCreatorBase, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QSqlDriverCreatorBase;
-        qtc.QSqlDriverCreatorBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

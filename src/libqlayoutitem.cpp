@@ -91,10 +91,6 @@ int QLayoutItem_ControlTypes(const QLayoutItem* self) {
     return static_cast<int>(self->controlTypes());
 }
 
-void QLayoutItem_OperatorAssign(QLayoutItem* self, const QLayoutItem* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void QLayoutItem_OnSizeHint(QLayoutItem* self, intptr_t slot) {
     if (auto* vqlayoutitem = const_cast<VirtualQLayoutItem*>(dynamic_cast<const VirtualQLayoutItem*>(self)))
@@ -283,10 +279,6 @@ QSpacerItem* QSpacerItem_SpacerItem(QSpacerItem* self) {
 
 QSizePolicy* QSpacerItem_SizePolicy(const QSpacerItem* self) {
     return new QSizePolicy(self->sizePolicy());
-}
-
-void QSpacerItem_OperatorAssign(QSpacerItem* self, const QSpacerItem* param1) {
-    self->operator=(*param1);
 }
 
 void QSpacerItem_ChangeSize3(QSpacerItem* self, int w, int h, int hData) {

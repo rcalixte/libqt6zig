@@ -19,10 +19,6 @@ libqt_string QItemEditorCreatorBase_ValuePropertyName(const QItemEditorCreatorBa
     return _str;
 }
 
-void QItemEditorCreatorBase_OperatorAssign(QItemEditorCreatorBase* self, const QItemEditorCreatorBase* param1) {
-    self->operator=(*param1);
-}
-
 void QItemEditorCreatorBase_Delete(QItemEditorCreatorBase* self) {
     delete self;
 }
@@ -58,10 +54,6 @@ QItemEditorFactory* QItemEditorFactory_DefaultFactory() {
 
 void QItemEditorFactory_SetDefaultFactory(QItemEditorFactory* factory) {
     QItemEditorFactory::setDefaultFactory(factory);
-}
-
-void QItemEditorFactory_OperatorAssign(QItemEditorFactory* self, const QItemEditorFactory* param1) {
-    self->operator=(*param1);
 }
 
 // Base class handler implementation

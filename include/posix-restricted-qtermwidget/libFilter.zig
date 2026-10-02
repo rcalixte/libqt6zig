@@ -7910,23 +7910,6 @@ pub const Konsole__FilterChain = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__FilterChain `
-    ///
-    /// ` param1: Konsole__FilterChain `
-    ///
-    pub fn operatorAssign(self: Konsole__FilterChain, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__FilterChain;
-        qtc.Konsole__FilterChain_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -7976,23 +7959,6 @@ pub const Konsole__TerminalImageFilterChain = extern struct {
     pub fn new2(param1: anytype) Konsole__TerminalImageFilterChain {
         comptime _ = @TypeOf(param1)._is_Konsole__TerminalImageFilterChain;
         return .{ .ptr = qtc.Konsole__TerminalImageFilterChain_new2(@ptrCast(param1.ptr)) };
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__TerminalImageFilterChain `
-    ///
-    /// ` param1: Konsole__TerminalImageFilterChain `
-    ///
-    pub fn operatorAssign(self: Konsole__TerminalImageFilterChain, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__TerminalImageFilterChain;
-        qtc.Konsole__TerminalImageFilterChain_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `addFilter` instead
@@ -8406,23 +8372,6 @@ pub const Konsole__Filter__HotSpot = extern struct {
         qtc.Konsole__Filter__HotSpot_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__Filter__HotSpot `
-    ///
-    /// ` param1: Konsole__Filter__HotSpot `
-    ///
-    pub fn operatorAssign(self: Konsole__Filter__HotSpot, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__Filter__HotSpot;
-        qtc.Konsole__Filter__HotSpot_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;
@@ -8601,23 +8550,6 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
             _ret[i] = _buf;
         }
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__RegExpFilter__HotSpot `
-    ///
-    /// ` param1: Konsole__RegExpFilter__HotSpot `
-    ///
-    pub fn operatorAssign(self: Konsole__RegExpFilter__HotSpot, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__RegExpFilter__HotSpot;
-        qtc.Konsole__RegExpFilter__HotSpot_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `startLine` instead
@@ -9056,25 +8988,6 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
             _ret[i] = _buf;
         }
         return _ret;
-    }
-
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from Konsole::RegExpFilter::HotSpot
-    ///
-    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Konsole__UrlFilter__HotSpot `
-    ///
-    /// ` param1: Konsole__RegExpFilter__HotSpot `
-    ///
-    pub fn operatorAssign(self: Konsole__UrlFilter__HotSpot, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Konsole__RegExpFilter__HotSpot;
-        qtc.Konsole__RegExpFilter__HotSpot_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `startLine` instead

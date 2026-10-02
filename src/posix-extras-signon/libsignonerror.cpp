@@ -21,10 +21,6 @@ SignOn__Error* SignOn__Error_new4(int typeVal, const libqt_string message) {
     return new SignOn::Error(static_cast<int>(typeVal), message_QString);
 }
 
-void SignOn__Error_OperatorAssign(SignOn__Error* self, const SignOn__Error* src) {
-    self->operator=(*src);
-}
-
 void SignOn__Error_SetType(SignOn__Error* self, int typeVal) {
     self->setType(static_cast<int>(typeVal));
 }

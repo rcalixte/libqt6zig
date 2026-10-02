@@ -70,23 +70,6 @@ pub const KACL = extern struct {
         return .{ .ptr = qtc.KACL_new4() };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kacl.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KACL `
-    ///
-    /// ` rhs: KACL `
-    ///
-    pub fn operatorAssign(self: KACL, rhs: anytype) void {
-        comptime _ = @TypeOf(rhs)._is_KACL;
-        qtc.KACL_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
-    }
-
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;

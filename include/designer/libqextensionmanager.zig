@@ -1468,26 +1468,6 @@ pub const QExtensionManager = extern struct {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// Inherited from QAbstractExtensionManager
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractextensionmanager.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QExtensionManager `
-    ///
-    /// ` param1: QAbstractExtensionManager `
-    ///
-    pub fn operatorAssign(self: QExtensionManager, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QAbstractExtensionManager;
-        const param1_ = if (@hasDecl(@TypeOf(param1), "asQAbstractExtensionManager")) param1.asQAbstractExtensionManager() else param1;
-        qtc.QAbstractExtensionManager_OperatorAssign(@ptrCast(self.asQAbstractExtensionManager().ptr), @ptrCast(param1_.ptr));
-    }
-
     /// ### DEPRECATED: Use `event` instead
     ///
     pub const Event = event;

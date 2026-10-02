@@ -43,7 +43,6 @@ typedef struct QVariant QVariant;
 
 void QAbstractUndoItem_Undo(QAbstractUndoItem* self);
 void QAbstractUndoItem_Redo(QAbstractUndoItem* self);
-void QAbstractUndoItem_OperatorAssign(QAbstractUndoItem* self, const QAbstractUndoItem* param1);
 void QAbstractUndoItem_Delete(QAbstractUndoItem* self);
 
 QTextDocument* QTextDocument_new();

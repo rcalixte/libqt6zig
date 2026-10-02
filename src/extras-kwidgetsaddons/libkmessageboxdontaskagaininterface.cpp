@@ -42,10 +42,6 @@ void KMessageBoxDontAskAgainInterface_SetConfig(KMessageBoxDontAskAgainInterface
     self->setConfig(config);
 }
 
-void KMessageBoxDontAskAgainInterface_OperatorAssign(KMessageBoxDontAskAgainInterface* self, const KMessageBoxDontAskAgainInterface* param1) {
-    self->operator=(*param1);
-}
-
 // Auxiliary method to allow providing re-implementation
 void KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, intptr_t slot) {
     if (auto* vkmessageboxdontaskagaininterface = dynamic_cast<VirtualKMessageBoxDontAskAgainInterface*>(self))

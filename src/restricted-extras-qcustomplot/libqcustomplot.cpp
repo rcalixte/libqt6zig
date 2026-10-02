@@ -447,10 +447,6 @@ void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self) {
     }
 }
 
-void QCPAbstractPaintBuffer_OperatorAssign(QCPAbstractPaintBuffer* self, const QCPAbstractPaintBuffer* param1) {
-    self->operator=(*param1);
-}
-
 void QCPAbstractPaintBuffer_SetInvalidated1(QCPAbstractPaintBuffer* self, bool invalidated) {
     self->setInvalidated(invalidated);
 }
@@ -519,10 +515,6 @@ void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self) {
     if (vqcppaintbufferpixmap) {
         vqcppaintbufferpixmap->reallocateBuffer();
     }
-}
-
-void QCPPaintBufferPixmap_OperatorAssign(QCPPaintBufferPixmap* self, const QCPPaintBufferPixmap* param1) {
-    self->operator=(*param1);
 }
 
 // Base class handler implementation
@@ -16073,10 +16065,6 @@ int QCPPlottableInterface1D_FindBegin(const QCPPlottableInterface1D* self, doubl
 
 int QCPPlottableInterface1D_FindEnd(const QCPPlottableInterface1D* self, double sortKey, bool expandedRange) {
     return self->findEnd(static_cast<double>(sortKey), expandedRange);
-}
-
-void QCPPlottableInterface1D_OperatorAssign(QCPPlottableInterface1D* self, const QCPPlottableInterface1D* param1) {
-    self->operator=(*param1);
 }
 
 void QCPPlottableInterface1D_Delete(QCPPlottableInterface1D* self) {

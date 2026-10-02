@@ -34,11 +34,9 @@ bool QDesignerCustomWidgetInterface_IsInitialized(const QDesignerCustomWidgetInt
 void QDesignerCustomWidgetInterface_Initialize(QDesignerCustomWidgetInterface* self, QDesignerFormEditorInterface* core);
 libqt_string QDesignerCustomWidgetInterface_DomXml(const QDesignerCustomWidgetInterface* self);
 libqt_string QDesignerCustomWidgetInterface_CodeTemplate(const QDesignerCustomWidgetInterface* self);
-void QDesignerCustomWidgetInterface_OperatorAssign(QDesignerCustomWidgetInterface* self, const QDesignerCustomWidgetInterface* param1);
 void QDesignerCustomWidgetInterface_Delete(QDesignerCustomWidgetInterface* self);
 
 libqt_list /* of QDesignerCustomWidgetInterface* */ QDesignerCustomWidgetCollectionInterface_CustomWidgets(const QDesignerCustomWidgetCollectionInterface* self);
-void QDesignerCustomWidgetCollectionInterface_OperatorAssign(QDesignerCustomWidgetCollectionInterface* self, const QDesignerCustomWidgetCollectionInterface* param1);
 void QDesignerCustomWidgetCollectionInterface_Delete(QDesignerCustomWidgetCollectionInterface* self);
 
 #ifdef __cplusplus

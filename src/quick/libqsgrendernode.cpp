@@ -183,10 +183,6 @@ void* QSGRenderNode__RenderState_Get(const QSGRenderNode__RenderState* self, con
     return self->get(state);
 }
 
-void QSGRenderNode__RenderState_OperatorAssign(QSGRenderNode__RenderState* self, const QSGRenderNode__RenderState* param1) {
-    self->operator=(*param1);
-}
-
 void QSGRenderNode__RenderState_Delete(QSGRenderNode__RenderState* self) {
     delete self;
 }

@@ -425,23 +425,6 @@ pub const QImage = extern struct {
         return .{ .ptr = qtc.QImage_new19(fileName_str, format_Cstring) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QImage `
-    ///
-    /// ` param1: QImage `
-    ///
-    pub fn operatorAssign(self: QImage, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QImage;
-        qtc.QImage_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `swap` instead
     ///
     pub const Swap = swap;

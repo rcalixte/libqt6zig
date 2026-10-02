@@ -592,14 +592,6 @@ void QStandardItem_OnOperatorLesser(QStandardItem* self, intptr_t slot) {
 }
 
 // Derived class protected handler implementation
-void QStandardItem_OperatorAssign(QStandardItem* self, const QStandardItem* other) {
-    if (auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self)) {
-        vqstandarditem->VirtualQStandardItem::operator=(*other);
-    } else
-        qFatal("Error: Protected method QStandardItem::operator= called without a directly constructed type");
-}
-
-// Derived class protected handler implementation
 void QStandardItem_EmitDataChanged(QStandardItem* self) {
     if (auto* vqstandarditem = dynamic_cast<VirtualQStandardItem*>(self)) {
         vqstandarditem->VirtualQStandardItem::emitDataChanged();

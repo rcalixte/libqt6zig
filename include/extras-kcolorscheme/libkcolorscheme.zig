@@ -71,23 +71,6 @@ pub const KColorScheme = extern struct {
         return .{ .ptr = qtc.KColorScheme_new4(@bitCast(param1), @bitCast(param2)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KColorScheme `
-    ///
-    /// ` param1: KColorScheme `
-    ///
-    pub fn operatorAssign(self: KColorScheme, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KColorScheme;
-        qtc.KColorScheme_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `background` instead
     ///
     pub const Background = background;

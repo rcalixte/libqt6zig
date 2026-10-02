@@ -21,7 +21,6 @@ typedef struct QQmlEngine QQmlEngine;
 
 QGeoServiceProviderFactory* QGeoServiceProviderFactory_new();
 void QGeoServiceProviderFactory_SetQmlEngine(QGeoServiceProviderFactory* self, QQmlEngine* engine);
-void QGeoServiceProviderFactory_OperatorAssign(QGeoServiceProviderFactory* self, const QGeoServiceProviderFactory* param1);
 void QGeoServiceProviderFactory_OnSetQmlEngine(QGeoServiceProviderFactory* self, intptr_t slot);
 void QGeoServiceProviderFactory_SuperSetQmlEngine(QGeoServiceProviderFactory* self, QQmlEngine* engine);
 void QGeoServiceProviderFactory_Delete(QGeoServiceProviderFactory* self);

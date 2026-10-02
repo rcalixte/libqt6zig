@@ -23,7 +23,6 @@ typedef struct QUrl QUrl;
 KFileItemListProperties* KFileItemListProperties_new();
 KFileItemListProperties* KFileItemListProperties_new2(const KFileItemList* items);
 KFileItemListProperties* KFileItemListProperties_new3(const KFileItemListProperties* param1);
-void KFileItemListProperties_OperatorAssign(KFileItemListProperties* self, const KFileItemListProperties* other);
 void KFileItemListProperties_SetItems(KFileItemListProperties* self, const KFileItemList* items);
 bool KFileItemListProperties_SupportsReading(const KFileItemListProperties* self);
 bool KFileItemListProperties_SupportsDeleting(const KFileItemListProperties* self);

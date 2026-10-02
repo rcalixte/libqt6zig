@@ -19,7 +19,6 @@ typedef struct QTextToSpeechPlugin QTextToSpeechPlugin;
 #endif
 
 QTextToSpeechPlugin* QTextToSpeechPlugin_new();
-void QTextToSpeechPlugin_OperatorAssign(QTextToSpeechPlugin* self, const QTextToSpeechPlugin* param1);
 void QTextToSpeechPlugin_Delete(QTextToSpeechPlugin* self);
 
 #ifdef __cplusplus

@@ -38,23 +38,6 @@ pub const QScrollerProperties = extern struct {
         return .{ .ptr = qtc.QScrollerProperties_new2(@ptrCast(sp.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QScrollerProperties `
-    ///
-    /// ` sp: QScrollerProperties `
-    ///
-    pub fn operatorAssign(self: QScrollerProperties, sp: anytype) void {
-        comptime _ = @TypeOf(sp)._is_QScrollerProperties;
-        qtc.QScrollerProperties_OperatorAssign(@ptrCast(self.ptr), @ptrCast(sp.ptr));
-    }
-
     /// ### DEPRECATED: Use `operatorEqual` instead
     ///
     pub const OperatorEqual = operatorEqual;

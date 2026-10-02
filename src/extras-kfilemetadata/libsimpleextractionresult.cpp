@@ -29,10 +29,6 @@ KFileMetaData__SimpleExtractionResult* KFileMetaData__SimpleExtractionResult_new
     return new VirtualKFileMetaDataSimpleExtractionResult(url_QString, mimetype_QString, (const KFileMetaData::ExtractionResult::Flags&)(*flags));
 }
 
-void KFileMetaData__SimpleExtractionResult_OperatorAssign(KFileMetaData__SimpleExtractionResult* self, const KFileMetaData__SimpleExtractionResult* rhs) {
-    self->operator=(*rhs);
-}
-
 bool KFileMetaData__SimpleExtractionResult_OperatorEqual(const KFileMetaData__SimpleExtractionResult* self, const KFileMetaData__SimpleExtractionResult* rhs) {
     return (*self == *rhs);
 }

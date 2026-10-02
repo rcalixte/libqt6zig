@@ -330,23 +330,6 @@ pub const Attica__PlatformDependent = extern struct {
         return .{ .ptr = qtc.Attica__PlatformDependent_Nam(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `operatorAssign` instead
-    ///
-    pub const OperatorAssign = operatorAssign;
-
-    /// ### [Upstream resources](https://api.kde.org/attica-platformdependent.html#operator-eq)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Attica__PlatformDependent `
-    ///
-    /// ` param1: Attica__PlatformDependent `
-    ///
-    pub fn operatorAssign(self: Attica__PlatformDependent, param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_Attica__PlatformDependent;
-        qtc.Attica__PlatformDependent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
-    }
-
     /// ### DEPRECATED: Use `delete` instead
     ///
     pub const Delete = delete;

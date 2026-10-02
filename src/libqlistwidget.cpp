@@ -287,10 +287,6 @@ void QListWidgetItem_Write(const QListWidgetItem* self, QDataStream* out) {
     self->write(*out);
 }
 
-void QListWidgetItem_OperatorAssign(QListWidgetItem* self, const QListWidgetItem* other) {
-    self->operator=(*other);
-}
-
 int QListWidgetItem_Type(const QListWidgetItem* self) {
     return self->type();
 }
