@@ -290,19 +290,17 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		maybeConst := ifv(p.Const, "const ", "")
 		return strings.Repeat("[]"+maybeConst, p.PointerCount-1) + "[:0]" + maybeConst + "u8"
 	}
-	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" ||
+	if p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
+		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
+		p.ParameterType == "QString" || p.ParameterType == "QStringView" ||
 		p.ParameterType == "SignOn::MethodName" {
 		return "[]const u8"
-	}
-	if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" {
-		return "[]u8"
 	}
 
 	if t, _, ok := p.QListOf(); ok {
 		tType := t.RenderTypeZig(zfs, true, fullEnumName)
 		var maybeConstOrPointer string
-		if t.ParameterType == "QString" {
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
 			maybeConstOrPointer = "const "
 		}
 
@@ -325,12 +323,9 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		maybeArray := ifv(IsOrderedMap(containerType), "Array", "")
 
 		switch t1.ParameterType {
-		case "QString", "SignOn::MethodName":
+		case "QByteArray", "QString", "SignOn::MethodName":
 			k = "constu8"
 			hashMapType = "String" + maybeArray + "HashMap,constu8,"
-		case "QByteArray":
-			k = "u8"
-			hashMapType = "String" + maybeArray + "HashMap,u8,"
 		default:
 			k = t1.RenderTypeZig(zfs, true, false)
 			if e, ok := KnownEnums[t1.ParameterType]; ok {
@@ -338,7 +333,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			}
 			hashMapType = "Auto" + maybeArray + "HashMap," + k + ","
 		}
-		maybeConst := ifv(t2.ParameterType == "QString", "const ", "")
+		maybeConst := ifv(t2.ParameterType == "QString" || t2.ParameterType == "QByteArray", "const ", "")
 
 		t2Type := t2.RenderTypeZig(zfs, true, false)
 		v := ifv(isQMulti, "[]"+maybeConst, "") + t2Type
@@ -1264,12 +1259,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		kTypeZig := ifv(kType.ParameterType == "QString" || kType.ParameterType == "QByteArray" || kType.ParameterType == "SignOn::MethodName", kType.parameterTypeZig(), kType.RenderTypeZig(zfs, true, true))
 
 		switch kType.ParameterType {
-		case "QString", "SignOn::MethodName":
+		case "QByteArray", "QString", "SignOn::MethodName":
 			hashMapType = "String" + maybeArray + "HashMap,constu8,"
 			k = "constu8"
-		case "QByteArray":
-			hashMapType = "String" + maybeArray + "HashMap,u8,"
-			k = "u8"
 		default:
 			k = kType.RenderTypeZig(zfs, true, true)
 			if e, ok := KnownEnums[kType.ParameterType]; ok {
@@ -1279,7 +1271,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		}
 
 		var valIsList, valueTypeOverride bool
-		maybeConst := ifv(vType.ParameterType == "QString", "const ", "")
+		maybeConst := ifv(vType.ParameterType == "QString" || vType.ParameterType == "QByteArray", "const ", "")
 		vTypeZig := vType.RenderTypeZig(zfs, true, true)
 		vParam := ifv(isQMulti, "[]"+maybeConst, "") + vTypeZig
 		vParam = ifv(vParam == "SignOn__MechanismsList", "[]const []const u8", vParam)
@@ -1593,28 +1585,19 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " std.mem.span(" + namePrefix + "_ret);\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if rt.ParameterType == "QString" || rt.ParameterType == "QStringView" ||
+	} else if rt.ParameterType == "QByteArray" || rt.ParameterType == "QByteArrayView" ||
+		rt.ParameterType == "QLatin1String" || rt.ParameterType == "QLatin1StringView" ||
+		rt.ParameterType == "QString" || rt.ParameterType == "QStringView" ||
 		rt.ParameterType == "SignOn::MethodName" {
+		// We receive the C ABI type of a libqt_string. Convert it into []const u8
+		// We must free the libqt_string data pointer - this is a data copy,
+		// not an alias.
 		zfs.imports["std"] = struct{}{}
 
 		shouldReturn = "var " + namePrefix + "_str ="
 		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_str);\n"
 		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_str.data[0.." + namePrefix + "_str.len]);\n"
-		afterword += assignExpr + " " + namePrefix + "_ret;\n"
-		return shouldReturn + " " + rvalue + ";\n" + afterword
-
-	} else if rt.ParameterType == "QByteArray" || rt.ParameterType == "QByteArrayView" ||
-		rt.ParameterType == "QLatin1String" || rt.ParameterType == "QLatin1StringView" {
-		// We receive the C ABI type of a libqt_string. Convert it into []byte
-		// We must free the libqt_string data pointer - this is a data copy,
-		// not an alias.
-		zfs.imports["std"] = struct{}{}
-
-		shouldReturn = "var " + namePrefix + "_bytearray: qtc.libqt_string = "
-		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_bytearray);\n"
-		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_bytearray.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
-		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_bytearray.data[0.." + namePrefix + "_bytearray.len]);\n"
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
@@ -1932,7 +1915,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			keyParam = e.EnumTypeZig
 		}
 
-		vParam := ifv(isQMulti, mapParamToString("[]"+ifv(vType.ParameterType == "QString", "const ", "")+vType.RenderTypeZig(zfs, true, true)), valParam)
+		vParam := ifv(isQMulti, mapParamToString("[]"+ifv(vType.ParameterType == "QString" || vType.ParameterType == "QByteArray", "const ", "")+vType.RenderTypeZig(zfs, true, true)), valParam)
 		if valParam == "constu8" || valParam == "u8" {
 			valParam = "qtc.libqt_string"
 			stringValue = true
@@ -2130,7 +2113,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_pair: qtc.libqt_pair = "
 			var firstVal, secondVal string
 
-			if kType.ParameterType == "QString" {
+			if kType.ParameterType == "QString" || kType.ParameterType == "QByteArray" {
 				afterword += "var " + namePrefix + "_first_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_pair.first));\n"
 				afterword += "defer {\n"
 				afterword += "qtc.libqt_string_free(" + namePrefix + "_first_str);\n"
@@ -2150,7 +2133,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				firstVal = kCast + namePrefix + "_pair.first" + kClose
 			}
 
-			if vType.ParameterType == "QString" {
+			if vType.ParameterType == "QString" || vType.ParameterType == "QByteArray" {
 				afterword += "var " + namePrefix + "_second_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_pair.second));\n"
 				afterword += "defer {\n"
 				afterword += "qtc.libqt_string_free(" + namePrefix + "_second_str);\n"

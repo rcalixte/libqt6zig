@@ -476,9 +476,9 @@ pub const QQmlInfo = extern struct {
     ///
     /// ` self: QQmlInfo `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft17(self: QQmlInfo, t: []u8) QQmlInfo {
+    pub fn operatorShiftLeft17(self: QQmlInfo, t: []const u8) QQmlInfo {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -496,9 +496,9 @@ pub const QQmlInfo = extern struct {
     ///
     /// ` self: QQmlInfo `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft18(self: QQmlInfo, t: []u8) QQmlInfo {
+    pub fn operatorShiftLeft18(self: QQmlInfo, t: []const u8) QQmlInfo {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -835,9 +835,9 @@ pub const QQmlInfo = extern struct {
     ///
     /// ` self: QQmlInfo `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft23(self: QQmlInfo, t: []u8) QDebug {
+    pub fn operatorShiftLeft23(self: QQmlInfo, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -857,9 +857,9 @@ pub const QQmlInfo = extern struct {
     ///
     /// ` self: QQmlInfo `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft24(self: QQmlInfo, t: []u8) QDebug {
+    pub fn operatorShiftLeft24(self: QQmlInfo, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,

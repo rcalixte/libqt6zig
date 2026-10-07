@@ -1709,7 +1709,6 @@ pub const QQmlProperty = ?*C.QQmlProperty;
 pub const QQmlPropertyMap = ?*C.QQmlPropertyMap;
 pub const QQmlPropertyValueSource = ?*C.QQmlPropertyValueSource;
 pub const QQmlScriptString = ?*C.QQmlScriptString;
-pub const QQmlTypeNotAvailable = ?*C.QQmlTypeNotAvailable;
 pub const QQmlTypesExtensionInterface = ?*C.QQmlTypesExtensionInterface;
 pub const QQmlWebChannel = ?*C.QQmlWebChannel;
 pub const QQuaternion = ?*C.QQuaternion;

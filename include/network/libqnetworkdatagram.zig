@@ -31,9 +31,9 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn new2(_data: []u8) QNetworkDatagram {
+    pub fn new2(_data: []const u8) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -64,11 +64,11 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
     /// ` _destinationAddress: QHostAddress `
     ///
-    pub fn new4(_data: []u8, _destinationAddress: anytype) QNetworkDatagram {
+    pub fn new4(_data: []const u8, _destinationAddress: anytype) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -85,13 +85,13 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
     /// ` _destinationAddress: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn new5(_data: []u8, _destinationAddress: anytype, port: u16) QNetworkDatagram {
+    pub fn new5(_data: []const u8, _destinationAddress: anytype, port: u16) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -340,11 +340,11 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: QNetworkDatagram, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkDatagram.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: QNetworkDatagram, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkDatagram_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkDatagram.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -358,9 +358,9 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ` self: QNetworkDatagram `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn setData(self: QNetworkDatagram, _data: []u8) void {
+    pub fn setData(self: QNetworkDatagram, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -378,9 +378,9 @@ pub const QNetworkDatagram = extern struct {
     ///
     /// ` self: QNetworkDatagram `
     ///
-    /// ` payload: []u8 `
+    /// ` payload: []const u8 `
     ///
-    pub fn makeReply(self: QNetworkDatagram, payload: []u8) QNetworkDatagram {
+    pub fn makeReply(self: QNetworkDatagram, payload: []const u8) QNetworkDatagram {
         const payload_str = qtc.libqt_string{
             .len = payload.len,
             .data = payload.ptr,

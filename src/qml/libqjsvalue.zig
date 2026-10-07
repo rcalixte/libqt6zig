@@ -125,9 +125,9 @@ pub const QJSValue = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn new8(value: []u8) QJSValue {
+    pub fn new8(value: []const u8) QJSValue {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,

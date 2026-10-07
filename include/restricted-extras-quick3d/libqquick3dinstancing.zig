@@ -247,11 +247,11 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` instanceCount: *i32 `
     ///
-    pub fn instanceBuffer(self: QQuick3DInstancing, allocator: std.mem.Allocator, instanceCount: *i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QQuick3DInstancing_InstanceBuffer(@ptrCast(self.ptr), @ptrCast(instanceCount));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QQuick3DInstancing.instanceBuffer: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn instanceBuffer(self: QQuick3DInstancing, allocator: std.mem.Allocator, instanceCount: *i32) []const u8 {
+        var _str = qtc.QQuick3DInstancing_InstanceBuffer(@ptrCast(self.ptr), @ptrCast(instanceCount));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QQuick3DInstancing.instanceBuffer: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -591,11 +591,11 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` instanceCount: *i32 `
     ///
-    pub fn getInstanceBuffer(self: QQuick3DInstancing, allocator: std.mem.Allocator, instanceCount: *i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QQuick3DInstancing_GetInstanceBuffer(@ptrCast(self.ptr), @ptrCast(instanceCount));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QQuick3DInstancing.getInstanceBuffer: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn getInstanceBuffer(self: QQuick3DInstancing, allocator: std.mem.Allocator, instanceCount: *i32) []const u8 {
+        var _str = qtc.QQuick3DInstancing_GetInstanceBuffer(@ptrCast(self.ptr), @ptrCast(instanceCount));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QQuick3DInstancing.getInstanceBuffer: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -611,9 +611,9 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` self: QQuick3DInstancing `
     ///
-    /// ` callback: *const fn (self: QQuick3DInstancing, instanceCount: *i32) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: QQuick3DInstancing, instanceCount: *i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onGetInstanceBuffer(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, *i32) callconv(.c) qtc.libqt_string) void {
+    pub fn onGetInstanceBuffer(self: QQuick3DInstancing, callback: *const fn (QQuick3DInstancing, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QQuick3DInstancing_OnGetInstanceBuffer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1623,7 +1623,7 @@ pub const QQuick3DInstancing = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QQuick3DInstancing, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QQuick3DInstancing, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1631,7 +1631,7 @@ pub const QQuick3DInstancing = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QQuick3DInstancing.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QQuick3DInstancing.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QQuick3DInstancing.dynamicPropertyNames: Memory allocation failed");

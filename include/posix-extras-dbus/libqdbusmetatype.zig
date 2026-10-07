@@ -143,9 +143,9 @@ pub const QDBusMetaType = extern struct {
     ///
     /// ` typeVal: QMetaType `
     ///
-    /// ` signature: []u8 `
+    /// ` signature: []const u8 `
     ///
-    pub fn registerCustomType(typeVal: anytype, signature: []u8) void {
+    pub fn registerCustomType(typeVal: anytype, signature: []const u8) void {
         comptime _ = @TypeOf(typeVal)._is_QMetaType;
         const signature_str = qtc.libqt_string{
             .len = signature.len,

@@ -124,11 +124,11 @@ pub const QMetaType = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` normalizedTypeName: []u8 `
+    /// ` normalizedTypeName: []const u8 `
     ///
     /// ` typeVal: QMetaType `
     ///
-    pub fn registerNormalizedTypedef(normalizedTypeName: []u8, typeVal: anytype) void {
+    pub fn registerNormalizedTypedef(normalizedTypeName: []const u8, typeVal: anytype) void {
         const normalizedTypeName_str = qtc.libqt_string{
             .len = normalizedTypeName.len,
             .data = normalizedTypeName.ptr,
@@ -162,9 +162,9 @@ pub const QMetaType = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _typeName: []u8 `
+    /// ` _typeName: []const u8 `
     ///
-    pub fn type2(_typeName: []u8) i32 {
+    pub fn type2(_typeName: []const u8) i32 {
         const typeName_str = qtc.libqt_string{
             .len = _typeName.len,
             .data = _typeName.ptr,
@@ -736,9 +736,9 @@ pub const QMetaType = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn fromName(_name: []u8) QMetaType {
+    pub fn fromName(_name: []const u8) QMetaType {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,

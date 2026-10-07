@@ -463,11 +463,11 @@ pub const KLocalizedString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn untranslatedText(self: KLocalizedString, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KLocalizedString_UntranslatedText(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLocalizedString.untranslatedText: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn untranslatedText(self: KLocalizedString, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KLocalizedString_UntranslatedText(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.untranslatedText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -479,9 +479,9 @@ pub const KLocalizedString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
-    pub fn setApplicationDomain(domain: []u8) void {
+    pub fn setApplicationDomain(domain: []const u8) void {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
@@ -499,11 +499,11 @@ pub const KLocalizedString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn applicationDomain(allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KLocalizedString_ApplicationDomain();
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLocalizedString.applicationDomain: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn applicationDomain(allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KLocalizedString_ApplicationDomain();
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.applicationDomain: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -620,9 +620,9 @@ pub const KLocalizedString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
-    pub fn availableDomainTranslations(allocator: std.mem.Allocator, domain: []u8) Set_constu8 {
+    pub fn availableDomainTranslations(allocator: std.mem.Allocator, domain: []const u8) Set_constu8 {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
@@ -644,11 +644,11 @@ pub const KLocalizedString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn addDomainLocaleDir(domain: []u8, path: []const u8) void {
+    pub fn addDomainLocaleDir(domain: []const u8, path: []const u8) void {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,

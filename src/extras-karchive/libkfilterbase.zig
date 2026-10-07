@@ -266,9 +266,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` filename: []u8 `
+    /// ` filename: []const u8 `
     ///
-    pub fn writeHeader(self: KFilterBase, filename: []u8) bool {
+    pub fn writeHeader(self: KFilterBase, filename: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
@@ -288,9 +288,9 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn (self: KFilterBase, filename: qtc.libqt_string) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase, filename: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn onWriteHeader(self: KFilterBase, callback: *const fn (KFilterBase, qtc.libqt_string) callconv(.c) bool) void {
+    pub fn onWriteHeader(self: KFilterBase, callback: *const fn (KFilterBase, [*:0]const u8) callconv(.c) bool) void {
         qtc.KFilterBase_OnWriteHeader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

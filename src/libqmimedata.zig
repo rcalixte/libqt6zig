@@ -478,15 +478,15 @@ pub const QMimeData = extern struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn data(self: QMimeData, allocator: std.mem.Allocator, mimetype: []const u8) []u8 {
+    pub fn data(self: QMimeData, allocator: std.mem.Allocator, mimetype: []const u8) []const u8 {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QMimeData_Data(@ptrCast(self.ptr), mimetype_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMimeData.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QMimeData_Data(@ptrCast(self.ptr), mimetype_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeData.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -502,9 +502,9 @@ pub const QMimeData = extern struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn setData(self: QMimeData, mimetype: []const u8, _data: []u8) void {
+    pub fn setData(self: QMimeData, mimetype: []const u8, _data: []const u8) void {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
@@ -1396,7 +1396,7 @@ pub const QMimeData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QMimeData, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QMimeData, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1404,7 +1404,7 @@ pub const QMimeData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMimeData.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeData.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMimeData.dynamicPropertyNames: Memory allocation failed");

@@ -30,9 +30,9 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn new2(_pattern: []u8) QByteArrayMatcher {
+    pub fn new2(_pattern: []const u8) QByteArrayMatcher {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -48,9 +48,9 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn new3(_pattern: []u8) QByteArrayMatcher {
+    pub fn new3(_pattern: []const u8) QByteArrayMatcher {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -132,9 +132,9 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` self: QByteArrayMatcher `
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn setPattern(self: QByteArrayMatcher, _pattern: []u8) void {
+    pub fn setPattern(self: QByteArrayMatcher, _pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -171,9 +171,9 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` self: QByteArrayMatcher `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn indexIn2(self: QByteArrayMatcher, data: []u8) isize {
+    pub fn indexIn2(self: QByteArrayMatcher, data: []const u8) isize {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -193,11 +193,11 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn pattern(self: QByteArrayMatcher, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArrayMatcher_Pattern(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArrayMatcher.pattern: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn pattern(self: QByteArrayMatcher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QByteArrayMatcher_Pattern(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArrayMatcher.pattern: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -232,11 +232,11 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` self: QByteArrayMatcher `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` from: isize `
     ///
-    pub fn indexIn22(self: QByteArrayMatcher, data: []u8, from: isize) isize {
+    pub fn indexIn22(self: QByteArrayMatcher, data: []const u8, from: isize) isize {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

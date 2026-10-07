@@ -931,9 +931,9 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn writeFile(self: K7Zip, name: []const u8, data: []u8) bool {
+    pub fn writeFile(self: K7Zip, name: []const u8, data: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1014,9 +1014,9 @@ pub const K7Zip = extern struct {
     ///
     /// ` self: K7Zip `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn writeData2(self: K7Zip, data: []u8) bool {
+    pub fn writeData2(self: K7Zip, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1540,11 +1540,11 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
-    pub fn writeFile3(self: K7Zip, name: []const u8, data: []u8, perm: u32) bool {
+    pub fn writeFile3(self: K7Zip, name: []const u8, data: []const u8, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1570,13 +1570,13 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
-    pub fn writeFile4(self: K7Zip, name: []const u8, data: []u8, perm: u32, user: []const u8) bool {
+    pub fn writeFile4(self: K7Zip, name: []const u8, data: []const u8, perm: u32, user: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1606,7 +1606,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1614,7 +1614,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn writeFile5(self: K7Zip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8) bool {
+    pub fn writeFile5(self: K7Zip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1648,7 +1648,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1658,7 +1658,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` atime: QDateTime `
     ///
-    pub fn writeFile6(self: K7Zip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype) bool {
+    pub fn writeFile6(self: K7Zip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1693,7 +1693,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1705,7 +1705,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` mtime: QDateTime `
     ///
-    pub fn writeFile7(self: K7Zip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype) bool {
+    pub fn writeFile7(self: K7Zip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1741,7 +1741,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1755,7 +1755,7 @@ pub const K7Zip = extern struct {
     ///
     /// ` ctime: QDateTime `
     ///
-    pub fn writeFile8(self: K7Zip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype, ctime: anytype) bool {
+    pub fn writeFile8(self: K7Zip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype, ctime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

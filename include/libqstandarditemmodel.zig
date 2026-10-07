@@ -24,7 +24,7 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
-const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const Map_i32_constu8 = std.AutoHashMapUnmanaged(i32, []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstandarditem.html)
 pub const QStandardItem = extern struct {
@@ -2180,9 +2180,9 @@ pub const QStandardItemModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _roleNames: Map_i32_u8 `
+    /// ` _roleNames: Map_i32_constu8 `
     ///
-    pub fn setItemRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator, _roleNames: Map_i32_u8) void {
+    pub fn setItemRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator, _roleNames: Map_i32_constu8) void {
         const roleNames_count = _roleNames.count();
         const roleNames_keys = allocator.alloc(i32, roleNames_count) catch @panic("QStandardItemModel.setItemRoleNames: Memory allocation failed");
         defer allocator.free(roleNames_keys);
@@ -2219,9 +2219,9 @@ pub const QStandardItemModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn roleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_constu8 {
         const _map: qtc.libqt_map = qtc.QStandardItemModel_RoleNames(@ptrCast(self.ptr));
-        var _ret: Map_i32_u8 = .empty;
+        var _ret: Map_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -2260,7 +2260,7 @@ pub const QStandardItemModel = extern struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of Map_i32_u8 `
+    /// ` C ABI representation of Map_i32_constu8 `
     ///
     pub fn onRoleNames(self: QStandardItemModel, callback: *const fn (QStandardItemModel) callconv(.c) qtc.libqt_map) void {
         qtc.QStandardItemModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2280,9 +2280,9 @@ pub const QStandardItemModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn superRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_constu8 {
         const _map: qtc.libqt_map = qtc.QStandardItemModel_SuperRoleNames(@ptrCast(self.ptr));
-        var _ret: Map_i32_u8 = .empty;
+        var _ret: Map_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -5768,7 +5768,7 @@ pub const QStandardItemModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QStandardItemModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QStandardItemModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5776,7 +5776,7 @@ pub const QStandardItemModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStandardItemModel.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStandardItemModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QStandardItemModel.dynamicPropertyNames: Memory allocation failed");

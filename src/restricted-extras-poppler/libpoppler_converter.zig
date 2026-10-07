@@ -1167,11 +1167,11 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn documentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentOwnerPassword(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentOwnerPassword: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn documentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__PDFConverter__NewSignatureData_DocumentOwnerPassword(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentOwnerPassword: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1185,9 +1185,9 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` _password: []u8 `
+    /// ` _password: []const u8 `
     ///
-    pub fn setDocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []u8) void {
+    pub fn setDocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = _password.len,
             .data = _password.ptr,
@@ -1207,11 +1207,11 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn documentUserPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentUserPassword(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentUserPassword: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn documentUserPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__PDFConverter__NewSignatureData_DocumentUserPassword(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.documentUserPassword: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1225,9 +1225,9 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     ///
     /// ` self: Poppler__PDFConverter__NewSignatureData `
     ///
-    /// ` _password: []u8 `
+    /// ` _password: []const u8 `
     ///
-    pub fn setDocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []u8) void {
+    pub fn setDocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, _password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = _password.len,
             .data = _password.ptr,

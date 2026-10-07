@@ -47,9 +47,9 @@ pub const QDataStream = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` param1: []const u8 `
     ///
-    pub fn new3(param1: []u8) QDataStream {
+    pub fn new3(param1: []const u8) QDataStream {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

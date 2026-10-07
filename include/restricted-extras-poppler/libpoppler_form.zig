@@ -1941,11 +1941,11 @@ pub const Poppler__CertificateInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn serialNumber(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_SerialNumber(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__CertificateInfo.serialNumber: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn serialNumber(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_SerialNumber(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CertificateInfo.serialNumber: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2071,11 +2071,11 @@ pub const Poppler__CertificateInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn publicKey(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_PublicKey(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__CertificateInfo.publicKey: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn publicKey(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_PublicKey(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CertificateInfo.publicKey: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2169,11 +2169,11 @@ pub const Poppler__CertificateInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn certificateData(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__CertificateInfo_CertificateData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__CertificateInfo.certificateData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn certificateData(self: Poppler__CertificateInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__CertificateInfo_CertificateData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CertificateInfo.certificateData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2434,11 +2434,11 @@ pub const Poppler__SignatureValidationInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn signature(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__SignatureValidationInfo_Signature(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__SignatureValidationInfo.signature: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn signature(self: Poppler__SignatureValidationInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SignatureValidationInfo_Signature(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureValidationInfo.signature: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3385,7 +3385,7 @@ pub const Poppler__AsyncObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: Poppler__AsyncObject, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Poppler__AsyncObject, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3393,7 +3393,7 @@ pub const Poppler__AsyncObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Poppler__AsyncObject.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__AsyncObject.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Poppler__AsyncObject.dynamicPropertyNames: Memory allocation failed");

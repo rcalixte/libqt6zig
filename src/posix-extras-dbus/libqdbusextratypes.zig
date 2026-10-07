@@ -46,9 +46,9 @@ pub const QDBusObjectPath = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _path: []u8 `
+    /// ` _path: []const u8 `
     ///
-    pub fn new3(_path: []u8) QDBusObjectPath {
+    pub fn new3(_path: []const u8) QDBusObjectPath {
         const path_str = qtc.libqt_string{
             .len = _path.len,
             .data = _path.ptr,
@@ -274,9 +274,9 @@ pub const QDBusSignature = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _signature: []u8 `
+    /// ` _signature: []const u8 `
     ///
-    pub fn new3(_signature: []u8) QDBusSignature {
+    pub fn new3(_signature: []const u8) QDBusSignature {
         const signature_str = qtc.libqt_string{
             .len = _signature.len,
             .data = _signature.ptr,

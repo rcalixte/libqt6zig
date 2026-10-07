@@ -165,9 +165,9 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` self: KIO__TransferJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn sendAsyncData(self: KIO__TransferJob, _data: []u8) void {
+    pub fn sendAsyncData(self: KIO__TransferJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -237,9 +237,9 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__TransferJob, job: anytype, _data: []u8) void {
+    pub fn data(self: KIO__TransferJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -258,9 +258,9 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` self: KIO__TransferJob `
     ///
-    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onData(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onData(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -276,9 +276,9 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn dataReq(self: KIO__TransferJob, job: anytype, _data: []u8) void {
+    pub fn dataReq(self: KIO__TransferJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -297,9 +297,9 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` self: KIO__TransferJob `
     ///
-    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onDataReq(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onDataReq(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2244,7 +2244,7 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__TransferJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__TransferJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2252,7 +2252,7 @@ pub const KIO__TransferJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__TransferJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__TransferJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__TransferJob.dynamicPropertyNames: Memory allocation failed");
@@ -2860,11 +2860,11 @@ pub const KIO = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    /// ` postData: []u8 `
+    /// ` postData: []const u8 `
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn httpPost(_url: anytype, postData: []u8, flags: i32) KIO__TransferJob {
+    pub fn httpPost(_url: anytype, postData: []const u8, flags: i32) KIO__TransferJob {
         comptime _ = @TypeOf(_url)._is_QUrl;
         const postData_str = qtc.libqt_string{
             .len = postData.len,

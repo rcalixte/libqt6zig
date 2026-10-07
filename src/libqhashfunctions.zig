@@ -281,11 +281,11 @@ pub const qhashfunctions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
     /// ` seed: usize `
     ///
-    pub fn qHash20(key: []u8, seed: usize) usize {
+    pub fn qHash20(key: []const u8, seed: usize) usize {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -358,11 +358,11 @@ pub const qhashfunctions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
     /// ` seed: usize `
     ///
-    pub fn qHash25(key: []u8, seed: usize) usize {
+    pub fn qHash25(key: []const u8, seed: usize) usize {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

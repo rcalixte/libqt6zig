@@ -137,11 +137,11 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` userType: i32 `
     ///
-    pub fn valuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn valuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []const u8 {
+        var _str = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -157,9 +157,9 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` self: QItemEditorFactory `
     ///
-    /// ` callback: *const fn (self: QItemEditorFactory, userType: i32) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: QItemEditorFactory, userType: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onValuePropertyName(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32) callconv(.c) qtc.libqt_string) void {
+    pub fn onValuePropertyName(self: QItemEditorFactory, callback: *const fn (QItemEditorFactory, i32) callconv(.c) [*:0]const u8) void {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -179,11 +179,11 @@ pub const QItemEditorFactory = extern struct {
     ///
     /// ` userType: i32 `
     ///
-    pub fn superValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_SuperValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn superValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []const u8 {
+        var _str = qtc.QItemEditorFactory_SuperValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemEditorFactory.valuePropertyName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

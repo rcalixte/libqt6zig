@@ -589,9 +589,9 @@ pub const QFontDatabase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fontData: []u8 `
+    /// ` fontData: []const u8 `
     ///
-    pub fn addApplicationFontFromData(fontData: []u8) i32 {
+    pub fn addApplicationFontFromData(fontData: []const u8) i32 {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,

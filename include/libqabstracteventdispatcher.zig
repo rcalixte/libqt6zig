@@ -436,13 +436,13 @@ pub const QAbstractEventDispatcher = extern struct {
     ///
     /// ` self: QAbstractEventDispatcher `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn filterNativeEvent(self: QAbstractEventDispatcher, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn filterNativeEvent(self: QAbstractEventDispatcher, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -1202,7 +1202,7 @@ pub const QAbstractEventDispatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QAbstractEventDispatcher, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractEventDispatcher, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1210,7 +1210,7 @@ pub const QAbstractEventDispatcher = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractEventDispatcher.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAbstractEventDispatcher.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractEventDispatcher.dynamicPropertyNames: Memory allocation failed");
@@ -1912,13 +1912,13 @@ pub const QAbstractEventDispatcherV2 = extern struct {
     ///
     /// ` self: QAbstractEventDispatcherV2 `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn filterNativeEvent(self: QAbstractEventDispatcherV2, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn filterNativeEvent(self: QAbstractEventDispatcherV2, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -2634,7 +2634,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2642,7 +2642,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractEventDispatcherV2.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAbstractEventDispatcherV2.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractEventDispatcherV2.dynamicPropertyNames: Memory allocation failed");

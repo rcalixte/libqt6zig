@@ -16,7 +16,7 @@ const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const Map_i32_QVariant = std.AutoHashMapUnmanaged(i32, QVariant);
-const Struct_u8_u8 = @import("libqt6").types.Struct_u8_u8; // struct { first: []u8, second: []u8 }
+const Struct_constu8_constu8 = @import("libqt6").types.Struct_constu8_constu8; // struct { first: []const u8, second: []const u8 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkcachemetadata.html)
 pub const QNetworkCacheMetaData = extern struct {
@@ -178,7 +178,7 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn rawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) []Struct_u8_u8 {
+    pub fn rawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) []Struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.QNetworkCacheMetaData_RawHeaders(@ptrCast(self.ptr));
         const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -188,7 +188,7 @@ pub const QNetworkCacheMetaData = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_constu8, _arr.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
@@ -196,7 +196,7 @@ pub const QNetworkCacheMetaData = extern struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QNetworkCacheMetaData.rawHeaders: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = Struct_u8_u8{
+            _ret[i] = Struct_constu8_constu8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -216,9 +216,9 @@ pub const QNetworkCacheMetaData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _headers: []Struct_u8_u8 `
+    /// ` _headers: []Struct_constu8_constu8 `
     ///
-    pub fn setRawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, _headers: []Struct_u8_u8) void {
+    pub fn setRawHeaders(self: QNetworkCacheMetaData, allocator: std.mem.Allocator, _headers: []Struct_constu8_constu8) void {
         const headers_pairs = allocator.alloc(qtc.libqt_pair, _headers.len) catch @panic("QNetworkCacheMetaData.setRawHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
         const headers_str = allocator.alloc(qtc.libqt_string, _headers.len * 2) catch @panic("QNetworkCacheMetaData.setRawHeaders: Memory allocation failed");
@@ -1212,7 +1212,7 @@ pub const QAbstractNetworkCache = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QAbstractNetworkCache, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractNetworkCache, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1220,7 +1220,7 @@ pub const QAbstractNetworkCache = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractNetworkCache.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAbstractNetworkCache.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractNetworkCache.dynamicPropertyNames: Memory allocation failed");

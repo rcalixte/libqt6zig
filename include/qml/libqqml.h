@@ -15,15 +15,10 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QChildEvent QChildEvent;
-typedef struct QEvent QEvent;
-typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 typedef struct QQmlContext QQmlContext;
 typedef struct QQmlEngine QQmlEngine;
-typedef struct QQmlTypeNotAvailable QQmlTypeNotAvailable;
-typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 #endif
 
@@ -45,46 +40,6 @@ int qqml_h_QmlRegisterType(const QUrl* url, const char* uri, int versionMajor, i
 void qqml_h_QmlRegisterNamespaceAndRevisions(const QMetaObject* metaObject, const char* uri, int versionMajor, libqt_list /* of int */ qmlTypeIds, const QMetaObject* classInfoMetaObject, const QMetaObject* extensionMetaObject);
 void qqml_h_QmlRegisterNamespaceAndRevisions2(const QMetaObject* metaObject, const char* uri, int versionMajor, libqt_list /* of int */ qmlTypeIds, const QMetaObject* classInfoMetaObject);
 int qqml_h_QmlTypeId(const char* uri, int versionMajor, int versionMinor, const char* qmlName);
-
-QQmlTypeNotAvailable* QQmlTypeNotAvailable_new();
-QMetaObject* QQmlTypeNotAvailable_MetaObject(const QQmlTypeNotAvailable* self);
-void* QQmlTypeNotAvailable_Metacast(QQmlTypeNotAvailable* self, const char* param1);
-int QQmlTypeNotAvailable_Metacall(QQmlTypeNotAvailable* self, int param1, int param2, void** param3);
-libqt_string QQmlTypeNotAvailable_Tr(const char* s);
-libqt_string QQmlTypeNotAvailable_Tr2(const char* s, const char* c);
-libqt_string QQmlTypeNotAvailable_Tr3(const char* s, const char* c, int n);
-void QQmlTypeNotAvailable_OnMetaObject(QQmlTypeNotAvailable* self, intptr_t slot);
-QMetaObject* QQmlTypeNotAvailable_SuperMetaObject(const QQmlTypeNotAvailable* self);
-void QQmlTypeNotAvailable_OnMetacast(QQmlTypeNotAvailable* self, intptr_t slot);
-void* QQmlTypeNotAvailable_SuperMetacast(QQmlTypeNotAvailable* self, const char* param1);
-void QQmlTypeNotAvailable_OnMetacall(QQmlTypeNotAvailable* self, intptr_t slot);
-int QQmlTypeNotAvailable_SuperMetacall(QQmlTypeNotAvailable* self, int param1, int param2, void** param3);
-bool QQmlTypeNotAvailable_Event(QQmlTypeNotAvailable* self, QEvent* event);
-void QQmlTypeNotAvailable_OnEvent(QQmlTypeNotAvailable* self, intptr_t slot);
-bool QQmlTypeNotAvailable_SuperEvent(QQmlTypeNotAvailable* self, QEvent* event);
-bool QQmlTypeNotAvailable_EventFilter(QQmlTypeNotAvailable* self, QObject* watched, QEvent* event);
-void QQmlTypeNotAvailable_OnEventFilter(QQmlTypeNotAvailable* self, intptr_t slot);
-bool QQmlTypeNotAvailable_SuperEventFilter(QQmlTypeNotAvailable* self, QObject* watched, QEvent* event);
-void QQmlTypeNotAvailable_TimerEvent(QQmlTypeNotAvailable* self, QTimerEvent* event);
-void QQmlTypeNotAvailable_OnTimerEvent(QQmlTypeNotAvailable* self, intptr_t slot);
-void QQmlTypeNotAvailable_SuperTimerEvent(QQmlTypeNotAvailable* self, QTimerEvent* event);
-void QQmlTypeNotAvailable_ChildEvent(QQmlTypeNotAvailable* self, QChildEvent* event);
-void QQmlTypeNotAvailable_OnChildEvent(QQmlTypeNotAvailable* self, intptr_t slot);
-void QQmlTypeNotAvailable_SuperChildEvent(QQmlTypeNotAvailable* self, QChildEvent* event);
-void QQmlTypeNotAvailable_CustomEvent(QQmlTypeNotAvailable* self, QEvent* event);
-void QQmlTypeNotAvailable_OnCustomEvent(QQmlTypeNotAvailable* self, intptr_t slot);
-void QQmlTypeNotAvailable_SuperCustomEvent(QQmlTypeNotAvailable* self, QEvent* event);
-void QQmlTypeNotAvailable_ConnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-void QQmlTypeNotAvailable_OnConnectNotify(QQmlTypeNotAvailable* self, intptr_t slot);
-void QQmlTypeNotAvailable_SuperConnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-void QQmlTypeNotAvailable_DisconnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-void QQmlTypeNotAvailable_OnDisconnectNotify(QQmlTypeNotAvailable* self, intptr_t slot);
-void QQmlTypeNotAvailable_SuperDisconnectNotify(QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-QObject* QQmlTypeNotAvailable_Sender(const QQmlTypeNotAvailable* self);
-int QQmlTypeNotAvailable_SenderSignalIndex(const QQmlTypeNotAvailable* self);
-int QQmlTypeNotAvailable_Receivers(const QQmlTypeNotAvailable* self, const char* signal);
-bool QQmlTypeNotAvailable_IsSignalConnected(const QQmlTypeNotAvailable* self, const QMetaMethod* signal);
-void QQmlTypeNotAvailable_Delete(QQmlTypeNotAvailable* self);
 
 #ifdef __cplusplus
 } /* extern C */

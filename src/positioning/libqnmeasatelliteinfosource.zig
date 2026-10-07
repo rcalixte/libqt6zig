@@ -808,7 +808,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` pnrsInUse: []i32 `
     ///
@@ -816,7 +816,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn parseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
+    pub fn parseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []const u8, pnrsInUse: []i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -920,7 +920,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` infos: []QGeoSatelliteInfo `
     ///
@@ -930,7 +930,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn parseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn parseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []const u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1906,7 +1906,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1914,7 +1914,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNmeaSatelliteInfoSource.dynamicPropertyNames: Memory allocation failed");

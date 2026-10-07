@@ -399,9 +399,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn value3(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn value3(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -439,9 +439,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn operatorSubscript4(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn operatorSubscript4(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -479,9 +479,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn operatorSubscript6(self: QJsonObject, key: []u8) QJsonValueRef {
+    pub fn operatorSubscript6(self: QJsonObject, key: []const u8) QJsonValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -579,9 +579,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn remove3(self: QJsonObject, key: []u8) void {
+    pub fn remove3(self: QJsonObject, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -619,9 +619,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn take3(self: QJsonObject, key: []u8) QJsonValue {
+    pub fn take3(self: QJsonObject, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -659,9 +659,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn contains3(self: QJsonObject, key: []u8) bool {
+    pub fn contains3(self: QJsonObject, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -883,9 +883,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn find4(self: QJsonObject, key: []u8) QJsonObject__iterator {
+    pub fn find4(self: QJsonObject, key: []const u8) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -923,9 +923,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn find6(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
+    pub fn find6(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -963,9 +963,9 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn constFind3(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
+    pub fn constFind3(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1006,11 +1006,11 @@ pub const QJsonObject = extern struct {
     ///
     /// ` self: QJsonObject `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
     /// ` _value: QJsonValue `
     ///
-    pub fn insert3(self: QJsonObject, key: []u8, _value: anytype) QJsonObject__iterator {
+    pub fn insert3(self: QJsonObject, key: []const u8, _value: anytype) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

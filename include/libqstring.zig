@@ -26,9 +26,9 @@ pub const QString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` ba: []u8 `
+    /// ` ba: []const u8 `
     ///
-    pub fn fromLatin1(allocator: std.mem.Allocator, ba: []u8) []const u8 {
+    pub fn fromLatin1(allocator: std.mem.Allocator, ba: []const u8) []const u8 {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -73,9 +73,9 @@ pub const QString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` utf8: []u8 `
+    /// ` utf8: []const u8 `
     ///
-    pub fn fromUtf8(allocator: std.mem.Allocator, utf8: []u8) []const u8 {
+    pub fn fromUtf8(allocator: std.mem.Allocator, utf8: []const u8) []const u8 {
         const utf8_str = qtc.libqt_string{
             .len = utf8.len,
             .data = utf8.ptr,
@@ -120,9 +120,9 @@ pub const QString = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` ba: []u8 `
+    /// ` ba: []const u8 `
     ///
-    pub fn fromLocal8Bit(allocator: std.mem.Allocator, ba: []u8) []const u8 {
+    pub fn fromLocal8Bit(allocator: std.mem.Allocator, ba: []const u8) []const u8 {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -254,9 +254,9 @@ pub const QString = extern struct {
     ///
     /// ` s1: []const u8 `
     ///
-    /// ` s2: []u8 `
+    /// ` s2: []const u8 `
     ///
-    pub fn compare6(s1: []const u8, s2: []u8) i32 {
+    pub fn compare6(s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -276,11 +276,11 @@ pub const QString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s1: []u8 `
+    /// ` s1: []const u8 `
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn compare7(s1: []u8, s2: []const u8) i32 {
+    pub fn compare7(s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -608,11 +608,11 @@ pub const QString = extern struct {
     ///
     /// ` s1: []const u8 `
     ///
-    /// ` s2: []u8 `
+    /// ` s2: []const u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn compare33(s1: []const u8, s2: []u8, cs: i32) i32 {
+    pub fn compare33(s1: []const u8, s2: []const u8, cs: i32) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -632,13 +632,13 @@ pub const QString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s1: []u8 `
+    /// ` s1: []const u8 `
     ///
     /// ` s2: []const u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn compare34(s1: []u8, s2: []const u8, cs: i32) i32 {
+    pub fn compare34(s1: []const u8, s2: []const u8, cs: i32) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,

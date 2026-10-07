@@ -48,9 +48,9 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn new3(_name: []u8) QNetworkCookie {
+    pub fn new3(_name: []const u8) QNetworkCookie {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -66,11 +66,11 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` _value: []u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn new4(_name: []u8, _value: []u8) QNetworkCookie {
+    pub fn new4(_name: []const u8, _value: []const u8) QNetworkCookie {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -381,11 +381,11 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn name(self: QNetworkCookie, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_Name(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkCookie.name: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn name(self: QNetworkCookie, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkCookie_Name(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkCookie.name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -399,9 +399,9 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` self: QNetworkCookie `
     ///
-    /// ` cookieName: []u8 `
+    /// ` cookieName: []const u8 `
     ///
-    pub fn setName(self: QNetworkCookie, cookieName: []u8) void {
+    pub fn setName(self: QNetworkCookie, cookieName: []const u8) void {
         const cookieName_str = qtc.libqt_string{
             .len = cookieName.len,
             .data = cookieName.ptr,
@@ -421,11 +421,11 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn value(self: QNetworkCookie, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_Value(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkCookie.value: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn value(self: QNetworkCookie, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkCookie_Value(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkCookie.value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -439,9 +439,9 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` self: QNetworkCookie `
     ///
-    /// ` _value: []u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn setValue(self: QNetworkCookie, _value: []u8) void {
+    pub fn setValue(self: QNetworkCookie, _value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = _value.len,
             .data = _value.ptr,
@@ -461,11 +461,11 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toRawForm(self: QNetworkCookie, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_ToRawForm(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkCookie.toRawForm: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toRawForm(self: QNetworkCookie, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkCookie_ToRawForm(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkCookie.toRawForm: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -513,9 +513,9 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` cookieString: []u8 `
+    /// ` cookieString: []const u8 `
     ///
-    pub fn parseCookies(allocator: std.mem.Allocator, cookieString: []u8) []QNetworkCookie {
+    pub fn parseCookies(allocator: std.mem.Allocator, cookieString: []const u8) []QNetworkCookie {
         const cookieString_str = qtc.libqt_string{
             .len = cookieString.len,
             .data = cookieString.ptr,
@@ -543,11 +543,11 @@ pub const QNetworkCookie = extern struct {
     ///
     /// ` form: qnetworkcookie_enums.RawForm `
     ///
-    pub fn toRawForm1(self: QNetworkCookie, allocator: std.mem.Allocator, form: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkCookie_ToRawForm1(@ptrCast(self.ptr), @bitCast(form));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkCookie.toRawForm1: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toRawForm1(self: QNetworkCookie, allocator: std.mem.Allocator, form: i32) []const u8 {
+        var _str = qtc.QNetworkCookie_ToRawForm1(@ptrCast(self.ptr), @bitCast(form));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkCookie.toRawForm1: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -112,9 +112,9 @@ pub const QSslDiffieHellmanParameters = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` encoded: []u8 `
+    /// ` encoded: []const u8 `
     ///
-    pub fn fromEncoded(encoded: []u8) QSslDiffieHellmanParameters {
+    pub fn fromEncoded(encoded: []const u8) QSslDiffieHellmanParameters {
         const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
@@ -213,11 +213,11 @@ pub const QSslDiffieHellmanParameters = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` encoded: []u8 `
+    /// ` encoded: []const u8 `
     ///
     /// ` format: qssl_enums.EncodingFormat `
     ///
-    pub fn fromEncoded22(encoded: []u8, format: i32) QSslDiffieHellmanParameters {
+    pub fn fromEncoded22(encoded: []const u8, format: i32) QSslDiffieHellmanParameters {
         const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,

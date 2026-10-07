@@ -19,7 +19,7 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qopenglcontext_enums = enums;
 const std = @import("std");
-const Set_u8 = std.StringHashMapUnmanaged(void);
+const Set_constu8 = std.StringHashMapUnmanaged(void);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglcontextgroup.html)
 pub const QOpenGLContextGroup = extern struct {
@@ -811,7 +811,7 @@ pub const QOpenGLContextGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QOpenGLContextGroup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLContextGroup, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -819,7 +819,7 @@ pub const QOpenGLContextGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLContextGroup.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QOpenGLContextGroup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLContextGroup.dynamicPropertyNames: Memory allocation failed");
@@ -1649,13 +1649,13 @@ pub const QOpenGLContext = extern struct {
     ///
     /// ` self: QOpenGLContext `
     ///
-    /// ` procName: []u8 `
+    /// ` procName: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ?*const fn () callconv(.c) void `
     ///
-    pub fn getProcAddress(self: QOpenGLContext, procName: []u8) ?*const fn () callconv(.c) void {
+    pub fn getProcAddress(self: QOpenGLContext, procName: []const u8) ?*const fn () callconv(.c) void {
         const procName_str = qtc.libqt_string{
             .len = procName.len,
             .data = procName.ptr,
@@ -1766,9 +1766,9 @@ pub const QOpenGLContext = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn extensions(self: QOpenGLContext, allocator: std.mem.Allocator) Set_u8 {
+    pub fn extensions(self: QOpenGLContext, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.QOpenGLContext_Extensions(@ptrCast(self.ptr));
-        var _ret: Set_u8 = .empty;
+        var _ret: Set_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("QOpenGLContext.extensions: Total capacity allocation failed");
         const _data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
@@ -1786,9 +1786,9 @@ pub const QOpenGLContext = extern struct {
     ///
     /// ` self: QOpenGLContext `
     ///
-    /// ` extension: []u8 `
+    /// ` extension: []const u8 `
     ///
-    pub fn hasExtension(self: QOpenGLContext, extension: []u8) bool {
+    pub fn hasExtension(self: QOpenGLContext, extension: []const u8) bool {
         const extension_str = qtc.libqt_string{
             .len = extension.len,
             .data = extension.ptr,
@@ -2529,7 +2529,7 @@ pub const QOpenGLContext = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QOpenGLContext, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLContext, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2537,7 +2537,7 @@ pub const QOpenGLContext = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLContext.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QOpenGLContext.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLContext.dynamicPropertyNames: Memory allocation failed");

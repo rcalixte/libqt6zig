@@ -195,13 +195,13 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []u8 `
+    /// ` protocol: []const u8 `
     ///
-    /// ` poolSocket: []u8 `
+    /// ` poolSocket: []const u8 `
     ///
-    /// ` appSocket: []u8 `
+    /// ` appSocket: []const u8 `
     ///
-    pub fn new(protocol: []u8, poolSocket: []u8, appSocket: []u8) KIO__WorkerBase {
+    pub fn new(protocol: []const u8, poolSocket: []const u8, appSocket: []const u8) KIO__WorkerBase {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -255,9 +255,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__WorkerBase, _data: []u8) void {
+    pub fn data(self: KIO__WorkerBase, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -1272,9 +1272,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn write(self: KIO__WorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn write(self: KIO__WorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -1294,11 +1294,11 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onWrite(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onWrite(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1314,9 +1314,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn superWrite(self: KIO__WorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn superWrite(self: KIO__WorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2254,9 +2254,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn special(self: KIO__WorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn special(self: KIO__WorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2276,11 +2276,11 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSpecial(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSpecial(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2296,9 +2296,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn superSpecial(self: KIO__WorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn superSpecial(self: KIO__WorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2540,9 +2540,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` buffer: []u8 `
+    /// ` buffer: []const u8 `
     ///
-    pub fn readData(self: KIO__WorkerBase, buffer: []u8) i32 {
+    pub fn readData(self: KIO__WorkerBase, buffer: []const u8) i32 {
         const buffer_str = qtc.libqt_string{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -2666,9 +2666,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn waitForAnswer(self: KIO__WorkerBase, expected1: i32, expected2: i32, _data: []u8) i32 {
+    pub fn waitForAnswer(self: KIO__WorkerBase, expected1: i32, expected2: i32, _data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -3110,9 +3110,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn setTimeoutSpecialCommand2(self: KIO__WorkerBase, timeout: i32, _data: []u8) void {
+    pub fn setTimeoutSpecialCommand2(self: KIO__WorkerBase, timeout: i32, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -3157,11 +3157,11 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
     /// ` pCmd: *i32 `
     ///
-    pub fn waitForAnswer4(self: KIO__WorkerBase, expected1: i32, expected2: i32, _data: []u8, pCmd: *i32) i32 {
+    pub fn waitForAnswer4(self: KIO__WorkerBase, expected1: i32, expected2: i32, _data: []const u8, pCmd: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,

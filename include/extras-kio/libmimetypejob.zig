@@ -227,9 +227,9 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` self: KIO__MimetypeJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn sendAsyncData(self: KIO__MimetypeJob, _data: []u8) void {
+    pub fn sendAsyncData(self: KIO__MimetypeJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -307,9 +307,9 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__MimetypeJob, job: anytype, _data: []u8) void {
+    pub fn data(self: KIO__MimetypeJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -330,9 +330,9 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` self: KIO__MimetypeJob `
     ///
-    /// ` callback: *const fn (self: KIO__MimetypeJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__MimetypeJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onData(self: KIO__MimetypeJob, callback: *const fn (KIO__MimetypeJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onData(self: KIO__MimetypeJob, callback: *const fn (KIO__MimetypeJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -350,9 +350,9 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn dataReq(self: KIO__MimetypeJob, job: anytype, _data: []u8) void {
+    pub fn dataReq(self: KIO__MimetypeJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -373,9 +373,9 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` self: KIO__MimetypeJob `
     ///
-    /// ` callback: *const fn (self: KIO__MimetypeJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__MimetypeJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onDataReq(self: KIO__MimetypeJob, callback: *const fn (KIO__MimetypeJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onDataReq(self: KIO__MimetypeJob, callback: *const fn (KIO__MimetypeJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2282,7 +2282,7 @@ pub const KIO__MimetypeJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__MimetypeJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__MimetypeJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2290,7 +2290,7 @@ pub const KIO__MimetypeJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__MimetypeJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__MimetypeJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__MimetypeJob.dynamicPropertyNames: Memory allocation failed");

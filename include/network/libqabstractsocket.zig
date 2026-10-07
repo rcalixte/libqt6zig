@@ -2347,11 +2347,11 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn read2(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSocket.read2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn read2(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
+        var _str = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSocket.read2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2369,11 +2369,11 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn readAll(self: QAbstractSocket, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSocket.readAll: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn readAll(self: QAbstractSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSocket.readAll: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2412,11 +2412,11 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn readLine2(self: QAbstractSocket, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSocket.readLine2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn readLine2(self: QAbstractSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSocket.readLine2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2536,9 +2536,9 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` self: QAbstractSocket `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn write3(self: QAbstractSocket, data: []u8) i64 {
+    pub fn write3(self: QAbstractSocket, data: []const u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2583,11 +2583,11 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn peek2(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSocket.peek2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn peek2(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
+        var _str = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSocket.peek2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2914,11 +2914,11 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn readLine1(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSocket.readLine1: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn readLine1(self: QAbstractSocket, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
+        var _str = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSocket.readLine1: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3504,7 +3504,7 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QAbstractSocket, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractSocket, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3512,7 +3512,7 @@ pub const QAbstractSocket = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractSocket.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAbstractSocket.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractSocket.dynamicPropertyNames: Memory allocation failed");

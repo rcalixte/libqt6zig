@@ -176,9 +176,9 @@ pub const QColor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn new11(_name: []u8) QColor {
+    pub fn new11(_name: []const u8) QColor {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -429,9 +429,9 @@ pub const QColor = extern struct {
     ///
     /// ` self: QColor `
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn setNamedColor3(self: QColor, _name: []u8) void {
+    pub fn setNamedColor3(self: QColor, _name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -1895,9 +1895,9 @@ pub const QColor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` param1: []const u8 `
     ///
-    pub fn isValidColor3(param1: []u8) bool {
+    pub fn isValidColor3(param1: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

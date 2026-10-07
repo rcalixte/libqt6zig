@@ -64,7 +64,7 @@ pub const QQuickGraphicsConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn preferredInstanceExtensions(allocator: std.mem.Allocator) [][]u8 {
+    pub fn preferredInstanceExtensions(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QQuickGraphicsConfiguration_PreferredInstanceExtensions();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -72,7 +72,7 @@ pub const QQuickGraphicsConfiguration = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QQuickGraphicsConfiguration.preferredInstanceExtensions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QQuickGraphicsConfiguration.preferredInstanceExtensions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QQuickGraphicsConfiguration.preferredInstanceExtensions: Memory allocation failed");
@@ -94,9 +94,9 @@ pub const QQuickGraphicsConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` extensions: [][]u8 `
+    /// ` extensions: []const []const u8 `
     ///
-    pub fn setDeviceExtensions(self: QQuickGraphicsConfiguration, allocator: std.mem.Allocator, extensions: [][]u8) void {
+    pub fn setDeviceExtensions(self: QQuickGraphicsConfiguration, allocator: std.mem.Allocator, extensions: []const []const u8) void {
         const extensions_arr = allocator.alloc(qtc.libqt_string, extensions.len) catch @panic("QQuickGraphicsConfiguration.setDeviceExtensions: Memory allocation failed");
         defer allocator.free(extensions_arr);
         for (extensions, 0..extensions.len) |str_item, i|
@@ -123,7 +123,7 @@ pub const QQuickGraphicsConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn deviceExtensions(self: QQuickGraphicsConfiguration, allocator: std.mem.Allocator) [][]u8 {
+    pub fn deviceExtensions(self: QQuickGraphicsConfiguration, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QQuickGraphicsConfiguration_DeviceExtensions(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -131,7 +131,7 @@ pub const QQuickGraphicsConfiguration = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QQuickGraphicsConfiguration.deviceExtensions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QQuickGraphicsConfiguration.deviceExtensions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QQuickGraphicsConfiguration.deviceExtensions: Memory allocation failed");

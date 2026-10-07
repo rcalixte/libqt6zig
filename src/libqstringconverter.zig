@@ -250,13 +250,13 @@ pub const QStringEncoder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn encodingForData(data: []u8) i32 {
+    pub fn encodingForData(data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -274,13 +274,13 @@ pub const QStringEncoder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn encodingForHtml(data: []u8) i32 {
+    pub fn encodingForHtml(data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -453,9 +453,9 @@ pub const QStringDecoder = extern struct {
     ///
     /// ` out: QChar `
     ///
-    /// ` ba: []u8 `
+    /// ` ba: []const u8 `
     ///
-    pub fn appendToBuffer(self: QStringDecoder, out: anytype, ba: []u8) QChar {
+    pub fn appendToBuffer(self: QStringDecoder, out: anytype, ba: []const u8) QChar {
         comptime _ = @TypeOf(out)._is_QChar;
         const ba_str = qtc.libqt_string{
             .len = ba.len,
@@ -472,9 +472,9 @@ pub const QStringDecoder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn decoderForHtml(data: []u8) QStringDecoder {
+    pub fn decoderForHtml(data: []const u8) QStringDecoder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -598,13 +598,13 @@ pub const QStringDecoder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn encodingForData(data: []u8) i32 {
+    pub fn encodingForData(data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -622,13 +622,13 @@ pub const QStringDecoder = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
-    pub fn encodingForHtml(data: []u8) i32 {
+    pub fn encodingForHtml(data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

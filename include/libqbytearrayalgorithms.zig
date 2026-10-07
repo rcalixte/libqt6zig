@@ -217,11 +217,11 @@ pub const qbytearrayalgorithms = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` standard: qnamespace_enums.ChecksumType `
     ///
-    pub fn qChecksum(data: []u8, standard: i32) u16 {
+    pub fn qChecksum(data: []const u8, standard: i32) u16 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

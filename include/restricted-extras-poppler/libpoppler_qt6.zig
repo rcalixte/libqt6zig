@@ -575,11 +575,11 @@ pub const Poppler__EmbeddedFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn checksum(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Checksum(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__EmbeddedFile.checksum: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn checksum(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__EmbeddedFile_Checksum(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__EmbeddedFile.checksum: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -615,11 +615,11 @@ pub const Poppler__EmbeddedFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__EmbeddedFile.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__EmbeddedFile_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__EmbeddedFile.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2060,9 +2060,9 @@ pub const Poppler__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileContents: []u8 `
+    /// ` fileContents: []const u8 `
     ///
-    pub fn loadFromData(fileContents: []u8) Poppler__Document {
+    pub fn loadFromData(fileContents: []const u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
@@ -2184,11 +2184,11 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` self: Poppler__Document `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    /// ` userPassword: []u8 `
+    /// ` userPassword: []const u8 `
     ///
-    pub fn unlock(self: Poppler__Document, ownerPassword: []u8, userPassword: []u8) bool {
+    pub fn unlock(self: Poppler__Document, ownerPassword: []const u8, userPassword: []const u8) bool {
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
@@ -2873,12 +2873,12 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` fi: Poppler__FontInfo `
     ///
-    pub fn fontData(self: Poppler__Document, allocator: std.mem.Allocator, fi: anytype) []u8 {
+    pub fn fontData(self: Poppler__Document, allocator: std.mem.Allocator, fi: anytype) []const u8 {
         comptime _ = @TypeOf(fi)._is_Poppler__FontInfo;
-        var _bytearray: qtc.libqt_string = qtc.Poppler__Document_FontData(@ptrCast(self.ptr), @ptrCast(fi.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__Document.fontData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.Poppler__Document_FontData(@ptrCast(self.ptr), @ptrCast(fi.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Document.fontData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3323,9 +3323,9 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    pub fn load22(filePath: []const u8, ownerPassword: []u8) Poppler__Document {
+    pub fn load22(filePath: []const u8, ownerPassword: []const u8) Poppler__Document {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
@@ -3347,11 +3347,11 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    /// ` userPassword: []u8 `
+    /// ` userPassword: []const u8 `
     ///
-    pub fn load3(filePath: []const u8, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
+    pub fn load3(filePath: []const u8, ownerPassword: []const u8, userPassword: []const u8) Poppler__Document {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
@@ -3377,9 +3377,9 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    pub fn load23(device: anytype, ownerPassword: []u8) Poppler__Document {
+    pub fn load23(device: anytype, ownerPassword: []const u8) Poppler__Document {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
@@ -3398,11 +3398,11 @@ pub const Poppler__Document = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    /// ` userPassword: []u8 `
+    /// ` userPassword: []const u8 `
     ///
-    pub fn load32(device: anytype, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
+    pub fn load32(device: anytype, ownerPassword: []const u8, userPassword: []const u8) Poppler__Document {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
@@ -3423,11 +3423,11 @@ pub const Poppler__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileContents: []u8 `
+    /// ` fileContents: []const u8 `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    pub fn loadFromData2(fileContents: []u8, ownerPassword: []u8) Poppler__Document {
+    pub fn loadFromData2(fileContents: []const u8, ownerPassword: []const u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
@@ -3447,13 +3447,13 @@ pub const Poppler__Document = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileContents: []u8 `
+    /// ` fileContents: []const u8 `
     ///
-    /// ` ownerPassword: []u8 `
+    /// ` ownerPassword: []const u8 `
     ///
-    /// ` userPassword: []u8 `
+    /// ` userPassword: []const u8 `
     ///
-    pub fn loadFromData3(fileContents: []u8, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
+    pub fn loadFromData3(fileContents: []const u8, ownerPassword: []const u8, userPassword: []const u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
@@ -3580,11 +3580,11 @@ pub const Poppler__SoundObject = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: Poppler__SoundObject, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__SoundObject_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__SoundObject.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: Poppler__SoundObject, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SoundObject_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundObject.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

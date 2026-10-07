@@ -504,7 +504,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn parameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn parameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_ParameterTypes(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -512,7 +512,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
@@ -536,9 +536,9 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` self: QDesignerMemberSheetExtension `
     ///
-    /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
+    /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onParameterTypes(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
+    pub fn onParameterTypes(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -558,7 +558,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn parameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn parameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_ParameterNames(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -566,7 +566,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
@@ -590,9 +590,9 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` self: QDesignerMemberSheetExtension `
     ///
-    /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
+    /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn onParameterNames(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
+    pub fn onParameterNames(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

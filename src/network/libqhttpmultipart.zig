@@ -149,11 +149,11 @@ pub const QHttpPart = extern struct {
     ///
     /// ` self: QHttpPart `
     ///
-    /// ` headerName: []u8 `
+    /// ` headerName: []const u8 `
     ///
-    /// ` headerValue: []u8 `
+    /// ` headerValue: []const u8 `
     ///
-    pub fn setRawHeader(self: QHttpPart, headerName: []u8, headerValue: []u8) void {
+    pub fn setRawHeader(self: QHttpPart, headerName: []const u8, headerValue: []const u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -175,9 +175,9 @@ pub const QHttpPart = extern struct {
     ///
     /// ` self: QHttpPart `
     ///
-    /// ` body: []u8 `
+    /// ` body: []const u8 `
     ///
-    pub fn setBody(self: QHttpPart, body: []u8) void {
+    pub fn setBody(self: QHttpPart, body: []const u8) void {
         const body_str = qtc.libqt_string{
             .len = body.len,
             .data = body.ptr,
@@ -504,11 +504,11 @@ pub const QHttpMultiPart = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn boundary(self: QHttpMultiPart, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpMultiPart_Boundary(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpMultiPart.boundary: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn boundary(self: QHttpMultiPart, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QHttpMultiPart_Boundary(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpMultiPart.boundary: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -522,9 +522,9 @@ pub const QHttpMultiPart = extern struct {
     ///
     /// ` self: QHttpMultiPart `
     ///
-    /// ` _boundary: []u8 `
+    /// ` _boundary: []const u8 `
     ///
-    pub fn setBoundary(self: QHttpMultiPart, _boundary: []u8) void {
+    pub fn setBoundary(self: QHttpMultiPart, _boundary: []const u8) void {
         const boundary_str = qtc.libqt_string{
             .len = _boundary.len,
             .data = _boundary.ptr,
@@ -1168,7 +1168,7 @@ pub const QHttpMultiPart = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QHttpMultiPart, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QHttpMultiPart, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1176,7 +1176,7 @@ pub const QHttpMultiPart = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpMultiPart.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QHttpMultiPart.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHttpMultiPart.dynamicPropertyNames: Memory allocation failed");

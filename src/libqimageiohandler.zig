@@ -81,9 +81,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn setFormat(self: QImageIOHandler, _format: []u8) void {
+    pub fn setFormat(self: QImageIOHandler, _format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = _format.len,
             .data = _format.ptr,
@@ -101,9 +101,9 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` self: QImageIOHandler `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn setFormat2(self: QImageIOHandler, _format: []u8) void {
+    pub fn setFormat2(self: QImageIOHandler, _format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = _format.len,
             .data = _format.ptr,
@@ -123,11 +123,11 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn format(self: QImageIOHandler, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QImageIOHandler_Format(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QImageIOHandler.format: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn format(self: QImageIOHandler, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QImageIOHandler_Format(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageIOHandler.format: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1022,13 +1022,13 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` _device: QIODevice `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` flag of qimageiohandler_enums.Capability `
     ///
-    pub fn capabilities(self: QImageIOPlugin, _device: anytype, _format: []u8) i32 {
+    pub fn capabilities(self: QImageIOPlugin, _device: anytype, _format: []const u8) i32 {
         comptime _ = @TypeOf(_device)._is_QIODevice;
         const format_str = qtc.libqt_string{
             .len = _format.len,
@@ -1049,9 +1049,9 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` self: QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: qtc.libqt_string) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn onCapabilities(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, qtc.libqt_string) callconv(.c) i32) void {
+    pub fn onCapabilities(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, [*:0]const u8) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1069,9 +1069,9 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` _device: QIODevice `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn create(self: QImageIOPlugin, _device: anytype, _format: []u8) QImageIOHandler {
+    pub fn create(self: QImageIOPlugin, _device: anytype, _format: []const u8) QImageIOHandler {
         comptime _ = @TypeOf(_device)._is_QIODevice;
         const format_str = qtc.libqt_string{
             .len = _format.len,
@@ -1092,9 +1092,9 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` self: QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: qtc.libqt_string) callconv(.c) QImageIOHandler `
+    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: [*:0]const u8) callconv(.c) QImageIOHandler `
     ///
-    pub fn onCreate(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, qtc.libqt_string) callconv(.c) QImageIOHandler) void {
+    pub fn onCreate(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, [*:0]const u8) callconv(.c) QImageIOHandler) void {
         qtc.QImageIOPlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1734,7 +1734,7 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QImageIOPlugin, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QImageIOPlugin, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1742,7 +1742,7 @@ pub const QImageIOPlugin = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageIOPlugin.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QImageIOPlugin.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QImageIOPlugin.dynamicPropertyNames: Memory allocation failed");

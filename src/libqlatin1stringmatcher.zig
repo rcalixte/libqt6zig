@@ -31,9 +31,9 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn new2(_pattern: []u8) QLatin1StringMatcher {
+    pub fn new2(_pattern: []const u8) QLatin1StringMatcher {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -49,11 +49,11 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn new3(_pattern: []u8, cs: i32) QLatin1StringMatcher {
+    pub fn new3(_pattern: []const u8, cs: i32) QLatin1StringMatcher {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -71,9 +71,9 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ` self: QLatin1StringMatcher `
     ///
-    /// ` _pattern: []u8 `
+    /// ` _pattern: []const u8 `
     ///
-    pub fn setPattern(self: QLatin1StringMatcher, _pattern: []u8) void {
+    pub fn setPattern(self: QLatin1StringMatcher, _pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = _pattern.len,
             .data = _pattern.ptr,
@@ -93,11 +93,11 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn pattern(self: QLatin1StringMatcher, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QLatin1StringMatcher_Pattern(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLatin1StringMatcher.pattern: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn pattern(self: QLatin1StringMatcher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLatin1StringMatcher_Pattern(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLatin1StringMatcher.pattern: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -145,9 +145,9 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ` self: QLatin1StringMatcher `
     ///
-    /// ` haystack: []u8 `
+    /// ` haystack: []const u8 `
     ///
-    pub fn indexIn(self: QLatin1StringMatcher, haystack: []u8) isize {
+    pub fn indexIn(self: QLatin1StringMatcher, haystack: []const u8) isize {
         const haystack_str = qtc.libqt_string{
             .len = haystack.len,
             .data = haystack.ptr,
@@ -185,11 +185,11 @@ pub const QLatin1StringMatcher = extern struct {
     ///
     /// ` self: QLatin1StringMatcher `
     ///
-    /// ` haystack: []u8 `
+    /// ` haystack: []const u8 `
     ///
     /// ` from: isize `
     ///
-    pub fn indexIn22(self: QLatin1StringMatcher, haystack: []u8, from: isize) isize {
+    pub fn indexIn22(self: QLatin1StringMatcher, haystack: []const u8, from: isize) isize {
         const haystack_str = qtc.libqt_string{
             .len = haystack.len,
             .data = haystack.ptr,

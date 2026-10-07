@@ -122,9 +122,9 @@ pub const QMimeDatabase = extern struct {
     ///
     /// ` self: QMimeDatabase `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn mimeTypeForData(self: QMimeDatabase, data: []u8) QMimeType {
+    pub fn mimeTypeForData(self: QMimeDatabase, data: []const u8) QMimeType {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -201,9 +201,9 @@ pub const QMimeDatabase = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn mimeTypeForFileNameAndData2(self: QMimeDatabase, fileName: []const u8, data: []u8) QMimeType {
+    pub fn mimeTypeForFileNameAndData2(self: QMimeDatabase, fileName: []const u8, data: []const u8) QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,

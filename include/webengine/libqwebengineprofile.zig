@@ -736,9 +736,9 @@ pub const QWebEngineProfile = extern struct {
     ///
     /// ` self: QWebEngineProfile `
     ///
-    /// ` param1: []u8 `
+    /// ` param1: []const u8 `
     ///
-    pub fn urlSchemeHandler(self: QWebEngineProfile, param1: []u8) QWebEngineUrlSchemeHandler {
+    pub fn urlSchemeHandler(self: QWebEngineProfile, param1: []const u8) QWebEngineUrlSchemeHandler {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -756,11 +756,11 @@ pub const QWebEngineProfile = extern struct {
     ///
     /// ` self: QWebEngineProfile `
     ///
-    /// ` scheme: []u8 `
+    /// ` scheme: []const u8 `
     ///
     /// ` param2: QWebEngineUrlSchemeHandler `
     ///
-    pub fn installUrlSchemeHandler(self: QWebEngineProfile, scheme: []u8, param2: anytype) void {
+    pub fn installUrlSchemeHandler(self: QWebEngineProfile, scheme: []const u8, param2: anytype) void {
         const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
@@ -779,9 +779,9 @@ pub const QWebEngineProfile = extern struct {
     ///
     /// ` self: QWebEngineProfile `
     ///
-    /// ` scheme: []u8 `
+    /// ` scheme: []const u8 `
     ///
-    pub fn removeUrlScheme(self: QWebEngineProfile, scheme: []u8) void {
+    pub fn removeUrlScheme(self: QWebEngineProfile, scheme: []const u8) void {
         const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
@@ -1864,7 +1864,7 @@ pub const QWebEngineProfile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QWebEngineProfile, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEngineProfile, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1872,7 +1872,7 @@ pub const QWebEngineProfile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineProfile.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEngineProfile.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineProfile.dynamicPropertyNames: Memory allocation failed");

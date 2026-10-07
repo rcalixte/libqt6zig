@@ -2,9 +2,9 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qhttpheaders_enums = enums;
 const std = @import("std");
-const ArrayMap_u8_Sliceu8 = std.array_hash_map.String([][]u8);
-const Map_u8_Sliceu8 = std.StringHashMapUnmanaged([][]u8);
-const Struct_u8_u8 = @import("libqt6").types.Struct_u8_u8; // struct { first: []u8, second: []u8 }
+const ArrayMap_constu8_constconstu8 = std.array_hash_map.String([]const []const u8);
+const Map_constu8_constconstu8 = std.StringHashMapUnmanaged([]const []const u8);
+const Struct_constu8_constu8 = @import("libqt6").types.Struct_constu8_constu8; // struct { first: []const u8, second: []const u8 }
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttpheaders.html)
 pub const QHttpHeaders = extern struct {
@@ -391,15 +391,15 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn value(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
+    pub fn value(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value(@ptrCast(self.ptr), name_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QHttpHeaders_Value(@ptrCast(self.ptr), name_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -417,11 +417,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn value2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value2(@ptrCast(self.ptr), @bitCast(name));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn value2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []const u8 {
+        var _str = qtc.QHttpHeaders_Value2(@ptrCast(self.ptr), @bitCast(name));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.value2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -439,7 +439,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn values(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) [][]u8 {
+    pub fn values(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -451,7 +451,7 @@ pub const QHttpHeaders = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.values: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QHttpHeaders.values: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHttpHeaders.values: Memory allocation failed");
@@ -475,7 +475,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn values2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) [][]u8 {
+    pub fn values2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_Values2(@ptrCast(self.ptr), @bitCast(name));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -483,7 +483,7 @@ pub const QHttpHeaders = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QHttpHeaders.values2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QHttpHeaders.values2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QHttpHeaders.values2: Memory allocation failed");
@@ -507,11 +507,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn valueAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_ValueAt(@ptrCast(self.ptr), @bitCast(i));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.valueAt: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn valueAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []const u8 {
+        var _str = qtc.QHttpHeaders_ValueAt(@ptrCast(self.ptr), @bitCast(i));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.valueAt: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -529,11 +529,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn nameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_NameAt(@ptrCast(self.ptr), @bitCast(i));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.nameAt: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn nameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []const u8 {
+        var _str = qtc.QHttpHeaders_NameAt(@ptrCast(self.ptr), @bitCast(i));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.nameAt: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -551,15 +551,15 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn combinedValue(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []u8 {
+    pub fn combinedValue(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue(@ptrCast(self.ptr), name_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.combinedValue: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QHttpHeaders_CombinedValue(@ptrCast(self.ptr), name_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.combinedValue: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -577,11 +577,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn combinedValue2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_CombinedValue2(@ptrCast(self.ptr), @bitCast(name));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.combinedValue2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn combinedValue2(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32) []const u8 {
+        var _str = qtc.QHttpHeaders_CombinedValue2(@ptrCast(self.ptr), @bitCast(name));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.combinedValue2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -641,11 +641,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    pub fn wellKnownHeaderName(allocator: std.mem.Allocator, name: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_WellKnownHeaderName(@bitCast(name));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.wellKnownHeaderName: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn wellKnownHeaderName(allocator: std.mem.Allocator, name: i32) []const u8 {
+        var _str = qtc.QHttpHeaders_WellKnownHeaderName(@bitCast(name));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.wellKnownHeaderName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -659,9 +659,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` headers: []Struct_u8_u8 `
+    /// ` headers: []Struct_constu8_constu8 `
     ///
-    pub fn fromListOfPairs(allocator: std.mem.Allocator, headers: []Struct_u8_u8) QHttpHeaders {
+    pub fn fromListOfPairs(allocator: std.mem.Allocator, headers: []Struct_constu8_constu8) QHttpHeaders {
         const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("QHttpHeaders.fromListOfPairs: Memory allocation failed");
         defer allocator.free(headers_pairs);
         const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("QHttpHeaders.fromListOfPairs: Memory allocation failed");
@@ -697,9 +697,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` headers: ArrayMap_u8_Sliceu8 `
+    /// ` headers: ArrayMap_constu8_constconstu8 `
     ///
-    pub fn fromMultiMap(allocator: std.mem.Allocator, headers: ArrayMap_u8_Sliceu8) QHttpHeaders {
+    pub fn fromMultiMap(allocator: std.mem.Allocator, headers: ArrayMap_constu8_constconstu8) QHttpHeaders {
         const headers_count = headers.count();
         const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiMap: Memory allocation failed");
         defer allocator.free(headers_keys);
@@ -747,9 +747,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` headers: Map_u8_Sliceu8 `
+    /// ` headers: Map_constu8_constconstu8 `
     ///
-    pub fn fromMultiHash(allocator: std.mem.Allocator, headers: Map_u8_Sliceu8) QHttpHeaders {
+    pub fn fromMultiHash(allocator: std.mem.Allocator, headers: Map_constu8_constconstu8) QHttpHeaders {
         const headers_count = headers.count();
         const headers_keys = allocator.alloc(qtc.libqt_string, headers_count) catch @panic("QHttpHeaders.fromMultiHash: Memory allocation failed");
         defer allocator.free(headers_keys);
@@ -799,7 +799,7 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toListOfPairs(self: QHttpHeaders, allocator: std.mem.Allocator) []Struct_u8_u8 {
+    pub fn toListOfPairs(self: QHttpHeaders, allocator: std.mem.Allocator) []Struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.QHttpHeaders_ToListOfPairs(@ptrCast(self.ptr));
         const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -809,7 +809,7 @@ pub const QHttpHeaders = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_constu8, _arr.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
@@ -817,7 +817,7 @@ pub const QHttpHeaders = extern struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QHttpHeaders.toListOfPairs: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = Struct_u8_u8{
+            _ret[i] = Struct_constu8_constu8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -837,9 +837,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toMultiMap(self: QHttpHeaders, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
+    pub fn toMultiMap(self: QHttpHeaders, allocator: std.mem.Allocator) ArrayMap_constu8_constconstu8 {
         const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiMap(@ptrCast(self.ptr));
-        var _ret: ArrayMap_u8_Sliceu8 = .empty;
+        var _ret: ArrayMap_constu8_constconstu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.toMultiMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -864,7 +864,7 @@ pub const QHttpHeaders = extern struct {
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
             for (0.._value.len) |j| {
                 const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.toMultiMap: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
@@ -887,9 +887,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toMultiHash(self: QHttpHeaders, allocator: std.mem.Allocator) Map_u8_Sliceu8 {
+    pub fn toMultiHash(self: QHttpHeaders, allocator: std.mem.Allocator) Map_constu8_constconstu8 {
         const _map: qtc.libqt_map = qtc.QHttpHeaders_ToMultiHash(@ptrCast(self.ptr));
-        var _ret: Map_u8_Sliceu8 = .empty;
+        var _ret: Map_constu8_constconstu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QHttpHeaders.toMultiHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -914,7 +914,7 @@ pub const QHttpHeaders = extern struct {
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
             for (0.._value.len) |j| {
                 const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QHttpHeaders.toMultiHash: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
@@ -939,9 +939,9 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` defaultValue: []u8 `
+    /// ` defaultValue: []const u8 `
     ///
-    pub fn value22(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8, defaultValue: []u8) []u8 {
+    pub fn value22(self: QHttpHeaders, allocator: std.mem.Allocator, name: []const u8, defaultValue: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -950,10 +950,10 @@ pub const QHttpHeaders = extern struct {
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value22(@ptrCast(self.ptr), name_str, defaultValue_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value22: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QHttpHeaders_Value22(@ptrCast(self.ptr), name_str, defaultValue_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.value22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -971,17 +971,17 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` name: qhttpheaders_enums.WellKnownHeader `
     ///
-    /// ` defaultValue: []u8 `
+    /// ` defaultValue: []const u8 `
     ///
-    pub fn value23(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32, defaultValue: []u8) []u8 {
+    pub fn value23(self: QHttpHeaders, allocator: std.mem.Allocator, name: i32, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_Value23(@ptrCast(self.ptr), @bitCast(name), defaultValue_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QHttpHeaders.value23: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QHttpHeaders_Value23(@ptrCast(self.ptr), @bitCast(name), defaultValue_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHttpHeaders.value23: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

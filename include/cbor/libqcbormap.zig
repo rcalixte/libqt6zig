@@ -183,9 +183,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn value2(self: QCborMap, key: []u8) QCborValue {
+    pub fn value2(self: QCborMap, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -256,9 +256,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn operatorSubscript2(self: QCborMap, key: []u8) QCborValue {
+    pub fn operatorSubscript2(self: QCborMap, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -329,9 +329,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn operatorSubscript6(self: QCborMap, key: []u8) QCborValueRef {
+    pub fn operatorSubscript6(self: QCborMap, key: []const u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -402,9 +402,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn take2(self: QCborMap, key: []u8) QCborValue {
+    pub fn take2(self: QCborMap, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -475,9 +475,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn remove2(self: QCborMap, key: []u8) void {
+    pub fn remove2(self: QCborMap, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -548,9 +548,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn contains2(self: QCborMap, key: []u8) bool {
+    pub fn contains2(self: QCborMap, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -832,9 +832,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn find2(self: QCborMap, key: []u8) QCborMap__Iterator {
+    pub fn find2(self: QCborMap, key: []const u8) QCborMap__Iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -905,9 +905,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn constFind2(self: QCborMap, key: []u8) QCborMap__ConstIterator {
+    pub fn constFind2(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -978,9 +978,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn find6(self: QCborMap, key: []u8) QCborMap__ConstIterator {
+    pub fn find6(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1054,11 +1054,11 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []u8 `
+    /// ` key: []const u8 `
     ///
     /// ` value_: QCborValue `
     ///
-    pub fn insert2(self: QCborMap, key: []u8, value_: anytype) QCborMap__Iterator {
+    pub fn insert2(self: QCborMap, key: []const u8, value_: anytype) QCborMap__Iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

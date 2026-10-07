@@ -640,9 +640,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn get3(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn get3(self: QNetworkAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -683,9 +683,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn post2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn post2(self: QNetworkAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -726,9 +726,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn put2(self: QNetworkAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn put2(self: QNetworkAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -766,9 +766,9 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` verb: []u8 `
+    /// ` verb: []const u8 `
     ///
-    pub fn sendCustomRequest(self: QNetworkAccessManager, request: anytype, verb: []u8) QNetworkReply {
+    pub fn sendCustomRequest(self: QNetworkAccessManager, request: anytype, verb: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -789,11 +789,11 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` verb: []u8 `
+    /// ` verb: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn sendCustomRequest2(self: QNetworkAccessManager, request: anytype, verb: []u8, data: []u8) QNetworkReply {
+    pub fn sendCustomRequest2(self: QNetworkAccessManager, request: anytype, verb: []const u8, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -858,11 +858,11 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` verb: []u8 `
+    /// ` verb: []const u8 `
     ///
     /// ` multiPart: QHttpMultiPart `
     ///
-    pub fn sendCustomRequest3(self: QNetworkAccessManager, request: anytype, verb: []u8, multiPart: anytype) QNetworkReply {
+    pub fn sendCustomRequest3(self: QNetworkAccessManager, request: anytype, verb: []const u8, multiPart: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -1464,11 +1464,11 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` verb: []u8 `
+    /// ` verb: []const u8 `
     ///
     /// ` data: QIODevice `
     ///
-    pub fn sendCustomRequest32(self: QNetworkAccessManager, request: anytype, verb: []u8, data: anytype) QNetworkReply {
+    pub fn sendCustomRequest32(self: QNetworkAccessManager, request: anytype, verb: []const u8, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const verb_str = qtc.libqt_string{
             .len = verb.len,
@@ -2145,7 +2145,7 @@ pub const QNetworkAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QNetworkAccessManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QNetworkAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2153,7 +2153,7 @@ pub const QNetworkAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkAccessManager.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkAccessManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkAccessManager.dynamicPropertyNames: Memory allocation failed");

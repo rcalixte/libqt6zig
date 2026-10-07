@@ -53,9 +53,9 @@ pub const QTextStream = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` array: []u8 `
+    /// ` array: []const u8 `
     ///
-    pub fn new3(array: []u8) QTextStream {
+    pub fn new3(array: []const u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -71,11 +71,11 @@ pub const QTextStream = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` array: []u8 `
+    /// ` array: []const u8 `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn new4(array: []u8, openMode: i32) QTextStream {
+    pub fn new4(array: []const u8, openMode: i32) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -911,9 +911,9 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` array: []u8 `
+    /// ` array: []const u8 `
     ///
-    pub fn operatorShiftRight15(self: QTextStream, array: []u8) QTextStream {
+    pub fn operatorShiftRight15(self: QTextStream, array: []const u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
@@ -1181,9 +1181,9 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` s: []u8 `
+    /// ` s: []const u8 `
     ///
-    pub fn operatorShiftLeft16(self: QTextStream, s: []u8) QTextStream {
+    pub fn operatorShiftLeft16(self: QTextStream, s: []const u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1201,9 +1201,9 @@ pub const QTextStream = extern struct {
     ///
     /// ` self: QTextStream `
     ///
-    /// ` array: []u8 `
+    /// ` array: []const u8 `
     ///
-    pub fn operatorShiftLeft17(self: QTextStream, array: []u8) QTextStream {
+    pub fn operatorShiftLeft17(self: QTextStream, array: []const u8) QTextStream {
         const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,

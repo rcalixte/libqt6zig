@@ -23,7 +23,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const ArrayMap_constu8_SliceQAction = std.array_hash_map.String([]QAction);
-const ArrayMap_u8_u8 = std.array_hash_map.String([]u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kparts-navigationextension.html)
 pub const KParts__NavigationExtension = extern struct {
@@ -508,9 +508,9 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn actionSlotMap(allocator: std.mem.Allocator) ArrayMap_u8_u8 {
+    pub fn actionSlotMap(allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
-        var _ret: ArrayMap_u8_u8 = .empty;
+        var _ret: ArrayMap_constu8_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__NavigationExtension.actionSlotMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -2298,7 +2298,7 @@ pub const KParts__NavigationExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KParts__NavigationExtension, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2306,7 +2306,7 @@ pub const KParts__NavigationExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__NavigationExtension.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KParts__NavigationExtension.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KParts__NavigationExtension.dynamicPropertyNames: Memory allocation failed");

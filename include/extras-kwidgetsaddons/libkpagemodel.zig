@@ -21,7 +21,7 @@ const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
-const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const Map_i32_constu8 = std.AutoHashMapUnmanaged(i32, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kpagemodel.html)
 pub const KPageModel = extern struct {
@@ -1518,7 +1518,7 @@ pub const KPageModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KPageModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KPageModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1526,7 +1526,7 @@ pub const KPageModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPageModel.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KPageModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KPageModel.dynamicPropertyNames: Memory allocation failed");
@@ -4118,9 +4118,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn roleNames(self: KPageModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: KPageModel, allocator: std.mem.Allocator) Map_i32_constu8 {
         const _map: qtc.libqt_map = qtc.KPageModel_RoleNames(@ptrCast(self.ptr));
-        var _ret: Map_i32_u8 = .empty;
+        var _ret: Map_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KPageModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -4159,9 +4159,9 @@ pub const KPageModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn superRoleNames(self: KPageModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: KPageModel, allocator: std.mem.Allocator) Map_i32_constu8 {
         const _map: qtc.libqt_map = qtc.KPageModel_SuperRoleNames(@ptrCast(self.ptr));
-        var _ret: Map_i32_u8 = .empty;
+        var _ret: Map_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KPageModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -4202,7 +4202,7 @@ pub const KPageModel = extern struct {
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of Map_i32_u8 `
+    /// ` C ABI representation of Map_i32_constu8 `
     ///
     pub fn onRoleNames(self: KPageModel, callback: *const fn (KPageModel) callconv(.c) qtc.libqt_map) void {
         qtc.KPageModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

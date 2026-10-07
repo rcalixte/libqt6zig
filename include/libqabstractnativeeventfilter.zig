@@ -33,13 +33,13 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     /// ` self: QAbstractNativeEventFilter `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn nativeEventFilter(self: QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEventFilter(self: QAbstractNativeEventFilter, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -59,9 +59,9 @@ pub const QAbstractNativeEventFilter = extern struct {
     ///
     /// ` self: QAbstractNativeEventFilter `
     ///
-    /// ` callback: *const fn (self: QAbstractNativeEventFilter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractNativeEventFilter, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn onNativeEventFilter(self: QAbstractNativeEventFilter, callback: *const fn (QAbstractNativeEventFilter, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEventFilter(self: QAbstractNativeEventFilter, callback: *const fn (QAbstractNativeEventFilter, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
