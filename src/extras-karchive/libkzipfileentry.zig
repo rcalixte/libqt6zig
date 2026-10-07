@@ -227,11 +227,11 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KZipFileEntry.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KZipFileEntry_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -247,9 +247,9 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` self: KZipFileEntry `
     ///
-    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: KZipFileEntry) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onData(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) qtc.libqt_string) void {
+    pub fn onData(self: KZipFileEntry, callback: *const fn (KZipFileEntry) callconv(.c) [*:0]const u8) void {
         qtc.KZipFileEntry_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -267,11 +267,11 @@ pub const KZipFileEntry = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn superData(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_SuperData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KZipFileEntry.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn superData(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KZipFileEntry_SuperData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

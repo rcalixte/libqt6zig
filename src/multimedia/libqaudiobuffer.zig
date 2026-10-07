@@ -45,11 +45,11 @@ pub const QAudioBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: QAudioFormat `
     ///
-    pub fn new3(data: []u8, _format: anytype) QAudioBuffer {
+    pub fn new3(data: []const u8, _format: anytype) QAudioBuffer {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -83,13 +83,13 @@ pub const QAudioBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: QAudioFormat `
     ///
     /// ` _startTime: i64 `
     ///
-    pub fn new5(data: []u8, _format: anytype, _startTime: i64) QAudioBuffer {
+    pub fn new5(data: []const u8, _format: anytype, _startTime: i64) QAudioBuffer {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

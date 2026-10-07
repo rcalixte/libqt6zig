@@ -727,9 +727,9 @@ pub const QColorSpace = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _iccProfile: []u8 `
+    /// ` _iccProfile: []const u8 `
     ///
-    pub fn fromIccProfile(_iccProfile: []u8) QColorSpace {
+    pub fn fromIccProfile(_iccProfile: []const u8) QColorSpace {
         const iccProfile_str = qtc.libqt_string{
             .len = _iccProfile.len,
             .data = _iccProfile.ptr,
@@ -749,11 +749,11 @@ pub const QColorSpace = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn iccProfile(self: QColorSpace, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QColorSpace_IccProfile(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QColorSpace.iccProfile: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn iccProfile(self: QColorSpace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QColorSpace_IccProfile(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorSpace.iccProfile: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -108,9 +108,9 @@ pub const KConfigWatcher = extern struct {
     ///
     /// ` group: KConfigGroup `
     ///
-    /// ` names: [][]u8 `
+    /// ` names: []const []const u8 `
     ///
-    pub fn configChanged(self: KConfigWatcher, allocator: std.mem.Allocator, group: anytype, names: [][]u8) void {
+    pub fn configChanged(self: KConfigWatcher, allocator: std.mem.Allocator, group: anytype, names: []const []const u8) void {
         comptime _ = @TypeOf(group)._is_KConfigGroup;
         const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("KConfigWatcher.configChanged: Memory allocation failed");
         defer allocator.free(names_arr);
@@ -136,9 +136,9 @@ pub const KConfigWatcher = extern struct {
     ///
     /// ` self: KConfigWatcher `
     ///
-    /// ` callback: *const fn (self: KConfigWatcher, group: KConfigGroup, names: ?[*:null]?[*:0]u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KConfigWatcher, group: KConfigGroup, names: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn onConfigChanged(self: KConfigWatcher, callback: *const fn (KConfigWatcher, KConfigGroup, ?[*:null]?[*:0]u8) callconv(.c) void) void {
+    pub fn onConfigChanged(self: KConfigWatcher, callback: *const fn (KConfigWatcher, KConfigGroup, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
         qtc.KConfigWatcher_Connect_ConfigChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -819,7 +819,7 @@ pub const KConfigWatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KConfigWatcher, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KConfigWatcher, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -827,7 +827,7 @@ pub const KConfigWatcher = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KConfigWatcher.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfigWatcher.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfigWatcher.dynamicPropertyNames: Memory allocation failed");

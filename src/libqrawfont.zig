@@ -61,11 +61,11 @@ pub const QRawFont = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fontData: []u8 `
+    /// ` fontData: []const u8 `
     ///
     /// ` _pixelSize: f64 `
     ///
-    pub fn new3(fontData: []u8, _pixelSize: f64) QRawFont {
+    pub fn new3(fontData: []const u8, _pixelSize: f64) QRawFont {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
@@ -118,13 +118,13 @@ pub const QRawFont = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fontData: []u8 `
+    /// ` fontData: []const u8 `
     ///
     /// ` _pixelSize: f64 `
     ///
     /// ` _hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn new6(fontData: []u8, _pixelSize: f64, _hintingPreference: i32) QRawFont {
+    pub fn new6(fontData: []const u8, _pixelSize: f64, _hintingPreference: i32) QRawFont {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
@@ -708,13 +708,13 @@ pub const QRawFont = extern struct {
     ///
     /// ` self: QRawFont `
     ///
-    /// ` fontData: []u8 `
+    /// ` fontData: []const u8 `
     ///
     /// ` _pixelSize: f64 `
     ///
     /// ` _hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn loadFromData(self: QRawFont, fontData: []u8, _pixelSize: f64, _hintingPreference: i32) void {
+    pub fn loadFromData(self: QRawFont, fontData: []const u8, _pixelSize: f64, _hintingPreference: i32) void {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
@@ -794,12 +794,12 @@ pub const QRawFont = extern struct {
     ///
     /// ` tagName: [:0]const u8 `
     ///
-    pub fn fontTable(self: QRawFont, allocator: std.mem.Allocator, tagName: [:0]const u8) []u8 {
+    pub fn fontTable(self: QRawFont, allocator: std.mem.Allocator, tagName: [:0]const u8) []const u8 {
         const tagName_Cstring = tagName.ptr;
-        var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self.ptr), tagName_Cstring);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QRawFont.fontTable: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QRawFont_FontTable(@ptrCast(self.ptr), tagName_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRawFont.fontTable: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -817,12 +817,12 @@ pub const QRawFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn fontTable2(self: QRawFont, allocator: std.mem.Allocator, tag: anytype) []u8 {
+    pub fn fontTable2(self: QRawFont, allocator: std.mem.Allocator, tag: anytype) []const u8 {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
-        var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self.ptr), @ptrCast(tag.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QRawFont.fontTable2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QRawFont_FontTable2(@ptrCast(self.ptr), @ptrCast(tag.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRawFont.fontTable2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

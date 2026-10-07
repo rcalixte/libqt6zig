@@ -1040,12 +1040,12 @@ pub const QMetaObject = extern struct {
     ///
     /// ` _method: [:0]const u8 `
     ///
-    pub fn normalizedSignature(allocator: std.mem.Allocator, _method: [:0]const u8) []u8 {
+    pub fn normalizedSignature(allocator: std.mem.Allocator, _method: [:0]const u8) []const u8 {
         const method_Cstring = _method.ptr;
-        var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.normalizedSignature: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QMetaObject_NormalizedSignature(method_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.normalizedSignature: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1061,12 +1061,12 @@ pub const QMetaObject = extern struct {
     ///
     /// ` typeVal: [:0]const u8 `
     ///
-    pub fn normalizedType(allocator: std.mem.Allocator, typeVal: [:0]const u8) []u8 {
+    pub fn normalizedType(allocator: std.mem.Allocator, typeVal: [:0]const u8) []const u8 {
         const typeVal_Cstring = typeVal.ptr;
-        var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.normalizedType: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.normalizedType: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

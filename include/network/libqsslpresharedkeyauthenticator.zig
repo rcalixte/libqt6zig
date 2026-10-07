@@ -83,11 +83,11 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn identityHint(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.identityHint: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn identityHint(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslPreSharedKeyAuthenticator.identityHint: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -101,9 +101,9 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    /// ` _identity: []u8 `
+    /// ` _identity: []const u8 `
     ///
-    pub fn setIdentity(self: QSslPreSharedKeyAuthenticator, _identity: []u8) void {
+    pub fn setIdentity(self: QSslPreSharedKeyAuthenticator, _identity: []const u8) void {
         const identity_str = qtc.libqt_string{
             .len = _identity.len,
             .data = _identity.ptr,
@@ -123,11 +123,11 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn identity(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.identity: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn identity(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslPreSharedKeyAuthenticator.identity: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -155,9 +155,9 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` self: QSslPreSharedKeyAuthenticator `
     ///
-    /// ` _preSharedKey: []u8 `
+    /// ` _preSharedKey: []const u8 `
     ///
-    pub fn setPreSharedKey(self: QSslPreSharedKeyAuthenticator, _preSharedKey: []u8) void {
+    pub fn setPreSharedKey(self: QSslPreSharedKeyAuthenticator, _preSharedKey: []const u8) void {
         const preSharedKey_str = qtc.libqt_string{
             .len = _preSharedKey.len,
             .data = _preSharedKey.ptr,
@@ -177,11 +177,11 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn preSharedKey(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.preSharedKey: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn preSharedKey(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslPreSharedKeyAuthenticator.preSharedKey: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

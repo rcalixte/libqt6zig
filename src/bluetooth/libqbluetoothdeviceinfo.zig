@@ -4,8 +4,8 @@ const QBluetoothAddress = @import("libqt6").QBluetoothAddress;
 const QBluetoothUuid = @import("libqt6").QBluetoothUuid;
 const qbluetoothdeviceinfo_enums = enums;
 const std = @import("std");
-const Map_QBluetoothUuid_Sliceu8 = std.AutoHashMapUnmanaged(QBluetoothUuid, [][]u8);
-const Map_u16_Sliceu8 = std.AutoHashMapUnmanaged(u16, [][]u8);
+const Map_QBluetoothUuid_constconstu8 = std.AutoHashMapUnmanaged(QBluetoothUuid, []const []const u8);
+const Map_u16_constconstu8 = std.AutoHashMapUnmanaged(u16, []const []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html)
 pub const QBluetoothDeviceInfo = extern struct {
@@ -360,11 +360,11 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` manufacturerId: u16 `
     ///
-    pub fn manufacturerData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, manufacturerId: u16) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ManufacturerData(@ptrCast(self.ptr), @bitCast(manufacturerId));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothDeviceInfo.manufacturerData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn manufacturerData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, manufacturerId: u16) []const u8 {
+        var _str = qtc.QBluetoothDeviceInfo_ManufacturerData(@ptrCast(self.ptr), @bitCast(manufacturerId));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothDeviceInfo.manufacturerData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -380,9 +380,9 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` manufacturerId: u16 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setManufacturerData(self: QBluetoothDeviceInfo, manufacturerId: u16, data: []u8) bool {
+    pub fn setManufacturerData(self: QBluetoothDeviceInfo, manufacturerId: u16, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -402,9 +402,9 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn manufacturerData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_u16_Sliceu8 {
+    pub fn manufacturerData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_u16_constconstu8 {
         const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ManufacturerData2(@ptrCast(self.ptr));
-        var _ret: Map_u16_Sliceu8 = .empty;
+        var _ret: Map_u16_constconstu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QBluetoothDeviceInfo.manufacturerData2: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -425,7 +425,7 @@ pub const QBluetoothDeviceInfo = extern struct {
             const _key = _keys[i];
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QBluetoothDeviceInfo.manufacturerData2: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QBluetoothDeviceInfo.manufacturerData2: Memory allocation failed");
             for (0.._value.len) |j| {
                 const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QBluetoothDeviceInfo.manufacturerData2: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
@@ -472,12 +472,12 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` serviceId: QBluetoothUuid `
     ///
-    pub fn serviceData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, serviceId: anytype) []u8 {
+    pub fn serviceData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, serviceId: anytype) []const u8 {
         comptime _ = @TypeOf(serviceId)._is_QBluetoothUuid;
-        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ServiceData(@ptrCast(self.ptr), @ptrCast(serviceId.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothDeviceInfo.serviceData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QBluetoothDeviceInfo_ServiceData(@ptrCast(self.ptr), @ptrCast(serviceId.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothDeviceInfo.serviceData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -493,9 +493,9 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` serviceId: QBluetoothUuid `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setServiceData(self: QBluetoothDeviceInfo, serviceId: anytype, data: []u8) bool {
+    pub fn setServiceData(self: QBluetoothDeviceInfo, serviceId: anytype, data: []const u8) bool {
         comptime _ = @TypeOf(serviceId)._is_QBluetoothUuid;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -516,9 +516,9 @@ pub const QBluetoothDeviceInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn serviceData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_QBluetoothUuid_Sliceu8 {
+    pub fn serviceData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_QBluetoothUuid_constconstu8 {
         const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ServiceData2(@ptrCast(self.ptr));
-        var _ret: Map_QBluetoothUuid_Sliceu8 = .empty;
+        var _ret: Map_QBluetoothUuid_constconstu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QBluetoothDeviceInfo.serviceData2: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -539,7 +539,7 @@ pub const QBluetoothDeviceInfo = extern struct {
             const _key = _keys[i];
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QBluetoothDeviceInfo.serviceData2: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QBluetoothDeviceInfo.serviceData2: Memory allocation failed");
             for (0.._value.len) |j| {
                 const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QBluetoothDeviceInfo.serviceData2: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);

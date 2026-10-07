@@ -100,9 +100,9 @@ pub const KSharedDataCache = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn insert(self: KSharedDataCache, key: []const u8, data: []u8) bool {
+    pub fn insert(self: KSharedDataCache, key: []const u8, data: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

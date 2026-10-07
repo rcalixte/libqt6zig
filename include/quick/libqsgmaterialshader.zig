@@ -623,11 +623,11 @@ pub const QSGMaterialShader__RenderState = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn uniformData(self: QSGMaterialShader__RenderState, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSGMaterialShader__RenderState_UniformData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSGMaterialShader__RenderState.uniformData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn uniformData(self: QSGMaterialShader__RenderState, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSGMaterialShader__RenderState_UniformData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSGMaterialShader__RenderState.uniformData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

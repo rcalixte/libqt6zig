@@ -118,9 +118,9 @@ pub const QLowEnergyAdvertisingData = extern struct {
     ///
     /// ` id: u16 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setManufacturerData(self: QLowEnergyAdvertisingData, id: u16, data: []u8) void {
+    pub fn setManufacturerData(self: QLowEnergyAdvertisingData, id: u16, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -154,11 +154,11 @@ pub const QLowEnergyAdvertisingData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn manufacturerData(self: QLowEnergyAdvertisingData, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QLowEnergyAdvertisingData_ManufacturerData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyAdvertisingData.manufacturerData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn manufacturerData(self: QLowEnergyAdvertisingData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLowEnergyAdvertisingData_ManufacturerData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLowEnergyAdvertisingData.manufacturerData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -278,9 +278,9 @@ pub const QLowEnergyAdvertisingData = extern struct {
     ///
     /// ` self: QLowEnergyAdvertisingData `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setRawData(self: QLowEnergyAdvertisingData, data: []u8) void {
+    pub fn setRawData(self: QLowEnergyAdvertisingData, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -300,11 +300,11 @@ pub const QLowEnergyAdvertisingData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn rawData(self: QLowEnergyAdvertisingData, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QLowEnergyAdvertisingData_RawData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyAdvertisingData.rawData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn rawData(self: QLowEnergyAdvertisingData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLowEnergyAdvertisingData_RawData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLowEnergyAdvertisingData.rawData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

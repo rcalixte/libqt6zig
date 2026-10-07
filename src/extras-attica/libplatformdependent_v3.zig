@@ -845,7 +845,7 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: Attica__PlatformDependentV3, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Attica__PlatformDependentV3, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -853,7 +853,7 @@ pub const Attica__PlatformDependentV3 = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Attica__PlatformDependentV3.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__PlatformDependentV3.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Attica__PlatformDependentV3.dynamicPropertyNames: Memory allocation failed");
@@ -1289,9 +1289,9 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn put2(self: Attica__PlatformDependentV3, request: anytype, data: []u8) QNetworkReply {
+    pub fn put2(self: Attica__PlatformDependentV3, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1593,9 +1593,9 @@ pub const Attica__PlatformDependentV3 = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn post2(self: Attica__PlatformDependentV3, request: anytype, data: []u8) QNetworkReply {
+    pub fn post2(self: Attica__PlatformDependentV3, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,

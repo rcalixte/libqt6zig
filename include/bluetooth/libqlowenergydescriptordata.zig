@@ -34,9 +34,9 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` _uuid: QBluetoothUuid `
     ///
-    /// ` _value: []u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn new2(_uuid: anytype, _value: []u8) QLowEnergyDescriptorData {
+    pub fn new2(_uuid: anytype, _value: []const u8) QLowEnergyDescriptorData {
         comptime _ = @TypeOf(_uuid)._is_QBluetoothUuid;
         const value_str = qtc.libqt_string{
             .len = _value.len,
@@ -89,11 +89,11 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn value(self: QLowEnergyDescriptorData, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QLowEnergyDescriptorData_Value(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyDescriptorData.value: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn value(self: QLowEnergyDescriptorData, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLowEnergyDescriptorData_Value(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLowEnergyDescriptorData.value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -107,9 +107,9 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    /// ` _value: []u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn setValue(self: QLowEnergyDescriptorData, _value: []u8) void {
+    pub fn setValue(self: QLowEnergyDescriptorData, _value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = _value.len,
             .data = _value.ptr,

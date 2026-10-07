@@ -11,7 +11,7 @@ const qsslcertificate_enums = @import("libqsslcertificate.zig").enums;
 const qsslconfiguration_enums = enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
-const ArrayMap_u8_QVariant = std.array_hash_map.String(QVariant);
+const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
 pub const QSslConfiguration = extern struct {
@@ -647,11 +647,11 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn sessionTicket(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_SessionTicket(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslConfiguration.sessionTicket: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn sessionTicket(self: QSslConfiguration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslConfiguration_SessionTicket(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslConfiguration.sessionTicket: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -665,9 +665,9 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` self: QSslConfiguration `
     ///
-    /// ` _sessionTicket: []u8 `
+    /// ` _sessionTicket: []const u8 `
     ///
-    pub fn setSessionTicket(self: QSslConfiguration, _sessionTicket: []u8) void {
+    pub fn setSessionTicket(self: QSslConfiguration, _sessionTicket: []const u8) void {
         const sessionTicket_str = qtc.libqt_string{
             .len = _sessionTicket.len,
             .data = _sessionTicket.ptr,
@@ -777,11 +777,11 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn preSharedKeyIdentityHint(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_PreSharedKeyIdentityHint(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslConfiguration.preSharedKeyIdentityHint: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn preSharedKeyIdentityHint(self: QSslConfiguration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslConfiguration_PreSharedKeyIdentityHint(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslConfiguration.preSharedKeyIdentityHint: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -795,9 +795,9 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` self: QSslConfiguration `
     ///
-    /// ` hint: []u8 `
+    /// ` hint: []const u8 `
     ///
-    pub fn setPreSharedKeyIdentityHint(self: QSslConfiguration, hint: []u8) void {
+    pub fn setPreSharedKeyIdentityHint(self: QSslConfiguration, hint: []const u8) void {
         const hint_str = qtc.libqt_string{
             .len = hint.len,
             .data = hint.ptr,
@@ -848,9 +848,9 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn backendConfiguration(self: QSslConfiguration, allocator: std.mem.Allocator) ArrayMap_u8_QVariant {
+    pub fn backendConfiguration(self: QSslConfiguration, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QSslConfiguration_BackendConfiguration(@ptrCast(self.ptr));
-        var _ret: ArrayMap_u8_QVariant = .empty;
+        var _ret: ArrayMap_constu8_QVariant = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSslConfiguration.backendConfiguration: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -883,11 +883,11 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` self: QSslConfiguration `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn setBackendConfigurationOption(self: QSslConfiguration, name: []u8, value: anytype) void {
+    pub fn setBackendConfigurationOption(self: QSslConfiguration, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1092,9 +1092,9 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` protocols: [][]u8 `
+    /// ` protocols: []const []const u8 `
     ///
-    pub fn setAllowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator, protocols: [][]u8) void {
+    pub fn setAllowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator, protocols: []const []const u8) void {
         const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QSslConfiguration.setAllowedNextProtocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |str_item, i|
@@ -1121,7 +1121,7 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn allowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator) [][]u8 {
+    pub fn allowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QSslConfiguration_AllowedNextProtocols(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1129,7 +1129,7 @@ pub const QSslConfiguration = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSslConfiguration.allowedNextProtocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSslConfiguration.allowedNextProtocols: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSslConfiguration.allowedNextProtocols: Memory allocation failed");
@@ -1151,11 +1151,11 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn nextNegotiatedProtocol(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_NextNegotiatedProtocol(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslConfiguration.nextNegotiatedProtocol: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn nextNegotiatedProtocol(self: QSslConfiguration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslConfiguration_NextNegotiatedProtocol(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslConfiguration.nextNegotiatedProtocol: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1235,9 +1235,9 @@ pub const QSslConfiguration = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _backendConfiguration: ArrayMap_u8_QVariant `
+    /// ` _backendConfiguration: ArrayMap_constu8_QVariant `
     ///
-    pub fn setBackendConfiguration1(self: QSslConfiguration, allocator: std.mem.Allocator, _backendConfiguration: ArrayMap_u8_QVariant) void {
+    pub fn setBackendConfiguration1(self: QSslConfiguration, allocator: std.mem.Allocator, _backendConfiguration: ArrayMap_constu8_QVariant) void {
         const backendConfiguration_count = _backendConfiguration.count();
         const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration_count) catch @panic("QSslConfiguration.setBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_keys);

@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const QUrl = @import("libqt6").QUrl;
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
-const ArrayMap_u8_Sliceu8 = std.array_hash_map.String([][]u8);
+const ArrayMap_constu8_constconstu8 = std.array_hash_map.String([]const []const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
 pub const QWebEngineLoadingInfo = extern struct {
@@ -157,9 +157,9 @@ pub const QWebEngineLoadingInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn responseHeaders(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
+    pub fn responseHeaders(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) ArrayMap_constu8_constconstu8 {
         const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self.ptr));
-        var _ret: ArrayMap_u8_Sliceu8 = .empty;
+        var _ret: ArrayMap_constu8_constconstu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineLoadingInfo.responseHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -184,7 +184,7 @@ pub const QWebEngineLoadingInfo = extern struct {
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QWebEngineLoadingInfo.responseHeaders: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QWebEngineLoadingInfo.responseHeaders: Memory allocation failed");
             for (0.._value.len) |j| {
                 const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QWebEngineLoadingInfo.responseHeaders: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);

@@ -132,9 +132,9 @@ pub const KIO__FileJob = extern struct {
     ///
     /// ` self: KIO__FileJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn write(self: KIO__FileJob, _data: []u8) void {
+    pub fn write(self: KIO__FileJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -214,9 +214,9 @@ pub const KIO__FileJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__FileJob, job: anytype, _data: []u8) void {
+    pub fn data(self: KIO__FileJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -235,9 +235,9 @@ pub const KIO__FileJob = extern struct {
     ///
     /// ` self: KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: KIO__FileJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onData(self: KIO__FileJob, callback: *const fn (KIO__FileJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onData(self: KIO__FileJob, callback: *const fn (KIO__FileJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2279,7 +2279,7 @@ pub const KIO__FileJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__FileJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__FileJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2287,7 +2287,7 @@ pub const KIO__FileJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__FileJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__FileJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__FileJob.dynamicPropertyNames: Memory allocation failed");

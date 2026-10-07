@@ -117,9 +117,9 @@ pub const QCborStreamWriter = extern struct {
     ///
     /// ` self: QCborStreamWriter `
     ///
-    /// ` ba: []u8 `
+    /// ` ba: []const u8 `
     ///
-    pub fn append4(self: QCborStreamWriter, ba: []u8) void {
+    pub fn append4(self: QCborStreamWriter, ba: []const u8) void {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -137,9 +137,9 @@ pub const QCborStreamWriter = extern struct {
     ///
     /// ` self: QCborStreamWriter `
     ///
-    /// ` str: []u8 `
+    /// ` str: []const u8 `
     ///
-    pub fn append5(self: QCborStreamWriter, str: []u8) void {
+    pub fn append5(self: QCborStreamWriter, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,

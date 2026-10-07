@@ -7,7 +7,7 @@ const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
 const types_enums = @import("libtypes.zig").enums;
 const ArrayMap_i32_SliceQVariant = std.array_hash_map.Auto(i32, []QVariant);
-const ArrayMap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
+const ArrayMap_i32_constu8 = std.array_hash_map.Auto(i32, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-simpleextractionresult.html)
 pub const KFileMetaData__SimpleExtractionResult = extern struct {
@@ -458,11 +458,11 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     ///
     /// ## Returns:
     ///
-    /// ` ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` ArrayMap_i32_constu8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn imageData(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
+    pub fn imageData(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__ExtractionResult_ImageData(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_u8 = .empty;
+        var _ret: ArrayMap_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__SimpleExtractionResult.imageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

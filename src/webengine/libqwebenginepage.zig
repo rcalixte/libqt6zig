@@ -612,9 +612,9 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setContent(self: QWebEnginePage, data: []u8) void {
+    pub fn setContent(self: QWebEnginePage, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1045,9 +1045,9 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn printToPdf2(self: QWebEnginePage, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void) void {
+    pub fn printToPdf2(self: QWebEnginePage, resultCallback: *const fn ([*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)));
     }
 
@@ -3293,11 +3293,11 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn setContent2(self: QWebEnginePage, data: []u8, mimeType: []const u8) void {
+    pub fn setContent2(self: QWebEnginePage, data: []const u8, mimeType: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -3319,13 +3319,13 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn setContent3(self: QWebEnginePage, data: []u8, mimeType: []const u8, baseUrl: anytype) void {
+    pub fn setContent3(self: QWebEnginePage, data: []const u8, mimeType: []const u8, baseUrl: anytype) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -3484,11 +3484,11 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
     /// ` layout: QPageLayout `
     ///
-    pub fn printToPdf23(self: QWebEnginePage, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: anytype) void {
+    pub fn printToPdf23(self: QWebEnginePage, resultCallback: *const fn ([*:0]const u8) callconv(.c) void, layout: anytype) void {
         comptime _ = @TypeOf(layout)._is_QPageLayout;
         qtc.QWebEnginePage_PrintToPdf23(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout.ptr));
     }
@@ -3503,13 +3503,13 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
     /// ` layout: QPageLayout `
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn printToPdf32(self: QWebEnginePage, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: anytype, ranges: anytype) void {
+    pub fn printToPdf32(self: QWebEnginePage, resultCallback: *const fn ([*:0]const u8) callconv(.c) void, layout: anytype, ranges: anytype) void {
         comptime _ = @TypeOf(layout)._is_QPageLayout;
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QWebEnginePage_PrintToPdf32(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout.ptr), @ptrCast(ranges.ptr));
@@ -4097,7 +4097,7 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QWebEnginePage, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEnginePage, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4105,7 +4105,7 @@ pub const QWebEnginePage = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEnginePage.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEnginePage.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEnginePage.dynamicPropertyNames: Memory allocation failed");

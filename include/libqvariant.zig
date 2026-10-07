@@ -248,9 +248,9 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` bytearray: []u8 `
+    /// ` bytearray: []const u8 `
     ///
-    pub fn new15(bytearray: []u8) QVariant {
+    pub fn new15(bytearray: []const u8) QVariant {
         const bytearray_str = qtc.libqt_string{
             .len = bytearray.len,
             .data = bytearray.ptr,
@@ -716,9 +716,9 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` string: []u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn new42(string: []u8) QVariant {
+    pub fn new42(string: []const u8) QVariant {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -1125,11 +1125,11 @@ pub const QVariant = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toByteArray(self: QVariant, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QVariant.toByteArray: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toByteArray(self: QVariant, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QVariant_ToByteArray(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVariant.toByteArray: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

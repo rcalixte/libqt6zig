@@ -560,9 +560,9 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft22(self: QDebug, t: []u8) QDebug {
+    pub fn operatorShiftLeft22(self: QDebug, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -580,9 +580,9 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft23(self: QDebug, t: []u8) QDebug {
+    pub fn operatorShiftLeft23(self: QDebug, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
@@ -600,9 +600,9 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    /// ` t: []u8 `
+    /// ` t: []const u8 `
     ///
-    pub fn operatorShiftLeft24(self: QDebug, t: []u8) QDebug {
+    pub fn operatorShiftLeft24(self: QDebug, t: []const u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,

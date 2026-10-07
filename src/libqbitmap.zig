@@ -745,9 +745,9 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn loadFromData2(self: QBitmap, data: []u8) bool {
+    pub fn loadFromData2(self: QBitmap, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1326,11 +1326,11 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn loadFromData22(self: QBitmap, data: []u8, format: [:0]const u8) bool {
+    pub fn loadFromData22(self: QBitmap, data: []const u8, format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1351,13 +1351,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` self: QBitmap `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` format: [:0]const u8 `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn loadFromData32(self: QBitmap, data: []u8, format: [:0]const u8, flags: i32) bool {
+    pub fn loadFromData32(self: QBitmap, data: []const u8, format: [:0]const u8, flags: i32) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

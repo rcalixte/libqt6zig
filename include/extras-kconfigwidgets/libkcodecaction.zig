@@ -387,9 +387,9 @@ pub const KCodecAction = extern struct {
     ///
     /// ` self: KCodecAction `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
-    pub fn codecNameTriggered(self: KCodecAction, name: []u8) void {
+    pub fn codecNameTriggered(self: KCodecAction, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -407,9 +407,9 @@ pub const KCodecAction = extern struct {
     ///
     /// ` self: KCodecAction `
     ///
-    /// ` callback: *const fn (self: KCodecAction, name: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KCodecAction, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onCodecNameTriggered(self: KCodecAction, callback: *const fn (KCodecAction, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onCodecNameTriggered(self: KCodecAction, callback: *const fn (KCodecAction, [*:0]const u8) callconv(.c) void) void {
         qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -3225,7 +3225,7 @@ pub const KCodecAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KCodecAction, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KCodecAction, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3233,7 +3233,7 @@ pub const KCodecAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCodecAction.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCodecAction.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KCodecAction.dynamicPropertyNames: Memory allocation failed");

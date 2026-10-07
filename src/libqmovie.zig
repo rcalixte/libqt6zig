@@ -101,9 +101,9 @@ pub const QMovie = extern struct {
     ///
     /// ` _device: QIODevice `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn new5(_device: anytype, _format: []u8) QMovie {
+    pub fn new5(_device: anytype, _format: []const u8) QMovie {
         comptime _ = @TypeOf(_device)._is_QIODevice;
         const format_str = qtc.libqt_string{
             .len = _format.len,
@@ -122,11 +122,11 @@ pub const QMovie = extern struct {
     ///
     /// ` _device: QIODevice `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
     /// ` _parent: QObject `
     ///
-    pub fn new6(_device: anytype, _format: []u8, _parent: anytype) QMovie {
+    pub fn new6(_device: anytype, _format: []const u8, _parent: anytype) QMovie {
         comptime _ = @TypeOf(_device)._is_QIODevice;
         const format_str = qtc.libqt_string{
             .len = _format.len,
@@ -146,9 +146,9 @@ pub const QMovie = extern struct {
     ///
     /// ` _fileName: []const u8 `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn new7(_fileName: []const u8, _format: []u8) QMovie {
+    pub fn new7(_fileName: []const u8, _format: []const u8) QMovie {
         const fileName_str = qtc.libqt_string{
             .len = _fileName.len,
             .data = _fileName.ptr,
@@ -170,11 +170,11 @@ pub const QMovie = extern struct {
     ///
     /// ` _fileName: []const u8 `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
     /// ` _parent: QObject `
     ///
-    pub fn new8(_fileName: []const u8, _format: []u8, _parent: anytype) QMovie {
+    pub fn new8(_fileName: []const u8, _format: []const u8, _parent: anytype) QMovie {
         const fileName_str = qtc.libqt_string{
             .len = _fileName.len,
             .data = _fileName.ptr,
@@ -370,7 +370,7 @@ pub const QMovie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn supportedFormats(allocator: std.mem.Allocator) [][]u8 {
+    pub fn supportedFormats(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QMovie_SupportedFormats();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -378,7 +378,7 @@ pub const QMovie = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMovie.supportedFormats: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMovie.supportedFormats: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMovie.supportedFormats: Memory allocation failed");
@@ -469,9 +469,9 @@ pub const QMovie = extern struct {
     ///
     /// ` self: QMovie `
     ///
-    /// ` _format: []u8 `
+    /// ` _format: []const u8 `
     ///
-    pub fn setFormat(self: QMovie, _format: []u8) void {
+    pub fn setFormat(self: QMovie, _format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = _format.len,
             .data = _format.ptr,
@@ -491,11 +491,11 @@ pub const QMovie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn format(self: QMovie, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QMovie_Format(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMovie.format: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn format(self: QMovie, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QMovie_Format(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMovie.format: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1727,7 +1727,7 @@ pub const QMovie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QMovie, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QMovie, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1735,7 +1735,7 @@ pub const QMovie = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMovie.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMovie.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QMovie.dynamicPropertyNames: Memory allocation failed");

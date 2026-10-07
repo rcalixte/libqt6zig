@@ -696,11 +696,11 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` end: i32 `
     ///
-    pub fn bytes(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.bytes: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn bytes(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []const u8 {
+        var _str = qtc.QsciScintilla_Bytes(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.bytes: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14217,11 +14217,11 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn saveGeometry(self: QsciScintilla, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.saveGeometry: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn saveGeometry(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.saveGeometry: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14237,9 +14237,9 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` _geometry: []u8 `
+    /// ` _geometry: []const u8 `
     ///
-    pub fn restoreGeometry(self: QsciScintilla, _geometry: []u8) bool {
+    pub fn restoreGeometry(self: QsciScintilla, _geometry: []const u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = _geometry.len,
             .data = _geometry.ptr,
@@ -16472,7 +16472,7 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QsciScintilla, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QsciScintilla, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -16480,7 +16480,7 @@ pub const QsciScintilla = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QsciScintilla.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciScintilla.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QsciScintilla.dynamicPropertyNames: Memory allocation failed");
@@ -17143,12 +17143,12 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` rectangular: *bool `
     ///
-    pub fn fromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []u8 {
+    pub fn fromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []const u8 {
         comptime _ = @TypeOf(source)._is_QMimeData;
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.fromMimeData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QsciScintilla_FromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.fromMimeData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -17172,12 +17172,12 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` rectangular: *bool `
     ///
-    pub fn superFromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []u8 {
+    pub fn superFromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []const u8 {
         comptime _ = @TypeOf(source)._is_QMimeData;
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.fromMimeData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QsciScintilla_SuperFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.fromMimeData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -17195,9 +17195,9 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QsciScintilla, source: QMimeData, rectangular: *bool) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: QsciScintilla, source: QMimeData, rectangular: *bool) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onFromMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, QMimeData, *bool) callconv(.c) qtc.libqt_string) void {
+    pub fn onFromMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, QMimeData, *bool) callconv(.c) [*:0]const u8) void {
         qtc.QsciScintilla_OnFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -17215,11 +17215,11 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` _text: []u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` rectangular: bool `
     ///
-    pub fn toMimeData(self: QsciScintilla, _text: []u8, rectangular: bool) QMimeData {
+    pub fn toMimeData(self: QsciScintilla, _text: []const u8, rectangular: bool) QMimeData {
         const text_str = qtc.libqt_string{
             .len = _text.len,
             .data = _text.ptr,
@@ -17241,11 +17241,11 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` _text: []u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` rectangular: bool `
     ///
-    pub fn superToMimeData(self: QsciScintilla, _text: []u8, rectangular: bool) QMimeData {
+    pub fn superToMimeData(self: QsciScintilla, _text: []const u8, rectangular: bool) QMimeData {
         const text_str = qtc.libqt_string{
             .len = _text.len,
             .data = _text.ptr,
@@ -17267,9 +17267,9 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QsciScintilla, text: qtc.libqt_string, rectangular: bool) callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8, rectangular: bool) callconv(.c) QMimeData `
     ///
-    pub fn onToMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, qtc.libqt_string, bool) callconv(.c) QMimeData) void {
+    pub fn onToMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, bool) callconv(.c) QMimeData) void {
         qtc.QsciScintilla_OnToMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -19615,13 +19615,13 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn nativeEvent(self: QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QsciScintilla, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -19643,13 +19643,13 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn superNativeEvent(self: QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QsciScintilla, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -19671,9 +19671,9 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QsciScintilla, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn onNativeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintilla_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -20263,15 +20263,15 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` _text: []const u8 `
     ///
-    pub fn textAsBytes(self: QsciScintilla, allocator: std.mem.Allocator, _text: []const u8) []u8 {
+    pub fn textAsBytes(self: QsciScintilla, allocator: std.mem.Allocator, _text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = _text.len,
             .data = _text.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_TextAsBytes(@ptrCast(self.ptr), text_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.textAsBytes: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QsciScintilla_TextAsBytes(@ptrCast(self.ptr), text_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.textAsBytes: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

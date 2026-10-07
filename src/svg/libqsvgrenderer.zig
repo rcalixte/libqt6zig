@@ -68,9 +68,9 @@ pub const QSvgRenderer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` contents: []u8 `
+    /// ` contents: []const u8 `
     ///
-    pub fn new3(contents: []u8) QSvgRenderer {
+    pub fn new3(contents: []const u8) QSvgRenderer {
         const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
@@ -137,11 +137,11 @@ pub const QSvgRenderer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` contents: []u8 `
+    /// ` contents: []const u8 `
     ///
     /// ` _parent: QObject `
     ///
-    pub fn new7(contents: []u8, _parent: anytype) QSvgRenderer {
+    pub fn new7(contents: []const u8, _parent: anytype) QSvgRenderer {
         const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
@@ -721,9 +721,9 @@ pub const QSvgRenderer = extern struct {
     ///
     /// ` self: QSvgRenderer `
     ///
-    /// ` contents: []u8 `
+    /// ` contents: []const u8 `
     ///
-    pub fn load2(self: QSvgRenderer, contents: []u8) bool {
+    pub fn load2(self: QSvgRenderer, contents: []const u8) bool {
         const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
@@ -1500,7 +1500,7 @@ pub const QSvgRenderer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QSvgRenderer, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSvgRenderer, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1508,7 +1508,7 @@ pub const QSvgRenderer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSvgRenderer.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSvgRenderer.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSvgRenderer.dynamicPropertyNames: Memory allocation failed");

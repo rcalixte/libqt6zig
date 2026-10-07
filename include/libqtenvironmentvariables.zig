@@ -16,12 +16,12 @@ pub const qtenvironmentvariables = extern struct {
     ///
     /// ` varName: [:0]const u8 `
     ///
-    pub fn qgetenv(allocator: std.mem.Allocator, varName: [:0]const u8) []u8 {
+    pub fn qgetenv(allocator: std.mem.Allocator, varName: [:0]const u8) []const u8 {
         const varName_Cstring = varName.ptr;
-        var _bytearray: qtc.libqt_string = qtc.qtenvironmentvariables_Qgetenv(varName_Cstring);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtenvironmentvariables.qgetenv: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.qtenvironmentvariables_Qgetenv(varName_Cstring);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtenvironmentvariables.qgetenv: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -83,9 +83,9 @@ pub const qtenvironmentvariables = extern struct {
     ///
     /// ` varName: [:0]const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn qputenv(varName: [:0]const u8, value: []u8) bool {
+    pub fn qputenv(varName: [:0]const u8, value: []const u8) bool {
         const varName_Cstring = varName.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,

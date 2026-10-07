@@ -286,9 +286,9 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` source: []u8 `
+    /// ` source: []const u8 `
     ///
-    pub fn compileSourceCode2(self: QOpenGLShader, source: []u8) bool {
+    pub fn compileSourceCode2(self: QOpenGLShader, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
@@ -348,11 +348,11 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn sourceCode(self: QOpenGLShader, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QOpenGLShader_SourceCode(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLShader.sourceCode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn sourceCode(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QOpenGLShader_SourceCode(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.sourceCode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1071,7 +1071,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QOpenGLShader, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLShader, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1079,7 +1079,7 @@ pub const QOpenGLShader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShader.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QOpenGLShader.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLShader.dynamicPropertyNames: Memory allocation failed");
@@ -2305,9 +2305,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    /// ` source: []u8 `
+    /// ` source: []const u8 `
     ///
-    pub fn addShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
+    pub fn addShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
@@ -2390,9 +2390,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    /// ` source: []u8 `
+    /// ` source: []const u8 `
     ///
-    pub fn addCacheableShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
+    pub fn addCacheableShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
@@ -2751,11 +2751,11 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
     /// ` location: i32 `
     ///
-    pub fn bindAttributeLocation2(self: QOpenGLShaderProgram, name: []u8, location: i32) void {
+    pub fn bindAttributeLocation2(self: QOpenGLShaderProgram, name: []const u8, location: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2812,9 +2812,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
-    pub fn attributeLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
+    pub fn attributeLocation2(self: QOpenGLShaderProgram, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -3556,9 +3556,9 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
-    pub fn uniformLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
+    pub fn uniformLocation2(self: QOpenGLShaderProgram, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -5454,7 +5454,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5462,7 +5462,7 @@ pub const QOpenGLShaderProgram = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShaderProgram.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QOpenGLShaderProgram.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLShaderProgram.dynamicPropertyNames: Memory allocation failed");

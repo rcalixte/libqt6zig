@@ -788,9 +788,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn sendBinaryMessage(self: QWebSocket, data: []u8) i64 {
+    pub fn sendBinaryMessage(self: QWebSocket, data: []const u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1382,11 +1382,11 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` frame: []u8 `
+    /// ` frame: []const u8 `
     ///
     /// ` isLastFrame: bool `
     ///
-    pub fn binaryFrameReceived(self: QWebSocket, frame: []u8, isLastFrame: bool) void {
+    pub fn binaryFrameReceived(self: QWebSocket, frame: []const u8, isLastFrame: bool) void {
         const frame_str = qtc.libqt_string{
             .len = frame.len,
             .data = frame.ptr,
@@ -1404,9 +1404,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, frame: qtc.libqt_string, isLastFrame: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, frame: [*:0]const u8, isLastFrame: bool) callconv(.c) void `
     ///
-    pub fn onBinaryFrameReceived(self: QWebSocket, callback: *const fn (QWebSocket, qtc.libqt_string, bool) callconv(.c) void) void {
+    pub fn onBinaryFrameReceived(self: QWebSocket, callback: *const fn (QWebSocket, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryFrameReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1456,9 +1456,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` message: []u8 `
+    /// ` message: []const u8 `
     ///
-    pub fn binaryMessageReceived(self: QWebSocket, message: []u8) void {
+    pub fn binaryMessageReceived(self: QWebSocket, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -1476,9 +1476,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, message: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onBinaryMessageReceived(self: QWebSocket, callback: *const fn (QWebSocket, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onBinaryMessageReceived(self: QWebSocket, callback: *const fn (QWebSocket, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryMessageReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1558,9 +1558,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` elapsedTime: u64 `
     ///
-    /// ` payload: []u8 `
+    /// ` payload: []const u8 `
     ///
-    pub fn pong(self: QWebSocket, elapsedTime: u64, payload: []u8) void {
+    pub fn pong(self: QWebSocket, elapsedTime: u64, payload: []const u8) void {
         const payload_str = qtc.libqt_string{
             .len = payload.len,
             .data = payload.ptr,
@@ -1578,9 +1578,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, elapsedTime: u64, payload: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, elapsedTime: u64, payload: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onPong(self: QWebSocket, callback: *const fn (QWebSocket, u64, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onPong(self: QWebSocket, callback: *const fn (QWebSocket, u64, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocket_Connect_Pong(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1933,9 +1933,9 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` payload: []u8 `
+    /// ` payload: []const u8 `
     ///
-    pub fn ping1(self: QWebSocket, payload: []u8) void {
+    pub fn ping1(self: QWebSocket, payload: []const u8) void {
         const payload_str = qtc.libqt_string{
             .len = payload.len,
             .data = payload.ptr,
@@ -2525,7 +2525,7 @@ pub const QWebSocket = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QWebSocket, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebSocket, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2533,7 +2533,7 @@ pub const QWebSocket = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebSocket.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocket.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebSocket.dynamicPropertyNames: Memory allocation failed");

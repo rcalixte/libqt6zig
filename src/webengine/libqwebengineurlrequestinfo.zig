@@ -4,7 +4,7 @@ const QIODevice = @import("libqt6").QIODevice;
 const QUrl = @import("libqt6").QUrl;
 const qwebengineurlrequestinfo_enums = enums;
 const std = @import("std");
-const Map_u8_u8 = std.StringHashMapUnmanaged([]u8);
+const Map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html)
 pub const QWebEngineUrlRequestInfo = extern struct {
@@ -106,11 +106,11 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn requestMethod(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlRequestInfo.requestMethod: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn requestMethod(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineUrlRequestInfo.requestMethod: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -185,11 +185,11 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    /// ` name: []u8 `
+    /// ` name: []const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn setHttpHeader(self: QWebEngineUrlRequestInfo, name: []u8, value: []u8) void {
+    pub fn setHttpHeader(self: QWebEngineUrlRequestInfo, name: []const u8, value: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -213,9 +213,9 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn httpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_u8_u8 {
+    pub fn httpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestInfo_HttpHeaders(@ptrCast(self.ptr));
-        var _ret: Map_u8_u8 = .empty;
+        var _ret: Map_constu8_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineUrlRequestInfo.httpHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));

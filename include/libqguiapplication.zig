@@ -794,13 +794,13 @@ pub const QGuiApplication = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` function: []u8 `
+    /// ` function: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ?*const fn () callconv(.c) void `
     ///
-    pub fn platformFunction(function: []u8) ?*const fn () callconv(.c) void {
+    pub fn platformFunction(function: []const u8) ?*const fn () callconv(.c) void {
         const function_str = qtc.libqt_string{
             .len = function.len,
             .data = function.ptr,
@@ -3298,7 +3298,7 @@ pub const QGuiApplication = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QGuiApplication, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGuiApplication, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3306,7 +3306,7 @@ pub const QGuiApplication = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGuiApplication.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QGuiApplication.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGuiApplication.dynamicPropertyNames: Memory allocation failed");

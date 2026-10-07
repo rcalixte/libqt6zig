@@ -282,11 +282,11 @@ pub const KIO__OpenFileManagerWindowJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn startupId(self: KIO__OpenFileManagerWindowJob, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KIO__OpenFileManagerWindowJob_StartupId(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KIO__OpenFileManagerWindowJob.startupId: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn startupId(self: KIO__OpenFileManagerWindowJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__OpenFileManagerWindowJob_StartupId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__OpenFileManagerWindowJob.startupId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -300,9 +300,9 @@ pub const KIO__OpenFileManagerWindowJob = extern struct {
     ///
     /// ` self: KIO__OpenFileManagerWindowJob `
     ///
-    /// ` _startupId: []u8 `
+    /// ` _startupId: []const u8 `
     ///
-    pub fn setStartupId(self: KIO__OpenFileManagerWindowJob, _startupId: []u8) void {
+    pub fn setStartupId(self: KIO__OpenFileManagerWindowJob, _startupId: []const u8) void {
         const startupId_str = qtc.libqt_string{
             .len = _startupId.len,
             .data = _startupId.ptr,
@@ -1562,7 +1562,7 @@ pub const KIO__OpenFileManagerWindowJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__OpenFileManagerWindowJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__OpenFileManagerWindowJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1570,7 +1570,7 @@ pub const KIO__OpenFileManagerWindowJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__OpenFileManagerWindowJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__OpenFileManagerWindowJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__OpenFileManagerWindowJob.dynamicPropertyNames: Memory allocation failed");
@@ -3138,9 +3138,9 @@ pub const KIO = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    /// ` asn: []u8 `
+    /// ` asn: []const u8 `
     ///
-    pub fn highlightInFileManager(urls: []QUrl, asn: []u8) KIO__OpenFileManagerWindowJob {
+    pub fn highlightInFileManager(urls: []QUrl, asn: []const u8) KIO__OpenFileManagerWindowJob {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),

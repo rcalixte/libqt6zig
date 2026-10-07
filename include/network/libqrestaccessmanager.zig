@@ -315,9 +315,9 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn get2(self: QRestAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn get2(self: QRestAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -439,9 +439,9 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn post3(self: QRestAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn post3(self: QRestAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -563,9 +563,9 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn put3(self: QRestAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn put3(self: QRestAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -687,9 +687,9 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn patch3(self: QRestAccessManager, request: anytype, data: []u8) QNetworkReply {
+    pub fn patch3(self: QRestAccessManager, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -730,11 +730,11 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` method: []u8 `
+    /// ` method: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn sendCustomRequest(self: QRestAccessManager, request: anytype, method: []u8, data: []u8) QNetworkReply {
+    pub fn sendCustomRequest(self: QRestAccessManager, request: anytype, method: []const u8, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const method_str = qtc.libqt_string{
             .len = method.len,
@@ -759,11 +759,11 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` method: []u8 `
+    /// ` method: []const u8 `
     ///
     /// ` data: QIODevice `
     ///
-    pub fn sendCustomRequest2(self: QRestAccessManager, request: anytype, method: []u8, data: anytype) QNetworkReply {
+    pub fn sendCustomRequest2(self: QRestAccessManager, request: anytype, method: []const u8, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const method_str = qtc.libqt_string{
             .len = method.len,
@@ -785,11 +785,11 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` method: []u8 `
+    /// ` method: []const u8 `
     ///
     /// ` data: QHttpMultiPart `
     ///
-    pub fn sendCustomRequest3(self: QRestAccessManager, request: anytype, method: []u8, data: anytype) QNetworkReply {
+    pub fn sendCustomRequest3(self: QRestAccessManager, request: anytype, method: []const u8, data: anytype) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const method_str = qtc.libqt_string{
             .len = method.len,
@@ -1435,7 +1435,7 @@ pub const QRestAccessManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QRestAccessManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QRestAccessManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1443,7 +1443,7 @@ pub const QRestAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QRestAccessManager.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QRestAccessManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QRestAccessManager.dynamicPropertyNames: Memory allocation failed");

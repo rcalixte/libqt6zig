@@ -1710,9 +1710,9 @@ pub const KAboutData = extern struct {
     ///
     /// ` self: KAboutData `
     ///
-    /// ` _version: []u8 `
+    /// ` _version: []const u8 `
     ///
-    pub fn setVersion(self: KAboutData, _version: []u8) KAboutData {
+    pub fn setVersion(self: KAboutData, _version: []const u8) KAboutData {
         const version_str = qtc.libqt_string{
             .len = _version.len,
             .data = _version.ptr,
@@ -1878,9 +1878,9 @@ pub const KAboutData = extern struct {
     ///
     /// ` self: KAboutData `
     ///
-    /// ` _bugAddress: []u8 `
+    /// ` _bugAddress: []const u8 `
     ///
-    pub fn setBugAddress(self: KAboutData, _bugAddress: []u8) KAboutData {
+    pub fn setBugAddress(self: KAboutData, _bugAddress: []const u8) KAboutData {
         const bugAddress_str = qtc.libqt_string{
             .len = _bugAddress.len,
             .data = _bugAddress.ptr,
@@ -1898,9 +1898,9 @@ pub const KAboutData = extern struct {
     ///
     /// ` self: KAboutData `
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
-    pub fn setOrganizationDomain(self: KAboutData, domain: []u8) KAboutData {
+    pub fn setOrganizationDomain(self: KAboutData, domain: []const u8) KAboutData {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
@@ -1918,9 +1918,9 @@ pub const KAboutData = extern struct {
     ///
     /// ` self: KAboutData `
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn setProductName(self: KAboutData, _name: []u8) KAboutData {
+    pub fn setProductName(self: KAboutData, _name: []const u8) KAboutData {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,

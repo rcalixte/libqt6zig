@@ -4217,11 +4217,11 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn saveGeometry(self: KTitleWidget, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTitleWidget.saveGeometry: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn saveGeometry(self: KTitleWidget, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTitleWidget.saveGeometry: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -4237,9 +4237,9 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` self: KTitleWidget `
     ///
-    /// ` _geometry: []u8 `
+    /// ` _geometry: []const u8 `
     ///
-    pub fn restoreGeometry(self: KTitleWidget, _geometry: []u8) bool {
+    pub fn restoreGeometry(self: KTitleWidget, _geometry: []const u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = _geometry.len,
             .data = _geometry.ptr,
@@ -6472,7 +6472,7 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KTitleWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KTitleWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6480,7 +6480,7 @@ pub const KTitleWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTitleWidget.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTitleWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KTitleWidget.dynamicPropertyNames: Memory allocation failed");
@@ -8967,13 +8967,13 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` self: KTitleWidget `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn nativeEvent(self: KTitleWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KTitleWidget, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8995,13 +8995,13 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` self: KTitleWidget `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn superNativeEvent(self: KTitleWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KTitleWidget, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9023,9 +9023,9 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` self: KTitleWidget`
     ///
-    /// ` callback: *const fn (self: KTitleWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTitleWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn onNativeEvent(self: KTitleWidget, callback: *const fn (KTitleWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KTitleWidget, callback: *const fn (KTitleWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTitleWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

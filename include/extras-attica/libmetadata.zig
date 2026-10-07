@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const metadata_enums = enums;
 const std = @import("std");
-const Struct_u8_u8 = @import("libqt6").types.Struct_u8_u8; // struct { first: []u8, second: []u8 }
+const Struct_constu8_constu8 = @import("libqt6").types.Struct_constu8_constu8; // struct { first: []const u8, second: []const u8 }
 
 /// ### [Upstream resources](https://api.kde.org/attica-metadata.html)
 pub const Attica__Metadata = extern struct {
@@ -314,7 +314,7 @@ pub const Attica__Metadata = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn headers(self: Attica__Metadata, allocator: std.mem.Allocator) []Struct_u8_u8 {
+    pub fn headers(self: Attica__Metadata, allocator: std.mem.Allocator) []Struct_constu8_constu8 {
         const _arr: qtc.libqt_list = qtc.Attica__Metadata_Headers(@ptrCast(self.ptr));
         const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -324,7 +324,7 @@ pub const Attica__Metadata = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("Attica__Metadata.headers: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_constu8, _arr.len) catch @panic("Attica__Metadata.headers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("Attica__Metadata.headers: Memory allocation failed");
@@ -332,7 +332,7 @@ pub const Attica__Metadata = extern struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("Attica__Metadata.headers: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = Struct_u8_u8{
+            _ret[i] = Struct_constu8_constu8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -352,9 +352,9 @@ pub const Attica__Metadata = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _headers: []Struct_u8_u8 `
+    /// ` _headers: []Struct_constu8_constu8 `
     ///
-    pub fn setHeaders(self: Attica__Metadata, allocator: std.mem.Allocator, _headers: []Struct_u8_u8) void {
+    pub fn setHeaders(self: Attica__Metadata, allocator: std.mem.Allocator, _headers: []Struct_constu8_constu8) void {
         const headers_pairs = allocator.alloc(qtc.libqt_pair, _headers.len) catch @panic("Attica__Metadata.setHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
         const headers_str = allocator.alloc(qtc.libqt_string, _headers.len * 2) catch @panic("Attica__Metadata.setHeaders: Memory allocation failed");

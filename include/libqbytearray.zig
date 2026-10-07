@@ -17,11 +17,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn number(allocator: std.mem.Allocator, param1: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number(allocator: std.mem.Allocator, param1: i32) []const u8 {
+        var _str = qtc.QByteArray_Number(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -37,11 +37,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: u32 `
     ///
-    pub fn number2(allocator: std.mem.Allocator, param1: u32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number2(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number2(allocator: std.mem.Allocator, param1: u32) []const u8 {
+        var _str = qtc.QByteArray_Number2(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -57,11 +57,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: isize `
     ///
-    pub fn number3(allocator: std.mem.Allocator, param1: isize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number3(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number3: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number3(allocator: std.mem.Allocator, param1: isize) []const u8 {
+        var _str = qtc.QByteArray_Number3(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number3: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -77,11 +77,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn number4(allocator: std.mem.Allocator, param1: usize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number4(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number4: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number4(allocator: std.mem.Allocator, param1: usize) []const u8 {
+        var _str = qtc.QByteArray_Number4(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number4: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -97,11 +97,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: isize `
     ///
-    pub fn number5(allocator: std.mem.Allocator, param1: isize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number5(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number5: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number5(allocator: std.mem.Allocator, param1: isize) []const u8 {
+        var _str = qtc.QByteArray_Number5(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number5: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -117,11 +117,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn number6(allocator: std.mem.Allocator, param1: usize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number6(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number6: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number6(allocator: std.mem.Allocator, param1: usize) []const u8 {
+        var _str = qtc.QByteArray_Number6(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number6: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -137,11 +137,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` param1: f64 `
     ///
-    pub fn number7(allocator: std.mem.Allocator, param1: f64) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number7(@bitCast(param1));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number7: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number7(allocator: std.mem.Allocator, param1: f64) []const u8 {
+        var _str = qtc.QByteArray_Number7(@bitCast(param1));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number7: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -159,12 +159,12 @@ pub const QByteArray = extern struct {
     ///
     /// ` _size: isize `
     ///
-    pub fn fromRawData(allocator: std.mem.Allocator, _data: [:0]const u8, _size: isize) []u8 {
+    pub fn fromRawData(allocator: std.mem.Allocator, _data: [:0]const u8, _size: isize) []const u8 {
         const data_Cstring = _data.ptr;
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromRawData(data_Cstring, @bitCast(_size));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromRawData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromRawData(data_Cstring, @bitCast(_size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromRawData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -176,9 +176,9 @@ pub const QByteArray = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` base64: []u8 `
+    /// ` base64: []const u8 `
     ///
-    pub fn fromBase64Encoding(base64: []u8) QByteArray__FromBase64Result {
+    pub fn fromBase64Encoding(base64: []const u8) QByteArray__FromBase64Result {
         const base64_str = qtc.libqt_string{
             .len = base64.len,
             .data = base64.ptr,
@@ -196,17 +196,17 @@ pub const QByteArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` base64: []u8 `
+    /// ` base64: []const u8 `
     ///
-    pub fn fromBase64(allocator: std.mem.Allocator, base64: []u8) []u8 {
+    pub fn fromBase64(allocator: std.mem.Allocator, base64: []const u8) []const u8 {
         const base64_str = qtc.libqt_string{
             .len = base64.len,
             .data = base64.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromBase64(base64_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromBase64: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromBase64(base64_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromBase64: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -220,17 +220,17 @@ pub const QByteArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` hexEncoded: []u8 `
+    /// ` hexEncoded: []const u8 `
     ///
-    pub fn fromHex(allocator: std.mem.Allocator, hexEncoded: []u8) []u8 {
+    pub fn fromHex(allocator: std.mem.Allocator, hexEncoded: []const u8) []const u8 {
         const hexEncoded_str = qtc.libqt_string{
             .len = hexEncoded.len,
             .data = hexEncoded.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromHex(hexEncoded_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromHex: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromHex(hexEncoded_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromHex: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -244,17 +244,17 @@ pub const QByteArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pctEncoded: []u8 `
+    /// ` pctEncoded: []const u8 `
     ///
-    pub fn fromPercentEncoding(allocator: std.mem.Allocator, pctEncoded: []u8) []u8 {
+    pub fn fromPercentEncoding(allocator: std.mem.Allocator, pctEncoded: []const u8) []const u8 {
         const pctEncoded_str = qtc.libqt_string{
             .len = pctEncoded.len,
             .data = pctEncoded.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromPercentEncoding(pctEncoded_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromPercentEncoding: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromPercentEncoding(pctEncoded_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromPercentEncoding: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -282,11 +282,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number22(allocator: std.mem.Allocator, param1: i32, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number22(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number22: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number22(allocator: std.mem.Allocator, param1: i32, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number22(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -304,11 +304,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number23(allocator: std.mem.Allocator, param1: u32, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number23(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number23: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number23(allocator: std.mem.Allocator, param1: u32, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number23(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number23: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -326,11 +326,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number24(allocator: std.mem.Allocator, param1: isize, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number24(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number24: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number24(allocator: std.mem.Allocator, param1: isize, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number24(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number24: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -348,11 +348,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number25(allocator: std.mem.Allocator, param1: usize, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number25(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number25: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number25(allocator: std.mem.Allocator, param1: usize, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number25(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number25: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -370,11 +370,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number26(allocator: std.mem.Allocator, param1: isize, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number26(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number26: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number26(allocator: std.mem.Allocator, param1: isize, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number26(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number26: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -392,11 +392,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` base: i32 `
     ///
-    pub fn number27(allocator: std.mem.Allocator, param1: usize, base: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number27(@bitCast(param1), @bitCast(base));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number27: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number27(allocator: std.mem.Allocator, param1: usize, base: i32) []const u8 {
+        var _str = qtc.QByteArray_Number27(@bitCast(param1), @bitCast(base));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number27: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -414,11 +414,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` format: u8 `
     ///
-    pub fn number28(allocator: std.mem.Allocator, param1: f64, format: u8) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number28(@bitCast(param1), @bitCast(format));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number28: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number28(allocator: std.mem.Allocator, param1: f64, format: u8) []const u8 {
+        var _str = qtc.QByteArray_Number28(@bitCast(param1), @bitCast(format));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number28: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -438,11 +438,11 @@ pub const QByteArray = extern struct {
     ///
     /// ` precision: i32 `
     ///
-    pub fn number32(allocator: std.mem.Allocator, param1: f64, format: u8, precision: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_Number32(@bitCast(param1), @bitCast(format), @bitCast(precision));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.number32: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn number32(allocator: std.mem.Allocator, param1: f64, format: u8, precision: i32) []const u8 {
+        var _str = qtc.QByteArray_Number32(@bitCast(param1), @bitCast(format), @bitCast(precision));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.number32: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -454,11 +454,11 @@ pub const QByteArray = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` base64: []u8 `
+    /// ` base64: []const u8 `
     ///
     /// ` options: flag of qbytearray_enums.Base64Option `
     ///
-    pub fn fromBase64Encoding2(base64: []u8, options: i32) QByteArray__FromBase64Result {
+    pub fn fromBase64Encoding2(base64: []const u8, options: i32) QByteArray__FromBase64Result {
         const base64_str = qtc.libqt_string{
             .len = base64.len,
             .data = base64.ptr,
@@ -476,19 +476,19 @@ pub const QByteArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` base64: []u8 `
+    /// ` base64: []const u8 `
     ///
     /// ` options: flag of qbytearray_enums.Base64Option `
     ///
-    pub fn fromBase642(allocator: std.mem.Allocator, base64: []u8, options: i32) []u8 {
+    pub fn fromBase642(allocator: std.mem.Allocator, base64: []const u8, options: i32) []const u8 {
         const base64_str = qtc.libqt_string{
             .len = base64.len,
             .data = base64.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromBase642(base64_str, @bitCast(options));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromBase642: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromBase642(base64_str, @bitCast(options));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromBase642: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -502,19 +502,19 @@ pub const QByteArray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pctEncoded: []u8 `
+    /// ` pctEncoded: []const u8 `
     ///
     /// ` percent: u8 `
     ///
-    pub fn fromPercentEncoding2(allocator: std.mem.Allocator, pctEncoded: []u8, percent: u8) []u8 {
+    pub fn fromPercentEncoding2(allocator: std.mem.Allocator, pctEncoded: []const u8, percent: u8) []const u8 {
         const pctEncoded_str = qtc.libqt_string{
             .len = pctEncoded.len,
             .data = pctEncoded.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QByteArray_FromPercentEncoding2(pctEncoded_str, @bitCast(percent));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray.fromPercentEncoding2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QByteArray_FromPercentEncoding2(pctEncoded_str, @bitCast(percent));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray.fromPercentEncoding2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 };
@@ -537,11 +537,11 @@ pub const qbytearray = extern struct {
     ///
     /// ` compressionLevel: i32 `
     ///
-    pub fn qCompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize, compressionLevel: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.qbytearray_QCompress(@ptrCast(_data), @bitCast(nbytes), @bitCast(compressionLevel));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qCompress: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn qCompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize, compressionLevel: i32) []const u8 {
+        var _str = qtc.qbytearray_QCompress(@ptrCast(_data), @bitCast(nbytes), @bitCast(compressionLevel));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearray.qCompress: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -559,11 +559,11 @@ pub const qbytearray = extern struct {
     ///
     /// ` nbytes: isize `
     ///
-    pub fn qUncompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.qbytearray_QUncompress(@ptrCast(_data), @bitCast(nbytes));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qUncompress: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn qUncompress(allocator: std.mem.Allocator, _data: *const u8, nbytes: isize) []const u8 {
+        var _str = qtc.qbytearray_QUncompress(@ptrCast(_data), @bitCast(nbytes));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearray.qUncompress: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -577,19 +577,19 @@ pub const qbytearray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
     /// ` compressionLevel: i32 `
     ///
-    pub fn qCompress2(allocator: std.mem.Allocator, _data: []u8, compressionLevel: i32) []u8 {
+    pub fn qCompress2(allocator: std.mem.Allocator, _data: []const u8, compressionLevel: i32) []const u8 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.qbytearray_QCompress2(data_str, @bitCast(compressionLevel));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qCompress2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.qbytearray_QCompress2(data_str, @bitCast(compressionLevel));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearray.qCompress2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -603,17 +603,17 @@ pub const qbytearray = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn qUncompress2(allocator: std.mem.Allocator, _data: []u8) []u8 {
+    pub fn qUncompress2(allocator: std.mem.Allocator, _data: []const u8) []const u8 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.qbytearray_QUncompress2(data_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearray.qUncompress2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.qbytearray_QUncompress2(data_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearray.qUncompress2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -682,11 +682,11 @@ pub const QByteArray__FromBase64Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn decoded(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []u8 {
-        var decoded_bytearray: qtc.libqt_string = qtc.QByteArray__FromBase64Result_Decoded(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&decoded_bytearray);
-        const decoded_ret = allocator.alloc(u8, decoded_bytearray.len) catch @panic("QByteArray__FromBase64Result.decoded: Memory allocation failed");
-        @memcpy(decoded_ret, decoded_bytearray.data[0..decoded_bytearray.len]);
+    pub fn decoded(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []const u8 {
+        var decoded_str = qtc.QByteArray__FromBase64Result_Decoded(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&decoded_str);
+        const decoded_ret = allocator.alloc(u8, decoded_str.len) catch @panic("QByteArray__FromBase64Result.decoded: Memory allocation failed");
+        @memcpy(decoded_ret, decoded_str.data[0..decoded_str.len]);
         return decoded_ret;
     }
 
@@ -700,9 +700,9 @@ pub const QByteArray__FromBase64Result = extern struct {
     ///
     /// ` self: QByteArray__FromBase64Result `
     ///
-    /// ` _decoded: []u8 `
+    /// ` _decoded: []const u8 `
     ///
-    pub fn setDecoded(self: QByteArray__FromBase64Result, _decoded: []u8) void {
+    pub fn setDecoded(self: QByteArray__FromBase64Result, _decoded: []const u8) void {
         const decoded_str = qtc.libqt_string{
             .len = _decoded.len,
             .data = _decoded.ptr,
@@ -787,11 +787,11 @@ pub const QByteArray__FromBase64Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn operatorMultiply(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray__FromBase64Result_OperatorMultiply(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray__FromBase64Result.operatorMultiply: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn operatorMultiply(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QByteArray__FromBase64Result_OperatorMultiply(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray__FromBase64Result.operatorMultiply: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -807,11 +807,11 @@ pub const QByteArray__FromBase64Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn operatorMultiply2(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QByteArray__FromBase64Result_OperatorMultiply2(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArray__FromBase64Result.operatorMultiply2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn operatorMultiply2(self: QByteArray__FromBase64Result, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QByteArray__FromBase64Result_OperatorMultiply2(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QByteArray__FromBase64Result.operatorMultiply2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

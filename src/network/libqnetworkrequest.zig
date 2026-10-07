@@ -257,7 +257,7 @@ pub const QNetworkRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn rawHeaderList(self: QNetworkRequest, allocator: std.mem.Allocator) [][]u8 {
+    pub fn rawHeaderList(self: QNetworkRequest, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QNetworkRequest_RawHeaderList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -265,7 +265,7 @@ pub const QNetworkRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkRequest.rawHeaderList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNetworkRequest.rawHeaderList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNetworkRequest.rawHeaderList: Memory allocation failed");
@@ -289,15 +289,15 @@ pub const QNetworkRequest = extern struct {
     ///
     /// ` headerName: []const u8 `
     ///
-    pub fn rawHeader(self: QNetworkRequest, allocator: std.mem.Allocator, headerName: []const u8) []u8 {
+    pub fn rawHeader(self: QNetworkRequest, allocator: std.mem.Allocator, headerName: []const u8) []const u8 {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QNetworkRequest_RawHeader(@ptrCast(self.ptr), headerName_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkRequest.rawHeader: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QNetworkRequest_RawHeader(@ptrCast(self.ptr), headerName_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkRequest.rawHeader: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -311,11 +311,11 @@ pub const QNetworkRequest = extern struct {
     ///
     /// ` self: QNetworkRequest `
     ///
-    /// ` headerName: []u8 `
+    /// ` headerName: []const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn setRawHeader(self: QNetworkRequest, headerName: []u8, value: []u8) void {
+    pub fn setRawHeader(self: QNetworkRequest, headerName: []const u8, value: []const u8) void {
         const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,

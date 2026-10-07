@@ -1886,7 +1886,7 @@ pub const KIO__SimpleJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__SimpleJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__SimpleJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1894,7 +1894,7 @@ pub const KIO__SimpleJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__SimpleJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__SimpleJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__SimpleJob.dynamicPropertyNames: Memory allocation failed");
@@ -2567,11 +2567,11 @@ pub const KIO = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn special(_url: anytype, data: []u8, flags: i32) KIO__SimpleJob {
+    pub fn special(_url: anytype, data: []const u8, flags: i32) KIO__SimpleJob {
         comptime _ = @TypeOf(_url)._is_QUrl;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -2590,7 +2590,7 @@ pub const KIO = extern struct {
     ///
     /// ` ro: bool `
     ///
-    /// ` fstype: []u8 `
+    /// ` fstype: []const u8 `
     ///
     /// ` dev: []const u8 `
     ///
@@ -2598,7 +2598,7 @@ pub const KIO = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn mount(ro: bool, fstype: []u8, dev: []const u8, point: []const u8, flags: i32) KIO__SimpleJob {
+    pub fn mount(ro: bool, fstype: []const u8, dev: []const u8, point: []const u8, flags: i32) KIO__SimpleJob {
         const fstype_str = qtc.libqt_string{
             .len = fstype.len,
             .data = fstype.ptr,

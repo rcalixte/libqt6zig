@@ -1048,7 +1048,7 @@ pub const QKeychain__Job = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QKeychain__Job, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QKeychain__Job, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1056,7 +1056,7 @@ pub const QKeychain__Job = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__Job.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QKeychain__Job.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QKeychain__Job.dynamicPropertyNames: Memory allocation failed");
@@ -1704,11 +1704,11 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn binaryData(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QKeychain__ReadPasswordJob_BinaryData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QKeychain__ReadPasswordJob.binaryData: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn binaryData(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QKeychain__ReadPasswordJob_BinaryData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.binaryData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2674,7 +2674,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2682,7 +2682,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__ReadPasswordJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QKeychain__ReadPasswordJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QKeychain__ReadPasswordJob.dynamicPropertyNames: Memory allocation failed");
@@ -3864,9 +3864,9 @@ pub const QKeychain__WritePasswordJob = extern struct {
     ///
     /// ` self: QKeychain__WritePasswordJob `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setBinaryData(self: QKeychain__WritePasswordJob, data: []u8) void {
+    pub fn setBinaryData(self: QKeychain__WritePasswordJob, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -4836,7 +4836,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4844,7 +4844,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__WritePasswordJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QKeychain__WritePasswordJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QKeychain__WritePasswordJob.dynamicPropertyNames: Memory allocation failed");
@@ -6958,7 +6958,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6966,7 +6966,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__DeletePasswordJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QKeychain__DeletePasswordJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QKeychain__DeletePasswordJob.dynamicPropertyNames: Memory allocation failed");

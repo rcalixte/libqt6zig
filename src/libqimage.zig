@@ -1841,9 +1841,9 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn loadFromData(self: QImage, data: []u8) bool {
+    pub fn loadFromData(self: QImage, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1879,9 +1879,9 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn loadFromData3(self: QImage, data: []u8) bool {
+    pub fn loadFromData3(self: QImage, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1934,9 +1934,9 @@ pub const QImage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn fromData(data: []u8) QImage {
+    pub fn fromData(data: []const u8) QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1968,9 +1968,9 @@ pub const QImage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn fromData3(data: []u8) QImage {
+    pub fn fromData3(data: []const u8) QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2921,11 +2921,11 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: [:0]const u8 `
     ///
-    pub fn loadFromData22(self: QImage, data: []u8, _format: [:0]const u8) bool {
+    pub fn loadFromData22(self: QImage, data: []const u8, _format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2965,11 +2965,11 @@ pub const QImage = extern struct {
     ///
     /// ` self: QImage `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: [:0]const u8 `
     ///
-    pub fn loadFromData23(self: QImage, data: []u8, _format: [:0]const u8) bool {
+    pub fn loadFromData23(self: QImage, data: []const u8, _format: [:0]const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -3076,11 +3076,11 @@ pub const QImage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: [:0]const u8 `
     ///
-    pub fn fromData22(data: []u8, _format: [:0]const u8) QImage {
+    pub fn fromData22(data: []const u8, _format: [:0]const u8) QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -3116,11 +3116,11 @@ pub const QImage = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` _format: [:0]const u8 `
     ///
-    pub fn fromData23(data: []u8, _format: [:0]const u8) QImage {
+    pub fn fromData23(data: []const u8, _format: [:0]const u8) QImage {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,

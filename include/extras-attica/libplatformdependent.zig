@@ -286,9 +286,9 @@ pub const Attica__PlatformDependent = extern struct {
     ///
     /// ` request: QNetworkRequest `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn post2(self: Attica__PlatformDependent, request: anytype, data: []u8) QNetworkReply {
+    pub fn post2(self: Attica__PlatformDependent, request: anytype, data: []const u8) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_str = qtc.libqt_string{
             .len = data.len,

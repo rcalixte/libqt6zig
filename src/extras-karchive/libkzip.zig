@@ -966,9 +966,9 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn writeFile(self: KZip, name: []const u8, data: []u8) bool {
+    pub fn writeFile(self: KZip, name: []const u8, data: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1049,9 +1049,9 @@ pub const KZip = extern struct {
     ///
     /// ` self: KZip `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn writeData2(self: KZip, data: []u8) bool {
+    pub fn writeData2(self: KZip, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1575,11 +1575,11 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
-    pub fn writeFile3(self: KZip, name: []const u8, data: []u8, perm: u32) bool {
+    pub fn writeFile3(self: KZip, name: []const u8, data: []const u8, perm: u32) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1605,13 +1605,13 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
     /// ` user: []const u8 `
     ///
-    pub fn writeFile4(self: KZip, name: []const u8, data: []u8, perm: u32, user: []const u8) bool {
+    pub fn writeFile4(self: KZip, name: []const u8, data: []const u8, perm: u32, user: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1641,7 +1641,7 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1649,7 +1649,7 @@ pub const KZip = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn writeFile5(self: KZip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8) bool {
+    pub fn writeFile5(self: KZip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1683,7 +1683,7 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1693,7 +1693,7 @@ pub const KZip = extern struct {
     ///
     /// ` atime: QDateTime `
     ///
-    pub fn writeFile6(self: KZip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype) bool {
+    pub fn writeFile6(self: KZip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1728,7 +1728,7 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1740,7 +1740,7 @@ pub const KZip = extern struct {
     ///
     /// ` mtime: QDateTime `
     ///
-    pub fn writeFile7(self: KZip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype) bool {
+    pub fn writeFile7(self: KZip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1776,7 +1776,7 @@ pub const KZip = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` perm: u32 `
     ///
@@ -1790,7 +1790,7 @@ pub const KZip = extern struct {
     ///
     /// ` ctime: QDateTime `
     ///
-    pub fn writeFile8(self: KZip, name: []const u8, data: []u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype, ctime: anytype) bool {
+    pub fn writeFile8(self: KZip, name: []const u8, data: []const u8, perm: u32, user: []const u8, group: []const u8, atime: anytype, mtime: anytype, ctime: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,

@@ -64,9 +64,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` _url: QUrl `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn new2(_url: anytype, _data: []u8) KIO__SpecialJob {
+    pub fn new2(_url: anytype, _data: []const u8) KIO__SpecialJob {
         comptime _ = @TypeOf(_url)._is_QUrl;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -258,9 +258,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn setArguments(self: KIO__SpecialJob, _data: []u8) void {
+    pub fn setArguments(self: KIO__SpecialJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -280,11 +280,11 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn arguments(self: KIO__SpecialJob, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KIO__SpecialJob_Arguments(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KIO__SpecialJob.arguments: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn arguments(self: KIO__SpecialJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__SpecialJob_Arguments(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__SpecialJob.arguments: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -407,9 +407,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn sendAsyncData(self: KIO__SpecialJob, _data: []u8) void {
+    pub fn sendAsyncData(self: KIO__SpecialJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -487,9 +487,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__SpecialJob, job: anytype, _data: []u8) void {
+    pub fn data(self: KIO__SpecialJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -510,9 +510,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` callback: *const fn (self: KIO__SpecialJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__SpecialJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onData(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onData(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -530,9 +530,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn dataReq(self: KIO__SpecialJob, job: anytype, _data: []u8) void {
+    pub fn dataReq(self: KIO__SpecialJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -553,9 +553,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` callback: *const fn (self: KIO__SpecialJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__SpecialJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onDataReq(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onDataReq(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2367,7 +2367,7 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__SpecialJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__SpecialJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2375,7 +2375,7 @@ pub const KIO__SpecialJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__SpecialJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__SpecialJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__SpecialJob.dynamicPropertyNames: Memory allocation failed");
@@ -2938,9 +2938,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn slotData(self: KIO__SpecialJob, _data: []u8) void {
+    pub fn slotData(self: KIO__SpecialJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2962,9 +2962,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn superSlotData(self: KIO__SpecialJob, _data: []u8) void {
+    pub fn superSlotData(self: KIO__SpecialJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2986,9 +2986,9 @@ pub const KIO__SpecialJob = extern struct {
     ///
     /// ` self: KIO__SpecialJob`
     ///
-    /// ` callback: *const fn (self: KIO__SpecialJob, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__SpecialJob, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onSlotData(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onSlotData(self: KIO__SpecialJob, callback: *const fn (KIO__SpecialJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__SpecialJob_OnSlotData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

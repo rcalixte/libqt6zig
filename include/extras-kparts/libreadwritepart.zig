@@ -984,9 +984,9 @@ pub const KParts__ReadWritePart = extern struct {
     ///
     /// ` self: KParts__ReadWritePart `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn writeStream(self: KParts__ReadWritePart, data: []u8) bool {
+    pub fn writeStream(self: KParts__ReadWritePart, data: []const u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1947,7 +1947,7 @@ pub const KParts__ReadWritePart = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KParts__ReadWritePart, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KParts__ReadWritePart, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1955,7 +1955,7 @@ pub const KParts__ReadWritePart = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__ReadWritePart.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KParts__ReadWritePart.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KParts__ReadWritePart.dynamicPropertyNames: Memory allocation failed");

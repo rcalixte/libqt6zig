@@ -1224,9 +1224,9 @@ pub const KConfigGroup = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn writeEntry5(self: KConfigGroup, key: []const u8, value: []u8) void {
+    pub fn writeEntry5(self: KConfigGroup, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1250,9 +1250,9 @@ pub const KConfigGroup = extern struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
-    pub fn writeEntry6(self: KConfigGroup, key: [:0]const u8, value: []u8) void {
+    pub fn writeEntry6(self: KConfigGroup, key: [:0]const u8, value: []const u8) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,
@@ -2488,11 +2488,11 @@ pub const KConfigGroup = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn writeEntry36(self: KConfigGroup, key: []const u8, value: []u8, pFlags: i32) void {
+    pub fn writeEntry36(self: KConfigGroup, key: []const u8, value: []const u8, pFlags: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -2516,11 +2516,11 @@ pub const KConfigGroup = extern struct {
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: []u8 `
+    /// ` value: []const u8 `
     ///
     /// ` pFlags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn writeEntry37(self: KConfigGroup, key: [:0]const u8, value: []u8, pFlags: i32) void {
+    pub fn writeEntry37(self: KConfigGroup, key: [:0]const u8, value: []const u8, pFlags: i32) void {
         const key_Cstring = key.ptr;
         const value_str = qtc.libqt_string{
             .len = value.len,

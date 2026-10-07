@@ -25,15 +25,15 @@ pub const QPasswordDigestor = extern struct {
     ///
     /// ` algorithm: qcryptographichash_enums.Algorithm `
     ///
-    /// ` password: []u8 `
+    /// ` password: []const u8 `
     ///
-    /// ` salt: []u8 `
+    /// ` salt: []const u8 `
     ///
     /// ` iterations: i32 `
     ///
     /// ` dkLen: u64 `
     ///
-    pub fn deriveKeyPbkdf1(allocator: std.mem.Allocator, algorithm: i32, password: []u8, salt: []u8, iterations: i32, dkLen: u64) []u8 {
+    pub fn deriveKeyPbkdf1(allocator: std.mem.Allocator, algorithm: i32, password: []const u8, salt: []const u8, iterations: i32, dkLen: u64) []const u8 {
         const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
@@ -42,10 +42,10 @@ pub const QPasswordDigestor = extern struct {
             .len = salt.len,
             .data = salt.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf1(@bitCast(algorithm), password_str, salt_str, @bitCast(iterations), @bitCast(dkLen));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPasswordDigestor.deriveKeyPbkdf1: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QPasswordDigestor_DeriveKeyPbkdf1(@bitCast(algorithm), password_str, salt_str, @bitCast(iterations), @bitCast(dkLen));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPasswordDigestor.deriveKeyPbkdf1: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -61,15 +61,15 @@ pub const QPasswordDigestor = extern struct {
     ///
     /// ` algorithm: qcryptographichash_enums.Algorithm `
     ///
-    /// ` password: []u8 `
+    /// ` password: []const u8 `
     ///
-    /// ` salt: []u8 `
+    /// ` salt: []const u8 `
     ///
     /// ` iterations: i32 `
     ///
     /// ` dkLen: u64 `
     ///
-    pub fn deriveKeyPbkdf2(allocator: std.mem.Allocator, algorithm: i32, password: []u8, salt: []u8, iterations: i32, dkLen: u64) []u8 {
+    pub fn deriveKeyPbkdf2(allocator: std.mem.Allocator, algorithm: i32, password: []const u8, salt: []const u8, iterations: i32, dkLen: u64) []const u8 {
         const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
@@ -78,10 +78,10 @@ pub const QPasswordDigestor = extern struct {
             .len = salt.len,
             .data = salt.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QPasswordDigestor_DeriveKeyPbkdf2(@bitCast(algorithm), password_str, salt_str, @bitCast(iterations), @bitCast(dkLen));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPasswordDigestor.deriveKeyPbkdf2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QPasswordDigestor_DeriveKeyPbkdf2(@bitCast(algorithm), password_str, salt_str, @bitCast(iterations), @bitCast(dkLen));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPasswordDigestor.deriveKeyPbkdf2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 };

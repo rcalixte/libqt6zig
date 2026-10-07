@@ -93,11 +93,11 @@ pub const Poppler__MediaRendition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: Poppler__MediaRendition, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__MediaRendition_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__MediaRendition.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: Poppler__MediaRendition, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__MediaRendition_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MediaRendition.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

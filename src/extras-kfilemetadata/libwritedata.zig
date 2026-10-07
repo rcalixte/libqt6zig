@@ -5,7 +5,7 @@ const embeddedimagedata_enums = @import("libembeddedimagedata.zig").enums;
 const properties_enums = @import("libproperties.zig").enums;
 const std = @import("std");
 const ArrayMap_i32_SliceQVariant = std.array_hash_map.Auto(i32, []QVariant);
-const ArrayMap_i32_u8 = std.array_hash_map.Auto(i32, []u8);
+const ArrayMap_i32_constu8 = std.array_hash_map.Auto(i32, []const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writedata.html)
 pub const KFileMetaData__WriteData = extern struct {
@@ -144,9 +144,9 @@ pub const KFileMetaData__WriteData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` images: ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` images: ArrayMap_i32_constu8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn addImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator, images: ArrayMap_i32_u8) void {
+    pub fn addImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator, images: ArrayMap_i32_constu8) void {
         const images_count = images.count();
         const images_keys = allocator.alloc(i32, images_count) catch @panic("KFileMetaData__WriteData.addImageData: Memory allocation failed");
         defer allocator.free(images_keys);
@@ -228,11 +228,11 @@ pub const KFileMetaData__WriteData = extern struct {
     ///
     /// ## Returns:
     ///
-    /// ` ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
+    /// ` ArrayMap_i32_constu8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn imageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
+    pub fn imageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self.ptr));
-        var _ret: ArrayMap_i32_u8 = .empty;
+        var _ret: ArrayMap_i32_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__WriteData.imageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

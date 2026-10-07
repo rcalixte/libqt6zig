@@ -22,9 +22,9 @@ pub const Kuit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
-    pub fn setupForDomain(domain: []u8) KuitSetup {
+    pub fn setupForDomain(domain: []const u8) KuitSetup {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,

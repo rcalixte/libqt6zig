@@ -429,11 +429,11 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toByteArray(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toByteArray: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toByteArray(self: QBluetoothUuid, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QUuid_ToByteArray(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.toByteArray: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -467,11 +467,11 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toRfc4122(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QUuid_ToRfc4122(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toRfc4122: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toRfc4122(self: QBluetoothUuid, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QUuid_ToRfc4122(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.toRfc4122: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -501,9 +501,9 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` param1: []const u8 `
     ///
-    pub fn fromRfc4122(param1: []u8) QUuid {
+    pub fn fromRfc4122(param1: []const u8) QUuid {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -551,9 +551,9 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` ns: QUuid `
     ///
-    /// ` baseData: []u8 `
+    /// ` baseData: []const u8 `
     ///
-    pub fn createUuidV5(ns: anytype, baseData: []u8) QUuid {
+    pub fn createUuidV5(ns: anytype, baseData: []const u8) QUuid {
         comptime _ = @TypeOf(ns)._is_QUuid;
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
@@ -574,9 +574,9 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` ns: QUuid `
     ///
-    /// ` baseData: []u8 `
+    /// ` baseData: []const u8 `
     ///
-    pub fn createUuidV3(ns: anytype, baseData: []u8) QUuid {
+    pub fn createUuidV3(ns: anytype, baseData: []const u8) QUuid {
         comptime _ = @TypeOf(ns)._is_QUuid;
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
@@ -767,11 +767,11 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` mode: quuid_enums.StringFormat `
     ///
-    pub fn toByteArray1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self.ptr), @bitCast(mode));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toByteArray1: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toByteArray1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []const u8 {
+        var _str = qtc.QUuid_ToByteArray1(@ptrCast(self.ptr), @bitCast(mode));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.toByteArray1: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

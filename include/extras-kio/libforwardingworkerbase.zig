@@ -50,13 +50,13 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []u8 `
+    /// ` protocol: []const u8 `
     ///
-    /// ` poolSocket: []u8 `
+    /// ` poolSocket: []const u8 `
     ///
-    /// ` appSocket: []u8 `
+    /// ` appSocket: []const u8 `
     ///
-    pub fn new(protocol: []u8, poolSocket: []u8, appSocket: []u8) KIO__ForwardingWorkerBase {
+    pub fn new(protocol: []const u8, poolSocket: []const u8, appSocket: []const u8) KIO__ForwardingWorkerBase {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -1766,7 +1766,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__ForwardingWorkerBase, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1774,7 +1774,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__ForwardingWorkerBase.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__ForwardingWorkerBase.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__ForwardingWorkerBase.dynamicPropertyNames: Memory allocation failed");
@@ -2193,9 +2193,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn data(self: KIO__ForwardingWorkerBase, _data: []u8) void {
+    pub fn data(self: KIO__ForwardingWorkerBase, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -2950,9 +2950,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` buffer: []u8 `
+    /// ` buffer: []const u8 `
     ///
-    pub fn readData(self: KIO__ForwardingWorkerBase, buffer: []u8) i32 {
+    pub fn readData(self: KIO__ForwardingWorkerBase, buffer: []const u8) i32 {
         const buffer_str = qtc.libqt_string{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -3090,9 +3090,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn waitForAnswer(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []u8) i32 {
+    pub fn waitForAnswer(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []const u8) i32 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -3568,9 +3568,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn setTimeoutSpecialCommand2(self: KIO__ForwardingWorkerBase, timeout: i32, _data: []u8) void {
+    pub fn setTimeoutSpecialCommand2(self: KIO__ForwardingWorkerBase, timeout: i32, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -3619,11 +3619,11 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` expected2: i32 `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
     /// ` pCmd: *i32 `
     ///
-    pub fn waitForAnswer4(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []u8, pCmd: *i32) i32 {
+    pub fn waitForAnswer4(self: KIO__ForwardingWorkerBase, expected1: i32, expected2: i32, _data: []const u8, pCmd: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -4481,9 +4481,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn write(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn write(self: KIO__ForwardingWorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -4505,9 +4505,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn superWrite(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn superWrite(self: KIO__ForwardingWorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -4529,11 +4529,11 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onWrite(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onWrite(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -4821,9 +4821,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn special(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn special(self: KIO__ForwardingWorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -4845,9 +4845,9 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn superSpecial(self: KIO__ForwardingWorkerBase, _data: []u8) KIO__WorkerResult {
+    pub fn superSpecial(self: KIO__ForwardingWorkerBase, _data: []const u8) KIO__WorkerResult {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -4869,11 +4869,11 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn onSpecial(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
+    pub fn onSpecial(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

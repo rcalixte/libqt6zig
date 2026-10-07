@@ -1209,9 +1209,9 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` format: QAudioFormat `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn synthesized(self: QTextToSpeechEngine, format: anytype, data: []u8) void {
+    pub fn synthesized(self: QTextToSpeechEngine, format: anytype, data: []const u8) void {
         comptime _ = @TypeOf(format)._is_QAudioFormat;
         const data_str = qtc.libqt_string{
             .len = data.len,
@@ -1230,9 +1230,9 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, format: QAudioFormat, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextToSpeechEngine, format: QAudioFormat, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onSynthesized(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QAudioFormat, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onSynthesized(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QAudioFormat, [*:0]const u8) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_Synthesized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -1872,7 +1872,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QTextToSpeechEngine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QTextToSpeechEngine, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1880,7 +1880,7 @@ pub const QTextToSpeechEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextToSpeechEngine.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextToSpeechEngine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QTextToSpeechEngine.dynamicPropertyNames: Memory allocation failed");

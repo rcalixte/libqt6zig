@@ -16,7 +16,7 @@ const QWidget = @import("libqt6").QWidget;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const Map_constu8_u8 = std.StringHashMapUnmanaged([]u8);
+const Map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kconfigdialogmanager.html)
 pub const KConfigDialogManager = extern struct {
@@ -335,9 +335,9 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn propertyMap(allocator: std.mem.Allocator) Map_constu8_u8 {
+    pub fn propertyMap(allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfigDialogManager_PropertyMap().?.*;
-        var _ret: Map_constu8_u8 = .empty;
+        var _ret: Map_constu8_constu8 = .empty;
         _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfigDialogManager.propertyMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
@@ -471,12 +471,12 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn getUserProperty(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []u8 {
+    pub fn getUserProperty(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []const u8 {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        var _bytearray: qtc.libqt_string = qtc.KConfigDialogManager_GetUserProperty(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KConfigDialogManager.getUserProperty: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KConfigDialogManager_GetUserProperty(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigDialogManager.getUserProperty: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -494,12 +494,12 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn getCustomProperty(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []u8 {
+    pub fn getCustomProperty(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []const u8 {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        var _bytearray: qtc.libqt_string = qtc.KConfigDialogManager_GetCustomProperty(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KConfigDialogManager.getCustomProperty: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KConfigDialogManager_GetCustomProperty(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigDialogManager.getCustomProperty: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -517,12 +517,12 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn getUserPropertyChangedSignal(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []u8 {
+    pub fn getUserPropertyChangedSignal(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []const u8 {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        var _bytearray: qtc.libqt_string = qtc.KConfigDialogManager_GetUserPropertyChangedSignal(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KConfigDialogManager.getUserPropertyChangedSignal: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KConfigDialogManager_GetUserPropertyChangedSignal(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigDialogManager.getUserPropertyChangedSignal: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -540,12 +540,12 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn getCustomPropertyChangedSignal(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []u8 {
+    pub fn getCustomPropertyChangedSignal(self: KConfigDialogManager, allocator: std.mem.Allocator, widget: anytype) []const u8 {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        var _bytearray: qtc.libqt_string = qtc.KConfigDialogManager_GetCustomPropertyChangedSignal(@ptrCast(self.ptr), @ptrCast(widget.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KConfigDialogManager.getCustomPropertyChangedSignal: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KConfigDialogManager_GetCustomPropertyChangedSignal(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigDialogManager.getCustomPropertyChangedSignal: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1215,7 +1215,7 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KConfigDialogManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KConfigDialogManager, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1223,7 +1223,7 @@ pub const KConfigDialogManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KConfigDialogManager.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfigDialogManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfigDialogManager.dynamicPropertyNames: Memory allocation failed");

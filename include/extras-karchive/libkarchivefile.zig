@@ -135,11 +135,11 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KArchiveFile_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveFile_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -155,9 +155,9 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    /// ` callback: *const fn (self: KArchiveFile) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: KArchiveFile) callconv(.c) [*:0]const u8 `
     ///
-    pub fn onData(self: KArchiveFile, callback: *const fn (KArchiveFile) callconv(.c) qtc.libqt_string) void {
+    pub fn onData(self: KArchiveFile, callback: *const fn (KArchiveFile) callconv(.c) [*:0]const u8) void {
         qtc.KArchiveFile_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -175,11 +175,11 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn superData(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KArchiveFile_SuperData(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn superData(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KArchiveFile_SuperData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

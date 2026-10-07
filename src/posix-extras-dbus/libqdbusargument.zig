@@ -349,9 +349,9 @@ pub const QDBusArgument = extern struct {
     ///
     /// ` self: QDBusArgument `
     ///
-    /// ` arg: []u8 `
+    /// ` arg: []const u8 `
     ///
-    pub fn operatorShiftLeft16(self: QDBusArgument, arg: []u8) QDBusArgument {
+    pub fn operatorShiftLeft16(self: QDBusArgument, arg: []const u8) QDBusArgument {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
@@ -840,9 +840,9 @@ pub const QDBusArgument = extern struct {
     ///
     /// ` self: QDBusArgument `
     ///
-    /// ` arg: []u8 `
+    /// ` arg: []const u8 `
     ///
-    pub fn operatorShiftRight16(self: QDBusArgument, arg: []u8) QDBusArgument {
+    pub fn operatorShiftRight16(self: QDBusArgument, arg: []const u8) QDBusArgument {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,

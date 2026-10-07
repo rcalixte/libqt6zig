@@ -276,13 +276,13 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    /// ` dgram: []u8 `
+    /// ` dgram: []const u8 `
     ///
     /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn verifyClient(self: QDtlsClientVerifier, socket: anytype, dgram: []u8, address: anytype, port: u16) bool {
+    pub fn verifyClient(self: QDtlsClientVerifier, socket: anytype, dgram: []const u8, address: anytype, port: u16) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -304,11 +304,11 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn verifiedHello(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtlsClientVerifier.verifiedHello: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn verifiedHello(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtlsClientVerifier.verifiedHello: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -986,7 +986,7 @@ pub const QDtlsClientVerifier = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QDtlsClientVerifier, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDtlsClientVerifier, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -994,7 +994,7 @@ pub const QDtlsClientVerifier = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtlsClientVerifier.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDtlsClientVerifier.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDtlsClientVerifier.dynamicPropertyNames: Memory allocation failed");
@@ -2497,9 +2497,9 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    /// ` dgram: []u8 `
+    /// ` dgram: []const u8 `
     ///
-    pub fn writeDatagramEncrypted(self: QDtls, socket: anytype, dgram: []u8) i64 {
+    pub fn writeDatagramEncrypted(self: QDtls, socket: anytype, dgram: []const u8) i64 {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -2522,18 +2522,18 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    /// ` dgram: []u8 `
+    /// ` dgram: []const u8 `
     ///
-    pub fn decryptDatagram(self: QDtls, allocator: std.mem.Allocator, socket: anytype, dgram: []u8) []u8 {
+    pub fn decryptDatagram(self: QDtls, allocator: std.mem.Allocator, socket: anytype, dgram: []const u8) []const u8 {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
             .data = dgram.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QDtls_DecryptDatagram(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDtls.decryptDatagram: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QDtls_DecryptDatagram(@ptrCast(self.ptr), @ptrCast(socket.ptr), dgram_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDtls.decryptDatagram: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2771,9 +2771,9 @@ pub const QDtls = extern struct {
     ///
     /// ` socket: QUdpSocket `
     ///
-    /// ` dgram: []u8 `
+    /// ` dgram: []const u8 `
     ///
-    pub fn doHandshake2(self: QDtls, socket: anytype, dgram: []u8) bool {
+    pub fn doHandshake2(self: QDtls, socket: anytype, dgram: []const u8) bool {
         comptime _ = @TypeOf(socket)._is_QUdpSocket;
         const dgram_str = qtc.libqt_string{
             .len = dgram.len,
@@ -3364,7 +3364,7 @@ pub const QDtls = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QDtls, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDtls, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3372,7 +3372,7 @@ pub const QDtls = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDtls.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDtls.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDtls.dynamicPropertyNames: Memory allocation failed");
@@ -4332,9 +4332,9 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` a: qcryptographichash_enums.Algorithm `
     ///
-    /// ` s: []u8 `
+    /// ` s: []const u8 `
     ///
-    pub fn new2(a: i32, s: []u8) QDtlsClientVerifier__GeneratorParameters {
+    pub fn new2(a: i32, s: []const u8) QDtlsClientVerifier__GeneratorParameters {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -4403,11 +4403,11 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn secret(self: QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator) []u8 {
-        var secret_bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier__GeneratorParameters_Secret(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&secret_bytearray);
-        const secret_ret = allocator.alloc(u8, secret_bytearray.len) catch @panic("QDtlsClientVerifier__GeneratorParameters.secret: Memory allocation failed");
-        @memcpy(secret_ret, secret_bytearray.data[0..secret_bytearray.len]);
+    pub fn secret(self: QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator) []const u8 {
+        var secret_str = qtc.QDtlsClientVerifier__GeneratorParameters_Secret(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&secret_str);
+        const secret_ret = allocator.alloc(u8, secret_str.len) catch @panic("QDtlsClientVerifier__GeneratorParameters.secret: Memory allocation failed");
+        @memcpy(secret_ret, secret_str.data[0..secret_str.len]);
         return secret_ret;
     }
 
@@ -4421,9 +4421,9 @@ pub const QDtlsClientVerifier__GeneratorParameters = extern struct {
     ///
     /// ` self: QDtlsClientVerifier__GeneratorParameters `
     ///
-    /// ` _secret: []u8 `
+    /// ` _secret: []const u8 `
     ///
-    pub fn setSecret(self: QDtlsClientVerifier__GeneratorParameters, _secret: []u8) void {
+    pub fn setSecret(self: QDtlsClientVerifier__GeneratorParameters, _secret: []const u8) void {
         const secret_str = qtc.libqt_string{
             .len = _secret.len,
             .data = _secret.ptr,

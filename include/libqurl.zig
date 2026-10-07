@@ -243,11 +243,11 @@ pub const QUrl = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn toEncoded(self: QUrl, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToEncoded(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toEncoded: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn toEncoded(self: QUrl, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QUrl_ToEncoded(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toEncoded: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -259,9 +259,9 @@ pub const QUrl = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` input: []u8 `
+    /// ` input: []const u8 `
     ///
-    pub fn fromEncoded(input: []u8) QUrl {
+    pub fn fromEncoded(input: []const u8) QUrl {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -942,9 +942,9 @@ pub const QUrl = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []u8 `
+    /// ` param1: []const u8 `
     ///
-    pub fn fromPercentEncoding(allocator: std.mem.Allocator, param1: []u8) []const u8 {
+    pub fn fromPercentEncoding(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -968,15 +968,15 @@ pub const QUrl = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn toPercentEncoding(allocator: std.mem.Allocator, param1: []const u8) []u8 {
+    pub fn toPercentEncoding(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding(param1_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toPercentEncoding: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QUrl_ToPercentEncoding(param1_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toPercentEncoding: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -990,9 +990,9 @@ pub const QUrl = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
-    pub fn fromAce(allocator: std.mem.Allocator, domain: []u8) []const u8 {
+    pub fn fromAce(allocator: std.mem.Allocator, domain: []const u8) []const u8 {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
@@ -1016,15 +1016,15 @@ pub const QUrl = extern struct {
     ///
     /// ` domain: []const u8 `
     ///
-    pub fn toAce(allocator: std.mem.Allocator, domain: []const u8) []u8 {
+    pub fn toAce(allocator: std.mem.Allocator, domain: []const u8) []const u8 {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToAce(domain_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toAce: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QUrl_ToAce(domain_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toAce: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1180,11 +1180,11 @@ pub const QUrl = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` input: []u8 `
+    /// ` input: []const u8 `
     ///
     /// ` mode: qurl_enums.ParsingMode `
     ///
-    pub fn fromEncoded2(input: []u8, mode: i32) QUrl {
+    pub fn fromEncoded2(input: []const u8, mode: i32) QUrl {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -1644,9 +1644,9 @@ pub const QUrl = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` exclude: []u8 `
+    /// ` exclude: []const u8 `
     ///
-    pub fn toPercentEncoding2(allocator: std.mem.Allocator, param1: []const u8, exclude: []u8) []u8 {
+    pub fn toPercentEncoding2(allocator: std.mem.Allocator, param1: []const u8, exclude: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1655,10 +1655,10 @@ pub const QUrl = extern struct {
             .len = exclude.len,
             .data = exclude.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toPercentEncoding2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toPercentEncoding2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1674,11 +1674,11 @@ pub const QUrl = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` exclude: []u8 `
+    /// ` exclude: []const u8 `
     ///
-    /// ` include: []u8 `
+    /// ` include: []const u8 `
     ///
-    pub fn toPercentEncoding3(allocator: std.mem.Allocator, param1: []const u8, exclude: []u8, include: []u8) []u8 {
+    pub fn toPercentEncoding3(allocator: std.mem.Allocator, param1: []const u8, exclude: []const u8, include: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1691,10 +1691,10 @@ pub const QUrl = extern struct {
             .len = include.len,
             .data = include.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toPercentEncoding3: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toPercentEncoding3: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1708,11 +1708,11 @@ pub const QUrl = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` domain: []u8 `
+    /// ` domain: []const u8 `
     ///
     /// ` options: flag of qurl_enums.AceProcessingOption `
     ///
-    pub fn fromAce2(allocator: std.mem.Allocator, domain: []u8, options: u32) []const u8 {
+    pub fn fromAce2(allocator: std.mem.Allocator, domain: []const u8, options: u32) []const u8 {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
@@ -1738,15 +1738,15 @@ pub const QUrl = extern struct {
     ///
     /// ` options: flag of qurl_enums.AceProcessingOption `
     ///
-    pub fn toAce2(allocator: std.mem.Allocator, domain: []const u8, options: u32) []u8 {
+    pub fn toAce2(allocator: std.mem.Allocator, domain: []const u8, options: u32) []const u8 {
         const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.QUrl_ToAce2(domain_str, @bitCast(options));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QUrl.toAce2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.QUrl_ToAce2(domain_str, @bitCast(options));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUrl.toAce2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

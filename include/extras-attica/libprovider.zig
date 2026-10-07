@@ -1157,9 +1157,9 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` payload: []u8 `
+    /// ` payload: []const u8 `
     ///
-    pub fn uploadTarballToBuildService(self: Attica__Provider, projectId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
+    pub fn uploadTarballToBuildService(self: Attica__Provider, projectId: []const u8, fileName: []const u8, payload: []const u8) Attica__PostJob {
         const projectId_str = qtc.libqt_string{
             .len = projectId.len,
             .data = projectId.ptr,
@@ -1260,9 +1260,9 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` payload: []u8 `
+    /// ` payload: []const u8 `
     ///
-    pub fn setDownloadFile2(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
+    pub fn setDownloadFile2(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -1314,9 +1314,9 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` image: []u8 `
+    /// ` image: []const u8 `
     ///
-    pub fn setPreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8, fileName: []const u8, image: []u8) Attica__PostJob {
+    pub fn setPreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8, fileName: []const u8, image: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,

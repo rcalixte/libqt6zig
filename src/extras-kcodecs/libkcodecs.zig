@@ -23,19 +23,19 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
     /// ` useCRLF: bool `
     ///
-    pub fn quotedPrintableEncode(allocator: std.mem.Allocator, in: []u8, useCRLF: bool) []u8 {
+    pub fn quotedPrintableEncode(allocator: std.mem.Allocator, in: []const u8, useCRLF: bool) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_QuotedPrintableEncode(in_str, useCRLF);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.quotedPrintableEncode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_QuotedPrintableEncode(in_str, useCRLF);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.quotedPrintableEncode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -47,13 +47,13 @@ pub const KCodecs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    /// ` out: []u8 `
+    /// ` out: []const u8 `
     ///
     /// ` useCRLF: bool `
     ///
-    pub fn quotedPrintableEncode2(in: []u8, out: []u8, useCRLF: bool) void {
+    pub fn quotedPrintableEncode2(in: []const u8, out: []const u8, useCRLF: bool) void {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
@@ -75,17 +75,17 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    pub fn quotedPrintableDecode(allocator: std.mem.Allocator, in: []u8) []u8 {
+    pub fn quotedPrintableDecode(allocator: std.mem.Allocator, in: []const u8) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_QuotedPrintableDecode(in_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.quotedPrintableDecode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_QuotedPrintableDecode(in_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.quotedPrintableDecode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -97,11 +97,11 @@ pub const KCodecs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    /// ` out: []u8 `
+    /// ` out: []const u8 `
     ///
-    pub fn quotedPrintableDecode2(in: []u8, out: []u8) void {
+    pub fn quotedPrintableDecode2(in: []const u8, out: []const u8) void {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
@@ -123,17 +123,17 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    pub fn uudecode(allocator: std.mem.Allocator, in: []u8) []u8 {
+    pub fn uudecode(allocator: std.mem.Allocator, in: []const u8) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_Uudecode(in_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.uudecode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_Uudecode(in_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.uudecode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -145,11 +145,11 @@ pub const KCodecs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    /// ` out: []u8 `
+    /// ` out: []const u8 `
     ///
-    pub fn uudecode2(in: []u8, out: []u8) void {
+    pub fn uudecode2(in: []const u8, out: []const u8) void {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
@@ -171,17 +171,17 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    pub fn base64Encode(allocator: std.mem.Allocator, in: []u8) []u8 {
+    pub fn base64Encode(allocator: std.mem.Allocator, in: []const u8) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_Base64Encode(in_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.base64Encode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_Base64Encode(in_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.base64Encode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -193,13 +193,13 @@ pub const KCodecs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    /// ` out: []u8 `
+    /// ` out: []const u8 `
     ///
     /// ` insertLFs: bool `
     ///
-    pub fn base64Encode2(in: []u8, out: []u8, insertLFs: bool) void {
+    pub fn base64Encode2(in: []const u8, out: []const u8, insertLFs: bool) void {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
@@ -221,17 +221,17 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    pub fn base64Decode(allocator: std.mem.Allocator, in: []u8) []u8 {
+    pub fn base64Decode(allocator: std.mem.Allocator, in: []const u8) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_Base64Decode(in_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.base64Decode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_Base64Decode(in_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.base64Decode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -243,11 +243,11 @@ pub const KCodecs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    /// ` out: []u8 `
+    /// ` out: []const u8 `
     ///
-    pub fn base64Decode2(in: []u8, out: []u8) void {
+    pub fn base64Decode2(in: []const u8, out: []const u8) void {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
@@ -295,9 +295,9 @@ pub const KCodecs = extern struct {
     ///
     /// ` src: []const u8 `
     ///
-    /// ` charset: []u8 `
+    /// ` charset: []const u8 `
     ///
-    pub fn encodeRFC2047String(allocator: std.mem.Allocator, src: []const u8, charset: []u8) []u8 {
+    pub fn encodeRFC2047String(allocator: std.mem.Allocator, src: []const u8, charset: []const u8) []const u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
@@ -306,10 +306,10 @@ pub const KCodecs = extern struct {
             .len = charset.len,
             .data = charset.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_EncodeRFC2047String(src_str, charset_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.encodeRFC2047String: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_EncodeRFC2047String(src_str, charset_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.encodeRFC2047String: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -323,17 +323,17 @@ pub const KCodecs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` in: []u8 `
+    /// ` in: []const u8 `
     ///
-    pub fn base45Decode(allocator: std.mem.Allocator, in: []u8) []u8 {
+    pub fn base45Decode(allocator: std.mem.Allocator, in: []const u8) []const u8 {
         const in_str = qtc.libqt_string{
             .len = in.len,
             .data = in.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs_Base45Decode(in_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.base45Decode: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs_Base45Decode(in_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.base45Decode: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 };
@@ -356,9 +356,9 @@ pub const KCodecs__Codec = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` _name: []u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn codecForName(_name: []u8) KCodecs__Codec {
+    pub fn codecForName(_name: []const u8) KCodecs__Codec {
         const name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -510,17 +510,17 @@ pub const KCodecs__Codec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` src: []u8 `
+    /// ` src: []const u8 `
     ///
-    pub fn encode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8) []u8 {
+    pub fn encode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []const u8) []const u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode2(@ptrCast(self.ptr), src_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.encode2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs__Codec_Encode2(@ptrCast(self.ptr), src_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs__Codec.encode2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -536,17 +536,17 @@ pub const KCodecs__Codec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` src: []u8 `
+    /// ` src: []const u8 `
     ///
-    pub fn decode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8) []u8 {
+    pub fn decode2(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []const u8) []const u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode2(@ptrCast(self.ptr), src_str);
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.decode2: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs__Codec_Decode2(@ptrCast(self.ptr), src_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs__Codec.decode2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -579,19 +579,19 @@ pub const KCodecs__Codec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` src: []u8 `
+    /// ` src: []const u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn encode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8, newline: i32) []u8 {
+    pub fn encode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []const u8, newline: i32) []const u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.encode22: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs__Codec_Encode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs__Codec.encode22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -607,19 +607,19 @@ pub const KCodecs__Codec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` src: []u8 `
+    /// ` src: []const u8 `
     ///
     /// ` newline: kcodecs_enums.NewlineType `
     ///
-    pub fn decode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []u8, newline: i32) []u8 {
+    pub fn decode22(self: KCodecs__Codec, allocator: std.mem.Allocator, src: []const u8, newline: i32) []const u8 {
         const src_str = qtc.libqt_string{
             .len = src.len,
             .data = src.ptr,
         };
-        var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.decode22: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        var _str = qtc.KCodecs__Codec_Decode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs__Codec.decode22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

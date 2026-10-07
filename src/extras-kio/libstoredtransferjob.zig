@@ -119,9 +119,9 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` self: KIO__StoredTransferJob `
     ///
-    /// ` arr: []u8 `
+    /// ` arr: []const u8 `
     ///
-    pub fn setData(self: KIO__StoredTransferJob, arr: []u8) void {
+    pub fn setData(self: KIO__StoredTransferJob, arr: []const u8) void {
         const arr_str = qtc.libqt_string{
             .len = arr.len,
             .data = arr.ptr,
@@ -141,11 +141,11 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn data(self: KIO__StoredTransferJob, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.KIO__StoredTransferJob_Data(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KIO__StoredTransferJob.data: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn data(self: KIO__StoredTransferJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__StoredTransferJob_Data(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__StoredTransferJob.data: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -268,9 +268,9 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` self: KIO__StoredTransferJob `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn sendAsyncData(self: KIO__StoredTransferJob, _data: []u8) void {
+    pub fn sendAsyncData(self: KIO__StoredTransferJob, _data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = _data.len,
             .data = _data.ptr,
@@ -348,9 +348,9 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` job: KIO__Job `
     ///
-    /// ` _data: []u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn dataReq(self: KIO__StoredTransferJob, job: anytype, _data: []u8) void {
+    pub fn dataReq(self: KIO__StoredTransferJob, job: anytype, _data: []const u8) void {
         comptime _ = @TypeOf(job)._is_KIO__Job;
         const data_str = qtc.libqt_string{
             .len = _data.len,
@@ -371,9 +371,9 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` self: KIO__StoredTransferJob `
     ///
-    /// ` callback: *const fn (self: KIO__StoredTransferJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__StoredTransferJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn onDataReq(self: KIO__StoredTransferJob, callback: *const fn (KIO__StoredTransferJob, KIO__Job, qtc.libqt_string) callconv(.c) void) void {
+    pub fn onDataReq(self: KIO__StoredTransferJob, callback: *const fn (KIO__StoredTransferJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
@@ -2280,7 +2280,7 @@ pub const KIO__StoredTransferJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: KIO__StoredTransferJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KIO__StoredTransferJob, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2288,7 +2288,7 @@ pub const KIO__StoredTransferJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__StoredTransferJob.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__StoredTransferJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KIO__StoredTransferJob.dynamicPropertyNames: Memory allocation failed");
@@ -2897,7 +2897,7 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` arr: []u8 `
+    /// ` arr: []const u8 `
     ///
     /// ` _url: QUrl `
     ///
@@ -2905,7 +2905,7 @@ pub const KIO = extern struct {
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn storedPut2(arr: []u8, _url: anytype, permissions: i32, flags: i32) KIO__StoredTransferJob {
+    pub fn storedPut2(arr: []const u8, _url: anytype, permissions: i32, flags: i32) KIO__StoredTransferJob {
         const arr_str = qtc.libqt_string{
             .len = arr.len,
             .data = arr.ptr,
@@ -2922,13 +2922,13 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` arr: []u8 `
+    /// ` arr: []const u8 `
     ///
     /// ` _url: QUrl `
     ///
     /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn storedHttpPost(arr: []u8, _url: anytype, flags: i32) KIO__StoredTransferJob {
+    pub fn storedHttpPost(arr: []const u8, _url: anytype, flags: i32) KIO__StoredTransferJob {
         const arr_str = qtc.libqt_string{
             .len = arr.len,
             .data = arr.ptr,

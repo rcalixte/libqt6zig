@@ -467,9 +467,9 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setContent(self: QWebEngineView, data: []u8) void {
+    pub fn setContent(self: QWebEngineView, data: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -808,9 +808,9 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn printToPdf2(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void) void {
+    pub fn printToPdf2(self: QWebEngineView, resultCallback: *const fn ([*:0]const u8) callconv(.c) void) void {
         qtc.QWebEngineView_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)));
     }
 
@@ -1938,11 +1938,11 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn setContent2(self: QWebEngineView, data: []u8, mimeType: []const u8) void {
+    pub fn setContent2(self: QWebEngineView, data: []const u8, mimeType: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1964,13 +1964,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn setContent3(self: QWebEngineView, data: []u8, mimeType: []const u8, baseUrl: anytype) void {
+    pub fn setContent3(self: QWebEngineView, data: []const u8, mimeType: []const u8, baseUrl: anytype) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2106,11 +2106,11 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
     /// ` _layout: QPageLayout `
     ///
-    pub fn printToPdf23(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, _layout: anytype) void {
+    pub fn printToPdf23(self: QWebEngineView, resultCallback: *const fn ([*:0]const u8) callconv(.c) void, _layout: anytype) void {
         comptime _ = @TypeOf(_layout)._is_QPageLayout;
         qtc.QWebEngineView_PrintToPdf23(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(_layout.ptr));
     }
@@ -2125,13 +2125,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
     ///
     /// ` _layout: QPageLayout `
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn printToPdf32(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, _layout: anytype, ranges: anytype) void {
+    pub fn printToPdf32(self: QWebEngineView, resultCallback: *const fn ([*:0]const u8) callconv(.c) void, _layout: anytype, ranges: anytype) void {
         comptime _ = @TypeOf(_layout)._is_QPageLayout;
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QWebEngineView_PrintToPdf32(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(_layout.ptr), @ptrCast(ranges.ptr));
@@ -5499,11 +5499,11 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn saveGeometry(self: QWebEngineView, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineView.saveGeometry: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+    pub fn saveGeometry(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.saveGeometry: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -5519,9 +5519,9 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` _geometry: []u8 `
+    /// ` _geometry: []const u8 `
     ///
-    pub fn restoreGeometry(self: QWebEngineView, _geometry: []u8) bool {
+    pub fn restoreGeometry(self: QWebEngineView, _geometry: []const u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = _geometry.len,
             .data = _geometry.ptr,
@@ -7754,7 +7754,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn dynamicPropertyNames(self: QWebEngineView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEngineView, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7762,7 +7762,7 @@ pub const QWebEngineView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineView.dynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEngineView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data_val = _str[i];
             const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineView.dynamicPropertyNames: Memory allocation failed");
@@ -9695,13 +9695,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn nativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QWebEngineView, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9723,13 +9723,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` eventType: []u8 `
+    /// ` eventType: []const u8 `
     ///
     /// ` message: ?*anyopaque `
     ///
     /// ` result: *isize `
     ///
-    pub fn superNativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QWebEngineView, eventType: []const u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9751,9 +9751,9 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView`
     ///
-    /// ` callback: *const fn (self: QWebEngineView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWebEngineView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn onNativeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWebEngineView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 

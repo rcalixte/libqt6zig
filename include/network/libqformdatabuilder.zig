@@ -67,9 +67,9 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` self: QFormDataPartBuilder `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
-    pub fn setBody(self: QFormDataPartBuilder, data: []u8) QFormDataPartBuilder {
+    pub fn setBody(self: QFormDataPartBuilder, data: []const u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -121,11 +121,11 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` self: QFormDataPartBuilder `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn setBody2(self: QFormDataPartBuilder, data: []u8, fileName: []const u8) QFormDataPartBuilder {
+    pub fn setBody2(self: QFormDataPartBuilder, data: []const u8, fileName: []const u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -147,13 +147,13 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     /// ` self: QFormDataPartBuilder `
     ///
-    /// ` data: []u8 `
+    /// ` data: []const u8 `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn setBody3(self: QFormDataPartBuilder, data: []u8, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
+    pub fn setBody3(self: QFormDataPartBuilder, data: []const u8, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
