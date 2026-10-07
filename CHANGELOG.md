@@ -1,4 +1,8 @@
 
+### 6.8.2 rev93 (7 October 2026)
+
+* **BREAKING CHANGE:** Update string projections (#184)
+
 ### 6.8.2 rev92 (2 October 2026)
 
 * **BREAKING CHANGE:** Update to Zig 0.17
