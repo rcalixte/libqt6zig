@@ -330,6 +330,20 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebSockets"),
 		},
 
+		// extras-qtprivate
+
+		// Qt 6 Private
+		// Depends on Qt Core
+		{
+			path: "extras-qtprivate",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtCore/6.8.2/QtCore/private",
+			},
+			allowHeader: OnlyHeaders("qmetaobjectbuilder_p.h"),
+			cflags: "--std=c++17 -I/usr/include/" + arch + "-linux-gnu/qt6/QtCore/6.8.2" +
+				" -I/usr/include/" + arch + "-linux-gnu/qt6/QtCore/6.8.2/QtCore " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// extras
 
 		// KArchive
