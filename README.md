@@ -88,7 +88,7 @@ Some libraries have restrictions, either due to limited platform support, less-p
 | posix-restricted-  | non-Windows<sup>1</sup>   | Restrictive |
 | restricted-extras- | all platforms<sup>1</sup> | Restrictive |
 
-<sup>1</sup>While macOS and Windows are supported upstream by some of these libraries, library installation for these platforms may be non-trivial. Therefore, these libraries are disabled by default and must be explicitly enabled with the appropriate build option.
+<sup>1</sup>While macOS and Windows are supported upstream by some of these libraries, library installation for these platforms may be non-trivial. Therefore, these libraries are disabled by default and must be explicitly enabled with the appropriate build option. The exception is `extras-qtprivate` which is disabled by default on all platforms. Instructions for usage are available [here](https://github.com/rcalixte/libqt6zig/tree/master/src/extras-qtprivate/README.md).
 
 License
 -------
@@ -205,7 +205,7 @@ The following are instructions for building this __full__ library and the exampl
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-charts qt6-connectivity qt6-declarative qt6-location qt6-multimedia qt6-pdf qt6-positioning qt6-quick3d qt6-scxml qt6-speech qt6-svg qt6-tools qt6-virtualkeyboard qt6-webchannel qt6-webengine qt6-websockets kColorPicker-qt6 kf6-attica kf6-karchive kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kfilemetadata kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kirigami kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-kstatusnotifieritem kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kunitconversion kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 kirigami-addons-qt6 ktextaddons libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 poppler-qt6 signon-qt6
+sudo pkg install qt6-base qt6-charts qt6-connectivity qt6-declarative qt6-location qt6-multimedia qt6-pdf qt6-positioning qt6-quick3d qt6-scxml qt6-speech qt6-svg qt6-tools qt6-virtualkeyboard qt6-webchannel qt6-webengine qt6-websockets kColorPicker-qt6 kf6-attica kf6-karchive kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kfilemetadata kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kirigami kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-kstatusnotifieritem kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kunitconversion kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 kirigami-addons-qt6 ktextaddons libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 poppler-qt6 signon-qt6 kf6-qqc2-desktop-style
 ```
 
 > [!NOTE]
