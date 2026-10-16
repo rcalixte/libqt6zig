@@ -27,6 +27,8 @@ const QtExeOptions = struct {
     win_root: []const u8 = "C:/Qt/6.8.3/llvm-mingw_64",
     /// Step(s) for the exe to add installation file dependencies
     win_steps: []*std.Build.Step = &.{},
+    /// Whether or not to bundle QML-related files for Windows
+    win_qml: bool = false,
 };
 
 /// This is a convenience function that supports adding paths to the
@@ -143,6 +145,22 @@ pub fn configureQtExeRootModule(b: *std.Build, exe: *std.Build.Step.Compile, opt
                 .install_subdir = "bin/plugins",
             });
             step.dependOn(&install_plugins.step);
+        }
+
+        if (options.win_qml) {
+            const qml_path = b.fmt("{s}/qml", .{qt_dir});
+            std.Io.Dir.cwd().access(b.graph.io, qml_path, .{}) catch {
+                std.log.err("QML path '{s}' does not exist\n", .{qml_path});
+                return error.QmlPathNotFound;
+            };
+            for (options.win_steps) |step| {
+                const install_plugins = b.addInstallDirectory(.{
+                    .source_dir = .{ .cwd_relative = plugins_path },
+                    .install_dir = .prefix,
+                    .install_subdir = "bin/qml",
+                });
+                step.dependOn(&install_plugins.step);
+            }
         }
     }
 }

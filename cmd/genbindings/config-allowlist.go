@@ -133,7 +133,13 @@ func ImportHeaderForClass(className string) bool {
 	}
 
 	switch className {
-	case "QGraphicsEffectSource", // e.g. qgraphicseffect.h
+	case
+		"QMetaEnumBuilder",               // Qt 6 private
+		"QMetaMethodBuilder",             // Qt 6 private
+		"QMetaObjectBuilder",             // Qt 6 private
+		"QMetaPropertyBuilder",           // Qt 6 private
+		"QMetaStringTable",               // Qt 6 private
+		"QGraphicsEffectSource",          // e.g. qgraphicseffect.h
 		"QAbstractConcatenable",          // qstringbuilder.h
 		"QTextEngine",                    // qtextlayout.h
 		"QText",                          // e.g. qtextcursor.h
@@ -458,6 +464,16 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 Private API, many caveats
+	if className == "QMetaMethodBuilder" && (mm.MethodName == "parameterTypes" || mm.MethodName == "isConst") {
+		// @ref https://github.com/qt/qtbase/commit/f76c9bf8239c053e5d304664e8b49beab54b9139
+		// @ref https://github.com/qt/qtbase/commit/58b4be482cb481addebc966d713bc0521cca3218
+		return ErrTooComplex // Skipping methods with breaking changes until the next rebase
+	}
+	if className == "QMetaPropertyBuilder" && mm.MethodName == "isEditable" {
+		return ErrTooComplex // Linker error on undefined symbol
+	}
+
 	return nil // OK, allow
 }
 
@@ -741,6 +757,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	switch p.ParameterType {
 	case
 		"long double",                  // non-standard and platform-dependent, currently only used for some qHash-based methods
+		"MetaObjectFlags",              // Qt 6 private
 		"QGenericMatrix", "QMatrix3x3", // extends a template type
 		"QUtf8StringView",                 // Qt 6 - used in qdebug
 		"QStringRef",                      // e.g. QLocale::toLongLong and similar overloads. As above

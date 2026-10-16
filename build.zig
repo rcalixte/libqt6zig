@@ -8,6 +8,7 @@ pub fn build(b: *std.Build) !void {
     const optimize = b.standardOptimizeOption(.{});
     const target = b.standardTargetOptions(.{});
     const extra_paths = b.option([]const []const u8, "extra-paths", "Extra library header search paths") orelse &.{};
+    const qtprivate_paths = b.option([]const []const u8, "qtprivate-paths", "Qt private library header search paths") orelse &.{};
     const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
     const strip = b.option(bool, "strip", "Include debug information in the compiled binary") orelse (optimize != .debug);
     const maintainer = b.option(bool, "maintainer", "Enable maintainer mode") orelse false;
@@ -135,6 +136,8 @@ pub fn build(b: *std.Build) !void {
                         is_enabled = false;
                     if (is_macos and std.mem.startsWith(u8, entry.path, "posix-"))
                         is_enabled = false;
+                    if (std.mem.eql(u8, entry.path, "extras-qtprivate"))
+                        is_enabled = false;
 
                     const option_value = opt: switch (is_supported) {
                         true => {
@@ -178,6 +181,35 @@ pub fn build(b: *std.Build) !void {
     for (os_include_path) |os_path| {
         std.Io.Dir.cwd().access(b.graph.io, os_path, .{}) catch continue;
         try qt_include_path.put(b.allocator, os_path, {});
+    }
+
+    var qtprivate_paths_len: usize = 0;
+    for (qtprivate_paths) |qtprivate_path| {
+        if (qtprivate_path.len == 0) continue;
+        if (std.Io.Dir.cwd().access(b.graph.io, qtprivate_path, .{})) {
+            try qt_include_path.putNoClobber(b.allocator, qtprivate_path, {});
+            qtprivate_paths_len += 1;
+        } else |_| std.log.warn("Qt private path '{s}' does not exist", .{qtprivate_path});
+    }
+
+    if (b.user_input_options.get("enable-qtprivate")) |opt|
+        switch (opt) {
+            .scalar => |v| if (qtprivate_paths_len != 0 and std.mem.eql(u8, v, "false")) {
+                std.log.warn("Qt private paths were specified but the option '-Denable-qtprivate=false' was passed. Ignoring Qt private paths.", .{});
+                qt_include_path.shrinkRetainingCapacity(qt_include_path.count() - qtprivate_paths_len);
+            } else if (qtprivate_paths_len == 0 and std.mem.eql(u8, v, "true")) {
+                std.log.err("No valid Qt private paths were specified. Please specify Qt private paths with the option '-Dqtprivate-paths=<paths>'.", .{});
+                return error.InvalidUserInput;
+            },
+            .flag => if (qtprivate_paths_len == 0) {
+                std.log.err("No valid Qt private paths were specified. Please specify Qt private paths with the option '-Dqtprivate-paths=<paths>'.", .{});
+                return error.InvalidQtPrivatePaths;
+            },
+            else => {},
+        }
+    else if (qtprivate_paths_len != 0) {
+        std.log.warn("Qt private paths were specified but the option '-Denable-qtprivate' was not passed. Ignoring Qt private paths.", .{});
+        qt_include_path.shrinkRetainingCapacity(qt_include_path.count() - qtprivate_paths_len);
     }
 
     const maintainer_flags: []const []const u8 = if (maintainer) &.{
