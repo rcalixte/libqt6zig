@@ -785,6 +785,7 @@
 #include "websockets/libqwebsockethandshakeoptions.h"
 #include "websockets/libqwebsocketprotocol.h"
 #include "websockets/libqwebsocketserver.h"
+#include "extras-qtprivate/libqmetaobjectbuilder_p.h"
 #include "extras-karchive/libk7zip.h"
 #include "extras-karchive/libkar.h"
 #include "extras-karchive/libkarchive.h"
