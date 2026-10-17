@@ -7,6 +7,8 @@ pub const modules = &.{
     "QtBluetooth",
     // Qt 6 Charts
     "QtCharts",
+    // Qt 6 Data Visualization
+    "QtDataVisualization",
     // Qt 6 D-Bus
     "QtDBus",
     // Qt 6 Location

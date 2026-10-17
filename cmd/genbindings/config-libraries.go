@@ -908,6 +908,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
 		},
 
+		// Qt 6 Data Visualization
+		// Depends on Qt Core, GUI
+		{
+			path: "restricted-extras-datavis",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtDataVisualization",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6DataVisualization"),
+		},
+
 		// Qt 6 Quick 3D
 		// Depends on Qt Core, GUI, Quick
 		{
