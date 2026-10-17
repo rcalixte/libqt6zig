@@ -17,7 +17,7 @@ const QtExeOptions = struct {
     /// determined by `gcc`
     linux_libraries: []const []const u8 = &.{},
     /// Extra libraries or frameworks to link to the exe where the
-    /// full paths are determined by `pkg-config`
+    /// full paths are determined by `pkgconf`
     macos_libraries: []const []const u8 = &.{},
     /// Extra dlls to link to the exe
     win_libs: []const []const u8 = &.{},
@@ -154,12 +154,12 @@ pub fn configureQtExeRootModule(b: *std.Build, exe: *std.Build.Step.Compile, opt
                 return error.QmlPathNotFound;
             };
             for (options.win_steps) |step| {
-                const install_plugins = b.addInstallDirectory(.{
-                    .source_dir = .{ .cwd_relative = plugins_path },
+                const install_qml = b.addInstallDirectory(.{
+                    .source_dir = .{ .cwd_relative = qml_path },
                     .install_dir = .prefix,
                     .install_subdir = "bin/qml",
                 });
-                step.dependOn(&install_plugins.step);
+                step.dependOn(&install_qml.step);
             }
         }
     }
