@@ -2430,13 +2430,14 @@ const qtc = @import("qt6c");`)
 		if len(c.Ctors) > 0 || len(c.Methods) > 0 || len(virtualMethods) > 0 || c.ClassName == "Poppler::AnnotationAppearance" ||
 			(len(c.DirectInherits) > 0 && len(collectInheritedMethodsForZig(c.DirectInherits[0], map[string]struct{}{c.ClassName: {}}, &zfs)) > 0) {
 			footerNeeded = true
-			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
+			maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
+			maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis"), "-qtdatavis", maybeHyphen)
 
 			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) ||
 				(strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q') ||
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
-			pageName := ifv(isSpecialCase, zigStructName, getPageName(zigStructName)) + maybeCharts
+			pageName := ifv(isSpecialCase, zigStructName, getPageName(zigStructName)) + maybeHyphen
 			zigStruct := strings.ToLower(zigStructName)
 			// TODO properly automate deduplication
 			eqStructHeader := zigStruct == zfs.currentHeaderName
@@ -2746,8 +2747,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				subjectURL = ""
 			}
 			if subjectURL != "" {
-				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
-				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+				maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
+				maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis") && inheritedFrom == "" && subjectURL != "qobject", "-qtdatavis", maybeHyphen)
+				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeHyphen, cmdURL, className)
 				docCommentUrl = pageURL
 				ret.WriteString(docCommentUrl + "\n")
 				maybeNewLine = "///\n"
@@ -2980,8 +2982,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			if m.IsVariable {
 				cmdURL = m.VariableFieldName + "-var"
 			}
-			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "", "-qtcharts", "")
-			pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+			maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "", "-qtcharts", "")
+			maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis") && inheritedFrom == "", "-qtdatavis", maybeHyphen)
+			pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeHyphen, cmdURL, className)
 			documentationURL := pageURL + "\n///\n"
 
 			for _, base := range zfs.parentClasses {
@@ -3107,8 +3110,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 				cmdURL = m.VariableFieldName + "-var"
 			}
 			if subjectURL != "" {
-				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
-				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
+				maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
+				maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis") && inheritedFrom == "" && subjectURL != "qobject", "-qtdatavis", maybeHyphen)
+				pageURL := zfs.getPageUrl(QtPage, subjectURL+maybeHyphen, cmdURL, className)
 				docCommentUrl = pageURL + "\n///\n"
 			}
 
@@ -3126,13 +3130,14 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 		}
 
 		if c.CanDelete && !isBindingRemoved(zigStructName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
-			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
+			maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
+			maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis"), "-qtdatavis", maybeHyphen)
 
 			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) ||
 				(strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q') ||
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
-			pageUrl := zfs.getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
+			pageUrl := zfs.getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeHyphen, "", zigStructName)
 			ret.WriteString("\n/// ### DEPRECATED: Use `delete` instead\n///\n" +
 				"    pub const Delete = delete;\n\n")
 
@@ -3151,8 +3156,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 	var closeEnums string
 	if len(src.Enums) > 0 {
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").enums;`
-		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-		pageName := getPageName(zfs.currentHeaderName) + maybeCharts
+		maybeHyphen := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
+		maybeHyphen = ifv(strings.Contains(src.Filename, "QtDataVis"), "-qtdatavis", maybeHyphen)
+		pageName := getPageName(zfs.currentHeaderName) + maybeHyphen
 		pageUrl := zfs.getPageUrl(EnumPage, pageName, "", zfs.currentHeaderName)
 		ret.WriteString(pageUrl + "\npub const enums = struct {\n")
 		closeEnums = "};\n"
