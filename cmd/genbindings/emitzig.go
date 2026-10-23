@@ -404,7 +404,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	switch paramType {
 	case "GLvoid", "void":
-		ret += ifv((p.Pointer || p.ByRef), ifv(p.PointerCount > 1, "*", "")+"?*"+ifv(p.Const, "const ", "")+"anyopaque", "void")
+		ret += ifv(p.Pointer || p.ByRef, ifv(p.PointerCount > 1, "*", "")+"?*"+ifv(p.Const, "const ", "")+"anyopaque", "void")
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
@@ -421,7 +421,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "i32"
 	case "qint64", "time_t", "GLint64":
 		ret += "i64"
-	case "quint64", "uint64_t", "dev_t", "GLuint64":
+	case "qulonglong", "quint64", "uint64_t", "dev_t", "GLuint64":
 		ret += "u64"
 	case "float", "GLclampf", "GLfloat":
 		ret += "f32"
@@ -430,13 +430,13 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 	case "long", "ptrdiff_t", "qptrdiff", "qintptr", "qlonglong", "qsizetype", "intptr_t", "long long",
 		"QIntegerForSizeof<std::size_t>::Signed", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr":
 		ret += "isize"
-	case "ulong", "unsigned long", "size_t", "uintptr_t", "unsigned long long", "qulonglong", "quintptr",
+	case "ulong", "unsigned long", "size_t", "uintptr_t", "unsigned long long", "quintptr",
 		"QIntegerForSizeof<void *>::Unsigned":
 		ret += "usize"
 	case "quint128":
 		ret = "u128"
 	// cross-platform and opaque external types
-	case "NSMenu", "QNativeInterface::QX11Application::Display", "XEvent",
+	case "NSMenu", "QNativeInterface::QX11Application::Display", "QPlatformNativeInterface", "XEvent",
 		"wl_compositor", "wl_display", "wl_keyboard", "wl_pointer", "wl_seat", "wl_touch":
 		ret = "?*anyopaque"
 
@@ -1050,8 +1050,9 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	} else if rt.IsStdOptional && IsKnownClass(rt.ParameterType) {
 		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " ` (NOTE: The `ptr` field could be `null`.)"
 
-	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || strings.HasPrefix(rt.ParameterType, "wl_") ||
-		rt.ParameterType == "XEvent" || strings.HasPrefix(rt.ParameterType, "xcb_")) {
+	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || rt.ParameterType == "QPlatformNativeInterface" ||
+		strings.HasPrefix(rt.ParameterType, "wl_") || rt.ParameterType == "XEvent" ||
+		strings.HasPrefix(rt.ParameterType, "xcb_")) {
 		returnComment = "\n///\n/// ## Returns:\n///\n/// ` ?*" + rt.ParameterType + " ` (NOTE: This pointer value could be `null`.)"
 
 	} else if !rt.Pointer && strings.HasPrefix(rt.ParameterType, "xcb_") {
@@ -2210,8 +2211,9 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		return assignExpr + rvalue + ";"
 
-	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || strings.HasPrefix(rt.ParameterType, "wl_") ||
-		rt.ParameterType == "XEvent" || strings.HasPrefix(rt.ParameterType, "xcb_")) {
+	} else if rt.Pointer && (rt.ParameterType == "NSMenu" || rt.ParameterType == "QPlatformNativeInterface" ||
+		strings.HasPrefix(rt.ParameterType, "wl_") || rt.ParameterType == "XEvent" ||
+		strings.HasPrefix(rt.ParameterType, "xcb_")) {
 		return shouldReturn + "@ptrCast(" + rvalue + ");"
 
 	} else if reflect.TypeFor[string]().Kind() == reflect.String {
