@@ -34,6 +34,7 @@ typedef struct QSessionManager QSessionManager;
 typedef struct QStyleHints QStyleHints;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QWindow QWindow;
+typedef struct QPlatformNativeInterface QPlatformNativeInterface;
 #endif
 
 QGuiApplication* QGuiApplication_new(int* argc, char** argv);
@@ -80,6 +81,7 @@ QStyleHints* QGuiApplication_StyleHints();
 void QGuiApplication_SetDesktopSettingsAware(bool on);
 bool QGuiApplication_DesktopSettingsAware();
 QInputMethod* QGuiApplication_InputMethod();
+QPlatformNativeInterface* QGuiApplication_PlatformNativeInterface();
 intptr_t QGuiApplication_PlatformFunction(const libqt_string function);
 void QGuiApplication_SetQuitOnLastWindowClosed(bool quit);
 bool QGuiApplication_QuitOnLastWindowClosed();

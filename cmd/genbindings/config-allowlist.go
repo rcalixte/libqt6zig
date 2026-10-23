@@ -786,7 +786,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QtResourceModel",                 // Qt 6 Designer
 		"QtResourceSet",                   // Qt 6 Designer
 		"QVulkanInstance",                 // e.g. qwindow.h. Not tackling vulkan yet
-		"QPlatformNativeInterface",        // e.g. QGuiApplication::platformNativeInterface(), private type succeeded by QNativeInterface
 		"QPlatformBackingStore",           // e.g. qbackingstore.h, as below
 		"QPlatformMenuBar",                // e.g. qfutureinterface.h, as below
 		"QPlatformOffscreenSurface",       // e.g. qoffscreensurface.h, as below

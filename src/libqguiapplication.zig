@@ -786,6 +786,20 @@ pub const QGuiApplication = extern struct {
         return .{ .ptr = qtc.QGuiApplication_InputMethod() };
     }
 
+    /// ### DEPRECATED: Use `platformNativeInterface` instead
+    ///
+    pub const PlatformNativeInterface = platformNativeInterface;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#platformNativeInterface)
+    ///
+    /// ## Returns:
+    ///
+    /// ` ?*QPlatformNativeInterface ` (NOTE: This pointer value could be `null`.)
+    ///
+    pub fn platformNativeInterface() ?*anyopaque {
+        return @ptrCast(qtc.QGuiApplication_PlatformNativeInterface());
+    }
+
     /// ### DEPRECATED: Use `platformFunction` instead
     ///
     pub const PlatformFunction = platformFunction;
