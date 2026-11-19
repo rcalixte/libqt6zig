@@ -9546,7 +9546,7 @@ pub const KSelector = extern struct {
     ///
     /// ` self: KSelector`
     ///
-    /// ` callback: *const fn (self: KSelector, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KSelector, callback: *const fn (KSelector, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -20360,7 +20360,7 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` self: KGradientSelector`
     ///
-    /// ` callback: *const fn (self: KGradientSelector, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KGradientSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KGradientSelector, callback: *const fn (KGradientSelector, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KGradientSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

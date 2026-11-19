@@ -8619,7 +8619,7 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
-    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

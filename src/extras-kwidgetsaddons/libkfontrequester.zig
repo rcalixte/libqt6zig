@@ -8912,7 +8912,7 @@ pub const KFontRequester = extern struct {
     ///
     /// ` self: KFontRequester`
     ///
-    /// ` callback: *const fn (self: KFontRequester, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFontRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KFontRequester, callback: *const fn (KFontRequester, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KFontRequester_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -9497,7 +9497,7 @@ pub const QCalendarWidget = extern struct {
     ///
     /// ` self: QCalendarWidget`
     ///
-    /// ` callback: *const fn (self: QCalendarWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCalendarWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QCalendarWidget, callback: *const fn (QCalendarWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QCalendarWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

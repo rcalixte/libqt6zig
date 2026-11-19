@@ -9239,7 +9239,7 @@ pub const KSslInfoDialog = extern struct {
     ///
     /// ` self: KSslInfoDialog`
     ///
-    /// ` callback: *const fn (self: KSslInfoDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSslInfoDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KSslInfoDialog, callback: *const fn (KSslInfoDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSslInfoDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

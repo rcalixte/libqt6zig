@@ -1404,7 +1404,7 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, frame: [*:0]const u8, isLastFrame: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, frame: qtc.libqt_string, isLastFrame: bool) callconv(.c) void `
     ///
     pub fn onBinaryFrameReceived(self: QWebSocket, callback: *const fn (QWebSocket, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryFrameReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1476,7 +1476,7 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, message: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onBinaryMessageReceived(self: QWebSocket, callback: *const fn (QWebSocket, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocket_Connect_BinaryMessageReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1578,7 +1578,7 @@ pub const QWebSocket = extern struct {
     ///
     /// ` self: QWebSocket `
     ///
-    /// ` callback: *const fn (self: QWebSocket, elapsedTime: u64, payload: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWebSocket, elapsedTime: u64, payload: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onPong(self: QWebSocket, callback: *const fn (QWebSocket, u64, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebSocket_Connect_Pong(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

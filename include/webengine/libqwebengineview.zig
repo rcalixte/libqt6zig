@@ -808,7 +808,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn printToPdf2(self: QWebEngineView, resultCallback: *const fn ([*:0]const u8) callconv(.c) void) void {
         qtc.QWebEngineView_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)));
@@ -2106,7 +2106,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     /// ` _layout: QPageLayout `
     ///
@@ -2125,7 +2125,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     /// ` _layout: QPageLayout `
     ///
@@ -9751,7 +9751,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView`
     ///
-    /// ` callback: *const fn (self: QWebEngineView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWebEngineView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWebEngineView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

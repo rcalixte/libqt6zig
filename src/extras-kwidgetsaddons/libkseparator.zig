@@ -9018,7 +9018,7 @@ pub const KSeparator = extern struct {
     ///
     /// ` self: KSeparator`
     ///
-    /// ` callback: *const fn (self: KSeparator, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSeparator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KSeparator, callback: *const fn (KSeparator, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSeparator_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

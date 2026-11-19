@@ -11252,7 +11252,7 @@ pub const QInputDialog = extern struct {
     ///
     /// ` self: QInputDialog`
     ///
-    /// ` callback: *const fn (self: QInputDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QInputDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QInputDialog, callback: *const fn (QInputDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QInputDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

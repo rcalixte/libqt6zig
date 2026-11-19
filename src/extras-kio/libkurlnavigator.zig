@@ -9545,7 +9545,7 @@ pub const KUrlNavigator = extern struct {
     ///
     /// ` self: KUrlNavigator`
     ///
-    /// ` callback: *const fn (self: KUrlNavigator, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlNavigator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KUrlNavigator, callback: *const fn (KUrlNavigator, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlNavigator_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -8884,7 +8884,7 @@ pub const QFrame = extern struct {
     ///
     /// ` self: QFrame`
     ///
-    /// ` callback: *const fn (self: QFrame, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFrame, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QFrame, callback: *const fn (QFrame, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFrame_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

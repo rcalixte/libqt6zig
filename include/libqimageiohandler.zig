@@ -1049,7 +1049,7 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` self: QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: qtc.libqt_string) callconv(.c) i32 `
     ///
     pub fn onCapabilities(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, [*:0]const u8) callconv(.c) i32) void {
         qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1092,7 +1092,7 @@ pub const QImageIOPlugin = extern struct {
     ///
     /// ` self: QImageIOPlugin `
     ///
-    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: [*:0]const u8) callconv(.c) QImageIOHandler `
+    /// ` callback: *const fn (self: QImageIOPlugin, device: QIODevice, format: qtc.libqt_string) callconv(.c) QImageIOHandler `
     ///
     pub fn onCreate(self: QImageIOPlugin, callback: *const fn (QImageIOPlugin, QIODevice, [*:0]const u8) callconv(.c) QImageIOHandler) void {
         qtc.QImageIOPlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -9350,7 +9350,7 @@ pub const KBookmarkDialog = extern struct {
     ///
     /// ` self: KBookmarkDialog`
     ///
-    /// ` callback: *const fn (self: KBookmarkDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KBookmarkDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KBookmarkDialog, callback: *const fn (KBookmarkDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KBookmarkDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

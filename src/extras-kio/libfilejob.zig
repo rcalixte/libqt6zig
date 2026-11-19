@@ -235,7 +235,7 @@ pub const KIO__FileJob = extern struct {
     ///
     /// ` self: KIO__FileJob `
     ///
-    /// ` callback: *const fn (self: KIO__FileJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__FileJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onData(self: KIO__FileJob, callback: *const fn (KIO__FileJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__FileJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

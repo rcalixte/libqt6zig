@@ -9532,7 +9532,7 @@ pub const KPageDialog = extern struct {
     ///
     /// ` self: KPageDialog`
     ///
-    /// ` callback: *const fn (self: KPageDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KPageDialog, callback: *const fn (KPageDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPageDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

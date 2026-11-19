@@ -8649,7 +8649,7 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
-    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

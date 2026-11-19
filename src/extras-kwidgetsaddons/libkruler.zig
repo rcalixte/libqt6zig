@@ -10104,7 +10104,7 @@ pub const KRuler = extern struct {
     ///
     /// ` self: KRuler`
     ///
-    /// ` callback: *const fn (self: KRuler, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRuler, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KRuler, callback: *const fn (KRuler, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRuler_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

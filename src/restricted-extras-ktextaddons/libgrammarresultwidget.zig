@@ -8808,7 +8808,7 @@ pub const TextGrammarCheck__GrammarResultWidget = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammarResultWidget`
     ///
-    /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextGrammarCheck__GrammarResultWidget, callback: *const fn (TextGrammarCheck__GrammarResultWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammarResultWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

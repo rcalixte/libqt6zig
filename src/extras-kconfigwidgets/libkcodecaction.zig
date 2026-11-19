@@ -407,7 +407,7 @@ pub const KCodecAction = extern struct {
     ///
     /// ` self: KCodecAction `
     ///
-    /// ` callback: *const fn (self: KCodecAction, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KCodecAction, name: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onCodecNameTriggered(self: KCodecAction, callback: *const fn (KCodecAction, [*:0]const u8) callconv(.c) void) void {
         qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

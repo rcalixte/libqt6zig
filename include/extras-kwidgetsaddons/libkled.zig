@@ -8814,7 +8814,7 @@ pub const KLed = extern struct {
     ///
     /// ` self: KLed`
     ///
-    /// ` callback: *const fn (self: KLed, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KLed, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KLed, callback: *const fn (KLed, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KLed_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

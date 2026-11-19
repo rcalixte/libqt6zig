@@ -8655,7 +8655,7 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` self: QDesignerObjectInspectorInterface`
     ///
-    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDesignerObjectInspectorInterface_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

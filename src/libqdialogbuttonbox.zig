@@ -9096,7 +9096,7 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` self: QDialogButtonBox`
     ///
-    /// ` callback: *const fn (self: QDialogButtonBox, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDialogButtonBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDialogButtonBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

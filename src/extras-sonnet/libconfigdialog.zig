@@ -9296,7 +9296,7 @@ pub const Sonnet__ConfigDialog = extern struct {
     ///
     /// ` self: Sonnet__ConfigDialog`
     ///
-    /// ` callback: *const fn (self: Sonnet__ConfigDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: Sonnet__ConfigDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: Sonnet__ConfigDialog, callback: *const fn (Sonnet__ConfigDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Sonnet__ConfigDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

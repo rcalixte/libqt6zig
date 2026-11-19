@@ -9113,7 +9113,7 @@ pub const KActionSelector = extern struct {
     ///
     /// ` self: KActionSelector`
     ///
-    /// ` callback: *const fn (self: KActionSelector, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KActionSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KActionSelector, callback: *const fn (KActionSelector, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KActionSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

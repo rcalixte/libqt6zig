@@ -9930,7 +9930,7 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` self: kColorPicker__KColorPicker`
     ///
-    /// ` callback: *const fn (self: kColorPicker__KColorPicker, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: kColorPicker__KColorPicker, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.kColorPicker__KColorPicker_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

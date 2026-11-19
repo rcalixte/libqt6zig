@@ -17267,7 +17267,7 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8, rectangular: bool) callconv(.c) QMimeData `
+    /// ` callback: *const fn (self: QsciScintilla, text: qtc.libqt_string, rectangular: bool) callconv(.c) QMimeData `
     ///
     pub fn onToMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, bool) callconv(.c) QMimeData) void {
         qtc.QsciScintilla_OnToMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19671,7 +19671,7 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QsciScintilla, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintilla_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

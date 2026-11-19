@@ -9151,7 +9151,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog`
     ///
-    /// ` callback: *const fn (self: KAboutApplicationDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAboutApplicationDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

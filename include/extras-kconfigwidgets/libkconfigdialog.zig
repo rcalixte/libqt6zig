@@ -10092,7 +10092,7 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` self: KConfigDialog`
     ///
-    /// ` callback: *const fn (self: KConfigDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KConfigDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KConfigDialog, callback: *const fn (KConfigDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KConfigDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

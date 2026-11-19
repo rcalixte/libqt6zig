@@ -9023,7 +9023,7 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` self: KTitleWidget`
     ///
-    /// ` callback: *const fn (self: KTitleWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTitleWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KTitleWidget, callback: *const fn (KTitleWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTitleWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

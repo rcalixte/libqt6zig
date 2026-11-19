@@ -8809,7 +8809,7 @@ pub const Sonnet__ConfigView = extern struct {
     ///
     /// ` self: Sonnet__ConfigView`
     ///
-    /// ` callback: *const fn (self: Sonnet__ConfigView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: Sonnet__ConfigView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: Sonnet__ConfigView, callback: *const fn (Sonnet__ConfigView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Sonnet__ConfigView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

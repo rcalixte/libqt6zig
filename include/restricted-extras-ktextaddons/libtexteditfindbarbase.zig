@@ -9070,7 +9070,7 @@ pub const TextCustomEditor__TextEditFindBarBase = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditFindBarBase`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__TextEditFindBarBase, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__TextEditFindBarBase, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__TextEditFindBarBase, callback: *const fn (TextCustomEditor__TextEditFindBarBase, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__TextEditFindBarBase_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

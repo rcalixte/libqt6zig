@@ -11306,7 +11306,7 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` self: KTimeComboBox`
     ///
-    /// ` callback: *const fn (self: KTimeComboBox, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTimeComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KTimeComboBox, callback: *const fn (KTimeComboBox, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTimeComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

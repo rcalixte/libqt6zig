@@ -8691,7 +8691,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame`
     ///
-    /// ` callback: *const fn (self: QFocusFrame, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFocusFrame, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFocusFrame_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -12123,7 +12123,7 @@ pub const KHistoryComboBox = extern struct {
     ///
     /// ` self: KHistoryComboBox`
     ///
-    /// ` callback: *const fn (self: KHistoryComboBox, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KHistoryComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KHistoryComboBox, callback: *const fn (KHistoryComboBox, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KHistoryComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

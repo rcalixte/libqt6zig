@@ -13901,7 +13901,7 @@ pub const KRichTextWidget = extern struct {
     ///
     /// ` self: KRichTextWidget`
     ///
-    /// ` callback: *const fn (self: KRichTextWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRichTextWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KRichTextWidget, callback: *const fn (KRichTextWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRichTextWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

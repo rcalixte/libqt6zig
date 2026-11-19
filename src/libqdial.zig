@@ -9464,7 +9464,7 @@ pub const QDial = extern struct {
     ///
     /// ` self: QDial`
     ///
-    /// ` callback: *const fn (self: QDial, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDial, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDial, callback: *const fn (QDial, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDial_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

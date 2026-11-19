@@ -8838,7 +8838,7 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` self: KImageFilePreview`
     ///
-    /// ` callback: *const fn (self: KImageFilePreview, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KImageFilePreview, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KImageFilePreview, callback: *const fn (KImageFilePreview, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KImageFilePreview_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

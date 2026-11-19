@@ -1045,7 +1045,7 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn printToPdf2(self: QWebEnginePage, resultCallback: *const fn ([*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)));
@@ -3484,7 +3484,7 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     /// ` layout: QPageLayout `
     ///
@@ -3503,7 +3503,7 @@ pub const QWebEnginePage = extern struct {
     ///
     /// ` self: QWebEnginePage `
     ///
-    /// ` resultCallback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     /// ` layout: QPageLayout `
     ///

@@ -8775,7 +8775,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserWidget`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__RichTextBrowserWidget, callback: *const fn (TextCustomEditor__RichTextBrowserWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -9423,7 +9423,7 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` self: KUrlRequester`
     ///
-    /// ` callback: *const fn (self: KUrlRequester, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KUrlRequester, callback: *const fn (KUrlRequester, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlRequester_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19782,7 +19782,7 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` self: KUrlComboRequester`
     ///
-    /// ` callback: *const fn (self: KUrlComboRequester, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlComboRequester, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KUrlComboRequester_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

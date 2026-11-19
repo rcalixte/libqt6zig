@@ -10757,7 +10757,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo`
     ///
-    /// ` callback: *const fn (self: KColorCombo, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KColorCombo, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KColorCombo_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

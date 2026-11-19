@@ -14440,7 +14440,7 @@ pub const KFilePlacesView = extern struct {
     ///
     /// ` self: KFilePlacesView`
     ///
-    /// ` callback: *const fn (self: KFilePlacesView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilePlacesView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KFilePlacesView, callback: *const fn (KFilePlacesView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KFilePlacesView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

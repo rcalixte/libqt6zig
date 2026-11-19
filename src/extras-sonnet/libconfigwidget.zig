@@ -8707,7 +8707,7 @@ pub const Sonnet__ConfigWidget = extern struct {
     ///
     /// ` self: Sonnet__ConfigWidget`
     ///
-    /// ` callback: *const fn (self: Sonnet__ConfigWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: Sonnet__ConfigWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: Sonnet__ConfigWidget, callback: *const fn (Sonnet__ConfigWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Sonnet__ConfigWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

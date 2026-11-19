@@ -14299,7 +14299,7 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` self: KCategorizedView`
     ///
-    /// ` callback: *const fn (self: KCategorizedView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KCategorizedView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KCategorizedView, callback: *const fn (KCategorizedView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KCategorizedView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

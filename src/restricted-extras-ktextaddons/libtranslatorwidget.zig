@@ -11762,7 +11762,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -21312,7 +21312,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget`
     ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -7579,7 +7579,7 @@ pub const Q3DSurface = extern struct {
     ///
     /// ` self: Q3DSurface`
     ///
-    /// ` callback: *const fn (self: Q3DSurface, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: Q3DSurface, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: Q3DSurface, callback: *const fn (Q3DSurface, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Q3DSurface_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

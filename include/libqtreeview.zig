@@ -14415,7 +14415,7 @@ pub const QTreeView = extern struct {
     ///
     /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QTreeView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTreeView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

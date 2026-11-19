@@ -9689,7 +9689,7 @@ pub const QPushButton = extern struct {
     ///
     /// ` self: QPushButton`
     ///
-    /// ` callback: *const fn (self: QPushButton, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPushButton, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QPushButton, callback: *const fn (QPushButton, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QPushButton_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

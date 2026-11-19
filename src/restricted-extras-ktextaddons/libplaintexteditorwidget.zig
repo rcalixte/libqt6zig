@@ -8727,7 +8727,7 @@ pub const TextCustomEditor__PlainTextEditorWidget = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditorWidget`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditorWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditorWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__PlainTextEditorWidget, callback: *const fn (TextCustomEditor__PlainTextEditorWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditorWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

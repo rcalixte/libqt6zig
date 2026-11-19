@@ -8907,7 +8907,7 @@ pub const KNewPasswordWidget = extern struct {
     ///
     /// ` self: KNewPasswordWidget`
     ///
-    /// ` callback: *const fn (self: KNewPasswordWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNewPasswordWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KNewPasswordWidget, callback: *const fn (KNewPasswordWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KNewPasswordWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
