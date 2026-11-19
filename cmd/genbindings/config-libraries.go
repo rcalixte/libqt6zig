@@ -1145,9 +1145,10 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	//! The main library documentation is outlined in the
 	//! [table of contents](https://github.com/rcalixte/libqt6zig?tab=readme-ov-file#table-of-contents).
 	//!
-	//! Full examples are available in the [examples](https://github.com/rcalixte/libqt6zig-examples) repository. An
+	//! Full Widget-based examples are available in the [examples](https://github.com/rcalixte/libqt6zig-examples) repository. An
 	//! [overview of the examples](https://github.com/rcalixte/libqt6zig-examples/blob/master/OVERVIEW.md) is also available
-	//! for a simpler/quicker glance.
+	//! for a simpler/quicker glance. There are also [QML-based examples](https://github.com/rcalixte/libqt6zig-examples-qml) with a
+	//! similar [overview](https://github.com/rcalixte/libqt6zig-examples-qml/blob/master/OVERVIEW.md) available.
 	//!
 	//! There is also a [demo application](https://github.com/rcalixte/libqt6zig-demo) that demonstrates the use of the library
 	//! with a simpler build system than the examples, while also demonstrating a
