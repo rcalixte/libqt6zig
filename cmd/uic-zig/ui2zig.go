@@ -7,6 +7,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 var (
@@ -152,9 +153,40 @@ func writtenString(pre, generate, post string, notr, addComment bool) string {
 	return returnStr
 }
 
+func hasFormatChars(s string) bool {
+	for _, r := range s {
+		if unicode.Is(unicode.Cf, r) {
+			return true
+		}
+	}
+	return false
+}
+
+func quoteBraced(s string) string {
+	var b strings.Builder
+	b.WriteByte('"')
+	for _, r := range s {
+		switch {
+		case r == '"' || r == '\\':
+			b.WriteByte('\\')
+			b.WriteRune(r)
+		case r < 0x80 && strconv.IsPrint(r):
+			b.WriteRune(r)
+		default:
+			fmt.Fprintf(&b, `\u{%04x}`, r)
+		}
+	}
+	b.WriteByte('"')
+	return b.String()
+}
+
 func generateString(s *UiString) string {
 	if s.Notr {
-		return strconv.Quote(s.Value)
+		if !hasFormatChars(s.Value) {
+			return strconv.Quote(s.Value)
+		} else {
+			return quoteBraced(s.Value)
+		}
 	}
 
 	var suffix, disambiguation string
@@ -696,8 +728,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 					ret.WriteString("defer allocator.free(" + itemName + ");" + comment)
 				}
 
-				ret.WriteString("const " + targetName + "_" + prop.Name + " = [_][]const u8{" + strings.Join(items, ", ") + "};" + comment)
-				ret.WriteString("ui." + targetName + setterFunc + "(allocator, &" + targetName + "_" + prop.Name + ");" + comment)
+				ret.WriteString("ui." + targetName + setterFunc + "(allocator, &.{" + strings.Join(items, ", ") + ",});" + comment)
 			}
 
 		} else {
@@ -1376,6 +1407,25 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 					emit = strings.Join(parts, "|")
 				}
 				ret.WriteString(targetSelf + ".setFlags(" + emit + ");\n")
+			case "toolTip":
+				if !prop.StringVal.Notr {
+					if _, ok := seenItems[targetSelf]; !ok {
+						seenItems[targetSelf] = struct{}{}
+						maybeItemCol := ""
+						if wClass == "QTreeWidget" {
+							maybeItemCol = strconv.Itoa(itemTextNum) + ", "
+						}
+						ret.WriteString("const " + targetSelf + " = ui." + w.Name + ".item(" + maybeItemCol + strconv.Itoa(ItemWidgetCounter) + "); // auxiliary to qt6.QCoreApplication.translate " + w.Name + " " + sanitizeLowerName(wClass) + "\n")
+					}
+				}
+				ret.WriteString(writtenString(targetSelf+".setToolTip(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+			case "whatsThis":
+				if wClass == "QTreeWidget" {
+					itemCol := min(max(itemTextNum-1, 0), len(w.Columns)-1)
+					ret.WriteString(writtenString(targetSelf+".setWhatsThis("+strconv.Itoa(itemCol)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				} else {
+					ret.WriteString(writtenString(targetSelf+".setWhatsThis(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				}
 			default:
 				ret.WriteString("// UIC: no handler for item property '" + prop.Name + "'\n")
 			}
