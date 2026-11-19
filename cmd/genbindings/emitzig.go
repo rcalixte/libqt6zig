@@ -786,7 +786,11 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				case "[][]u8":
 					paramType = "?[*:null]?[*:0]u8"
 				case "[]const u8", "[:0]const u8":
-					paramType = "[*:0]const u8"
+					if p.ParameterType == "QByteArray" {
+						paramType = "qtc.libqt_string"
+					} else {
+						paramType = "[*:0]const u8"
+					}
 				case "[]u8", "[:0]u8":
 					paramType = "qtc.libqt_string"
 				default:
