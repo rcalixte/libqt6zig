@@ -23,7 +23,7 @@ var (
 	newLine    = []byte("\n")
 	constDecl  = []byte("const ")
 	eof        = []byte("};\n")
-	brackets   = []byte(" = [_]u8{")
+	brackets   = []byte(": []const u8 = &.{")
 	commaSpace = []byte(", ")
 	comma      = []byte(",")
 )
