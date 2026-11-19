@@ -35,11 +35,11 @@ const QtExeOptions = struct {
 /// exe's root module as well as additional system configuration for
 /// the current platform.
 pub fn configureQtExeRootModule(b: *std.Build, exe: *std.Build.Step.Compile, options: QtExeOptions) !void {
-    const base_libs = if (is_macos) [_][]const u8{
+    const base_libs: []const []const u8 = if (is_macos) &.{
         "QtCore",
         "QtGui",
         "QtWidgets",
-    } else [_][]const u8{
+    } else &.{
         "Qt6Core",
         "Qt6Gui",
         "Qt6Widgets",
@@ -52,7 +52,7 @@ pub fn configureQtExeRootModule(b: *std.Build, exe: *std.Build.Step.Compile, opt
             else
                 exe.root_module.linkSystemLibrary(lib, .{});
 
-    const sub_paths = [_][]const u8{ "/bin", "/lib", "" };
+    const sub_paths: []const []const u8 = &.{ "/bin", "/lib", "" };
 
     for (options.extra_paths) |path|
         for (sub_paths) |sub_path| {
