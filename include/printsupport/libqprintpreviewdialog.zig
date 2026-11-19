@@ -9206,7 +9206,7 @@ pub const QPrintPreviewDialog = extern struct {
     ///
     /// ` self: QPrintPreviewDialog`
     ///
-    /// ` callback: *const fn (self: QPrintPreviewDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPrintPreviewDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QPrintPreviewDialog, callback: *const fn (QPrintPreviewDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QPrintPreviewDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -9104,7 +9104,7 @@ pub const TextGrammarCheck__LanguageToolConfigDialog = extern struct {
     ///
     /// ` self: TextGrammarCheck__LanguageToolConfigDialog`
     ///
-    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextGrammarCheck__LanguageToolConfigDialog, callback: *const fn (TextGrammarCheck__LanguageToolConfigDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__LanguageToolConfigDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

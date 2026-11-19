@@ -9687,7 +9687,7 @@ pub const QTabWidget = extern struct {
     ///
     /// ` self: QTabWidget`
     ///
-    /// ` callback: *const fn (self: QTabWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTabWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QTabWidget, callback: *const fn (QTabWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTabWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

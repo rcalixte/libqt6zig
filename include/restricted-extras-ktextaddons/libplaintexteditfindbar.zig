@@ -9149,7 +9149,7 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

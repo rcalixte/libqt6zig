@@ -17792,7 +17792,7 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` self: QTreeWidget`
     ///
-    /// ` callback: *const fn (self: QTreeWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QTreeWidget, callback: *const fn (QTreeWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTreeWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -10092,7 +10092,7 @@ pub const QWizard = extern struct {
     ///
     /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QWizard, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QWizard, callback: *const fn (QWizard, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWizard_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -20261,7 +20261,7 @@ pub const QWizardPage = extern struct {
     ///
     /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QWizardPage, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWizardPage_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

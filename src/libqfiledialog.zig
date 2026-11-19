@@ -1869,7 +1869,7 @@ pub const QFileDialog = extern struct {
     ///
     /// ` nameFilter: []const u8 `
     ///
-    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: [*:0]const u8) callconv(.c) void `
+    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn getOpenFileContent(nameFilter: []const u8, fileContentsReady: *const fn ([*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         const nameFilter_str = qtc.libqt_string{
@@ -3084,7 +3084,7 @@ pub const QFileDialog = extern struct {
     ///
     /// ` nameFilter: []const u8 `
     ///
-    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: [*:0]const u8) callconv(.c) void `
+    /// ` fileContentsReady: *const fn (funcparam1: [*:0]const u8, funcparam2: qtc.libqt_string) callconv(.c) void `
     ///
     /// ` _parent: QWidget `
     ///
@@ -11720,7 +11720,7 @@ pub const QFileDialog = extern struct {
     ///
     /// ` self: QFileDialog`
     ///
-    /// ` callback: *const fn (self: QFileDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QFileDialog, callback: *const fn (QFileDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFileDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

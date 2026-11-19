@@ -9136,7 +9136,7 @@ pub const QPageSetupDialog = extern struct {
     ///
     /// ` self: QPageSetupDialog`
     ///
-    /// ` callback: *const fn (self: QPageSetupDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPageSetupDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QPageSetupDialog, callback: *const fn (QPageSetupDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QPageSetupDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

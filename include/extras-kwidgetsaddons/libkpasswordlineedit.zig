@@ -8872,7 +8872,7 @@ pub const KPasswordLineEdit = extern struct {
     ///
     /// ` self: KPasswordLineEdit`
     ///
-    /// ` callback: *const fn (self: KPasswordLineEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPasswordLineEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KPasswordLineEdit, callback: *const fn (KPasswordLineEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPasswordLineEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

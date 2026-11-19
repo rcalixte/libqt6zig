@@ -7166,7 +7166,7 @@ pub const QQuickView = extern struct {
     ///
     /// ` self: QQuickView`
     ///
-    /// ` callback: *const fn (self: QQuickView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QQuickView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QQuickView, callback: *const fn (QQuickView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QQuickView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

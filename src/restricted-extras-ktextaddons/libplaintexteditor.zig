@@ -12676,7 +12676,7 @@ pub const TextCustomEditor__PlainTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__PlainTextEditor`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditor, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__PlainTextEditor, callback: *const fn (TextCustomEditor__PlainTextEditor, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextEditor_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

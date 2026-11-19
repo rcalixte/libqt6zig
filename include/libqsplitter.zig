@@ -9519,7 +9519,7 @@ pub const QSplitter = extern struct {
     ///
     /// ` self: QSplitter`
     ///
-    /// ` callback: *const fn (self: QSplitter, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitter, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QSplitter, callback: *const fn (QSplitter, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSplitter_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19038,7 +19038,7 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` self: QSplitterHandle`
     ///
-    /// ` callback: *const fn (self: QSplitterHandle, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplitterHandle, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QSplitterHandle, callback: *const fn (QSplitterHandle, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSplitterHandle_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

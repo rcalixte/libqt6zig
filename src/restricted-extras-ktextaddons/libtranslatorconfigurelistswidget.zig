@@ -8589,7 +8589,7 @@ pub const TextTranslator__TranslatorConfigureListsWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorConfigureListsWidget`
     ///
-    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureListsWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureListsWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextTranslator__TranslatorConfigureListsWidget, callback: *const fn (TextTranslator__TranslatorConfigureListsWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureListsWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

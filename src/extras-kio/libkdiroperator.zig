@@ -11718,7 +11718,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator`
     ///
-    /// ` callback: *const fn (self: KDirOperator, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirOperator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDirOperator_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

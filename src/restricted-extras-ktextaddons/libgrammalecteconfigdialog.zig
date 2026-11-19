@@ -9121,7 +9121,7 @@ pub const TextGrammarCheck__GrammalecteConfigDialog = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammalecteConfigDialog`
     ///
-    /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextGrammarCheck__GrammalecteConfigDialog, callback: *const fn (TextGrammarCheck__GrammalecteConfigDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammalecteConfigDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

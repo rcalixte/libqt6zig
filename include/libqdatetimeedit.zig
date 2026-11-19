@@ -10695,7 +10695,7 @@ pub const QDateTimeEdit = extern struct {
     ///
     /// ` self: QDateTimeEdit`
     ///
-    /// ` callback: *const fn (self: QDateTimeEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDateTimeEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDateTimeEdit, callback: *const fn (QDateTimeEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDateTimeEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -22407,7 +22407,7 @@ pub const QTimeEdit = extern struct {
     ///
     /// ` self: QTimeEdit`
     ///
-    /// ` callback: *const fn (self: QTimeEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTimeEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QTimeEdit, callback: *const fn (QTimeEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTimeEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -34119,7 +34119,7 @@ pub const QDateEdit = extern struct {
     ///
     /// ` self: QDateEdit`
     ///
-    /// ` callback: *const fn (self: QDateEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDateEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDateEdit, callback: *const fn (QDateEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDateEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

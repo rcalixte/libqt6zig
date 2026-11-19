@@ -9115,7 +9115,7 @@ pub const KRatingWidget = extern struct {
     ///
     /// ` self: KRatingWidget`
     ///
-    /// ` callback: *const fn (self: KRatingWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRatingWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KRatingWidget, callback: *const fn (KRatingWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRatingWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

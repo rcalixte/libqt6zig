@@ -8691,7 +8691,7 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     ///
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector`
     ///
-    /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditSelector, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextEmoticonsWidgets__EmoticonTextEditSelector, callback: *const fn (TextEmoticonsWidgets__EmoticonTextEditSelector, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextEmoticonsWidgets__EmoticonTextEditSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

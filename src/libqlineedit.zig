@@ -10021,7 +10021,7 @@ pub const QLineEdit = extern struct {
     ///
     /// ` self: QLineEdit`
     ///
-    /// ` callback: *const fn (self: QLineEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLineEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QLineEdit, callback: *const fn (QLineEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QLineEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

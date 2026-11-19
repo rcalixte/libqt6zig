@@ -9506,7 +9506,7 @@ pub const KFileWidget = extern struct {
     ///
     /// ` self: KFileWidget`
     ///
-    /// ` callback: *const fn (self: KFileWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFileWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KFileWidget, callback: *const fn (KFileWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KFileWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

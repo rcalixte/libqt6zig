@@ -9328,7 +9328,7 @@ pub const QAbstractSlider = extern struct {
     ///
     /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QAbstractSlider, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractSlider_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

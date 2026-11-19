@@ -8713,7 +8713,7 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` self: QDesignerResourceBrowserInterface`
     ///
-    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDesignerResourceBrowserInterface_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

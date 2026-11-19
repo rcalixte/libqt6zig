@@ -10151,7 +10151,7 @@ pub const QMdiArea = extern struct {
     ///
     /// ` self: QMdiArea`
     ///
-    /// ` callback: *const fn (self: QMdiArea, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QMdiArea, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QMdiArea, callback: *const fn (QMdiArea, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QMdiArea_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

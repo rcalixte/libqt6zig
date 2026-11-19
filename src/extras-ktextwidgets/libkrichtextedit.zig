@@ -13699,7 +13699,7 @@ pub const KRichTextEdit = extern struct {
     ///
     /// ` self: KRichTextEdit`
     ///
-    /// ` callback: *const fn (self: KRichTextEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KRichTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KRichTextEdit, callback: *const fn (KRichTextEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KRichTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -293,7 +293,7 @@ pub const QWebEngineFrame = extern struct {
     ///
     /// ` self: QWebEngineFrame `
     ///
-    /// ` callback: *const fn (funcparam1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn printToPdf2(self: QWebEngineFrame, callback: *const fn ([*:0]const u8) callconv(.c) void) void {
         qtc.QWebEngineFrame_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

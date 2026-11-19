@@ -1294,7 +1294,7 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: KIO__WorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
@@ -2276,7 +2276,7 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` self: KIO__WorkerBase `
     ///
-    /// ` callback: *const fn (self: KIO__WorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///

@@ -9235,7 +9235,7 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
-    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.kImageAnnotator__KImageAnnotator_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -9403,7 +9403,7 @@ pub const KOpenWithDialog = extern struct {
     ///
     /// ` self: KOpenWithDialog`
     ///
-    /// ` callback: *const fn (self: KOpenWithDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KOpenWithDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KOpenWithDialog, callback: *const fn (KOpenWithDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KOpenWithDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

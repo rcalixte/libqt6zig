@@ -8908,7 +8908,7 @@ pub const QQuickWidget = extern struct {
     ///
     /// ` self: QQuickWidget`
     ///
-    /// ` callback: *const fn (self: QQuickWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QQuickWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QQuickWidget, callback: *const fn (QQuickWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QQuickWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

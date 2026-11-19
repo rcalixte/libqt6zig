@@ -12236,7 +12236,7 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     ///
     /// ` self: TextGrammarCheck__GrammarResultTextEdit`
     ///
-    /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultTextEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn (TextGrammarCheck__GrammarResultTextEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

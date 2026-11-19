@@ -9778,7 +9778,7 @@ pub const KNSWidgets__Button = extern struct {
     ///
     /// ` self: KNSWidgets__Button`
     ///
-    /// ` callback: *const fn (self: KNSWidgets__Button, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNSWidgets__Button, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KNSWidgets__Button, callback: *const fn (KNSWidgets__Button, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KNSWidgets__Button_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

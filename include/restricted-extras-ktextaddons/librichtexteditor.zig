@@ -13250,7 +13250,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor`
     ///
-    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

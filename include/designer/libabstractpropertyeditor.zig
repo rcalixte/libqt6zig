@@ -8882,7 +8882,7 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` self: QDesignerPropertyEditorInterface`
     ///
-    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDesignerPropertyEditorInterface_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

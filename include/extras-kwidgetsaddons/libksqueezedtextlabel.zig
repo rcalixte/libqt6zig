@@ -9814,7 +9814,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel`
     ///
-    /// ` callback: *const fn (self: KSqueezedTextLabel, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSqueezedTextLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -12781,7 +12781,7 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QTextBrowser, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTextBrowser_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

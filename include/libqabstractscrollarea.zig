@@ -9401,7 +9401,7 @@ pub const QAbstractScrollArea = extern struct {
     ///
     /// ` self: QAbstractScrollArea`
     ///
-    /// ` callback: *const fn (self: QAbstractScrollArea, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractScrollArea, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QAbstractScrollArea, callback: *const fn (QAbstractScrollArea, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractScrollArea_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

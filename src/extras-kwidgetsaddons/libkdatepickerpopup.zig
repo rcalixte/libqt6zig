@@ -10072,7 +10072,7 @@ pub const KDatePickerPopup = extern struct {
     ///
     /// ` self: KDatePickerPopup`
     ///
-    /// ` callback: *const fn (self: KDatePickerPopup, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDatePickerPopup, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KDatePickerPopup, callback: *const fn (KDatePickerPopup, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDatePickerPopup_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

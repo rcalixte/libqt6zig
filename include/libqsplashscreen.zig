@@ -8853,7 +8853,7 @@ pub const QSplashScreen = extern struct {
     ///
     /// ` self: QSplashScreen`
     ///
-    /// ` callback: *const fn (self: QSplashScreen, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSplashScreen, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QSplashScreen, callback: *const fn (QSplashScreen, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSplashScreen_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -4529,7 +4529,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
@@ -4869,7 +4869,7 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` self: KIO__ForwardingWorkerBase`
     ///
-    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: [*:0]const u8) callconv(.c) KIO__WorkerResult `
+    /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///

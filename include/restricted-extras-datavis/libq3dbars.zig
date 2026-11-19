@@ -7978,7 +7978,7 @@ pub const Q3DBars = extern struct {
     ///
     /// ` self: Q3DBars`
     ///
-    /// ` callback: *const fn (self: Q3DBars, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: Q3DBars, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: Q3DBars, callback: *const fn (Q3DBars, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.Q3DBars_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

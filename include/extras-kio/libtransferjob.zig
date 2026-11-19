@@ -258,7 +258,7 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` self: KIO__TransferJob `
     ///
-    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onData(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_Data(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -297,7 +297,7 @@ pub const KIO__TransferJob = extern struct {
     ///
     /// ` self: KIO__TransferJob `
     ///
-    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__TransferJob, job: KIO__Job, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onDataReq(self: KIO__TransferJob, callback: *const fn (KIO__TransferJob, KIO__Job, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__TransferJob_Connect_DataReq(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

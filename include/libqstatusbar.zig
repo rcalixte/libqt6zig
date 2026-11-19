@@ -8868,7 +8868,7 @@ pub const QStatusBar = extern struct {
     ///
     /// ` self: QStatusBar`
     ///
-    /// ` callback: *const fn (self: QStatusBar, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QStatusBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QStatusBar, callback: *const fn (QStatusBar, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QStatusBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

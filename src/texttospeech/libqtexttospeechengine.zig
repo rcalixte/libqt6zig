@@ -1230,7 +1230,7 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` self: QTextToSpeechEngine `
     ///
-    /// ` callback: *const fn (self: QTextToSpeechEngine, format: QAudioFormat, data: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextToSpeechEngine, format: QAudioFormat, data: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onSynthesized(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QAudioFormat, [*:0]const u8) callconv(.c) void) void {
         qtc.QTextToSpeechEngine_Connect_Synthesized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

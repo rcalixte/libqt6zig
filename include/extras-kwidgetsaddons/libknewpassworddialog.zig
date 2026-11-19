@@ -9530,7 +9530,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog`
     ///
-    /// ` callback: *const fn (self: KNewPasswordDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KNewPasswordDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -8833,7 +8833,7 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` self: KTextEditor__ConfigPage`
     ///
-    /// ` callback: *const fn (self: KTextEditor__ConfigPage, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__ConfigPage, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTextEditor__ConfigPage_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

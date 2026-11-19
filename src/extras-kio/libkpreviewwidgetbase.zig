@@ -8682,7 +8682,7 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` self: KPreviewWidgetBase`
     ///
-    /// ` callback: *const fn (self: KPreviewWidgetBase, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPreviewWidgetBase, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPreviewWidgetBase_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -11015,7 +11015,7 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: KTreeWidgetSearchLine, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KTreeWidgetSearchLine_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

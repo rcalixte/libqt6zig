@@ -9209,7 +9209,7 @@ pub const TextAddonsWidgets__SelectSpecialCharDialog = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SelectSpecialCharDialog`
     ///
-    /// ` callback: *const fn (self: TextAddonsWidgets__SelectSpecialCharDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: TextAddonsWidgets__SelectSpecialCharDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: TextAddonsWidgets__SelectSpecialCharDialog, callback: *const fn (TextAddonsWidgets__SelectSpecialCharDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SelectSpecialCharDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

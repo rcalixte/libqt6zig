@@ -8957,7 +8957,7 @@ pub const QGroupBox = extern struct {
     ///
     /// ` self: QGroupBox`
     ///
-    /// ` callback: *const fn (self: QGroupBox, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGroupBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QGroupBox, callback: *const fn (QGroupBox, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QGroupBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

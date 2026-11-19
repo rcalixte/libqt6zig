@@ -8960,7 +8960,7 @@ pub const KPageView = extern struct {
     ///
     /// ` self: KPageView`
     ///
-    /// ` callback: *const fn (self: KPageView, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPageView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KPageView, callback: *const fn (KPageView, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPageView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

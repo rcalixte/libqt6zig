@@ -8827,7 +8827,7 @@ pub const QKeySequenceEdit = extern struct {
     ///
     /// ` self: QKeySequenceEdit`
     ///
-    /// ` callback: *const fn (self: QKeySequenceEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QKeySequenceEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QKeySequenceEdit, callback: *const fn (QKeySequenceEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QKeySequenceEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -10040,7 +10040,7 @@ pub const KDateTimeEdit = extern struct {
     ///
     /// ` self: KDateTimeEdit`
     ///
-    /// ` callback: *const fn (self: KDateTimeEdit, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDateTimeEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KDateTimeEdit, callback: *const fn (KDateTimeEdit, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDateTimeEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -443,7 +443,7 @@ pub const QLowEnergyService = extern struct {
     ///
     /// ` self: QLowEnergyService `
     ///
-    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onCharacteristicChanged(self: QLowEnergyService, callback: *const fn (QLowEnergyService, QLowEnergyCharacteristic, [*:0]const u8) callconv(.c) void) void {
         qtc.QLowEnergyService_Connect_CharacteristicChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -482,7 +482,7 @@ pub const QLowEnergyService = extern struct {
     ///
     /// ` self: QLowEnergyService `
     ///
-    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onCharacteristicRead(self: QLowEnergyService, callback: *const fn (QLowEnergyService, QLowEnergyCharacteristic, [*:0]const u8) callconv(.c) void) void {
         qtc.QLowEnergyService_Connect_CharacteristicRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -521,7 +521,7 @@ pub const QLowEnergyService = extern struct {
     ///
     /// ` self: QLowEnergyService `
     ///
-    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyCharacteristic, value: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onCharacteristicWritten(self: QLowEnergyService, callback: *const fn (QLowEnergyService, QLowEnergyCharacteristic, [*:0]const u8) callconv(.c) void) void {
         qtc.QLowEnergyService_Connect_CharacteristicWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -560,7 +560,7 @@ pub const QLowEnergyService = extern struct {
     ///
     /// ` self: QLowEnergyService `
     ///
-    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyDescriptor, value: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyDescriptor, value: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onDescriptorRead(self: QLowEnergyService, callback: *const fn (QLowEnergyService, QLowEnergyDescriptor, [*:0]const u8) callconv(.c) void) void {
         qtc.QLowEnergyService_Connect_DescriptorRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -599,7 +599,7 @@ pub const QLowEnergyService = extern struct {
     ///
     /// ` self: QLowEnergyService `
     ///
-    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyDescriptor, value: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLowEnergyService, info: QLowEnergyDescriptor, value: qtc.libqt_string) callconv(.c) void `
     ///
     pub fn onDescriptorWritten(self: QLowEnergyService, callback: *const fn (QLowEnergyService, QLowEnergyDescriptor, [*:0]const u8) callconv(.c) void) void {
         qtc.QLowEnergyService_Connect_DescriptorWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

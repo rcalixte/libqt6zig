@@ -71474,7 +71474,7 @@ pub const QCustomPlot = extern struct {
     ///
     /// ` self: QCustomPlot`
     ///
-    /// ` callback: *const fn (self: QCustomPlot, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCustomPlot, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: QCustomPlot, callback: *const fn (QCustomPlot, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QCustomPlot_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

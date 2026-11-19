@@ -9772,7 +9772,7 @@ pub const KAdjustingScrollArea = extern struct {
     ///
     /// ` self: KAdjustingScrollArea`
     ///
-    /// ` callback: *const fn (self: KAdjustingScrollArea, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KAdjustingScrollArea, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KAdjustingScrollArea, callback: *const fn (KAdjustingScrollArea, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KAdjustingScrollArea_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

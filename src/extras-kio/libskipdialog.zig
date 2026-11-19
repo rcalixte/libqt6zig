@@ -9103,7 +9103,7 @@ pub const KIO__SkipDialog = extern struct {
     ///
     /// ` self: KIO__SkipDialog`
     ///
-    /// ` callback: *const fn (self: KIO__SkipDialog, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__SkipDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KIO__SkipDialog, callback: *const fn (KIO__SkipDialog, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KIO__SkipDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -12331,7 +12331,7 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: KParts__MainWindow, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KParts__MainWindow_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

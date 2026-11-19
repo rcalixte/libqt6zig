@@ -288,7 +288,7 @@ pub const KFilterBase = extern struct {
     ///
     /// ` self: KFilterBase `
     ///
-    /// ` callback: *const fn (self: KFilterBase, filename: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: KFilterBase, filename: qtc.libqt_string) callconv(.c) bool `
     ///
     pub fn onWriteHeader(self: KFilterBase, callback: *const fn (KFilterBase, [*:0]const u8) callconv(.c) bool) void {
         qtc.KFilterBase_OnWriteHeader(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

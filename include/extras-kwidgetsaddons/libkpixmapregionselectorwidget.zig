@@ -8900,7 +8900,7 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` self: KPixmapRegionSelectorWidget`
     ///
-    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, eventType: [*:0]const u8, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
     pub fn onNativeEvent(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget, [*:0]const u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPixmapRegionSelectorWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
