@@ -1,4 +1,9 @@
 
+### 6.8.2 rev95 (19 November 2026)
+
+* **BREAKING CHANGE:** Fix QByteArray callbacks (#188)
+* Unblock QPlatformNativeInterface (#187)
+
 ### 6.8.2 rev94 (17 October 2026)
 
 * Add [Qt Data Visualization](https://doc.qt.io/qt-6/qtdatavisualization-index.html) (#186)
